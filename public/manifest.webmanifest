@@ -1,0 +1,48 @@
+{
+  "name": "Infeworks — International for Engineering Works",
+  "short_name": "Infeworks",
+  "description": "Vertically integrated water & infrastructure EPC contractor.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#070e1a",
+  "theme_color": "#070e1a",
+  "orientation": "any",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Portfolio & Projects",
+      "short_name": "Projects",
+      "description": "Explore delivered water infrastructure projects",
+      "url": "/en/work",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact & Procurement",
+      "short_name": "Contact",
+      "description": "Direct enterprise & procurement inquiries",
+      "url": "/en/contact",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}
