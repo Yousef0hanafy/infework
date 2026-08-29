@@ -472,7 +472,7 @@ function LocaleHome() {
                       ) : null}
                     </div>
                     <div
-                      className="mt-6 flex items-baseline justify-between gap-6 border-t pt-5"
+                      className="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-t pt-5"
                       style={{ borderColor: "var(--iw-text-primary)" }}
                     >
                       <h3 className="display-md text-xl md:text-2xl">{p.title}</h3>

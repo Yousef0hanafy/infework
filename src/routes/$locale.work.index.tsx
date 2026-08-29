@@ -91,7 +91,7 @@ function WorkIndex() {
         <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
           {/* Filter bar */}
           <div
-            className="flex items-center gap-2 overflow-x-auto no-scrollbar border-b pb-6 sm:flex-wrap sm:overflow-visible"
+            className="flex flex-wrap items-center gap-2 border-b pb-6"
             style={{ borderColor: "var(--iw-border)" }}
           >
             {filters.map((f) => {
@@ -121,7 +121,7 @@ function WorkIndex() {
 
           {visible.length > 0 ? (
             <div
-              className="mt-16 grid grid-cols-1 border-t border-s md:grid-cols-2 lg:grid-cols-3"
+              className="mt-16 grid grid-cols-1 gap-8 border-t-0 border-s-0 md:gap-0 md:border-t md:border-s md:grid-cols-2 lg:grid-cols-3"
               style={{ borderColor: "var(--iw-border)" }}
             >
               {visible.map((p) => {
@@ -131,7 +131,7 @@ function WorkIndex() {
                     key={p.project_id}
                     to="/$locale/work/$slug"
                     params={{ locale, slug: p.slug }}
-                    className="group flex flex-col justify-between border-b border-e transition-transform duration-500 hover:-translate-y-1 hover:bg-[var(--iw-surface)]"
+                    className="group flex flex-col justify-between border md:border-0 md:border-b md:border-e transition-transform duration-500 hover:-translate-y-1 hover:bg-[var(--iw-surface)]"
                     style={{ borderColor: "var(--iw-border)" }}
                   >
                     {meta ? (
