@@ -1,0 +1,252 @@
+import { Link, useRouterState } from "@tanstack/react-router";
+import {
+  Clock,
+  FileDown,
+  Mail,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+} from "lucide-react";
+
+import Logo from "@/components/infeworks/Logo";
+
+type Locale = "en" | "ar";
+
+const SECTORS = [
+  { slug: "water-treatment", en: "Water Treatment Plants", ar: "محطات معالجة المياه" },
+  { slug: "wastewater", en: "Industrial Wastewater", ar: "الصرف الصناعي" },
+  { slug: "pumping", en: "Pumping Stations", ar: "محطات الرفع" },
+  { slug: "irrigation", en: "Agricultural Irrigation", ar: "الري الزراعي" },
+  {
+    slug: "electrical-control",
+    en: "Electrical & Automation (SCADA)",
+    ar: "الكهرباء والتحكم (سكادا)",
+  },
+] as const;
+
+const NAV = [
+  { to: "/$locale/what-we-do" as const, en: "What We Do", ar: "ما نفعله" },
+  { to: "/$locale/work" as const, en: "Selected Work", ar: "أعمال مختارة" },
+  { to: "/$locale/about" as const, en: "About Infeworks", ar: "عن إنفيوركس" },
+  { to: "/$locale/contact" as const, en: "Contact", ar: "اتصل بنا" },
+];
+
+export function Footer() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const locale: Locale = pathname.startsWith("/ar") ? "ar" : "en";
+  const isAr = locale === "ar";
+  const arabicFont = { fontFamily: "var(--font-arabic)" } as const;
+  const t = (en: string, ar: string) => (isAr ? ar : en);
+  const muted = { color: "var(--iw-dark-text-muted)" };
+  const linkClass =
+    "text-sm transition-all duration-300 hover:text-[var(--iw-dark-accent)] hover:translate-x-1 rtl:hover:-translate-x-1";
+
+  return (
+    <footer className="iw-section-dark">
+      <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10">
+        <h2
+          className="display-lg max-w-2xl text-3xl md:text-4xl"
+          style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
+        >
+          {t("Build with one accountable partner.", "ابنِ مع شريك واحد مسؤول.")}
+        </h2>
+
+        <div
+          className="mt-10 grid gap-10 border-t pt-10 md:grid-cols-2 lg:grid-cols-4"
+          style={{ borderColor: "var(--iw-dark-border)" }}
+        >
+          {/* Column 1 — identity & profile */}
+          <div>
+            <Logo variant="light" isAr={isAr} layout="stacked" />
+            <p
+              className="mt-5 inline-flex rounded-sm border px-3 py-1.5 text-[11px] leading-snug"
+              style={{
+                borderColor: "var(--iw-dark-border)",
+                color: "var(--iw-dark-accent)",
+                ...(isAr ? arabicFont : {}),
+              }}
+            >
+              {t(
+                "Water & Wastewater Infrastructure Contractor — Cairo, Egypt",
+                "مقاول بنية تحتية للمياه والصرف — القاهرة، مصر",
+              )}
+            </p>
+            <a
+              href="/downloads/infeworks-company-profile.pdf"
+              download="infeworks-company-profile.pdf"
+              className="iw-glass-dark mt-5 inline-flex items-center gap-2 rounded-sm px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_color-mix(in_oklab,var(--iw-dark-accent)_60%,transparent)]"
+              style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
+            >
+              <FileDown className="h-4 w-4" aria-hidden="true" />
+              {t("Download Company Profile", "تحميل ملف الشركة")}
+            </a>
+          </div>
+
+          {/* Column 2 — sectors */}
+          <div>
+            <p
+              className="label-mono"
+              style={{ color: "var(--iw-dark-accent)", ...(isAr ? arabicFont : {}) }}
+            >
+              {t("Sectors & Capabilities", "القطاعات والقدرات")}
+            </p>
+            <nav className="mt-4 flex flex-col gap-2.5">
+              {SECTORS.map((s) => (
+                <Link
+                  key={s.slug}
+                  to="/$locale/what-we-do/$sector"
+                  params={{ locale, sector: s.slug }}
+                  className={linkClass}
+                  style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+                >
+                  {isAr ? s.ar : s.en}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 3 — navigation */}
+          <div>
+            <p
+              className="label-mono"
+              style={{ color: "var(--iw-dark-accent)", ...(isAr ? arabicFont : {}) }}
+            >
+              {t("Company", "الشركة")}
+            </p>
+            <nav className="mt-4 flex flex-col gap-2.5">
+              {NAV.map((item) => (
+                <Link
+                  key={item.en}
+                  to={item.to}
+                  params={{ locale }}
+                  className={linkClass}
+                  style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+                >
+                  {isAr ? item.ar : item.en}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 4 — engineering dispatch */}
+          <div>
+            <p
+              className="label-mono"
+              style={{ color: "var(--iw-dark-accent)", ...(isAr ? arabicFont : {}) }}
+            >
+              {t("Engineering Dispatch", "التواصل الهندسي")}
+            </p>
+            <div className="mt-4 flex flex-col gap-3.5">
+              <p
+                className="flex items-start gap-2.5 text-sm leading-relaxed"
+                style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+              >
+                <MapPin
+                  className="mt-0.5 h-4 w-4 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                  aria-hidden="true"
+                />
+                {t(
+                  "313 Zahraa Nasr City, Cairo, Egypt",
+                  "313 زهراء مدينة نصر، القاهرة، مصر",
+                )}
+              </p>
+
+              <a
+                href="https://wa.me/201006249420"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  borderColor:
+                    "color-mix(in oklab, var(--iw-dark-accent) 45%, transparent)",
+                  backgroundColor:
+                    "color-mix(in oklab, var(--iw-dark-accent) 10%, transparent)",
+                  color: "var(--iw-dark-accent)",
+                }}
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                +20 100 624 9420
+              </a>
+
+              <a
+                href="mailto:info@infeworks.com"
+                className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
+                style={{ color: "var(--iw-dark-text)" }}
+              >
+                <Mail
+                  className="h-4 w-4 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                  aria-hidden="true"
+                />
+                info@infeworks.com
+              </a>
+
+              <p
+                className="flex items-start gap-2.5 text-sm leading-relaxed"
+                style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+              >
+                <ShieldCheck
+                  className="mt-0.5 h-4 w-4 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                  aria-hidden="true"
+                />
+                {t(
+                  "Single Accountable Contract • In-House Delivery",
+                  "عقد واحد بمسؤولية كاملة • تنفيذ داخلي",
+                )}
+              </p>
+
+              <p
+                className="flex items-start gap-2.5 text-xs leading-relaxed"
+                style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+              >
+                <Clock
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                  aria-hidden="true"
+                />
+                {t(
+                  "Sun–Thu, 09:00–17:00 EET — replies within one working day",
+                  "الأحد–الخميس، 09:00–17:00 — نرد خلال يوم عمل",
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-xs"
+          style={{
+            borderColor: "var(--iw-dark-border)",
+            color: "var(--iw-dark-text-muted)",
+          }}
+        >
+          <span>
+            © 2006–{new Date().getFullYear()} Infeworks (International for
+            Engineering Works /{" "}
+            <span style={arabicFont}>الدولية للأعمال الهندسية</span>).{" "}
+            {t("All rights reserved.", "جميع الحقوق محفوظة.")}
+          </span>
+          <span className="ms-auto flex items-center gap-4">
+            <Link
+              to="/$locale/privacy"
+              params={{ locale }}
+              className="transition-colors hover:text-[var(--iw-dark-accent)]"
+              style={isAr ? arabicFont : undefined}
+            >
+              {t("Privacy Policy", "سياسة الخصوصية")}
+            </Link>
+            <a
+              href="/sitemap.xml"
+              className="transition-colors hover:text-[var(--iw-dark-accent)]"
+              style={isAr ? arabicFont : undefined}
+            >
+              {t("Sitemap", "خريطة الموقع")}
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}

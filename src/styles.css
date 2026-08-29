@@ -1,0 +1,606 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Infeworks design system — warm sand + deep navy hybrid.
+ * Engineering-document precision, bilingual EN/AR typography.
+ */
+
+@theme inline {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-arabic: "Cairo", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--iw-bg);
+  --color-foreground: var(--iw-text-primary);
+  --color-card: var(--iw-surface);
+  --color-card-foreground: var(--iw-text-primary);
+  --color-popover: var(--iw-surface);
+  --color-popover-foreground: var(--iw-text-primary);
+  --color-primary: var(--iw-accent);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--iw-surface-alt);
+  --color-secondary-foreground: var(--iw-text-primary);
+  --color-muted: var(--iw-surface-alt);
+  --color-muted-foreground: var(--iw-text-secondary);
+  --color-accent: var(--iw-accent-light);
+  --color-accent-foreground: var(--iw-text-primary);
+  --color-destructive: var(--iw-error);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--iw-border);
+  --color-input: var(--iw-border);
+  --color-ring: var(--iw-accent);
+  --color-sidebar: var(--iw-surface);
+  --color-sidebar-foreground: var(--iw-text-primary);
+  --color-sidebar-primary: var(--iw-accent);
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: var(--iw-surface-alt);
+  --color-sidebar-accent-foreground: var(--iw-text-primary);
+  --color-sidebar-border: var(--iw-border);
+  --color-sidebar-ring: var(--iw-accent);
+}
+
+:root {
+  --radius: 0.125rem;
+
+  --iw-bg: #f4efe6;
+  --iw-surface: #ffffff;
+  --iw-surface-alt: #ede8df;
+  --iw-text-primary: #1c1916;
+  --iw-text-secondary: #6b6258;
+  --iw-accent: #b05e2a;
+  --iw-accent-hover: #8f4a1e;
+  --iw-accent-light: #e8c4a8;
+  --iw-border: #d6cfc4;
+  --iw-dark-bg: #0b1628;
+  --iw-dark-deep: #070e1a;
+  --iw-dark-surface: #0f1f38;
+  --iw-dark-text: #ffffff;
+  --iw-dark-text-muted: #8fa3c0;
+  --iw-dark-accent: #00c8d5;
+  --iw-dark-border: rgba(255, 255, 255, 0.08);
+  --iw-success: #2d6a4f;
+  --iw-warning: #b7791f;
+  --iw-error: #9b2335;
+}
+
+@layer base {
+  * {
+    border-color: var(--iw-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--iw-accent, #c27803)
+      color-mix(in oklab, var(--iw-text-primary) 5%, transparent);
+    overflow-x: clip;
+    max-width: 100vw;
+  }
+
+  /* Inertial scrolling takes over: native smooth-scroll must stand down. */
+  html.iw-lenis {
+    scroll-behavior: auto;
+  }
+
+  html.iw-lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* ── Restrained Architectural Scrollbar ───────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: color-mix(in oklab, var(--iw-bg, #faf8f5) 85%, rgba(11, 22, 40, 0.05));
+    border-inline-start: 1px solid
+      color-mix(in oklab, var(--iw-text-primary) 6%, transparent);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--iw-text-secondary) 30%, transparent);
+    border: 1.5px solid transparent;
+    background-clip: padding-box;
+    border-radius: 999px;
+    transition: background-color 200ms ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--iw-accent, #b05e2a);
+    border-width: 1px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--iw-accent-hover, #8f4a1e);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Utility for touch pill bars */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+
+  body {
+    background-color: var(--iw-bg);
+    color: var(--iw-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[dir="rtl"] body {
+    font-family: var(--font-arabic);
+  }
+
+  html[dir="ltr"] body {
+    font-family: var(--font-sans);
+  }
+
+  /* Global custom cursor rules */
+  html.iw-custom-cursor-active {
+    cursor: none !important;
+  }
+  
+  html.iw-custom-cursor-active *,
+  html.iw-custom-cursor-active a,
+  html.iw-custom-cursor-active button,
+  html.iw-custom-cursor-active input {
+    cursor: none !important;
+  }
+
+  /* RTL Typography refinements — prevent descender collisions in Arabic */
+  html[dir="rtl"] .display-xl {
+    line-height: 1.18;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  html[dir="rtl"] .display-lg {
+    line-height: 1.22;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  html[dir="rtl"] .display-md {
+    line-height: 1.28;
+    letter-spacing: 0;
+  }
+
+  html[dir="rtl"] .label-mono {
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  .iw-section-dark {
+    background-color: var(--iw-dark-bg);
+    color: var(--iw-dark-text);
+  }
+
+  .iw-section-light {
+    background-color: var(--iw-bg);
+    color: var(--iw-text-primary);
+  }
+
+  .iw-section-surface {
+    background-color: var(--iw-surface);
+    color: var(--iw-text-primary);
+  }
+
+  .iw-reveal {
+    animation: iw-fade-up 300ms ease-out both;
+  }
+
+  @keyframes iw-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .iw-reveal {
+      animation: none;
+    }
+  }
+}
+
+/* Massive editorial display type */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+@utility display-md {
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@utility body-reading {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+@utility label-mono {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility rule-strong {
+  border-top: 1px solid var(--iw-text-primary);
+}
+
+/* ── Infeworks motion & blueprint utilities ─────────────────────────── */
+
+@utility iw-blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 160px 160px, 160px 160px;
+  mask-image: radial-gradient(ellipse at 30% 20%, #000 10%, transparent 78%);
+}
+
+@utility iw-hero-wash {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 12% 6%,
+      color-mix(in oklab, var(--iw-dark-accent) 18%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 88% 24%,
+      color-mix(in oklab, var(--iw-accent) 14%, transparent),
+      transparent 66%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 34%,
+      var(--iw-dark-bg) 100%
+    );
+}
+
+.iw-hero-wash {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    var(--iw-dark-deep) 100%
+  );
+  opacity: 0.8;
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 40s ease-out forwards;
+}
+
+/* Cursor-tracking spotlight + glowing border reveal for cards */
+@utility iw-spotlight {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 400ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 420ms ease;
+    background: radial-gradient(
+      420px circle at var(--iw-mx, 50%) var(--iw-my, 0%),
+      color-mix(in oklab, var(--iw-accent) 14%, transparent),
+      transparent 68%
+    );
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 28px 60px -34px rgba(11, 22, 40, 0.5),
+      inset 0 0 0 1px color-mix(in oklab, var(--iw-accent) 34%, transparent);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@utility iw-spotlight-dark {
+  &::before {
+    background: radial-gradient(
+      420px circle at var(--iw-mx, 50%) var(--iw-my, 0%),
+      color-mix(in oklab, var(--iw-dark-accent) 16%, transparent),
+      transparent 68%
+    );
+  }
+
+  &:hover {
+    box-shadow:
+      0 28px 60px -32px rgba(0, 0, 0, 0.6),
+      inset 0 0 0 1px color-mix(in oklab, var(--iw-dark-accent) 40%, transparent);
+  }
+}
+
+/* Light-surface glassmorphism (header, floating chrome) */
+@utility iw-glass-light {
+  background-color: color-mix(in oklab, var(--iw-surface) 68%, transparent);
+  backdrop-filter: blur(20px) saturate(150%);
+  border-color: color-mix(in oklab, var(--iw-text-primary) 12%, transparent);
+}
+
+/* Scroll reveal — fade in and up */
+@utility iw-scroll-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iw-scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Panel swap — quick fade + rise, used by the milestone track */
+
+@keyframes iw-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility iw-fade-rise {
+  animation: iw-fade-rise 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iw-scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .iw-fade-rise {
+    animation: none;
+  }
+  .iw-spotlight:hover {
+    transform: none;
+  }
+}
+
+
+
+@utility iw-flow-stream {
+  stroke-dasharray: 180 1400;
+  stroke-dashoffset: 1580;
+  animation: iw-flow 9s linear infinite;
+}
+
+@utility iw-node-pulse {
+  animation: iw-pulse 3.4s ease-in-out infinite;
+}
+
+@utility iw-map-pin {
+  animation: iw-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes iw-flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes iw-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    r: 3;
+  }
+  50% {
+    opacity: 1;
+    r: 5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iw-flow-stream,
+  .iw-node-pulse,
+  .iw-map-pin {
+    animation: none;
+  }
+}
+
+/* ── Modern elevation: glow, glass, lift, radar ─────────────────────── */
+
+@utility iw-text-glow {
+  text-shadow:
+    0 0 24px color-mix(in oklab, var(--iw-dark-accent) 32%, transparent),
+    0 0 60px color-mix(in oklab, var(--iw-dark-accent) 14%, transparent);
+}
+
+@utility iw-hover-lift {
+  transition:
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 400ms ease;
+}
+
+.iw-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -28px rgba(11, 22, 40, 0.45);
+}
+
+@utility iw-glass-dark {
+  background-color: color-mix(in oklab, var(--iw-dark-surface) 72%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--iw-dark-border);
+}
+
+@utility iw-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--iw-dark-accent) 45%, transparent);
+  background-color: color-mix(in oklab, var(--iw-dark-accent) 10%, transparent);
+  color: var(--iw-dark-accent);
+  padding: 0.4rem 0.85rem;
+}
+
+@utility iw-radar {
+  animation: iw-radar-ring 3.2s ease-out infinite;
+  transform-origin: center;
+}
+
+@keyframes iw-radar-ring {
+  0% {
+    opacity: 0.55;
+    r: 4;
+  }
+  70% {
+    opacity: 0;
+    r: 22;
+  }
+  100% {
+    opacity: 0;
+    r: 22;
+  }
+}
+
+@utility iw-drift {
+  animation: iw-drift-y 14s ease-in-out infinite;
+}
+
+@keyframes iw-drift-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@utility iw-whatsapp-glow {
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 32px -8px rgba(0, 0, 0, 0.55),
+      0 0 20px 2px color-mix(in oklab, var(--iw-dark-accent) 40%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iw-radar,
+  .iw-drift {
+    animation: none;
+  }
+  .iw-hover-lift:hover,
+  .iw-whatsapp-glow:hover {
+    transform: none;
+  }
+}
+
+/* Hero scroll cue — a survey trace sweeping along the datum line */
+@keyframes iw-scroll-trace {
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.iw-scroll-trace {
+  animation: iw-scroll-trace 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iw-scroll-trace {
+    animation: none;
+  }
+}
+
+/* ── Clients marquee ribbon ─────────────────────────────────────────── */
+.iw-client-card {
+  border-color: var(--iw-border, rgba(11, 22, 40, 0.12));
+  background-color: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.iw-client-card:hover {
+  border-color: var(--iw-accent, #c27803);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iw-client-card:hover {
+    transform: none;
+  }
+}
+

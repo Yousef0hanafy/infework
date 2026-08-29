@@ -1,0 +1,2 @@
+alter table public.projects add column if not exists featured boolean not null default false;
+update public.projects set featured = true where slug in ('sadat-city-ro','toshka-pumping-stations','food-city-treatment','arish-water-supply');
