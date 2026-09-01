@@ -54,11 +54,7 @@ function AdminLogin() {
         }}
       >
         <div className="flex items-center gap-3">
-          <Lock
-            className="h-5 w-5"
-            strokeWidth={1.5}
-            style={{ color: "var(--iw-accent)" }}
-          />
+          <Lock className="h-5 w-5" strokeWidth={1.5} style={{ color: "var(--iw-accent)" }} />
           <p className="label-mono" style={{ color: "var(--iw-text-secondary)" }}>
             Internal Access
           </p>

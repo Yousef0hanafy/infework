@@ -1,8 +1,38 @@
 [
   {
-    "project_id": "e5555555-5555-4555-8555-555555555555",
-    "slug": "ameriya-cold-storage",
-    "title": "Ameriya Industrial Cooling & Water Distribution",
+    "project_id": "efef6aeb-2553-5ce6-baa0-1e22b84485e5",
+    "slug": "gas-egypt-stations-electromechanical",
+    "title": "أعمال محطات غاز مصر — التجهيزات الكهروميكانيكية والتأريض",
+    "locale": "ar"
+  },
+  {
+    "project_id": "efef6aeb-2553-5ce6-baa0-1e22b84485e5",
+    "slug": "gas-egypt-stations-electromechanical",
+    "title": "Gas Egypt Natural Gas Stations Electrical & Infrastructure Works",
+    "locale": "en"
+  },
+  {
+    "project_id": "06ee25be-0594-57fb-ae55-db4878ef32d9",
+    "slug": "shubra-shahab-technical-works",
+    "title": "التعديلات والتجهيزات الفنية التكميلية — شبرا شهاب",
+    "locale": "ar"
+  },
+  {
+    "project_id": "06ee25be-0594-57fb-ae55-db4878ef32d9",
+    "slug": "shubra-shahab-technical-works",
+    "title": "Shubra Shahab Plant Scope Adjustments & Technical Upgrades",
+    "locale": "en"
+  },
+  {
+    "project_id": "0afa23fe-2a6c-54c1-8f21-74917d864806",
+    "slug": "toshka-reclamation-pumping-package",
+    "title": "محطات مياه وصرف توشكى للاستصلاح الزراعي (عقد 39-2022)",
+    "locale": "ar"
+  },
+  {
+    "project_id": "0afa23fe-2a6c-54c1-8f21-74917d864806",
+    "slug": "toshka-reclamation-pumping-package",
+    "title": "Toshka Agricultural Reclamation Pumping Stations (Contract 39-2022)",
     "locale": "en"
   },
   {
@@ -12,9 +42,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "f6666666-6666-4666-8666-666666666666",
-    "slug": "awlad-el-sheikh-pumping",
-    "title": "Awlad El-Sheikh Potable Water Pumping Station",
+    "project_id": "e5555555-5555-4555-8555-555555555555",
+    "slug": "ameriya-cold-storage",
+    "title": "Ameriya Industrial Cooling & Water Distribution",
     "locale": "en"
   },
   {
@@ -24,9 +54,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "a7777777-7777-4777-8777-777777777777",
-    "slug": "north-coast-desalination",
-    "title": "North Coast Commercial RO Water Treatment",
+    "project_id": "f6666666-6666-4666-8666-666666666666",
+    "slug": "awlad-el-sheikh-pumping",
+    "title": "Awlad El-Sheikh Potable Water Pumping Station",
     "locale": "en"
   },
   {
@@ -36,9 +66,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "b8888888-8888-4888-8888-888888888888",
-    "slug": "east-delta-wastewater",
-    "title": "East Delta Municipal Wastewater Treatment",
+    "project_id": "a7777777-7777-4777-8777-777777777777",
+    "slug": "north-coast-desalination",
+    "title": "North Coast Commercial RO Water Treatment",
     "locale": "en"
   },
   {
@@ -48,9 +78,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "a1111111-1111-4111-8111-111111111111",
-    "slug": "sadat-city-ro",
-    "title": "Sadat City RO Desalination Plant",
+    "project_id": "b8888888-8888-4888-8888-888888888888",
+    "slug": "east-delta-wastewater",
+    "title": "East Delta Municipal Wastewater Treatment",
     "locale": "en"
   },
   {
@@ -60,9 +90,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "b2222222-2222-4222-8222-222222222222",
-    "slug": "toshka-pumping-stations",
-    "title": "Toshka Agricultural Water & Wastewater Stations",
+    "project_id": "a1111111-1111-4111-8111-111111111111",
+    "slug": "sadat-city-ro",
+    "title": "Sadat City RO Desalination Plant",
     "locale": "en"
   },
   {
@@ -72,9 +102,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "c3333333-3333-4333-8333-333333333333",
-    "slug": "food-city-treatment",
-    "title": "Food City Industrial Wastewater Treatment Facility",
+    "project_id": "b2222222-2222-4222-8222-222222222222",
+    "slug": "toshka-pumping-stations",
+    "title": "Toshka Agricultural Water & Wastewater Stations",
     "locale": "en"
   },
   {
@@ -84,9 +114,9 @@
     "locale": "ar"
   },
   {
-    "project_id": "d4444444-4444-4444-8444-444444444444",
-    "slug": "arish-water-supply",
-    "title": "Arish Infrastructure & Water Supply Network",
+    "project_id": "c3333333-3333-4333-8333-333333333333",
+    "slug": "food-city-treatment",
+    "title": "Food City Industrial Wastewater Treatment Facility",
     "locale": "en"
   },
   {
@@ -94,5 +124,395 @@
     "slug": "arish-water-supply",
     "title": "شبكات البنية التحتية وتغذية المياه بالعريش",
     "locale": "ar"
+  },
+  {
+    "project_id": "d4444444-4444-4444-8444-444444444444",
+    "slug": "arish-water-supply",
+    "title": "Arish Infrastructure & Water Supply Network",
+    "locale": "en"
+  },
+  {
+    "project_id": "841fb61a-c5fd-5e49-b54f-8cfef5f8e421",
+    "slug": "sisi-city-wastewater",
+    "title": "شبكات الصرف الصحي وتصريف الأمطار — مدينة السيسي",
+    "locale": "ar"
+  },
+  {
+    "project_id": "841fb61a-c5fd-5e49-b54f-8cfef5f8e421",
+    "slug": "sisi-city-wastewater",
+    "title": "Al-Sisi City Gravity Sewer & Storm Drainage Network",
+    "locale": "en"
+  },
+  {
+    "project_id": "05476ccf-b081-5cc2-b1fa-d33f969325b1",
+    "slug": "rafah-bedouin-housing",
+    "title": "البنية التحتية والإنشاءات للتجمعات البدوية — رفح",
+    "locale": "ar"
+  },
+  {
+    "project_id": "05476ccf-b081-5cc2-b1fa-d33f969325b1",
+    "slug": "rafah-bedouin-housing",
+    "title": "Rafah Bedouin Residential Development Infrastructure",
+    "locale": "en"
+  },
+  {
+    "project_id": "b01f378f-dc3e-51d6-ac65-9829fe9e9fac",
+    "slug": "salam-city-water-pipeline",
+    "title": "خط نقل المياه الاستراتيجي لمدينة السلام من رافع الشلاق",
+    "locale": "ar"
+  },
+  {
+    "project_id": "b01f378f-dc3e-51d6-ac65-9829fe9e9fac",
+    "slug": "salam-city-water-pipeline",
+    "title": "New Salam City Strategic Water Transmission Line",
+    "locale": "en"
+  },
+  {
+    "project_id": "b1692f62-488e-5f98-b9a5-aa6553da6948",
+    "slug": "salam-city-cattle-farm-networks",
+    "title": "شبكات البنية التحتية لمجمع الإنتاج الحيواني — مدينة السلام",
+    "locale": "ar"
+  },
+  {
+    "project_id": "b1692f62-488e-5f98-b9a5-aa6553da6948",
+    "slug": "salam-city-cattle-farm-networks",
+    "title": "Agricultural Dairy & Livestock Complex Infrastructure",
+    "locale": "en"
+  },
+  {
+    "project_id": "e0251a29-71eb-51b3-a2e8-f531e769022d",
+    "slug": "qabs-min-nour-mosque",
+    "title": "جامع ومجمع قبس من نور — العاصمة الإدارية الجديدة",
+    "locale": "ar"
+  },
+  {
+    "project_id": "e0251a29-71eb-51b3-a2e8-f531e769022d",
+    "slug": "qabs-min-nour-mosque",
+    "title": "Qabs Min Nour Grand Mosque & Community Complex",
+    "locale": "en"
+  },
+  {
+    "project_id": "a7ac9259-4ef5-53b6-9628-9cd021e9ad99",
+    "slug": "beni-suef-water-wastewater",
+    "title": "محطات تنقية مياه الشرب ومعالجة الصرف الصحي — بني سويف",
+    "locale": "ar"
+  },
+  {
+    "project_id": "a7ac9259-4ef5-53b6-9628-9cd021e9ad99",
+    "slug": "beni-suef-water-wastewater",
+    "title": "Beni Suef Potable Water & Wastewater Treatment Plants",
+    "locale": "en"
+  },
+  {
+    "project_id": "7ad05cd1-1cb9-5b5d-ad89-6fce1bea579c",
+    "slug": "qibili-qarun-water-purification",
+    "title": "الأعمال الكهروميكانيكية لتنقية المياه — قبلي قارون",
+    "locale": "ar"
+  },
+  {
+    "project_id": "7ad05cd1-1cb9-5b5d-ad89-6fce1bea579c",
+    "slug": "qibili-qarun-water-purification",
+    "title": "Qibili Qarun Water Purification Electromechanical Works",
+    "locale": "en"
+  },
+  {
+    "project_id": "85e582f8-fba1-59b1-8318-ae8a98f3028d",
+    "slug": "multi-site-desalination-purification",
+    "title": "محطات تحلية وتنقية المياه متعددة المواقع — مكمل 1",
+    "locale": "ar"
+  },
+  {
+    "project_id": "85e582f8-fba1-59b1-8318-ae8a98f3028d",
+    "slug": "multi-site-desalination-purification",
+    "title": "Multi-Site Desalination & Water Purification Hubs",
+    "locale": "en"
+  },
+  {
+    "project_id": "91d3b1af-0f35-5f31-a841-46f1b407107b",
+    "slug": "dairy-effluent-treatment-network",
+    "title": "محطات معالجة مياه صرف حلابات ومزارع الألبان — مكمل 2",
+    "locale": "ar"
+  },
+  {
+    "project_id": "91d3b1af-0f35-5f31-a841-46f1b407107b",
+    "slug": "dairy-effluent-treatment-network",
+    "title": "Multi-Site Dairy Effluent Wastewater Treatment Systems",
+    "locale": "en"
+  },
+  {
+    "project_id": "7befaf35-235d-5d3c-a6c9-4eaac33050f9",
+    "slug": "shubra-shahab-industrial-wastewater",
+    "title": "محطة معالجة الصرف الصناعي — شبرا شهاب",
+    "locale": "ar"
+  },
+  {
+    "project_id": "7befaf35-235d-5d3c-a6c9-4eaac33050f9",
+    "slug": "shubra-shahab-industrial-wastewater",
+    "title": "Shubra Shahab Industrial Wastewater Treatment Facility",
+    "locale": "en"
+  },
+  {
+    "project_id": "da860b21-697c-57b3-bfe5-de1269a485ad",
+    "slug": "marble-factory-desalination-plants",
+    "title": "محطات التحلية لمصانع الرخام — الجفجافة والمنيا ورأس سدر",
+    "locale": "ar"
+  },
+  {
+    "project_id": "da860b21-697c-57b3-bfe5-de1269a485ad",
+    "slug": "marble-factory-desalination-plants",
+    "title": "Industrial Marble Factory Desalination & Process Water Plants",
+    "locale": "en"
+  },
+  {
+    "project_id": "e73fd971-7aec-5ac2-b104-7f0da420da03",
+    "slug": "toshka-farm-potable-water-plant",
+    "title": "محطة تنقية مياه الشرب بمزرعة توشكى (150 م³/يوم)",
+    "locale": "ar"
+  },
+  {
+    "project_id": "e73fd971-7aec-5ac2-b104-7f0da420da03",
+    "slug": "toshka-farm-potable-water-plant",
+    "title": "Toshka Agricultural Farm Potable Water Purification Facility",
+    "locale": "en"
+  },
+  {
+    "project_id": "692cf0dd-88e4-516c-93fa-0bdf4bf57447",
+    "slug": "qibili-qarun-goat-farm-utilities",
+    "title": "أعمال التغذية والصرف لمزرعة الماعز — قبلي قارون",
+    "locale": "ar"
+  },
+  {
+    "project_id": "692cf0dd-88e4-516c-93fa-0bdf4bf57447",
+    "slug": "qibili-qarun-goat-farm-utilities",
+    "title": "Qibili Qarun Goat Farm Water Supply & Drainage Networks",
+    "locale": "en"
+  },
+  {
+    "project_id": "8bfda6d3-dd22-5061-904c-bbf6a4b894e6",
+    "slug": "toshka-expanded-water-networks",
+    "title": "محطات المياه والصرف المستجدة — توشكى",
+    "locale": "ar"
+  },
+  {
+    "project_id": "8bfda6d3-dd22-5061-904c-bbf6a4b894e6",
+    "slug": "toshka-expanded-water-networks",
+    "title": "Toshka Expanded Water & Wastewater Station Packages",
+    "locale": "en"
+  },
+  {
+    "project_id": "083a4c8c-d8f9-5821-a52d-dd43fd9c8174",
+    "slug": "capital-island-infrastructure",
+    "title": "أعمال البنية التحتية والمرافق — جزيرة العاصمة",
+    "locale": "ar"
+  },
+  {
+    "project_id": "083a4c8c-d8f9-5821-a52d-dd43fd9c8174",
+    "slug": "capital-island-infrastructure",
+    "title": "Capital Island Urban Utilities & Infrastructure Package",
+    "locale": "en"
+  },
+  {
+    "project_id": "65126870-18a4-59f4-a96e-e4818bcf191c",
+    "slug": "toshka-pumping-basket-screens",
+    "title": "المصافي السلية لبيارات محطات ضخ توشكى (Basket Screens)",
+    "locale": "ar"
+  },
+  {
+    "project_id": "65126870-18a4-59f4-a96e-e4818bcf191c",
+    "slug": "toshka-pumping-basket-screens",
+    "title": "Toshka Pumping Pit Heavy-Duty Basket Screen Assemblies",
+    "locale": "en"
+  },
+  {
+    "project_id": "8cfdd9bd-e265-5c88-b6be-daeff342c440",
+    "slug": "infrastructure-sand-procurement",
+    "title": "توريدات رمال الفلترة وطبقات التأسيس الاستراتيجية",
+    "locale": "ar"
+  },
+  {
+    "project_id": "8cfdd9bd-e265-5c88-b6be-daeff342c440",
+    "slug": "infrastructure-sand-procurement",
+    "title": "Strategic Graded Sand & Filter Media Supply Works",
+    "locale": "en"
+  },
+  {
+    "project_id": "b672fa47-ce2c-5035-acff-2e2b7aa1cc67",
+    "slug": "cargas-grounding-systems",
+    "title": "تأريض وحماية محطات كارجاس للغاز الطبيعي",
+    "locale": "ar"
+  },
+  {
+    "project_id": "b672fa47-ce2c-5035-acff-2e2b7aa1cc67",
+    "slug": "cargas-grounding-systems",
+    "title": "Cargas Natural Gas Stations Deep Earth Grounding & Safety Systems",
+    "locale": "en"
+  },
+  {
+    "project_id": "a4aed25d-c3f2-5b5b-a7db-1ee5e0057d3d",
+    "slug": "date-palm-cold-storage-mep",
+    "title": "البنية التحتية والخدمات الكهروميكانيكية لمجمع ثلاجات التمور",
+    "locale": "ar"
+  },
+  {
+    "project_id": "a4aed25d-c3f2-5b5b-a7db-1ee5e0057d3d",
+    "slug": "date-palm-cold-storage-mep",
+    "title": "Date Palm Agro-Industrial Cold Storage Infrastructure",
+    "locale": "en"
+  },
+  {
+    "project_id": "0044e8b3-ad47-5d0e-8be0-0e373cf0c186",
+    "slug": "manshiyat-nasser-pumping-station",
+    "title": "محطة رفع الصرف الصحي — منشأة ناصر الجديدة",
+    "locale": "ar"
+  },
+  {
+    "project_id": "0044e8b3-ad47-5d0e-8be0-0e373cf0c186",
+    "slug": "manshiyat-nasser-pumping-station",
+    "title": "New Manshiyat Nasser Sewage Pumping Station",
+    "locale": "en"
+  },
+  {
+    "project_id": "497f0e47-fcf5-5672-be25-dd034a715235",
+    "slug": "nuweiba-infrastructure-works",
+    "title": "أعمال البنية التحتية وتوزيع المياه — نويبع",
+    "locale": "ar"
+  },
+  {
+    "project_id": "497f0e47-fcf5-5672-be25-dd034a715235",
+    "slug": "nuweiba-infrastructure-works",
+    "title": "Nuweiba Coastal Infrastructure & Water Distribution Package",
+    "locale": "en"
+  },
+  {
+    "project_id": "0e525c2e-7743-5f14-8c56-fda49df6e3e2",
+    "slug": "future-of-egypt-potato-storage-softener",
+    "title": "محطة معالجة وتليين المياه لثلاجات البطاطس — جهاز مستقبل مصر",
+    "locale": "ar"
+  },
+  {
+    "project_id": "0e525c2e-7743-5f14-8c56-fda49df6e3e2",
+    "slug": "future-of-egypt-potato-storage-softener",
+    "title": "Future of Egypt Potato Cold Storage Water Softener & Cooling Trains",
+    "locale": "en"
+  },
+  {
+    "project_id": "17935913-ec9a-566b-82ff-ce6e71a1c0cf",
+    "slug": "al-marreikh-stadium-civil-mep",
+    "title": "رفع كفاءة وتطوير ملعب نادي المريخ البورسعيدي",
+    "locale": "ar"
+  },
+  {
+    "project_id": "17935913-ec9a-566b-82ff-ce6e71a1c0cf",
+    "slug": "al-marreikh-stadium-civil-mep",
+    "title": "Al-Marreikh Sports Stadium Efficiency Upgrade & Civil-MEP Works",
+    "locale": "en"
+  },
+  {
+    "project_id": "ab0c289e-7195-54d0-bc61-7670118cf0cd",
+    "slug": "sisi-city-water-supply-network",
+    "title": "شبكة التغذية بمياه الشرب وخطوط النقل — مدينة السيسي (عقد المياه)",
+    "locale": "ar"
+  },
+  {
+    "project_id": "ab0c289e-7195-54d0-bc61-7670118cf0cd",
+    "slug": "sisi-city-water-supply-network",
+    "title": "Al-Sisi City Strategic Potable Water Supply & Distribution Network",
+    "locale": "en"
+  },
+  {
+    "project_id": "a41451c0-d492-5b14-aa6f-c1f7e6b33885",
+    "slug": "north-sinai-dc-infrastructure",
+    "title": "مشاريع البنية التحتية الاستراتيجية — شمال سيناء (DC)",
+    "locale": "ar"
+  },
+  {
+    "project_id": "a41451c0-d492-5b14-aa6f-c1f7e6b33885",
+    "slug": "north-sinai-dc-infrastructure",
+    "title": "North Sinai Strategic Regional DC Infrastructure Projects",
+    "locale": "en"
+  },
+  {
+    "project_id": "d60390a1-b9a7-5f3e-91e3-cabd67d59bef",
+    "slug": "al-azhar-institute-minya",
+    "title": "المعهد الأزهري بالمنيا — مبادرة قبس من نور",
+    "locale": "ar"
+  },
+  {
+    "project_id": "d60390a1-b9a7-5f3e-91e3-cabd67d59bef",
+    "slug": "al-azhar-institute-minya",
+    "title": "Al-Azhar Educational Institute & Community Complex — Minya",
+    "locale": "en"
+  },
+  {
+    "project_id": "a8ebe241-dfc5-5ebe-b28c-4bc314fea758",
+    "slug": "abu-minqar-agricultural-farm-utilities",
+    "title": "شبكات الري والآبار العميقة لمزرعة أبو منقار — الوادي الجديد",
+    "locale": "ar"
+  },
+  {
+    "project_id": "a8ebe241-dfc5-5ebe-b28c-4bc314fea758",
+    "slug": "abu-minqar-agricultural-farm-utilities",
+    "title": "Abu Minqar Agricultural Farm Irrigation & Deep Well Systems",
+    "locale": "en"
+  },
+  {
+    "project_id": "74552d04-28ff-5c91-896f-1b177dda314a",
+    "slug": "hayat-karima-health-unit",
+    "title": "إنشاء الوحدة الصحية الريفية — المبادرة الرئاسية حياة كريمة",
+    "locale": "ar"
+  },
+  {
+    "project_id": "74552d04-28ff-5c91-896f-1b177dda314a",
+    "slug": "hayat-karima-health-unit",
+    "title": "Decent Life (Hayat Karima) Rural Health Unit Facility",
+    "locale": "en"
+  },
+  {
+    "project_id": "e3fa2596-50e1-5ab6-be36-367accbf2436",
+    "slug": "bianchi-resort-infrastructure-utilities",
+    "title": "البنية التحتية وشبكات المرافق لمنتجع بيانكي الساحلي",
+    "locale": "ar"
+  },
+  {
+    "project_id": "e3fa2596-50e1-5ab6-be36-367accbf2436",
+    "slug": "bianchi-resort-infrastructure-utilities",
+    "title": "Bianchi Coastal Resort Integrated Infrastructure & Utility Networks",
+    "locale": "en"
+  },
+  {
+    "project_id": "5cfe0f56-0f54-5dfc-a607-09e40cf4def4",
+    "slug": "rural-egypt-wells-minya",
+    "title": "مشروع آبار شركة تنمية الريف المصري — غرب المنيا",
+    "locale": "ar"
+  },
+  {
+    "project_id": "5cfe0f56-0f54-5dfc-a607-09e40cf4def4",
+    "slug": "rural-egypt-wells-minya",
+    "title": "Egyptian Countryside Development Deep Wells Package — Minya",
+    "locale": "en"
+  },
+  {
+    "project_id": "38acf4e4-80f7-59c6-b49a-65ebea88e7a3",
+    "slug": "palm-hills-infrastructure-utilities",
+    "title": "شبكات البنية التحتية والمرافق — مشروعات بالم هيلز",
+    "locale": "ar"
+  },
+  {
+    "project_id": "38acf4e4-80f7-59c6-b49a-65ebea88e7a3",
+    "slug": "palm-hills-infrastructure-utilities",
+    "title": "Palm Hills Development Premium Residential Infrastructure Networks",
+    "locale": "en"
+  },
+  {
+    "project_id": "139b6c12-844f-5004-bc31-6e34700c9ab3",
+    "slug": "abu-zaabal-landfill-environmental-works",
+    "title": "أعمال الحماية البيئية وتجميع مياه الرشيح — مقلب أبو زعبل",
+    "locale": "ar"
+  },
+  {
+    "project_id": "139b6c12-844f-5004-bc31-6e34700c9ab3",
+    "slug": "abu-zaabal-landfill-environmental-works",
+    "title": "Abu Zaabal Environmental Landfill & Leachate Mitigation Works",
+    "locale": "en"
   }
 ]

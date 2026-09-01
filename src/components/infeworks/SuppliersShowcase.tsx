@@ -59,9 +59,7 @@ function SupplierCard({
           style={{ color: "var(--iw-text-muted, #9ca3af)" }}
         >
           <CheckCircle2 className="h-2.5 w-2.5 text-emerald-500 shrink-0" />
-          <span className="hidden sm:inline">
-            {isAr ? "معتمد" : "Verified"}
-          </span>
+          <span className="hidden sm:inline">{isAr ? "معتمد" : "Verified"}</span>
         </span>
       </div>
 
@@ -139,17 +137,16 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
 
   // Reduced motion preference
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia) {
-      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (mediaQuery.matches) {
-        setIsPlaying(false);
-      }
-      const handler = (e: MediaQueryListEvent) => {
-        setIsPlaying(!e.matches);
-      };
-      mediaQuery.addEventListener?.("change", handler);
-      return () => mediaQuery.removeEventListener?.("change", handler);
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      setIsPlaying(false);
     }
+    const handler = (e: MediaQueryListEvent) => {
+      setIsPlaying(!e.matches);
+    };
+    mediaQuery.addEventListener?.("change", handler);
+    return () => mediaQuery.removeEventListener?.("change", handler);
   }, []);
 
   // Continuous animation loop
@@ -221,7 +218,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
     const deltaX = currentX - startXRef.current;
     const now = performance.now();
     const dt = Math.max(now - lastTimeRef.current, 1);
-    
+
     const directionFactor = isAr ? -1 : 1;
 
     velocityRef.current = (((currentX - lastXRef.current) * directionFactor) / dt) * 15;
@@ -229,7 +226,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
     lastTimeRef.current = now;
 
     const setWidth = singleSetWidthRef.current;
-    let newPos = dragStartPosRef.current - (deltaX * directionFactor);
+    let newPos = dragStartPosRef.current - deltaX * directionFactor;
 
     if (setWidth > 0) {
       if (newPos >= setWidth) {
@@ -253,7 +250,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
   const handleStep = (direction: "prev" | "next") => {
     const cardWidth = 280;
     const setWidth = singleSetWidthRef.current;
-    
+
     const isNext = direction === "next";
     const shouldIncrease = isAr ? !isNext : isNext;
 
@@ -261,8 +258,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
       positionRef.current = (positionRef.current + cardWidth) % (setWidth || 1);
     } else {
       positionRef.current =
-        ((positionRef.current - cardWidth) % (setWidth || 1) + (setWidth || 1)) %
-        (setWidth || 1);
+        (((positionRef.current - cardWidth) % (setWidth || 1)) + (setWidth || 1)) % (setWidth || 1);
     }
   };
 
@@ -292,9 +288,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
             className="mt-1 text-xl font-bold tracking-tight md:text-2xl"
             style={{ color: "var(--iw-text-primary, #0b1628)" }}
           >
-            {isAr
-              ? "الموردون المعتمدون وشركاء المواد"
-              : "Approved Suppliers & Material Partners"}
+            {isAr ? "الموردون المعتمدون وشركاء المواد" : "Approved Suppliers & Material Partners"}
           </h3>
           <p
             className="mt-1 max-w-xl text-xs md:text-sm"
@@ -307,7 +301,10 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
         </div>
 
         {/* View mode toggle & playback controls */}
-        <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-2 sm:pt-0" dir="ltr">
+        <div
+          className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-2 sm:pt-0"
+          dir="ltr"
+        >
           {/* View Mode Toggle: Ribbon vs Grid */}
           <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
             <button
@@ -353,22 +350,10 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
               <button
                 type="button"
                 onClick={() => setIsPlaying((prev) => !prev)}
-                aria-label={
-                  isPlaying
-                    ? isAr
-                      ? "إيقاف مؤقت"
-                      : "Pause"
-                    : isAr
-                    ? "تشغيل"
-                    : "Play"
-                }
+                aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
               >
-                {isPlaying ? (
-                  <Pause className="h-3.5 w-3.5" />
-                ) : (
-                  <Play className="h-3.5 w-3.5" />
-                )}
+                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
               </button>
 
               <button
@@ -455,12 +440,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
       {viewMode === "grid" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-2">
           {filteredSuppliers.map((supplier) => (
-            <SupplierCard
-              key={supplier.id}
-              supplier={supplier}
-              isAr={isAr}
-              viewMode="grid"
-            />
+            <SupplierCard key={supplier.id} supplier={supplier} isAr={isAr} viewMode="grid" />
           ))}
         </div>
       )}

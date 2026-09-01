@@ -162,17 +162,7 @@
     font-family: var(--font-sans);
   }
 
-  /* Global custom cursor rules */
-  html.iw-custom-cursor-active {
-    cursor: none !important;
-  }
-  
-  html.iw-custom-cursor-active *,
-  html.iw-custom-cursor-active a,
-  html.iw-custom-cursor-active button,
-  html.iw-custom-cursor-active input {
-    cursor: none !important;
-  }
+
 
   /* RTL Typography refinements — prevent descender collisions in Arabic */
   html[dir="rtl"] .display-xl {

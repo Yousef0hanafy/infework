@@ -1,13 +1,6 @@
 // Infeworks — interactive 5-stage engineering delivery lifecycle.
 import { useState } from "react";
-import {
-  CheckCircle2,
-  ClipboardCheck,
-  Hammer,
-  Ruler,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
+import { CheckCircle2, ClipboardCheck, Hammer, Ruler, Wrench, type LucideIcon } from "lucide-react";
 
 type Stage = {
   id: string;
@@ -29,7 +22,10 @@ const STAGES: Stage[] = [
     },
     deliverables: [
       { en: "Topographic survey and site levels", ar: "الرفع المساحي ومناسيب الموقع" },
-      { en: "Raw water / effluent laboratory analysis", ar: "التحليل المعملي للمياه الخام أو الصرف" },
+      {
+        en: "Raw water / effluent laboratory analysis",
+        ar: "التحليل المعملي للمياه الخام أو الصرف",
+      },
       { en: "Load, capacity, and duty definition", ar: "تحديد الأحمال والطاقة ونقطة التشغيل" },
       { en: "Utility, access, and permit review", ar: "مراجعة المرافق والوصول والتصاريح" },
     ],
@@ -48,8 +44,14 @@ const STAGES: Stage[] = [
     },
     deliverables: [
       { en: "Process flow diagram and mass balance", ar: "مخطط سير العمليات والموازنة الكتلية" },
-      { en: "Hydraulic calculations and pump selection", ar: "الحسابات الهيدروليكية واختيار المضخات" },
-      { en: "Civil, mechanical, and electrical drawings", ar: "الرسومات المدنية والميكانيكية والكهربائية" },
+      {
+        en: "Hydraulic calculations and pump selection",
+        ar: "الحسابات الهيدروليكية واختيار المضخات",
+      },
+      {
+        en: "Civil, mechanical, and electrical drawings",
+        ar: "الرسومات المدنية والميكانيكية والكهربائية",
+      },
       { en: "I/O list and interlock matrix", ar: "قائمة المداخل والمخارج ومصفوفة التعاشق" },
     ],
     qa: {
@@ -69,7 +71,10 @@ const STAGES: Stage[] = [
       { en: "Skid and manifold fabrication", ar: "تصنيع الوحدات المجمعة والمجمعات" },
       { en: "Tanks, chambers, and civil structures", ar: "الخزانات والغرف والمنشآت المدنية" },
       { en: "Piping, valve trains, and supports", ar: "المواسير ومجموعات المحابس والحوامل" },
-      { en: "MCC / VFD panel assembly and wiring", ar: "تجميع لوحات MCC ومحولات الترددات والتوصيلات" },
+      {
+        en: "MCC / VFD panel assembly and wiring",
+        ar: "تجميع لوحات MCC ومحولات الترددات والتوصيلات",
+      },
     ],
     qa: {
       en: "QA gate — material certificates, weld and coating checks, and factory acceptance test on every panel.",
@@ -86,9 +91,15 @@ const STAGES: Stage[] = [
     },
     deliverables: [
       { en: "Hydrostatic pressure and leak testing", ar: "اختبارات الضغط الهيدروستاتيكي والتسريب" },
-      { en: "Loop checks and functional interlock tests", ar: "فحص الحلقات واختبار التعاشق الوظيفي" },
+      {
+        en: "Loop checks and functional interlock tests",
+        ar: "فحص الحلقات واختبار التعاشق الوظيفي",
+      },
       { en: "Performance run at contract capacity", ar: "تجربة أداء بالطاقة التعاقدية" },
-      { en: "Product-water / effluent lab verification", ar: "التحقق المعملي للمياه المنتجة أو الصرف" },
+      {
+        en: "Product-water / effluent lab verification",
+        ar: "التحقق المعملي للمياه المنتجة أو الصرف",
+      },
     ],
     qa: {
       en: "QA gate — 72-hour continuous run and third-party lab result before provisional acceptance.",
@@ -141,18 +152,14 @@ export default function LifecycleFlow({ isAr }: { isAr: boolean }) {
               className="group relative border-b border-e px-6 py-8 text-start transition-all duration-500 hover:-translate-y-0.5"
               style={{
                 borderColor: "var(--iw-border)",
-                backgroundColor: isActive
-                  ? "var(--iw-dark-bg)"
-                  : "var(--iw-surface)",
+                backgroundColor: isActive ? "var(--iw-dark-bg)" : "var(--iw-surface)",
                 color: isActive ? "var(--iw-dark-text)" : "var(--iw-text-primary)",
               }}
             >
               <span
                 className="label-mono"
                 style={{
-                  color: isActive
-                    ? "var(--iw-dark-accent)"
-                    : "var(--iw-text-secondary)",
+                  color: isActive ? "var(--iw-dark-accent)" : "var(--iw-text-secondary)",
                 }}
               >
                 {s.id}
@@ -163,9 +170,7 @@ export default function LifecycleFlow({ isAr }: { isAr: boolean }) {
               <span
                 className="mt-6 block h-px w-full origin-left transition-transform duration-500"
                 style={{
-                  backgroundColor: isActive
-                    ? "var(--iw-dark-accent)"
-                    : "var(--iw-border)",
+                  backgroundColor: isActive ? "var(--iw-dark-accent)" : "var(--iw-border)",
                   transform: isActive ? "scaleX(1)" : "scaleX(0.25)",
                 }}
               />
@@ -187,15 +192,9 @@ export default function LifecycleFlow({ isAr }: { isAr: boolean }) {
           className="border-b p-8 md:p-10 lg:border-b-0 lg:border-e"
           style={{ borderColor: "var(--iw-border)" }}
         >
-          <Icon
-            className="h-8 w-8"
-            strokeWidth={1.25}
-            style={{ color: "var(--iw-accent)" }}
-          />
+          <Icon className="h-8 w-8" strokeWidth={1.25} style={{ color: "var(--iw-accent)" }} />
           <h3 className="display-md mt-8 text-2xl">{t(stage.name)}</h3>
-          <p className="body-reading mt-4 text-[var(--iw-text-secondary)]">
-            {t(stage.summary)}
-          </p>
+          <p className="body-reading mt-4 text-[var(--iw-text-secondary)]">{t(stage.summary)}</p>
         </div>
 
         <div className="p-8 md:p-10">

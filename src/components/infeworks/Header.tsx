@@ -13,7 +13,6 @@ const NAV = [
   { to: "/$locale/contact" as const, en: "Contact", ar: "اتصل بنا" },
 ];
 
-
 export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const locale: Locale = pathname.startsWith("/ar") ? "ar" : "en";
@@ -52,8 +51,7 @@ export function Header() {
                 activeProps={{
                   style: {
                     color: "var(--iw-accent)",
-                    backgroundColor:
-                      "color-mix(in oklab, var(--iw-accent) 10%, transparent)",
+                    backgroundColor: "color-mix(in oklab, var(--iw-accent) 10%, transparent)",
                   },
                 }}
                 className="rounded-full px-4 py-2 text-sm transition-all duration-300 hover:bg-[color-mix(in_oklab,var(--iw-text-primary)_6%,transparent)] hover:text-[var(--iw-text-primary)]"
@@ -66,7 +64,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-
 
           <div className="ms-auto flex items-center gap-3 md:ms-0">
             <a
@@ -86,6 +83,7 @@ export function Header() {
             <Link
               to="/$locale/contact"
               params={{ locale }}
+              search={{ type: "technical" }}
               className="hidden rounded-sm px-6 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--iw-accent-hover)] hover:shadow-[0_10px_28px_-8px_color-mix(in_oklab,var(--iw-accent)_75%,transparent)] md:inline-block"
               style={{
                 backgroundColor: "var(--iw-accent)",
@@ -132,6 +130,7 @@ export function Header() {
           <Link
             to="/$locale/contact"
             params={{ locale }}
+            search={{ type: "technical" }}
             onClick={() => setOpen(false)}
             className="mt-4 rounded-sm px-5 py-3.5 text-center text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[var(--iw-accent-hover)]"
             style={{

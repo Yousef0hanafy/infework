@@ -1,0 +1,43 @@
+﻿kb_id,year,arabic_name,type,images_count,image_source_folder,extracted_docs_count,reconciliation_status,action,slug,db_status
+INF-P-2020-001,2020,محطات تنقية ومعالجة مياه وصرف صحي - بني سويف,water_wastewater,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,47,new_candidate,import_as_new,proj-2020-001,
+INF-P-2020-002,2020,أعمال ميكانيكية وكهربائية لتنقية المياه - قبلي قارون,mechanical_electrical,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,128,new_candidate,import_as_new,proj-2020-002,
+INF-P-2020-003,2020,محطات تحلية وتنقية متعددة المواقع - مكمل 1,desalination_water,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,100,new_candidate,import_as_new,proj-2020-003,
+INF-P-2020-004,2020,محطات معالجة صرف متعددة المواقع - مكمل 2,wastewater,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,117,new_candidate,import_as_new,proj-2020-004,
+INF-P-2020-005,2020,محطة معالجة صرف صناعي - شبرا شهاب,industrial_wastewater,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,112,new_candidate,import_as_new,proj-2020-005,
+INF-P-2020-006,2020,محطة تحلية لمصنع الرخام,desalination,92,03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1,140,new_candidate,import_as_new,proj-2020-006,
+INF-P-2020-007,2020,محطة تنقية مياه شرب - مزرعة توشكي,water_treatment,0,01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف,100,new_candidate,import_as_new,proj-2020-007,
+INF-P-2021-001,2021,إنشاء ثلاجات - العامرية,industrial_facility,0,01- انشاء ثلاجات بقطاع العامريه,0,confirmed_duplicate,published_in_production,ameriya-cold-storage,published
+INF-P-2021-002,2021,محطة معالجة المدينة الغذائية بالسادات,wastewater,0,02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020,29,confirmed_duplicate,published_in_production,food-city-treatment,published
+INF-P-2021-003,2021,محطة تحلية بالسادات - مصنع المكرونة,desalination,0,02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020,29,confirmed_duplicate,published_in_production,sadat-city-ro,published
+INF-P-2021-004,2021,أعمال تغذية وصرف - مزرعة الماعز قبلي قارون,water_wastewater,0,04-أعمال التغذية و الصرف لمشروع انشاء مزرعة الماعز بقبلي قارون(عقد رقم 48-2021),85,new_candidate,import_as_new,proj-2021-004,
+INF-P-2021-005,2021,محطات صرف ومياه - توشكى مكمل,water_wastewater,23,05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل,50,confirmed_duplicate,published_in_production,toshka-pumping-stations,published
+INF-P-2021-006,2021,محطات مياه وصرف - توشكى مستجدة,water_wastewater,23,05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل,60,new_candidate,import_as_new,proj-2021-006,
+INF-P-2021-007,2021,أعمال محطات غاز مصر,gas_station,0,04-أعمال التغذية و الصرف لمشروع انشاء مزرعة الماعز بقبلي قارون(عقد رقم 48-2021),13,new_candidate,import_as_new,proj-2021-007,
+INF-P-2022-001,2022,محطة رفع - قرية أولاد الشيخ,pumping_station,8,01- محطه رفع بقريه اولاد الشيخ,46,confirmed_duplicate,published_in_production,awlad-el-sheikh-pumping,published
+INF-P-2022-002,2022,تعويضات - شبرا شهاب,claims_compensation,0,تعويضات شبرا شهاب,3,new_candidate,import_as_new,proj-2022-002,
+INF-P-2022-003,2022,محطات صرف ومياه توشكا - الاستصلاح الزراعي,water_wastewater,3,محطات توشكا محطتي صرف و مياه (الاستصلاح الزراعي) عقد رقم 39-2022,90,new_candidate,import_as_new,proj-2022-003,
+INF-P-2023-001,2023,جزيرة العاصمة,infrastructure,0,01-جزيرة العاصمة,0,new_candidate,import_as_new,proj-2023-001,
+INF-P-2023-002,2023,Basket screen لبيارات توشكي,mechanical_screen,0,02-الباسكت سكرين لبيارات توشكي,3,new_candidate,import_as_new,proj-2023-002,
+INF-P-2024-001,2024,شراء رمال,procurement,0,01-شراء رمال,0,new_candidate,import_as_new,proj-2024-001,
+INF-P-2024-002,2024,تأريض أرضي لمحطات كارجاس,electrical,0,02-محطات كارجاس تأريض ارضي,1,new_candidate,import_as_new,proj-2024-002,
+INF-P-2024-003,2024,محطة الساحل الشمالي 500 م3,water_treatment,0,03-مشروع الساحل الشمالى محطة 500م3,4,probable_duplicate,published_in_production,north-coast-desalination,published
+INF-P-2024-004,2024,ثلاجة التمور,industrial_facility,0,04-تلاجة التمور,0,new_candidate,import_as_new,proj-2024-004,
+INF-P-2024-005,2024,تغذية مطار العريش,infrastructure,206,05-مشروع تغذيه مطار العريش العرجاني جروب,140,confirmed_duplicate,published_in_production,arish-water-supply,published
+INF-P-2024-006,2024,محطة رفع منشأة ناصر الجديدة,pumping_station,0,06-مشروع محطة رفع منشاه ناصر الجديدة,3,new_candidate,import_as_new,proj-2024-006,
+INF-P-2024-007,2024,نويبع,infrastructure,0,07- نويبع,4,new_candidate,import_as_new,proj-2024-007,
+INF-P-2024-008,2024,محطة معالجة مياه ثلاجات البطاطس - مستقبل مصر,industrial_wastewater,0,08- محطة معالجة مياه ثلاجات البطاطس مستقبل مصر,2,new_candidate,import_as_new,proj-2024-008,
+INF-P-2024-009,2024,رفع كفاءة ملعب المريخ البورسعيدي,civil_works,0,09-رفع كفاءه ملعب المريخ البورسعيدي,6,new_candidate,import_as_new,proj-2024-009,
+INF-P-2025-001,2025,مسجد قبس من نور,building,3,1- مسجد قبس من نور,67,new_candidate,import_as_new,proj-2025-001,
+INF-P-2025-002,2025,البيوت البدوية - رفح,building_housing,269,2- البيوت البدوية رفح,264,new_candidate,import_as_new,proj-2025-002,
+INF-P-2025-003,2025,مدينة السيسي - عقد الصرف,wastewater,341,3- مدينة السيسى عقد الصرف,234,new_candidate,import_as_new,proj-2025-003,
+INF-P-2025-004,2025,مدينة السيسي - عقد المياه,water_supply,341,3- مدينة السيسى عقد الصرف,234,new_candidate,import_as_new,proj-2025-004,
+INF-P-2025-005,2025,مشاريع شمال سيناء - DC,infrastructure,0,DC مشاريع شمال سيناء,24,new_candidate,import_as_new,proj-2025-005,
+INF-P-2026-001,2026,المعهد الأزهري بالمنيا - قبس من نور,building,0,01- المعهد الازهري المنيا-قبس من نور,5,new_candidate,import_as_new,proj-2026-001,
+INF-P-2026-002,2026,مزرعة أبو منقار,agriculture_facility,0,02-مزرعة ابو منقار,12,new_candidate,import_as_new,proj-2026-002,
+INF-P-2026-003,2026,خط تغذية مدينة السلام من رافع الشلاّء,water_supply,0,03- مشروع خط تغذية مدينة السلام من رافع الشلاء,87,new_candidate,import_as_new,proj-2026-003,
+INF-P-2026-004,2026,الوحدة الصحية - حياة كريمة,building,0,04- الوحدة الصحية - حياة كريمة,9,new_candidate,import_as_new,proj-2026-004,
+INF-P-2026-005,2026,Bianchi,unknown,0,05- Bianchi,21,new_candidate,import_as_new,proj-2026-005,
+INF-P-2026-006,2026,آبار الريف المصري - المنيا,water_wells,0,01- المعهد الازهري المنيا-قبس من نور,12,new_candidate,import_as_new,proj-2026-006,
+INF-P-2026-007,2026,شبكات مزرعة الأبقار - مدينة السلام,agriculture_infrastructure,0,02-مزرعة ابو منقار,87,new_candidate,import_as_new,proj-2026-007,
+INF-P-2026-008,2026,بالم هيلز,infrastructure,0,08- بالم هيلز,7,new_candidate,import_as_new,proj-2026-008,
+INF-P-2026-009,2026,مقلب أبو زعبل,waste_management,0,,6,new_candidate,import_as_new,proj-2026-009,

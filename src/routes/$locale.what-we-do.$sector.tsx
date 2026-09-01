@@ -1,5 +1,18 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CheckCircle2, Droplets, Gauge, Recycle, Sprout, Wrench, Zap, type LucideIcon } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Droplets,
+  Gauge,
+  Recycle,
+  Route as RouteIcon,
+  Sprout,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 
 import SectorSchematic from "@/components/infeworks/SectorSchematic";
 import { getSector } from "@/lib/sectors";
@@ -28,7 +41,12 @@ export const Route = createFileRoute("/$locale/what-we-do/$sector")({
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
+        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
       ],
     };
   },
@@ -41,6 +59,8 @@ const ICONS: Record<string, LucideIcon> = {
   gauge: Gauge,
   sprout: Sprout,
   zap: Zap,
+  route: RouteIcon,
+  building: Building2,
 };
 
 function SectorPage() {
@@ -51,12 +71,35 @@ function SectorPage() {
   const sector = getSector(slug)!;
 
   const allProjects = published && published.length > 0 ? published : getFlagshipProjects(locale);
-  const relatedProjects = allProjects.filter((p) => p.capability_slugs.includes(slug));
+  const relatedProjects = allProjects.filter((p) => p.capability_slugs?.includes(slug));
 
   const SectorIcon = ICONS[sector.icon] ?? Droplets;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: isAr ? sector.ar : sector.en,
+    description: isAr ? sector.defAr : sector.defEn,
+    provider: {
+      "@type": "Corporation",
+      name: "Infeworks",
+      url: "https://infeworks.com",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Egypt",
+    },
+    url: `https://infeworks.com/${locale}/what-we-do/${slug}`,
+  };
+
   return (
     <div style={isAr ? { fontFamily: "var(--font-arabic)" } : undefined}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
       {/* SECTION 1: HERO & SCHEMATIC */}
       <section className="iw-section-dark">
         <div className="mx-auto w-full max-w-[1400px] px-6 pt-28 pb-20 md:px-10 md:pt-40">
@@ -118,10 +161,7 @@ function SectorPage() {
             </p>
           </div>
 
-          <div
-            className="mt-14 border-t border-s"
-            style={{ borderColor: "var(--iw-border)" }}
-          >
+          <div className="mt-14 border-t border-s" style={{ borderColor: "var(--iw-border)" }}>
             {sector.process.map((stage, i) => (
               <div
                 key={stage.key}
@@ -230,10 +270,11 @@ function SectorPage() {
                     key={p.project_id}
                     to="/$locale/work/$slug"
                     params={{ locale, slug: p.slug }}
+                    preload={false}
                     className="group flex flex-col justify-between border bg-[var(--iw-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     style={{ borderColor: "var(--iw-border)" }}
                   >
-                    {meta ? (
+                    {meta?.capacity ? (
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
@@ -251,12 +292,24 @@ function SectorPage() {
                           {isAr ? meta.capacity.ar : meta.capacity.en}
                         </span>
                       </div>
+                    ) : meta ? (
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
+                        <img
+                          src={meta.cover}
+                          alt={p.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
                     ) : null}
                     <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
                       <div>
                         <h3 className="display-md text-xl md:text-2xl">{p.title}</h3>
-                        {meta ? (
-                          <p className="label-mono mt-2 text-xs" style={{ color: "var(--iw-accent)" }}>
+                        {meta?.client ? (
+                          <p
+                            className="label-mono mt-2 text-xs"
+                            style={{ color: "var(--iw-accent)" }}
+                          >
                             {isAr ? meta.client.ar : meta.client.en}
                           </p>
                         ) : null}
@@ -334,8 +387,7 @@ function SectorPage() {
             <a
               href="/downloads/infeworks-company-profile.pdf"
               download="infeworks-company-profile.pdf"
-              className="iw-glass-dark inline-flex items-center gap-3 rounded-sm px-8 py-4 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:-translate-y-0.5"
-              style={{ color: "var(--iw-dark-text)" }}
+              className="iw-glass-dark inline-flex items-center gap-3 rounded-sm px-8 py-4 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-white hover:-translate-y-0.5 text-[var(--iw-dark-text)]"
             >
               {t("Download Company Profile", "تحميل ملف الشركة")}
             </a>

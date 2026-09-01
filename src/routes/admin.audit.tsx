@@ -78,7 +78,11 @@ function AdminAudit() {
             </tr>
           ) : (data?.length ?? 0) === 0 ? (
             <tr>
-              <td colSpan={5} className="px-5 py-10 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
+              <td
+                colSpan={5}
+                className="px-5 py-10 text-sm"
+                style={{ color: "var(--iw-text-secondary)" }}
+              >
                 No administrative actions recorded yet.
               </td>
             </tr>
@@ -95,7 +99,9 @@ function AdminAudit() {
                 </Td>
                 <Td className="font-mono text-xs">{event.target_table}</Td>
                 <Td className="text-xs">
-                  <span style={{ color: "var(--iw-text-secondary)" }}>{event.actor_email ?? "—"}</span>
+                  <span style={{ color: "var(--iw-text-secondary)" }}>
+                    {event.actor_email ?? "—"}
+                  </span>
                 </Td>
                 <Td className="max-w-[320px] text-xs">
                   <span style={{ color: "var(--iw-text-secondary)" }}>{event.detail ?? "—"}</span>

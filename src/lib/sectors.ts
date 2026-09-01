@@ -1,12 +1,12 @@
 // Infeworks — capability sectors: bilingual technical content
 
-
 export type SectorSlug =
   | "water-treatment"
   | "wastewater"
-  | "pumping"
-  | "irrigation"
-  | "electrical-control";
+  | "pumping-wells"
+  | "infrastructure-networks"
+  | "civil-buildings"
+  | "industrial-mep";
 
 export type Bi = { en: string; ar: string };
 
@@ -28,7 +28,7 @@ export type Sector = {
   ar: string;
   defEn: string;
   defAr: string;
-  icon: "droplets" | "recycle" | "gauge" | "sprout" | "zap";
+  icon: "droplets" | "recycle" | "gauge" | "route" | "building" | "zap";
   metric: Bi;
   intro: Bi;
   process: ProcessStage[];
@@ -59,9 +59,18 @@ export const SECTORS: Sector[] = [
           ar: "توصيف المصدر، وإنشاء المأخذ، والتصفية، ونقل المياه الخام بحسب أقصى حمل تشغيلي.",
         },
         steps: [
-          { en: "Raw water sampling & full lab analysis", ar: "أخذ العينات والتحليل المعملي الكامل" },
-          { en: "Intake civil works and coarse screening", ar: "الأعمال المدنية للمأخذ والتصفية الخشنة" },
-          { en: "Raw water transfer pumps and surge control", ar: "مضخات نقل المياه الخام والتحكم في الصدمات" },
+          {
+            en: "Raw water sampling & full lab analysis",
+            ar: "أخذ العينات والتحليل المعملي الكامل",
+          },
+          {
+            en: "Intake civil works and coarse screening",
+            ar: "الأعمال المدنية للمأخذ والتصفية الخشنة",
+          },
+          {
+            en: "Raw water transfer pumps and surge control",
+            ar: "مضخات نقل المياه الخام والتحكم في الصدمات",
+          },
         ],
       },
       {
@@ -72,8 +81,14 @@ export const SECTORS: Sector[] = [
           ar: "الترويب والترسيب والترشيح لحماية الأغشية من الانسداد.",
         },
         steps: [
-          { en: "Dosing skids: coagulant, antiscalant, pH", ar: "وحدات الجرعات: مروب ومانع ترسيب وضبط pH" },
-          { en: "Multimedia and activated carbon filters", ar: "مرشحات الوسائط المتعددة والكربون المنشط" },
+          {
+            en: "Dosing skids: coagulant, antiscalant, pH",
+            ar: "وحدات الجرعات: مروب ومانع ترسيب وضبط pH",
+          },
+          {
+            en: "Multimedia and activated carbon filters",
+            ar: "مرشحات الوسائط المتعددة والكربون المنشط",
+          },
           { en: "5 µm cartridge guard filtration", ar: "ترشيح خرطوشي حماية 5 ميكرون" },
         ],
       },
@@ -86,8 +101,14 @@ export const SECTORS: Sector[] = [
         },
         steps: [
           { en: "High-pressure pumps and pressure vessels", ar: "مضخات الضغط العالي وأوعية الضغط" },
-          { en: "Membrane array staging and recovery balance", ar: "ترتيب مراحل الأغشية وموازنة الاسترداد" },
-          { en: "CIP loop and permeate quality trending", ar: "دائرة التنظيف الكيميائي ومتابعة جودة الناتج" },
+          {
+            en: "Membrane array staging and recovery balance",
+            ar: "ترتيب مراحل الأغشية وموازنة الاسترداد",
+          },
+          {
+            en: "CIP loop and permeate quality trending",
+            ar: "دائرة التنظيف الكيميائي ومتابعة جودة الناتج",
+          },
         ],
       },
       {
@@ -180,7 +201,10 @@ export const SECTORS: Sector[] = [
         steps: [
           { en: "Network and lift station design", ar: "تصميم الشبكة ومحطات الرفع" },
           { en: "Bar screens and grit chambers", ar: "المصافي القضيبية وغرف الرمال" },
-          { en: "Grease traps for food-industry loads", ar: "مصائد الشحوم لأحمال الصناعات الغذائية" },
+          {
+            en: "Grease traps for food-industry loads",
+            ar: "مصائد الشحوم لأحمال الصناعات الغذائية",
+          },
         ],
       },
       {
@@ -205,7 +229,10 @@ export const SECTORS: Sector[] = [
         },
         steps: [
           { en: "Aeration blowers and diffuser grids", ar: "نافخات التهوية وشبكات الناشرات" },
-          { en: "Biomass control and sludge age management", ar: "التحكم في الكتلة الحيوية وعمر الحمأة" },
+          {
+            en: "Biomass control and sludge age management",
+            ar: "التحكم في الكتلة الحيوية وعمر الحمأة",
+          },
           { en: "Secondary clarification and return sludge", ar: "الترسيب الثانوي وإرجاع الحمأة" },
         ],
       },
@@ -230,7 +257,10 @@ export const SECTORS: Sector[] = [
           ar: "تجفيف الحمأة وتحديد مسار التخلص وسجل العينات المطلوب من الجهة الرقابية.",
         },
         steps: [
-          { en: "Thickening and drying beds or filter press", ar: "التكثيف وأحواض التجفيف أو المكبس" },
+          {
+            en: "Thickening and drying beds or filter press",
+            ar: "التكثيف وأحواض التجفيف أو المكبس",
+          },
           { en: "Effluent sampling and logbooks", ar: "أخذ عينات الصرف وسجلات التشغيل" },
           { en: "Discharge permit documentation", ar: "مستندات تصريح الصرف" },
         ],
@@ -275,9 +305,9 @@ export const SECTORS: Sector[] = [
     ],
   },
   {
-    slug: "pumping",
-    en: "Pumping",
-    ar: "الضخ",
+    slug: "pumping-wells",
+    en: "Pumping & Deep Wells",
+    ar: "محطات الرفع والآبار العميقة",
     defEn:
       "Pump stations, boosters, and hydraulic systems sized to the real duty point — not to the nameplate.",
     defAr:
@@ -312,7 +342,10 @@ export const SECTORS: Sector[] = [
         steps: [
           { en: "Pump curve matching and staging", ar: "مطابقة منحنى المضخة وترتيب المراحل" },
           { en: "NPSH margin and cavitation check", ar: "هامش الشفط وفحص التكهف" },
-          { en: "Motor, VFD, and standby duty split", ar: "المحرك ومحول الترددات وتوزيع الاحتياطي" },
+          {
+            en: "Motor, VFD, and standby duty split",
+            ar: "المحرك ومحول الترددات وتوزيع الاحتياطي",
+          },
         ],
       },
       {
@@ -323,7 +356,10 @@ export const SECTORS: Sector[] = [
           ar: "الغرفة المدنية والمجمع الميكانيكي ومجموعة المحابس بالتصنيع والتركيب الذاتي.",
         },
         steps: [
-          { en: "Wet well / dry chamber civil works", ar: "الأعمال المدنية للبئر الرطب والغرفة الجافة" },
+          {
+            en: "Wet well / dry chamber civil works",
+            ar: "الأعمال المدنية للبئر الرطب والغرفة الجافة",
+          },
           { en: "Manifold fabrication and alignment", ar: "تصنيع المجمعات وضبط الاستقامة" },
           { en: "Valves, NRVs, and pressure protection", ar: "المحابس ومنع الرجوع وحماية الضغط" },
         ],
@@ -337,7 +373,10 @@ export const SECTORS: Sector[] = [
         },
         steps: [
           { en: "Hydrostatic pressure test of lines", ar: "اختبار الضغط الهيدروستاتيكي للخطوط" },
-          { en: "Flow / head verification against curve", ar: "التحقق من التدفق والضغط مقابل المنحنى" },
+          {
+            en: "Flow / head verification against curve",
+            ar: "التحقق من التدفق والضغط مقابل المنحنى",
+          },
           { en: "Vibration and temperature baseline", ar: "قياس مرجعي للاهتزاز والحرارة" },
         ],
       },
@@ -394,132 +433,12 @@ export const SECTORS: Sector[] = [
     ],
   },
   {
-    slug: "irrigation",
-    en: "Irrigation",
-    ar: "الري",
+    slug: "industrial-mep",
+    en: "Industrial & Electromechanical",
+    ar: "الأنظمة الصناعية والكهروميكانيكية",
     defEn:
-      "Agricultural irrigation networks, filtration, and field distribution for reclamation-scale farmland.",
-    defAr:
-      "شبكات الري الزراعي والترشيح والتوزيع الحقلي لمشروعات الاستصلاح واسعة النطاق.",
-    icon: "sprout",
-    metric: { en: "Desert reclamation duty", ar: "أعمال استصلاح صحراوي" },
-    intro: {
-      en: "Reclamation projects fail on uniformity, not on flow. We design head-control stations, filtration matched to the water source, and mainline hydraulics that hold emitter pressure across the block. Fertigation, automation, and flushing regimes are built in so the network stays clean through a full season.",
-      ar: "مشروعات الاستصلاح تفشل بسبب انتظام التوزيع لا بسبب التدفق. نصمم محطات التحكم الرئيسية والترشيح المطابق لمصدر المياه والهيدروليكا الرئيسية التي تحفظ ضغط النقاطات على كامل القطاع. ويُدمج التسميد والتشغيل الآلي وبرامج الغسيل ليبقى النظام نظيفًا طوال الموسم.",
-    },
-    process: [
-      {
-        key: "survey",
-        name: { en: "Survey & Water Source", ar: "الرفع المساحي ومصدر المياه" },
-        detail: {
-          en: "Topography, soil, crop water demand, and source quality define the network.",
-          ar: "الطبوغرافيا والتربة والاحتياج المائي للمحصول وجودة المصدر هي محددات الشبكة.",
-        },
-        steps: [
-          { en: "Topographic and soil survey", ar: "الرفع المساحي وفحص التربة" },
-          { en: "Crop water requirement calculation", ar: "حساب الاحتياج المائي للمحصول" },
-          { en: "Source yield and quality testing", ar: "اختبار غزارة المصدر وجودته" },
-        ],
-      },
-      {
-        key: "headstation",
-        name: { en: "Head Control Station", ar: "محطة التحكم الرئيسية" },
-        detail: {
-          en: "Pumping, filtration, and fertigation assembled as one controlled node.",
-          ar: "الضخ والترشيح والتسميد في وحدة تحكم واحدة.",
-        },
-        steps: [
-          { en: "Sand separators and media filters", ar: "فواصل الرمال ومرشحات الوسائط" },
-          { en: "Automatic backflush controller", ar: "متحكم الغسيل العكسي الآلي" },
-          { en: "Fertigation dosing and mixing", ar: "جرعات التسميد والخلط" },
-        ],
-      },
-      {
-        key: "network",
-        name: { en: "Mainline & Submains", ar: "الخطوط الرئيسية والفرعية" },
-        detail: {
-          en: "Pipe sizing and zoning that keep pressure variation inside emitter tolerance.",
-          ar: "تحديد أقطار المواسير وتقسيم القطاعات بما يحفظ تغير الضغط داخل حدود النقاطات.",
-        },
-        steps: [
-          { en: "HDPE / PVC mainline installation", ar: "تركيب الخطوط الرئيسية HDPE و PVC" },
-          { en: "Zone valves and pressure regulation", ar: "محابس القطاعات وتنظيم الضغط" },
-          { en: "Air valves and flushing points", ar: "محابس الهواء ونقاط الغسيل" },
-        ],
-      },
-      {
-        key: "field",
-        name: { en: "Field Distribution", ar: "التوزيع الحقلي" },
-        detail: {
-          en: "Drip or pivot layout verified by measured uniformity in the field.",
-          ar: "تخطيط التنقيط أو المحاور مع التحقق من انتظام التوزيع بالقياس الحقلي.",
-        },
-        steps: [
-          { en: "Dripline / sprinkler layout", ar: "تخطيط خطوط التنقيط والرشاشات" },
-          { en: "Emitter uniformity field test", ar: "اختبار انتظام النقاطات بالحقل" },
-          { en: "Block scheduling and automation", ar: "برمجة القطاعات والتشغيل الآلي" },
-        ],
-      },
-      {
-        key: "om",
-        name: { en: "Season Support", ar: "الدعم الموسمي" },
-        detail: {
-          en: "Flushing, chemical cleaning, and pressure audits through the growing season.",
-          ar: "الغسيل والتنظيف الكيميائي ومراجعات الضغط خلال الموسم الزراعي.",
-        },
-        steps: [
-          { en: "Scheduled line flushing", ar: "غسيل الخطوط المجدول" },
-          { en: "Acid / chlorine shock treatment", ar: "المعالجة الصدمية بالحمض أو الكلور" },
-          { en: "Pressure and uniformity re-audit", ar: "إعادة مراجعة الضغط والانتظام" },
-        ],
-      },
-    ],
-    equipment: [
-      {
-        category: { en: "Intake", ar: "المأخذ" },
-        items: {
-          en: "Wells, canal intakes, suction screens, sand separators",
-          ar: "الآبار ومآخذ الترع ومصافي السحب وفواصل الرمال",
-        },
-      },
-      {
-        category: { en: "Treatment Train", ar: "خط المعالجة" },
-        items: {
-          en: "Media filters, disc/screen filters, automatic backflush, fertigation units",
-          ar: "مرشحات الوسائط والمرشحات القرصية والغسيل العكسي الآلي ووحدات التسميد",
-        },
-      },
-      {
-        category: { en: "Pumping Skids", ar: "وحدات الضخ" },
-        items: {
-          en: "Booster sets, VFD-controlled irrigation pumps, pressure-sustaining valves",
-          ar: "مجموعات التعزيز ومضخات الري بمحولات الترددات ومحابس تثبيت الضغط",
-        },
-      },
-      {
-        category: { en: "SCADA & Controls", ar: "التحكم والسكادا" },
-        items: {
-          en: "Irrigation controllers, solenoid zone valves, flow and pressure sensors",
-          ar: "متحكمات الري ومحابس القطاعات الكهرومغناطيسية وحساسات التدفق والضغط",
-        },
-      },
-      {
-        category: { en: "O&M", ar: "التشغيل والصيانة" },
-        items: {
-          en: "Seasonal flushing, filter servicing, emitter replacement, agronomy coordination",
-          ar: "الغسيل الموسمي وصيانة المرشحات واستبدال النقاطات والتنسيق الزراعي",
-        },
-      },
-    ],
-  },
-  {
-    slug: "electrical-control",
-    en: "Electrical & Control",
-    ar: "الكهرباء والتحكم",
-    defEn:
-      "Power distribution, MCC and VFD panels, PLC logic, and SCADA supervision built for plant reality.",
-    defAr:
-      "توزيع الكهرباء ولوحات MCC ومحولات الترددات وبرمجة PLC وإشراف SCADA مصممة لواقع المحطة.",
+      "Agro-industrial cold storage MEP, cooling loops, hazardous area electrical infrastructure (ATEX), and SCADA control panels.",
+    defAr: "مرافق المشروعات الزراعية والصناعية والتبريد والبنية التحتية الكهربائية ولوحات سكادا.",
     icon: "zap",
     metric: { en: "PLC & SCADA in-house", ar: "برمجة PLC وSCADA داخليًا" },
     intro: {
@@ -563,7 +482,10 @@ export const SECTORS: Sector[] = [
         steps: [
           { en: "I/O list and interlock matrix", ar: "قائمة المداخل والمخارج ومصفوفة التعاشق" },
           { en: "PLC programming and simulation", ar: "برمجة PLC والمحاكاة" },
-          { en: "Dry-run, level, and phase protection", ar: "حماية التشغيل الجاف والمنسوب والأطوار" },
+          {
+            en: "Dry-run, level, and phase protection",
+            ar: "حماية التشغيل الجاف والمنسوب والأطوار",
+          },
         ],
       },
       {
@@ -574,7 +496,10 @@ export const SECTORS: Sector[] = [
           ar: "أجهزة القياس الحقلية وشاشات التحكم وسجلات الاتجاه التي يستخدمها المشغل فعليًا.",
         },
         steps: [
-          { en: "Flow, pressure, level, quality sensors", ar: "حساسات التدفق والضغط والمنسوب والجودة" },
+          {
+            en: "Flow, pressure, level, quality sensors",
+            ar: "حساسات التدفق والضغط والمنسوب والجودة",
+          },
           { en: "HMI screen design and alarm priorities", ar: "تصميم الشاشات وأولويات الإنذارات" },
           { en: "Remote access and telemetry", ar: "الوصول عن بعد والقياس عن بعد" },
         ],
@@ -627,6 +552,244 @@ export const SECTORS: Sector[] = [
         items: {
           en: "Thermographic panel inspection, firmware/backup custody, spare card stock",
           ar: "الفحص الحراري للوحات وحفظ النسخ الاحتياطية للبرامج ومخزون كروت الاحتياطي",
+        },
+      },
+    ],
+  },
+  {
+    slug: "infrastructure-networks",
+    en: "Infrastructure Networks & Pipelines",
+    ar: "شبكات المرافق وخطوط النقل",
+    defEn:
+      "Large-diameter transmission mains, urban potable distribution, gravity sewer trunks, and storm drainage networks.",
+    defAr:
+      "خطوط النقل الرئيسية ذات الأقطار الكبيرة، وشبكات التغذية والصرف الحضري، وشبكات تصريف مياه الأمطار.",
+    icon: "route",
+    metric: { en: "Regional scale utilities", ar: "مرافق على نطاق إقليمي" },
+    intro: {
+      en: "We lay transmission mains and urban utility networks built to handle high pressure, dynamic loads, and shifting ground conditions. From ductile iron and HDPE fusion to deep gravity sewers and microtunneling, our infrastructure teams deliver right-of-way works across national mega-projects.",
+      ar: "ننفذ خطوط النقل الرئيسية وشبكات المرافق الحضرية لتتحمل الضغوط العالية والأحمال الديناميكية. من حديد الزهر المرن ولحام HDPE إلى خطوط الانحدار العميقة والدفع النفقي، تقدم فرق البنية التحتية لدينا أعمالاً متكاملة في المشروعات القومية الكبرى.",
+    },
+    process: [
+      {
+        key: "planning",
+        name: { en: "Survey & Profiling", ar: "الرفع المساحي والتخطيط" },
+        detail: {
+          en: "Topographic survey, utility clash detection, and hydraulic profiling.",
+          ar: "الرفع المساحي، تحديد تقاطعات المرافق، والتخطيط الهيدروليكي.",
+        },
+        steps: [
+          { en: "Right-of-way clash detection", ar: "تحديد تعارضات مسار العمل" },
+          { en: "Soil investigation and trench design", ar: "فحص التربة وتصميم الخنادق" },
+          { en: "Hydraulic grade line optimization", ar: "تحسين خط الانحدار الهيدروليكي" },
+        ],
+      },
+      {
+        key: "excavation",
+        name: { en: "Excavation & Bedding", ar: "الحفر والفرشة" },
+        detail: {
+          en: "Deep trenching, dewatering, and controlled bedding installation.",
+          ar: "حفر الخنادق العميقة، نزح المياه، وفرش طبقات التأسيس.",
+        },
+        steps: [
+          { en: "Wellpoint dewatering systems", ar: "أنظمة نزح المياه بالآبار الإبرية" },
+          { en: "Shoring and trench safety", ar: "سند الجوانب وتأمين الخنادق" },
+          { en: "Sand and gravel bedding", ar: "طبقات التأسيس الرملية والزلطية" },
+        ],
+      },
+      {
+        key: "pipelaying",
+        name: { en: "Pipe Laying & Jointing", ar: "تمديد المواسير واللحام" },
+        detail: {
+          en: "Installation of DI, HDPE, UPVC, and GRP with certified jointing.",
+          ar: "تركيب المواسير الزهر المرن وHDPE وUPVC وGRP بأساليب لحام معتمدة.",
+        },
+        steps: [
+          { en: "HDPE butt-fusion and electrofusion", ar: "لحام HDPE الحراري والكهربائي" },
+          { en: "Thrust block casting", ar: "صب كتل الدفع الخرسانية" },
+          { en: "Manhole and chamber construction", ar: "إنشاء المطابق وغرف المحابس" },
+        ],
+      },
+      {
+        key: "testing",
+        name: { en: "Testing & Backfilling", ar: "الاختبار والردم" },
+        detail: {
+          en: "Hydrostatic testing, CCTV inspection, and compacted backfill.",
+          ar: "الاختبار الهيدروستاتيكي، وفحص الكاميرا التلفزيونية، والردم المدموك.",
+        },
+        steps: [
+          { en: "Pressure and leakage testing", ar: "اختبارات الضغط والتسريب" },
+          { en: "CCTV line inspection", ar: "فحص الخطوط بالكاميرا التلفزيونية" },
+          { en: "Controlled layer backfilling", ar: "ردم على طبقات مع الدمك" },
+        ],
+      },
+      {
+        key: "handover",
+        name: { en: "Commissioning", ar: "التسليم والتشغيل" },
+        detail: {
+          en: "Line disinfection, tie-ins to existing networks, and as-built surveying.",
+          ar: "تطهير الخطوط، والربط بالشبكات القائمة، والرفع المساحي النهائي.",
+        },
+        steps: [
+          { en: "Network flushing and chlorination", ar: "غسيل الشبكة والتطهير بالكلور" },
+          { en: "Live network tie-ins", ar: "الربط مع الشبكات الحية" },
+          { en: "GIS and as-built handover", ar: "تسليم مخططات التنفيذ ونظم المعلومات الجغرافية" },
+        ],
+      },
+    ],
+    equipment: [
+      {
+        category: { en: "Pipes & Fittings", ar: "المواسير والقطع" },
+        items: {
+          en: "Ductile Iron, HDPE, UPVC, GRP pipes and mechanical fittings",
+          ar: "مواسير الزهر المرن، HDPE، UPVC، GRP والقطع الميكانيكية",
+        },
+      },
+      {
+        category: { en: "Valves & Chambers", ar: "المحابس والغرف" },
+        items: {
+          en: "Gate valves, air release valves, washouts, precast manholes",
+          ar: "محابس القفل، محابس الهواء، غسيل الخطوط، والمطابق سابقة الصب",
+        },
+      },
+      {
+        category: { en: "Dewatering", ar: "نزح المياه" },
+        items: {
+          en: "Wellpoint systems, vacuum pumps, submersible drainage pumps",
+          ar: "أنظمة الآبار الإبرية، مضخات التفريغ، ومضخات النزح الغاطسة",
+        },
+      },
+      {
+        category: { en: "Heavy Machinery", ar: "المعدات الثقيلة" },
+        items: {
+          en: "Excavators, loaders, compactors, trench shoring boxes",
+          ar: "الحفارات، اللوادر، الدكاكات، وصناديق سند جوانب الحفر",
+        },
+      },
+      {
+        category: { en: "Testing & QC", ar: "الاختبار والجودة" },
+        items: {
+          en: "Hydrostatic test pumps, CCTV crawlers, compaction testing gear",
+          ar: "مضخات الاختبار المائي، كاميرات الفحص، وأجهزة قياس الدمك",
+        },
+      },
+    ],
+  },
+  {
+    slug: "civil-buildings",
+    en: "Civil & Institutional Buildings",
+    ar: "الأعمال المدنية والمباني الخدمية",
+    defEn:
+      "Turnkey general contracting for public buildings, healthcare units, educational complexes, and mosques.",
+    defAr:
+      "مقاولات عامة متكاملة للمباني العامة، ووحدات الرعاية الصحية، والمجمعات التعليمية، والمساجد.",
+    icon: "building",
+    metric: { en: "Turnkey delivery", ar: "تسليم مفتاح" },
+    intro: {
+      en: "We execute full-scope civil and architectural construction for institutional and community developments. Acting as the main contractor, we deliver structural works, high-end finishing, and complete MEP integration, ensuring public facilities are built to last and ready for service.",
+      ar: "نقوم بتنفيذ الأعمال المدنية والمعمارية المتكاملة للمباني المؤسسية والمجتمعية. كمقاول رئيسي، ننفذ الأعمال الإنشائية، والتشطيبات عالية الجودة، والتكامل التام للأنظمة الكهروميكانيكية، لضمان إنشاء مرافق عامة مستدامة وجاهزة للخدمة.",
+    },
+    process: [
+      {
+        key: "foundation",
+        name: { en: "Substructure & Foundation", ar: "أعمال الأساسات" },
+        detail: {
+          en: "Site prep, earthworks, and reinforced concrete foundations.",
+          ar: "تجهيز الموقع، الأعمال الترابية، وأساسات الخرسانة المسلحة.",
+        },
+        steps: [
+          { en: "Site grading and layout", ar: "تسوية الموقع والتخطيط" },
+          { en: "Raft and isolated footings", ar: "اللبشة والقواعد المنفصلة" },
+          { en: "Waterproofing and insulation", ar: "أعمال العزل المائي والحراري" },
+        ],
+      },
+      {
+        key: "structure",
+        name: { en: "Superstructure", ar: "الهيكل الخرساني" },
+        detail: {
+          en: "Columns, slabs, and structural steel erected to code.",
+          ar: "الأعمدة والأسقف والهياكل المعدنية المنفذة حسب الكود.",
+        },
+        steps: [
+          { en: "Formwork and rebar installation", ar: "الشدات وتركيب حديد التسليح" },
+          { en: "Concrete pouring and curing", ar: "صب الخرسانة والمعالجة" },
+          { en: "Blockwork and masonry", ar: "أعمال المباني والطابوق" },
+        ],
+      },
+      {
+        key: "mep",
+        name: { en: "MEP Rough-in", ar: "تأسيس الكهروميكانيكا" },
+        detail: {
+          en: "Embedded conduit, plumbing pipes, and HVAC ducting installation.",
+          ar: "تأسيس المواسير والسباكة وتركيب مجاري التكييف.",
+        },
+        steps: [
+          { en: "Electrical wiring and panels", ar: "التمديدات الكهربائية واللوحات" },
+          { en: "Plumbing and drainage networks", ar: "شبكات التغذية والصرف" },
+          { en: "HVAC and fire protection", ar: "التكييف ومكافحة الحريق" },
+        ],
+      },
+      {
+        key: "finishing",
+        name: { en: "Architectural Finishing", ar: "التشطيبات المعمارية" },
+        detail: {
+          en: "Interior and exterior finishing, flooring, and façade works.",
+          ar: "التشطيبات الداخلية والخارجية والأرضيات وأعمال الواجهات.",
+        },
+        steps: [
+          { en: "Plastering and painting", ar: "أعمال المحارة والدهانات" },
+          { en: "Tile, marble, and false ceilings", ar: "البلاط والرخام والأسقف المعلقة" },
+          { en: "Doors, windows, and cladding", ar: "الأبواب والنوافذ والتكسيات" },
+        ],
+      },
+      {
+        key: "commissioning",
+        name: { en: "Testing & Handover", ar: "الاختبار والتسليم" },
+        detail: {
+          en: "Systems testing, snagging, and final client handover.",
+          ar: "اختبار الأنظمة، معالجة الملاحظات، والتسليم النهائي للعميل.",
+        },
+        steps: [
+          { en: "MEP systems commissioning", ar: "تشغيل واختبار الأنظمة الكهروميكانيكية" },
+          { en: "Final cleaning and snag resolution", ar: "النظافة النهائية ومعالجة الملاحظات" },
+          { en: "Occupancy and handover certificates", ar: "شهادات الإشغال والتسليم" },
+        ],
+      },
+    ],
+    equipment: [
+      {
+        category: { en: "Structural Materials", ar: "المواد الإنشائية" },
+        items: {
+          en: "Ready-mix concrete, reinforcing steel, cement, aggregates",
+          ar: "الخرسانة الجاهزة، حديد التسليح، الأسمنت، والركام",
+        },
+      },
+      {
+        category: { en: "Finishing Materials", ar: "مواد التشطيب" },
+        items: {
+          en: "Ceramics, marble, paints, aluminum profiles, glass",
+          ar: "السيراميك، الرخام، الدهانات، قطاعات الألومنيوم، والزجاج",
+        },
+      },
+      {
+        category: { en: "MEP Systems", ar: "الأنظمة الكهروميكانيكية" },
+        items: {
+          en: "Cables, lighting fixtures, sanitary ware, HVAC units",
+          ar: "الكابلات، وحدات الإضاءة، الأدوات الصحية، ووحدات التكييف",
+        },
+      },
+      {
+        category: { en: "Heavy Equipment", ar: "المعدات الثقيلة" },
+        items: {
+          en: "Tower cranes, concrete pumps, scaffolding, hoists",
+          ar: "الأوناش البرجية، مضخات الخرسانة، السقالات، والروافع",
+        },
+      },
+      {
+        category: { en: "Site Safety", ar: "أمن الموقع" },
+        items: {
+          en: "PPE, perimeter fencing, safety netting, first aid",
+          ar: "مهمات الوقاية، أسوار الحماية، شبك الأمان، والإسعافات",
         },
       },
     ],

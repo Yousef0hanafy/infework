@@ -47,11 +47,36 @@ async function count(
 }
 
 const QUICK_ACTIONS = [
-  { label: "Add Project", hint: "Create a new project record", icon: Plus, to: "/admin/projects" as const },
-  { label: "Edit Homepage", hint: "Hero, metrics and CTA copy", icon: FileText, to: "/admin/settings" as const },
-  { label: "Manage Media", hint: "Covers, diagrams and alt text", icon: Image, to: "/admin/projects" as const },
-  { label: "Site Settings", hint: "Brand, company and SEO", icon: SettingsIcon, to: "/admin/settings" as const },
-  { label: "Manage Downloads", hint: "Company profile PDF", icon: Download, to: "/admin/settings" as const },
+  {
+    label: "Add Project",
+    hint: "Create a new project record",
+    icon: Plus,
+    to: "/admin/projects" as const,
+  },
+  {
+    label: "Edit Homepage",
+    hint: "Hero, metrics and CTA copy",
+    icon: FileText,
+    to: "/admin/settings" as const,
+  },
+  {
+    label: "Manage Media",
+    hint: "Covers, diagrams and alt text",
+    icon: Image,
+    to: "/admin/projects" as const,
+  },
+  {
+    label: "Site Settings",
+    hint: "Brand, company and SEO",
+    icon: SettingsIcon,
+    to: "/admin/settings" as const,
+  },
+  {
+    label: "Manage Downloads",
+    hint: "Company profile PDF",
+    icon: Download,
+    to: "/admin/settings" as const,
+  },
 ];
 
 function AdminHome() {
@@ -77,9 +102,7 @@ function AdminHome() {
         set.add(row.locale);
         byProject.set(row.project_id, set);
       }
-      const complete = [...byProject.values()].filter(
-        (s) => s.has("en") && s.has("ar"),
-      ).length;
+      const complete = [...byProject.values()].filter((s) => s.has("en") && s.has("ar")).length;
       const bilingual = projects === 0 ? 100 : Math.round((complete / projects) * 100);
 
       return { projects, published, drafts, newLeads, capabilities, bilingual };
@@ -197,9 +220,7 @@ function AdminHome() {
                 <p className="label-mono mt-6" style={{ color: "var(--iw-text-secondary)" }}>
                   {card.label}
                 </p>
-                <p className="display-md mt-2 text-4xl">
-                  {isLoading ? "—" : (card.value ?? 0)}
-                </p>
+                <p className="display-md mt-2 text-4xl">{isLoading ? "—" : (card.value ?? 0)}</p>
                 <p className="mt-2 text-xs" style={{ color: "var(--iw-text-secondary)" }}>
                   {card.note}
                 </p>

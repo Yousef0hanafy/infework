@@ -6,11 +6,13 @@ export default function Reveal({
   delay = 0,
   as: Tag = "div",
   className = "",
+  style,
 }: {
   children: ReactNode;
   delay?: number;
   as?: "div" | "section" | "li" | "article";
   className?: string;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -45,7 +47,7 @@ export default function Reveal({
     <Tag
       ref={ref as never}
       className={`iw-scroll-reveal ${shown ? "is-visible" : ""} ${className}`.trim()}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms`, ...style }}
     >
       {children}
     </Tag>

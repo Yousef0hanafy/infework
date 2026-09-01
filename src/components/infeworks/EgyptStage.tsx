@@ -8,6 +8,7 @@ export type StageNode = {
   lat: number;
   lng: number;
   label: string;
+  count?: number;
   sublabel?: string | null;
   dimmed?: boolean;
 };
@@ -26,51 +27,121 @@ const px = (lng: number) => (lng - LON0) * SX;
 const py = (lat: number) => (LAT1 - lat) * SY;
 
 const poly = (pts: [number, number][]) =>
-  pts.map(([lng, lat], i) => `${i ? "L" : "M"}${px(lng).toFixed(1)} ${py(lat).toFixed(1)}`).join(" ");
+  pts
+    .map(([lng, lat], i) => `${i ? "L" : "M"}${px(lng).toFixed(1)} ${py(lat).toFixed(1)}`)
+    .join(" ");
 
 /* ── authored geometry (lon, lat) ─────────────────────────────────────────── */
 const TERRITORY: [number, number][] = [
   // Mediterranean coast, west to east
-  [24.7, 31.34], [25.15, 31.59], [25.85, 31.51], [26.7, 31.42], [27.4, 31.33],
-  [28.2, 31.11], [28.9, 30.86], [29.45, 30.98], [29.88, 31.2], [30.15, 31.33],
-  [30.42, 31.46], [30.95, 31.53], [31.35, 31.6], [31.55, 31.47], [31.85, 31.42],
-  [32.15, 31.32], [32.32, 31.25],
+  [24.7, 31.34],
+  [25.15, 31.59],
+  [25.85, 31.51],
+  [26.7, 31.42],
+  [27.4, 31.33],
+  [28.2, 31.11],
+  [28.9, 30.86],
+  [29.45, 30.98],
+  [29.88, 31.2],
+  [30.15, 31.33],
+  [30.42, 31.46],
+  [30.95, 31.53],
+  [31.35, 31.6],
+  [31.55, 31.47],
+  [31.85, 31.42],
+  [32.15, 31.32],
+  [32.32, 31.25],
   // Sinai north coast → Rafah
-  [32.9, 31.12], [33.35, 31.07], [33.8, 31.13], [34.05, 31.2], [34.26, 31.22],
+  [32.9, 31.12],
+  [33.35, 31.07],
+  [33.8, 31.13],
+  [34.05, 31.2],
+  [34.26, 31.22],
   // Israel border to Taba
-  [34.55, 30.4], [34.78, 29.86], [34.9, 29.49],
+  [34.55, 30.4],
+  [34.78, 29.86],
+  [34.9, 29.49],
   // Gulf of Aqaba, west shore south to Ras Muhammad
-  [34.72, 28.9], [34.6, 28.4], [34.42, 28.0], [34.28, 27.75], [34.22, 27.72],
+  [34.72, 28.9],
+  [34.6, 28.4],
+  [34.42, 28.0],
+  [34.28, 27.75],
+  [34.22, 27.72],
   // Gulf of Suez, east shore north to Suez
-  [33.85, 28.3], [33.4, 28.9], [32.95, 29.45], [32.63, 29.85], [32.56, 29.93],
+  [33.85, 28.3],
+  [33.4, 28.9],
+  [32.95, 29.45],
+  [32.63, 29.85],
+  [32.56, 29.93],
   // Red Sea, African shore south
-  [32.42, 29.62], [32.62, 29.2], [33.02, 28.6], [33.28, 28.05], [33.62, 27.35],
-  [33.95, 26.7], [34.25, 26.0], [34.72, 25.35], [35.15, 24.5], [35.48, 23.9],
-  [35.68, 23.2], [36.05, 22.5], [36.9, 22.0],
+  [32.42, 29.62],
+  [32.62, 29.2],
+  [33.02, 28.6],
+  [33.28, 28.05],
+  [33.62, 27.35],
+  [33.95, 26.7],
+  [34.25, 26.0],
+  [34.72, 25.35],
+  [35.15, 24.5],
+  [35.48, 23.9],
+  [35.68, 23.2],
+  [36.05, 22.5],
+  [36.9, 22.0],
   // Southern border along 22°N (with the Wadi Halfa salient simplified)
-  [33.2, 21.99], [31.5, 21.99], [24.98, 21.99],
+  [33.2, 21.99],
+  [31.5, 21.99],
+  [24.98, 21.99],
   // Libyan border north
-  [24.98, 25.0], [24.98, 29.2], [24.7, 30.0],
+  [24.98, 25.0],
+  [24.98, 29.2],
+  [24.7, 30.0],
 ];
 
 const NILE: [number, number][] = [
-  [32.9, 22.05], [32.95, 22.9], [32.9, 23.6], [32.9, 24.09], [32.72, 24.6],
-  [32.6, 25.05], [32.66, 25.7], [32.4, 26.15], [31.9, 26.35], [31.5, 26.9],
-  [31.2, 27.4], [30.95, 28.1], [31.02, 28.7], [31.14, 29.4], [31.24, 30.05],
+  [32.9, 22.05],
+  [32.95, 22.9],
+  [32.9, 23.6],
+  [32.9, 24.09],
+  [32.72, 24.6],
+  [32.6, 25.05],
+  [32.66, 25.7],
+  [32.4, 26.15],
+  [31.9, 26.35],
+  [31.5, 26.9],
+  [31.2, 27.4],
+  [30.95, 28.1],
+  [31.02, 28.7],
+  [31.14, 29.4],
+  [31.24, 30.05],
 ];
 
 const NILE_ROSETTA: [number, number][] = [
-  [31.24, 30.05], [30.95, 30.6], [30.62, 31.05], [30.42, 31.46],
+  [31.24, 30.05],
+  [30.95, 30.6],
+  [30.62, 31.05],
+  [30.42, 31.46],
 ];
 const NILE_DAMIETTA: [number, number][] = [
-  [31.24, 30.05], [31.42, 30.6], [31.65, 31.05], [31.85, 31.42],
+  [31.24, 30.05],
+  [31.42, 30.6],
+  [31.65, 31.05],
+  [31.85, 31.42],
 ];
 const NASSER: [number, number][] = [
-  [32.88, 23.95], [32.65, 23.4], [32.6, 22.7], [32.4, 22.2], [32.9, 22.02],
-  [33.1, 22.6], [33.05, 23.2], [32.98, 23.9],
+  [32.88, 23.95],
+  [32.65, 23.4],
+  [32.6, 22.7],
+  [32.4, 22.2],
+  [32.9, 22.02],
+  [33.1, 22.6],
+  [33.05, 23.2],
+  [32.98, 23.9],
 ];
 const SUEZ_CANAL: [number, number][] = [
-  [32.32, 31.25], [32.35, 30.85], [32.32, 30.4], [32.56, 29.93],
+  [32.32, 31.25],
+  [32.35, 30.85],
+  [32.32, 30.4],
+  [32.56, 29.93],
 ];
 
 const LON_TICKS = [25, 27, 29, 31, 33, 35];
@@ -169,7 +240,14 @@ export default function EgyptStage({
       />
 
       {/* Lake Nasser */}
-      <path d={`${poly(NASSER)} Z`} fill="#00c8d5" fillOpacity="0.22" stroke="#00c8d5" strokeOpacity="0.4" strokeWidth="0.8" />
+      <path
+        d={`${poly(NASSER)} Z`}
+        fill="#00c8d5"
+        fillOpacity="0.22"
+        stroke="#00c8d5"
+        strokeOpacity="0.4"
+        strokeWidth="0.8"
+      />
 
       {/* Nile + delta branches */}
       <g fill="none" stroke="url(#iw-nile)" strokeLinecap="round">
@@ -188,18 +266,38 @@ export default function EgyptStage({
       />
 
       {/* sea / gulf annotations */}
-      <g fill="#3f5a76" fontSize="11" letterSpacing="2.4" fontFamily="var(--font-mono, ui-monospace)">
-        <text x={px(27.6)} y={py(31.95)}>MEDITERRANEAN</text>
-        <text x={px(35.55)} y={py(25.2)}>RED SEA</text>
-        <text x={px(24.2) + 6} y={py(27.5)} opacity="0.7">WESTERN DESERT</text>
-        <text x={px(33.6)} y={py(29.9)} opacity="0.8">SINAI</text>
+      <g
+        fill="#3f5a76"
+        fontSize="11"
+        letterSpacing="2.4"
+        fontFamily="var(--font-mono, ui-monospace)"
+      >
+        <text x={px(27.6)} y={py(31.95)}>
+          MEDITERRANEAN
+        </text>
+        <text x={px(35.55)} y={py(25.2)}>
+          RED SEA
+        </text>
+        <text x={px(24.2) + 6} y={py(27.5)} opacity="0.7">
+          WESTERN DESERT
+        </text>
+        <text x={px(33.6)} y={py(29.9)} opacity="0.8">
+          SINAI
+        </text>
       </g>
 
       {/* reference cities */}
       <g>
         {CITIES.map((cty) => (
           <g key={cty.name}>
-            <rect x={px(cty.lng) - 2} y={py(cty.lat) - 2} width="4" height="4" fill="#8fa3c0" fillOpacity="0.7" />
+            <rect
+              x={px(cty.lng) - 2}
+              y={py(cty.lat) - 2}
+              width="4"
+              height="4"
+              fill="#8fa3c0"
+              fillOpacity="0.7"
+            />
             <text
               x={cty.anchor === "end" ? px(cty.lng) - 8 : px(cty.lng) + 8}
               y={py(cty.lat) + 4}
@@ -227,7 +325,7 @@ export default function EgyptStage({
             key={n.id}
             role="button"
             tabIndex={0}
-            aria-label={`${n.label}${n.sublabel ? ` — ${n.sublabel}` : ""}`}
+            aria-label={`${n.label}${n.sublabel ? ` — ${n.sublabel}` : ""}${n.count ? ` (${n.count} projects)` : ""}`}
             aria-pressed={on}
             onClick={() => onSelect?.(n.id)}
             onMouseEnter={(e) => {
@@ -263,7 +361,7 @@ export default function EgyptStage({
               pointerEvents="none"
             />
             {/* hover/click target */}
-            <circle cx={x} cy={y} r="18" fill="transparent" />
+            <circle cx={x} cy={y} r="22" fill="transparent" />
             {!dim ? (
               <>
                 <circle
@@ -271,7 +369,7 @@ export default function EgyptStage({
                   pointerEvents="none"
                   cx={x}
                   cy={y}
-                  r="10"
+                  r="12"
                   fill="none"
                   stroke="#00c8d5"
                   strokeWidth="1.2"
@@ -281,7 +379,7 @@ export default function EgyptStage({
                   pointerEvents="none"
                   cx={x}
                   cy={y}
-                  r="10"
+                  r="12"
                   fill="none"
                   stroke="#00c8d5"
                   strokeWidth="1"
@@ -299,23 +397,33 @@ export default function EgyptStage({
             <circle
               cx={x}
               cy={y}
-              r={on ? 8 : 6}
+              r={on ? 10 : 8}
               fill="#070e1a"
               stroke={on ? "#ffffff" : "#00c8d5"}
               strokeWidth={on ? 2.4 : 1.8}
             />
-            <circle cx={x} cy={y} r={on ? 3 : 2.2} fill="#00c8d5" />
-            <text
-              x={x > VW * 0.66 ? x - 26 : x + 26}
-              y={y - 12}
-              textAnchor={x > VW * 0.66 ? "end" : "start"}
-              fill={on ? "#ffffff" : "#9fb6cd"}
-              fontSize="14"
-              letterSpacing="1"
-              fontFamily="var(--font-mono, ui-monospace)"
-            >
-              {n.label}
-            </text>
+            {n.count && n.count > 1 ? (
+              <text
+                x={x}
+                y={y + 3.5}
+                textAnchor="middle"
+                fill={on ? "#ffffff" : "#00c8d5"}
+                fontSize="10"
+                fontWeight="bold"
+                fontFamily="var(--font-mono, ui-monospace)"
+                pointerEvents="none"
+              >
+                {n.count}
+              </text>
+            ) : (
+              <circle
+                cx={x}
+                cy={y}
+                r={on ? 3.5 : 2.5}
+                fill={on ? "#ffffff" : "#00c8d5"}
+                pointerEvents="none"
+              />
+            )}
           </g>
         );
       })}

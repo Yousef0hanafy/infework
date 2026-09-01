@@ -30,8 +30,13 @@ const SEEDS: FlagshipSeed[] = [
       outcome:
         "تصميم وتوريد وتركيب وتشغيل تجريبي وتشغيل بعقد واحد، مع تجارب أداء موثقة وتحقق معملي لمياه المنتج.",
     },
-    capability_slugs: ["water-treatment", "electrical-control"],
-    location: { lat: 30.3639, lng: 30.5236, en: "Sadat City, Menoufia", ar: "مدينة السادات، المنوفية" },
+    capability_slugs: ["water-treatment", "industrial-mep"],
+    location: {
+      lat: 30.3639,
+      lng: 30.5236,
+      en: "Sadat City, Menoufia",
+      ar: "مدينة السادات، المنوفية",
+    },
   },
   {
     slug: "toshka-pumping-stations",
@@ -49,7 +54,7 @@ const SEEDS: FlagshipSeed[] = [
       outcome:
         "تصميم هيدروليكي وإنشاء المحطات وأعمال كهروميكانيكية وتشغيل وصيانة بأطقمنا الذاتية في المحطات الـ22.",
     },
-    capability_slugs: ["pumping", "irrigation"],
+    capability_slugs: ["pumping-wells", "infrastructure-networks"],
     location: { lat: 22.5, lng: 31.4, en: "Toshka, Aswan", ar: "توشكى، أسوان" },
   },
   {
@@ -65,11 +70,15 @@ const SEEDS: FlagshipSeed[] = [
       title: "معالجة الصرف الصناعي — المدينة الغذائية",
       challenge:
         "مجمع غذائي صناعي يصرف مخلفات عالية التحميل يجب أن تطابق حدود الصرف البلدية قبل التخلص منها.",
-      outcome:
-        "وحدة معالجة 50 م³/يوم تم تصميمها وتصنيعها وتركيبها واختبار مطابقتها لحدود الصرف.",
+      outcome: "وحدة معالجة 50 م³/يوم تم تصميمها وتصنيعها وتركيبها واختبار مطابقتها لحدود الصرف.",
     },
-    capability_slugs: ["wastewater"],
-    location: { lat: 30.3729, lng: 30.5401, en: "Sadat City Industrial Zone", ar: "المنطقة الصناعية بالسادات" },
+    capability_slugs: ["wastewater", "industrial-mep"],
+    location: {
+      lat: 30.3729,
+      lng: 30.5401,
+      en: "Sadat City Industrial Zone",
+      ar: "المنطقة الصناعية بالسادات",
+    },
   },
   {
     slug: "arish-water-supply",
@@ -84,10 +93,9 @@ const SEEDS: FlagshipSeed[] = [
       title: "أعمال تغذية المياه والبنية التحتية — العريش",
       challenge:
         "أعمال تنمية بسيناء تتطلب خطوط تغذية رئيسية وخزانات وقدرة ضخ تحت إشراف الهيئة الهندسية.",
-      outcome:
-        "خطوط تغذية وخزانات تكديس ومحطات ضخ تم تنفيذها وتسليمها كحزمة واحدة بمسؤولية كاملة.",
+      outcome: "خطوط تغذية وخزانات تكديس ومحطات ضخ تم تنفيذها وتسليمها كحزمة واحدة بمسؤولية كاملة.",
     },
-    capability_slugs: ["water-treatment", "pumping"],
+    capability_slugs: ["infrastructure-networks", "pumping-wells"],
     location: { lat: 31.1313, lng: 33.8031, en: "Arish, North Sinai", ar: "العريش، شمال سيناء" },
   },
   {
@@ -103,10 +111,9 @@ const SEEDS: FlagshipSeed[] = [
       title: "بنية تحتية للتخزين المبرد — العامرية",
       challenge:
         "مجمع تخزين مبرد يحتاج تبريد عمليات وشبكة توزيع قادرة على ثبات درجات الحرارة تحت تحميل مستمر.",
-      outcome:
-        "دوائر تبريد العمليات وشبكة التوزيع والأعمال الكهروميكانيكية تم تشغيلها وتسليمها.",
+      outcome: "دوائر تبريد العمليات وشبكة التوزيع والأعمال الكهروميكانيكية تم تشغيلها وتسليمها.",
     },
-    capability_slugs: ["pumping", "electrical-control"],
+    capability_slugs: ["industrial-mep", "pumping-wells"],
     location: { lat: 31.0, lng: 29.8, en: "Ameriya, Alexandria", ar: "العامرية، الإسكندرية" },
   },
   {
@@ -120,13 +127,16 @@ const SEEDS: FlagshipSeed[] = [
     },
     ar: {
       title: "محطة ضخ مياه شرب — أولاد الشيخ",
-      challenge:
-        "جهة مياه محلية تحتاج قدرة ضخ موثوقة لمياه الشرب لنطاق خدمة متنامٍ بصعيد مصر.",
-      outcome:
-        "أعمال مدنية ومجموعات ضخ ولوحات تحكم وتشغيل تجريبي بفريق تنفيذ واحد.",
+      challenge: "جهة مياه محلية تحتاج قدرة ضخ موثوقة لمياه الشرب لنطاق خدمة متنامٍ بصعيد مصر.",
+      outcome: "أعمال مدنية ومجموعات ضخ ولوحات تحكم وتشغيل تجريبي بفريق تنفيذ واحد.",
     },
-    capability_slugs: ["pumping", "electrical-control"],
-    location: { lat: 26.5569, lng: 31.6948, en: "Awlad El-Sheikh, Sohag", ar: "أولاد الشيخ، سوهاج" },
+    capability_slugs: ["pumping-wells", "industrial-mep"],
+    location: {
+      lat: 26.5569,
+      lng: 31.6948,
+      en: "Awlad El-Sheikh, Sohag",
+      ar: "أولاد الشيخ، سوهاج",
+    },
   },
   {
     slug: "north-coast-desalination",
@@ -139,10 +149,8 @@ const SEEDS: FlagshipSeed[] = [
     },
     ar: {
       title: "تحلية مياه تجارية — الساحل الشمالي",
-      challenge:
-        "مشروع تجاري ساحلي يحتاج مصدر مياه شرب مستقل وقابل للتحقق خارج الشبكة البلدية.",
-      outcome:
-        "وحدة تناضح عكسي تجارية تم تصميمها وتوريدها وتركيبها والتحقق منها معمليًا.",
+      challenge: "مشروع تجاري ساحلي يحتاج مصدر مياه شرب مستقل وقابل للتحقق خارج الشبكة البلدية.",
+      outcome: "وحدة تناضح عكسي تجارية تم تصميمها وتوريدها وتركيبها والتحقق منها معمليًا.",
     },
     capability_slugs: ["water-treatment"],
     location: { lat: 31.0409, lng: 28.4, en: "North Coast, Matrouh", ar: "الساحل الشمالي، مطروح" },
@@ -160,10 +168,9 @@ const SEEDS: FlagshipSeed[] = [
       title: "معالجة صرف صحي — دلتا الشرق",
       challenge:
         "مرفق بلدي يحتاج أعمال معالجة وتجهيز كهروميكانيكي لتوافق المخلفات مع الحدود القانونية.",
-      outcome:
-        "أعمال معالجة وتجهيز كهروميكانيكي واختبارات مطابقة وتشغيل وصيانة بأطقمنا الذاتية.",
+      outcome: "أعمال معالجة وتجهيز كهروميكانيكي واختبارات مطابقة وتشغيل وصيانة بأطقمنا الذاتية.",
     },
-    capability_slugs: ["wastewater", "electrical-control"],
+    capability_slugs: ["wastewater", "infrastructure-networks"],
     location: { lat: 30.7, lng: 31.75, en: "East Delta, Sharqia", ar: "دلتا الشرق، الشرقية" },
   },
 ];
@@ -192,10 +199,7 @@ export function getFlagshipProjects(locale: string): PublicProject[] {
 }
 
 /** Fallback case-study detail for a curated flagship slug. */
-export function getFlagshipDetail(
-  slug: string,
-  locale: string,
-): PublicProjectDetail | null {
+export function getFlagshipDetail(slug: string, locale: string): PublicProjectDetail | null {
   const project = getFlagshipProjects(locale).find((p) => p.slug === slug);
   if (!project) return null;
   const meta = PROJECT_META[slug];

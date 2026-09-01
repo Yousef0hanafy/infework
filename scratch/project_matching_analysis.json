@@ -1,0 +1,1028 @@
+[
+  {
+    "slug": "gas-egypt-stations-electromechanical",
+    "title_en": "Gas Egypt Natural Gas Stations Electrical & Infrastructure Works",
+    "title_ar": "أعمال محطات غاز مصر — التجهيزات الكهروميكانيكية والتأريض",
+    "bestCandidate": null,
+    "allCandidates": []
+  },
+  {
+    "slug": "shubra-shahab-technical-works",
+    "title_en": "Shubra Shahab Plant Scope Adjustments & Technical Upgrades",
+    "title_ar": "التعديلات والتجهيزات الفنية التكميلية — شبرا شهاب",
+    "bestCandidate": {
+      "folder": "05-محطة معالجة الصرف الصناعي بشبرا شهاب",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "05-محطة معالجة الصرف الصناعي بشبرا شهاب",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "تعويضات شبرا شهاب",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "toshka-reclamation-pumping-package",
+    "title_en": "Toshka Agricultural Reclamation Pumping Stations (Contract 39-2022)",
+    "title_ar": "محطات مياه وصرف توشكى للاستصلاح الزراعي (عقد 39-2022)",
+    "bestCandidate": {
+      "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+      "count": 25,
+      "score": 80
+    },
+    "allCandidates": [
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 80
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 80
+      },
+      {
+        "folder": "محطات توشكا محطتي صرف و مياه (الاستصلاح الزراعي) عقد رقم 39-2022",
+        "count": 3,
+        "score": 80
+      }
+    ]
+  },
+  {
+    "slug": "ameriya-cold-storage",
+    "title_en": "Ameriya Industrial Cooling & Water Distribution",
+    "title_ar": "التبريد الصناعي وتوزيع المياه — العامرية",
+    "bestCandidate": {
+      "folder": "01- انشاء ثلاجات بقطاع العامريه",
+      "count": 0,
+      "score": 150
+    },
+    "allCandidates": [
+      {
+        "folder": "01- انشاء ثلاجات بقطاع العامريه",
+        "count": 0,
+        "score": 150
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "awlad-el-sheikh-pumping",
+    "title_en": "Awlad El-Sheikh Potable Water Pumping Station",
+    "title_ar": "محطة ضخ مياه الشرب — أولاد الشيخ",
+    "bestCandidate": {
+      "folder": "01- محطه رفع بقريه اولاد الشيخ",
+      "count": 8,
+      "score": 165
+    },
+    "allCandidates": [
+      {
+        "folder": "01- محطه رفع بقريه اولاد الشيخ",
+        "count": 8,
+        "score": 165
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 30
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "north-coast-desalination",
+    "title_en": "North Coast Commercial RO Water Treatment",
+    "title_ar": "معالجة مياه بالتناضح العكسي — الساحل الشمالي",
+    "bestCandidate": {
+      "folder": "03-مشروع الساحل الشمالى محطة 500م3",
+      "count": 0,
+      "score": 165
+    },
+    "allCandidates": [
+      {
+        "folder": "03-مشروع الساحل الشمالى محطة 500م3",
+        "count": 0,
+        "score": 165
+      },
+      {
+        "folder": "04-محطة معالجة مياه صرف حلابات ب(الحمام-وادي النطرون-السادات-يشع) عقد 136-2019مكمل 2",
+        "count": 7,
+        "score": 80
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 65
+      }
+    ]
+  },
+  {
+    "slug": "east-delta-wastewater",
+    "title_en": "East Delta Municipal Wastewater Treatment",
+    "title_ar": "معالجة الصرف الصحي — دلتا الشرق",
+    "bestCandidate": {
+      "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+      "count": 0,
+      "score": 45
+    },
+    "allCandidates": [
+      {
+        "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+        "count": 0,
+        "score": 45
+      },
+      {
+        "folder": "05-محطة معالجة الصرف الصناعي بشبرا شهاب",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "06- محطات المياه و الصرف ب توشكي (مستجدة) مقاولة النوبي و الشرق",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "sadat-city-ro",
+    "title_en": "Sadat City RO Desalination Plant",
+    "title_ar": "محطة تحلية مياه البحر بالسادات (1500 م³/يوم)",
+    "bestCandidate": {
+      "folder": "02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020",
+      "count": 0,
+      "score": 165
+    },
+    "allCandidates": [
+      {
+        "folder": "02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020",
+        "count": 0,
+        "score": 165
+      },
+      {
+        "folder": "03-(محطه التحليه بالسادات بطاقة 1500م3 (بمصنع المكرونه)عقد 120-2020 مكمل( 1",
+        "count": 16,
+        "score": 65
+      },
+      {
+        "folder": "04-محطة معالجة مياه صرف حلابات ب(الحمام-وادي النطرون-السادات-يشع) عقد 136-2019مكمل 2",
+        "count": 7,
+        "score": 65
+      }
+    ]
+  },
+  {
+    "slug": "toshka-pumping-stations",
+    "title_en": "Toshka Agricultural Water & Wastewater Stations",
+    "title_ar": "محطات المياه والصرف الزراعي بتوشكى",
+    "bestCandidate": {
+      "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+      "count": 23,
+      "score": 165
+    },
+    "allCandidates": [
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 165
+      },
+      {
+        "folder": "محطات توشكا محطتي صرف و مياه (الاستصلاح الزراعي) عقد رقم 39-2022",
+        "count": 3,
+        "score": 65
+      },
+      {
+        "folder": "06- محطات المياه و الصرف ب توشكي (مستجدة) مقاولة النوبي و الشرق",
+        "count": 0,
+        "score": 65
+      }
+    ]
+  },
+  {
+    "slug": "food-city-treatment",
+    "title_en": "Food City Industrial Wastewater Treatment Facility",
+    "title_ar": "محطة المعالجة الصناعية بالمدينة الغذائية (50 م³/يوم)",
+    "bestCandidate": {
+      "folder": "02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020",
+      "count": 0,
+      "score": 180
+    },
+    "allCandidates": [
+      {
+        "folder": "02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020",
+        "count": 0,
+        "score": 180
+      },
+      {
+        "folder": "04-محطة معالجة مياه صرف حلابات ب(الحمام-وادي النطرون-السادات-يشع) عقد 136-2019مكمل 2",
+        "count": 7,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "slug": "arish-water-supply",
+    "title_en": "Arish Infrastructure & Water Supply Network",
+    "title_ar": "شبكات البنية التحتية وتغذية المياه بالعريش",
+    "bestCandidate": {
+      "folder": "05-مشروع تغذيه مطار العريش العرجاني جروب",
+      "count": 206,
+      "score": 150
+    },
+    "allCandidates": [
+      {
+        "folder": "05-مشروع تغذيه مطار العريش العرجاني جروب",
+        "count": 206,
+        "score": 150
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      },
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "sisi-city-wastewater",
+    "title_en": "Al-Sisi City Gravity Sewer & Storm Drainage Network",
+    "title_ar": "شبكات الصرف الصحي وتصريف الأمطار — مدينة السيسي",
+    "bestCandidate": {
+      "folder": "3- مدينة السيسى عقد الصرف",
+      "count": 341,
+      "score": 80
+    },
+    "allCandidates": [
+      {
+        "folder": "3- مدينة السيسى عقد الصرف",
+        "count": 341,
+        "score": 80
+      },
+      {
+        "folder": "4-مدينة السيسى عقد المياه",
+        "count": 0,
+        "score": 65
+      },
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "rafah-bedouin-housing",
+    "title_en": "Rafah Bedouin Residential Development Infrastructure",
+    "title_ar": "البنية التحتية والإنشاءات للتجمعات البدوية — رفح",
+    "bestCandidate": {
+      "folder": "2- البيوت البدوية رفح",
+      "count": 269,
+      "score": 65
+    },
+    "allCandidates": [
+      {
+        "folder": "2- البيوت البدوية رفح",
+        "count": 269,
+        "score": 65
+      }
+    ]
+  },
+  {
+    "slug": "salam-city-water-pipeline",
+    "title_en": "New Salam City Strategic Water Transmission Line",
+    "title_ar": "خط نقل المياه الاستراتيجي لمدينة السلام من رافع الشلاق",
+    "bestCandidate": {
+      "folder": "03- مشروع خط تغذية مدينة السلام من رافع الشلاء",
+      "count": 0,
+      "score": 80
+    },
+    "allCandidates": [
+      {
+        "folder": "03- مشروع خط تغذية مدينة السلام من رافع الشلاء",
+        "count": 0,
+        "score": 80
+      },
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 65
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "salam-city-cattle-farm-networks",
+    "title_en": "Agricultural Dairy & Livestock Complex Infrastructure",
+    "title_ar": "شبكات البنية التحتية لمجمع الإنتاج الحيواني — مدينة السلام",
+    "bestCandidate": {
+      "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+      "count": 29,
+      "score": 95
+    },
+    "allCandidates": [
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 95
+      },
+      {
+        "folder": "03- مشروع خط تغذية مدينة السلام من رافع الشلاء",
+        "count": 0,
+        "score": 80
+      },
+      {
+        "folder": "3- مدينة السيسى عقد الصرف",
+        "count": 341,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "qabs-min-nour-mosque",
+    "title_en": "Qabs Min Nour Grand Mosque & Community Complex",
+    "title_ar": "جامع ومجمع قبس من نور — العاصمة الإدارية الجديدة",
+    "bestCandidate": {
+      "folder": "1- مسجد قبس من نور",
+      "count": 3,
+      "score": 50
+    },
+    "allCandidates": [
+      {
+        "folder": "1- مسجد قبس من نور",
+        "count": 3,
+        "score": 50
+      },
+      {
+        "folder": "01- المعهد الازهري المنيا-قبس من نور",
+        "count": 0,
+        "score": 50
+      },
+      {
+        "folder": "01-جزيرة العاصمة",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "beni-suef-water-wastewater",
+    "title_en": "Beni Suef Potable Water & Wastewater Treatment Plants",
+    "title_ar": "محطات تنقية مياه الشرب ومعالجة الصرف الصحي — بني سويف",
+    "bestCandidate": {
+      "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+      "count": 0,
+      "score": 75
+    },
+    "allCandidates": [
+      {
+        "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+        "count": 0,
+        "score": 75
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 45
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "qibili-qarun-water-purification",
+    "title_en": "Qibili Qarun Water Purification Electromechanical Works",
+    "title_ar": "الأعمال الكهروميكانيكية لتنقية المياه — قبلي قارون",
+    "bestCandidate": {
+      "folder": "02-الأعمال الميكانيكية و الكهربائية لتنقية المياه بقبلي قارون عقد 136-2019",
+      "count": 0,
+      "score": 75
+    },
+    "allCandidates": [
+      {
+        "folder": "02-الأعمال الميكانيكية و الكهربائية لتنقية المياه بقبلي قارون عقد 136-2019",
+        "count": 0,
+        "score": 75
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 45
+      },
+      {
+        "folder": "04-أعمال التغذية و الصرف لمشروع انشاء مزرعة الماعز بقبلي قارون(عقد رقم 48-2021)",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "multi-site-desalination-purification",
+    "title_en": "Multi-Site Desalination & Water Purification Hubs",
+    "title_ar": "محطات تحلية وتنقية المياه متعددة المواقع — مكمل 1",
+    "bestCandidate": {
+      "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+      "count": 92,
+      "score": 60
+    },
+    "allCandidates": [
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 60
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 30
+      },
+      {
+        "folder": "03-(محطه التحليه بالسادات بطاقة 1500م3 (بمصنع المكرونه)عقد 120-2020 مكمل( 1",
+        "count": 16,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "dairy-effluent-treatment-network",
+    "title_en": "Multi-Site Dairy Effluent Wastewater Treatment Systems",
+    "title_ar": "محطات معالجة مياه صرف حلابات ومزارع الألبان — مكمل 2",
+    "bestCandidate": {
+      "folder": "04-محطة معالجة مياه صرف حلابات ب(الحمام-وادي النطرون-السادات-يشع) عقد 136-2019مكمل 2",
+      "count": 7,
+      "score": 60
+    },
+    "allCandidates": [
+      {
+        "folder": "04-محطة معالجة مياه صرف حلابات ب(الحمام-وادي النطرون-السادات-يشع) عقد 136-2019مكمل 2",
+        "count": 7,
+        "score": 60
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 30
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "shubra-shahab-industrial-wastewater",
+    "title_en": "Shubra Shahab Industrial Wastewater Treatment Facility",
+    "title_ar": "محطة معالجة الصرف الصناعي — شبرا شهاب",
+    "bestCandidate": {
+      "folder": "05-محطة معالجة الصرف الصناعي بشبرا شهاب",
+      "count": 0,
+      "score": 75
+    },
+    "allCandidates": [
+      {
+        "folder": "05-محطة معالجة الصرف الصناعي بشبرا شهاب",
+        "count": 0,
+        "score": 75
+      },
+      {
+        "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "تعويضات شبرا شهاب",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "marble-factory-desalination-plants",
+    "title_en": "Industrial Marble Factory Desalination & Process Water Plants",
+    "title_ar": "محطات التحلية لمصانع الرخام — الجفجافة والمنيا ورأس سدر",
+    "bestCandidate": {
+      "folder": "06- (إنشاء محطة التحلية لمصنع الرخام (الجفجافة-المنيا-رأس سدر",
+      "count": 0,
+      "score": 45
+    },
+    "allCandidates": [
+      {
+        "folder": "06- (إنشاء محطة التحلية لمصنع الرخام (الجفجافة-المنيا-رأس سدر",
+        "count": 0,
+        "score": 45
+      }
+    ]
+  },
+  {
+    "slug": "toshka-farm-potable-water-plant",
+    "title_en": "Toshka Agricultural Farm Potable Water Purification Facility",
+    "title_ar": "محطة تنقية مياه الشرب بمزرعة توشكى (150 م³/يوم)",
+    "bestCandidate": {
+      "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+      "count": 25,
+      "score": 110
+    },
+    "allCandidates": [
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 110
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 80
+      },
+      {
+        "folder": "محطات توشكا محطتي صرف و مياه (الاستصلاح الزراعي) عقد رقم 39-2022",
+        "count": 3,
+        "score": 65
+      }
+    ]
+  },
+  {
+    "slug": "qibili-qarun-goat-farm-utilities",
+    "title_en": "Qibili Qarun Goat Farm Water Supply & Drainage Networks",
+    "title_ar": "أعمال التغذية والصرف لمزرعة الماعز — قبلي قارون",
+    "bestCandidate": {
+      "folder": "04-أعمال التغذية و الصرف لمشروع انشاء مزرعة الماعز بقبلي قارون(عقد رقم 48-2021)",
+      "count": 0,
+      "score": 60
+    },
+    "allCandidates": [
+      {
+        "folder": "04-أعمال التغذية و الصرف لمشروع انشاء مزرعة الماعز بقبلي قارون(عقد رقم 48-2021)",
+        "count": 0,
+        "score": 60
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 30
+      },
+      {
+        "folder": "02-الأعمال الميكانيكية و الكهربائية لتنقية المياه بقبلي قارون عقد 136-2019",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "toshka-expanded-water-networks",
+    "title_en": "Toshka Expanded Water & Wastewater Station Packages",
+    "title_ar": "محطات المياه والصرف المستجدة — توشكى",
+    "bestCandidate": {
+      "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+      "count": 23,
+      "score": 80
+    },
+    "allCandidates": [
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 80
+      },
+      {
+        "folder": "06- محطات المياه و الصرف ب توشكي (مستجدة) مقاولة النوبي و الشرق",
+        "count": 0,
+        "score": 65
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "slug": "capital-island-infrastructure",
+    "title_en": "Capital Island Urban Utilities & Infrastructure Package",
+    "title_ar": "أعمال البنية التحتية والمرافق — جزيرة العاصمة",
+    "bestCandidate": {
+      "folder": "01-جزيرة العاصمة",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "01-جزيرة العاصمة",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "toshka-pumping-basket-screens",
+    "title_en": "Toshka Pumping Pit Heavy-Duty Basket Screen Assemblies",
+    "title_ar": "المصافي السلية لبيارات محطات ضخ توشكى (Basket Screens)",
+    "bestCandidate": {
+      "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+      "count": 23,
+      "score": 65
+    },
+    "allCandidates": [
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 65
+      },
+      {
+        "folder": "02-الباسكت سكرين لبيارات توشكي",
+        "count": 0,
+        "score": 65
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "slug": "infrastructure-sand-procurement",
+    "title_en": "Strategic Graded Sand & Filter Media Supply Works",
+    "title_ar": "توريدات رمال الفلترة وطبقات التأسيس الاستراتيجية",
+    "bestCandidate": {
+      "folder": "01-شراء رمال",
+      "count": 0,
+      "score": 15
+    },
+    "allCandidates": [
+      {
+        "folder": "01-شراء رمال",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "cargas-grounding-systems",
+    "title_en": "Cargas Natural Gas Stations Deep Earth Grounding & Safety Systems",
+    "title_ar": "تأريض وحماية محطات كارجاس للغاز الطبيعي",
+    "bestCandidate": {
+      "folder": "02-محطات كارجاس تأريض ارضي",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "02-محطات كارجاس تأريض ارضي",
+        "count": 0,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "date-palm-cold-storage-mep",
+    "title_en": "Date Palm Agro-Industrial Cold Storage Infrastructure",
+    "title_ar": "البنية التحتية والخدمات الكهروميكانيكية لمجمع ثلاجات التمور",
+    "bestCandidate": {
+      "folder": "01- انشاء ثلاجات بقطاع العامريه",
+      "count": 0,
+      "score": 15
+    },
+    "allCandidates": [
+      {
+        "folder": "01- انشاء ثلاجات بقطاع العامريه",
+        "count": 0,
+        "score": 15
+      },
+      {
+        "folder": "04-تلاجة التمور",
+        "count": 0,
+        "score": 15
+      },
+      {
+        "folder": "08- محطة معالجة مياه ثلاجات البطاطس مستقبل مصر",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "manshiyat-nasser-pumping-station",
+    "title_en": "New Manshiyat Nasser Sewage Pumping Station",
+    "title_ar": "محطة رفع الصرف الصحي — منشأة ناصر الجديدة",
+    "bestCandidate": {
+      "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "01-محطات التنقية للمياه و معالجة الصرف الصحي ببني سويف",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "06-مشروع محطة رفع منشاه ناصر الجديدة",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "3- مدينة السيسى عقد الصرف",
+        "count": 341,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "nuweiba-infrastructure-works",
+    "title_en": "Nuweiba Coastal Infrastructure & Water Distribution Package",
+    "title_ar": "أعمال البنية التحتية وتوزيع المياه — نويبع",
+    "bestCandidate": {
+      "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+      "count": 92,
+      "score": 15
+    },
+    "allCandidates": [
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 15
+      },
+      {
+        "folder": "02-الأعمال الميكانيكية و الكهربائية لتنقية المياه بقبلي قارون عقد 136-2019",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "future-of-egypt-potato-storage-softener",
+    "title_en": "Future of Egypt Potato Cold Storage Water Softener & Cooling Trains",
+    "title_ar": "محطة معالجة وتليين المياه لثلاجات البطاطس — جهاز مستقبل مصر",
+    "bestCandidate": {
+      "folder": "08- محطة معالجة مياه ثلاجات البطاطس مستقبل مصر",
+      "count": 0,
+      "score": 45
+    },
+    "allCandidates": [
+      {
+        "folder": "08- محطة معالجة مياه ثلاجات البطاطس مستقبل مصر",
+        "count": 0,
+        "score": 45
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      },
+      {
+        "folder": "05-محطات الصرف والمياه ف توشكى عقد(115-2020) مكمل",
+        "count": 23,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "al-marreikh-stadium-civil-mep",
+    "title_en": "Al-Marreikh Sports Stadium Efficiency Upgrade & Civil-MEP Works",
+    "title_ar": "رفع كفاءة وتطوير ملعب نادي المريخ البورسعيدي",
+    "bestCandidate": {
+      "folder": "09-رفع كفاءه ملعب المريخ البورسعيدي",
+      "count": 0,
+      "score": 45
+    },
+    "allCandidates": [
+      {
+        "folder": "09-رفع كفاءه ملعب المريخ البورسعيدي",
+        "count": 0,
+        "score": 45
+      }
+    ]
+  },
+  {
+    "slug": "sisi-city-water-supply-network",
+    "title_en": "Al-Sisi City Strategic Potable Water Supply & Distribution Network",
+    "title_ar": "شبكة التغذية بمياه الشرب وخطوط النقل — مدينة السيسي (عقد المياه)",
+    "bestCandidate": {
+      "folder": "3- مدينة السيسى عقد الصرف",
+      "count": 341,
+      "score": 65
+    },
+    "allCandidates": [
+      {
+        "folder": "3- مدينة السيسى عقد الصرف",
+        "count": 341,
+        "score": 65
+      },
+      {
+        "folder": "4-مدينة السيسى عقد المياه",
+        "count": 0,
+        "score": 65
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 30
+      }
+    ]
+  },
+  {
+    "slug": "north-sinai-dc-infrastructure",
+    "title_en": "North Sinai Strategic Regional DC Infrastructure Projects",
+    "title_ar": "مشاريع البنية التحتية الاستراتيجية — شمال سيناء (DC)",
+    "bestCandidate": {
+      "folder": "DC مشاريع شمال سيناء",
+      "count": 0,
+      "score": 45
+    },
+    "allCandidates": [
+      {
+        "folder": "DC مشاريع شمال سيناء",
+        "count": 0,
+        "score": 45
+      },
+      {
+        "folder": "03-مشروع الساحل الشمالى محطة 500م3",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "al-azhar-institute-minya",
+    "title_en": "Al-Azhar Educational Institute & Community Complex — Minya",
+    "title_ar": "المعهد الأزهري بالمنيا — مبادرة قبس من نور",
+    "bestCandidate": {
+      "folder": "01- المعهد الازهري المنيا-قبس من نور",
+      "count": 0,
+      "score": 15
+    },
+    "allCandidates": [
+      {
+        "folder": "01- المعهد الازهري المنيا-قبس من نور",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "abu-minqar-agricultural-farm-utilities",
+    "title_en": "Abu Minqar Agricultural Farm Irrigation & Deep Well Systems",
+    "title_ar": "شبكات الري والآبار العميقة لمزرعة أبو منقار — الوادي الجديد",
+    "bestCandidate": {
+      "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+      "count": 92,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 30
+      },
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 15
+      },
+      {
+        "folder": "06-مشروع محطة رفع منشاه ناصر الجديدة",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "hayat-karima-health-unit",
+    "title_en": "Decent Life (Hayat Karima) Rural Health Unit Facility",
+    "title_ar": "إنشاء الوحدة الصحية الريفية — المبادرة الرئاسية حياة كريمة",
+    "bestCandidate": {
+      "folder": "04- الوحدة الصحية - حياة كريمة",
+      "count": 0,
+      "score": 60
+    },
+    "allCandidates": [
+      {
+        "folder": "04- الوحدة الصحية - حياة كريمة",
+        "count": 0,
+        "score": 60
+      }
+    ]
+  },
+  {
+    "slug": "bianchi-resort-infrastructure-utilities",
+    "title_en": "Bianchi Coastal Resort Integrated Infrastructure & Utility Networks",
+    "title_ar": "البنية التحتية وشبكات المرافق لمنتجع بيانكي الساحلي",
+    "bestCandidate": null,
+    "allCandidates": []
+  },
+  {
+    "slug": "rural-egypt-wells-minya",
+    "title_en": "Egyptian Countryside Development Deep Wells Package — Minya",
+    "title_ar": "مشروع آبار شركة تنمية الريف المصري — غرب المنيا",
+    "bestCandidate": {
+      "folder": "06-مشروع ابار الريف المصرى - المنيا",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "06-مشروع ابار الريف المصرى - المنيا",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "06- (إنشاء محطة التحلية لمصنع الرخام (الجفجافة-المنيا-رأس سدر",
+        "count": 0,
+        "score": 15
+      },
+      {
+        "folder": "01- المعهد الازهري المنيا-قبس من نور",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "palm-hills-infrastructure-utilities",
+    "title_en": "Palm Hills Development Premium Residential Infrastructure Networks",
+    "title_ar": "شبكات البنية التحتية والمرافق — مشروعات بالم هيلز",
+    "bestCandidate": {
+      "folder": "08- بالم هيلز",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "08- بالم هيلز",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "07- مشروع شبكات مزرعة الابقار - مدينة السلام",
+        "count": 29,
+        "score": 15
+      },
+      {
+        "folder": "02- محطه المعالجه بالمدينة الغذائية بالسادات بطاقة 50م3 (مصنع البسكوت) عقد 120-2020",
+        "count": 0,
+        "score": 15
+      }
+    ]
+  },
+  {
+    "slug": "abu-zaabal-landfill-environmental-works",
+    "title_en": "Abu Zaabal Environmental Landfill & Leachate Mitigation Works",
+    "title_ar": "أعمال الحماية البيئية وتجميع مياه الرشيح — مقلب أبو زعبل",
+    "bestCandidate": {
+      "folder": "11- مقلب ابو زعبل",
+      "count": 0,
+      "score": 30
+    },
+    "allCandidates": [
+      {
+        "folder": "11- مقلب ابو زعبل",
+        "count": 0,
+        "score": 30
+      },
+      {
+        "folder": "03-محطة تحلية وتنقية المياه ب(الحمام-قبلي قارون-الوادي الجديد-وادي النطرون) عقد 136-2019مكمل 1",
+        "count": 92,
+        "score": 15
+      },
+      {
+        "folder": "07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020",
+        "count": 25,
+        "score": 15
+      }
+    ]
+  }
+]

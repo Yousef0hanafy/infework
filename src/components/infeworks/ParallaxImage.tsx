@@ -15,7 +15,7 @@ export default function ParallaxImage({
   strength?: number;
 }) {
   const frame = useRef<HTMLDivElement | null>(null);
-  const [offset, setOffset] = useState(0);
+  const imgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const el = frame.current;
@@ -30,7 +30,10 @@ export default function ParallaxImage({
       if (rect.bottom < -200 || rect.top > vh + 200) return;
       // -1 (below fold) → 1 (above fold)
       const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
-      setOffset(progress * rect.height * strength);
+      const offsetVal = progress * rect.height * strength;
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translate3d(0, ${offsetVal.toFixed(1)}px, 0)`;
+      }
     };
     const onScroll = () => {
       if (!raf) raf = window.requestAnimationFrame(update);
@@ -52,11 +55,12 @@ export default function ParallaxImage({
       style={{ aspectRatio: ratio, backgroundColor: "var(--iw-surface-alt)" }}
     >
       <img
+        ref={imgRef}
         src={src}
         alt={alt}
         loading="lazy"
         className="absolute inset-0 h-[124%] w-full object-cover will-change-transform"
-        style={{ top: "-12%", transform: `translate3d(0, ${offset.toFixed(1)}px, 0)` }}
+        style={{ top: "-12%", transform: `translate3d(0, 0px, 0)` }}
       />
     </div>
   );

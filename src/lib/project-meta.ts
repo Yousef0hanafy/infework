@@ -6,12 +6,12 @@ import type { Bi } from "./sectors";
 export type ProjectMeta = {
   cover: string;
   gallery: string[];
-  capacity: Bi;
-  client: Bi;
-  consultant: Bi | null;
-  scope: Bi;
-  year: string;
-  region: Bi;
+  capacity?: Bi;
+  client?: Bi;
+  consultant?: Bi | null;
+  scope?: Bi;
+  year?: string;
+  region?: Bi;
 };
 
 export const PROJECT_META: Record<string, ProjectMeta> = {
@@ -23,6 +23,12 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/sadat-city-ro/gallery-3.webp",
       "/images/projects/sadat-city-ro/gallery-4.webp",
       "/images/projects/sadat-city-ro/gallery-5.webp",
+      "/images/projects/sadat-city-ro/gallery-6.webp",
+      "/images/projects/sadat-city-ro/gallery-7.webp",
+      "/images/projects/sadat-city-ro/gallery-8.webp",
+      "/images/projects/sadat-city-ro/gallery-9.webp",
+      "/images/projects/sadat-city-ro/gallery-10.webp",
+      "/images/projects/sadat-city-ro/gallery-11.webp",
     ],
     capacity: { en: "1,500 m³/day", ar: "1,500 م³/يوم" },
     client: {
@@ -38,15 +44,24 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Sadat City, Menoufia", ar: "مدينة السادات، المنوفية" },
   },
   "toshka-pumping-stations": {
-    cover: "/images/projects/toshka-pumping-stations/cover.webp",
+    cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
     gallery: [
       "/images/projects/toshka-pumping-stations/gallery-1.webp",
       "/images/projects/toshka-pumping-stations/gallery-2.webp",
       "/images/projects/toshka-pumping-stations/gallery-3.webp",
       "/images/projects/toshka-pumping-stations/gallery-4.webp",
       "/images/projects/toshka-pumping-stations/gallery-5.webp",
+      "/images/projects/toshka-pumping-stations/gallery-6.webp",
+      "/images/projects/toshka-pumping-stations/gallery-7.webp",
+      "/images/projects/toshka-pumping-stations/gallery-8.webp",
+      "/images/projects/toshka-pumping-stations/gallery-9.webp",
+      "/images/projects/toshka-pumping-stations/gallery-10.webp",
+      "/images/projects/toshka-pumping-stations/gallery-11.webp",
     ],
-    capacity: { en: "22 Pumping Stations · 150 m³/day Purification", ar: "22 محطة رفع · محطة تنقية 150 م³/يوم" },
+    capacity: {
+      en: "22 Pumping Stations · 150 m³/day Purification",
+      ar: "22 محطة رفع · محطة تنقية 150 م³/يوم",
+    },
     client: {
       en: "National Agricultural Reclamation Authority",
       ar: "جهاز مشروعات الخدمة الوطنية واستصلاح الأراضي",
@@ -59,6 +74,65 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2021",
     region: { en: "Toshka & East Owainat, Aswan", ar: "توشكى وشرق العوينات، أسوان" },
   },
+  "toshka-farm-potable-water-plant": {
+    cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
+    gallery: [
+      "/images/projects/toshka-farm-potable-water-plant/gallery-1.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-2.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-3.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-4.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-5.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-6.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-7.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-8.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-9.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-10.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-11.webp",
+    ],
+    capacity: {
+      en: "150 m³/day Potable Purification Station",
+      ar: "محطة تنقية مياه شرب 150 م³/يوم",
+    },
+    client: {
+      en: "National Service Projects Organization (NSPO)",
+      ar: "جهاز مشروعات الخدمة الوطنية",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Compact Water Treatment · Clarifiers · UV Disinfection · Distribution Pumps",
+      ar: "تنقية مياه مدمجة · مروقات · تعقيم UV · طلمبات توزيع",
+    },
+    year: "2020",
+    region: { en: "Toshka, Aswan Governorate", ar: "توشكى، محافظة أسوان" },
+  },
+  "toshka-expanded-water-networks": {
+    cover: "/images/projects/toshka-expanded-water-networks/cover.webp",
+    gallery: [
+      "/images/projects/toshka-expanded-water-networks/gallery-1.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-2.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-3.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-4.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-5.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-6.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-7.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-8.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-9.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-10.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-11.webp",
+    ],
+    capacity: { en: "Expanded Desert Lift Stations", ar: "محطات رفع مياه صحراوية مستجدة" },
+    client: {
+      en: "National Agricultural Reclamation Authority",
+      ar: "جهاز مشروعات استصلاح الأراضي",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Wet Wells · Turbine Pumps · HDPE Manifolds · Electrical MCC",
+      ar: "بيارات خرسانية · طلمبات رأسية · خطوط طرد HDPE · لوحات تحكم",
+    },
+    year: "2021",
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
+  },
   "arish-water-supply": {
     cover: "/images/projects/arish-water-supply/cover.webp",
     gallery: [
@@ -67,6 +141,12 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/arish-water-supply/gallery-3.webp",
       "/images/projects/arish-water-supply/gallery-4.webp",
       "/images/projects/arish-water-supply/gallery-5.webp",
+      "/images/projects/arish-water-supply/gallery-6.webp",
+      "/images/projects/arish-water-supply/gallery-7.webp",
+      "/images/projects/arish-water-supply/gallery-8.webp",
+      "/images/projects/arish-water-supply/gallery-9.webp",
+      "/images/projects/arish-water-supply/gallery-10.webp",
+      "/images/projects/arish-water-supply/gallery-11.webp",
     ],
     capacity: { en: "Regional Trunk Lines & Booster Stations", ar: "خطوط نقل رئيسية ومحطات رافع" },
     client: {
@@ -81,33 +161,15 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2024",
     region: { en: "Arish Airport & North Sinai", ar: "مطار العريش وشمال سيناء" },
   },
-  "food-city-treatment": {
-    cover: "/images/projects/food-city-treatment/cover.webp",
-    gallery: [
-      "/images/projects/food-city-treatment/gallery-1.webp",
-      "/images/projects/food-city-treatment/gallery-2.webp",
-      "/images/projects/food-city-treatment/gallery-3.webp",
-      "/images/projects/food-city-treatment/gallery-4.webp",
-      "/images/projects/food-city-treatment/gallery-5.webp",
-    ],
-    capacity: { en: "50 m³/day Industrial Wastewater", ar: "50 م³/يوم صرف صناعي غذائي" },
-    client: {
-      en: "Food City Industrial Complex (Biscuit Factory)",
-      ar: "مجمع المدينة الغذائية الصناعي (مصنع البسكويت)",
-    },
-    consultant: { en: "MAST Engineering Consultants", ar: "استشاريو ماست الهندسيون" },
-    scope: {
-      en: "Biological & Chemical Treatment · Skid Fabrication · Compliance Testing · Handover",
-      ar: "معالجة بيولوجية وكيميائية · تصنيع الوحدات · اختبارات المطابقة البيئية · التسليم",
-    },
-    year: "2021",
-    region: { en: "Sadat City Industrial Zone", ar: "المنطقة الصناعية بالسادات" },
-  },
   "awlad-el-sheikh-pumping": {
     cover: "/images/projects/awlad-el-sheikh-pumping/cover.webp",
     gallery: [
       "/images/projects/awlad-el-sheikh-pumping/gallery-1.webp",
       "/images/projects/awlad-el-sheikh-pumping/gallery-2.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-3.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-4.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-5.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-6.webp",
     ],
     capacity: { en: "Potable Water Lifting Hub", ar: "محطة رفع وتغذية مياه الشرب" },
     client: {
@@ -130,6 +192,12 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/north-coast-desalination/gallery-3.webp",
       "/images/projects/north-coast-desalination/gallery-4.webp",
       "/images/projects/north-coast-desalination/gallery-5.webp",
+      "/images/projects/north-coast-desalination/gallery-6.webp",
+      "/images/projects/north-coast-desalination/gallery-7.webp",
+      "/images/projects/north-coast-desalination/gallery-8.webp",
+      "/images/projects/north-coast-desalination/gallery-9.webp",
+      "/images/projects/north-coast-desalination/gallery-10.webp",
+      "/images/projects/north-coast-desalination/gallery-11.webp",
     ],
     capacity: { en: "Multi-Unit Brackish RO Trains", ar: "وحدات تحلية متتابعة بالتناضح العكسي" },
     client: {
@@ -144,6 +212,1098 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2020",
     region: { en: "El Hamam & Coastal Strip, Matrouh", ar: "الحمام والشريط الساحلي، مطروح" },
   },
+  "multi-site-desalination-purification": {
+    cover: "/images/projects/multi-site-desalination-purification/cover.webp",
+    gallery: [
+      "/images/projects/multi-site-desalination-purification/gallery-1.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-2.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-3.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-4.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-5.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-6.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-7.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-8.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-9.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-10.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Multi-Site Decentralized RO Stations",
+      ar: "محطات تحلية مياه بالتناضح العكسي متعددة المواقع",
+    },
+    client: {
+      en: "National Development & Agriculture Directorate",
+      ar: "جهاز التنمية والاستصلاح الزراعي",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Skid Fabrication · RO Trains · Pre-Filtration · Multi-Site Commissioning",
+      ar: "تصنيع شاسيهات · وحدات تناضح عكسي · فلترة أولية · تشغيل متعدد المواقع",
+    },
+    year: "2020",
+    region: {
+      en: "El Hamam, Fayoum, New Valley & Wadi Natrun",
+      ar: "الحمام، الفيوم، الوادي الجديد، وادي النطرون",
+    },
+  },
+  "dairy-effluent-treatment-network": {
+    cover: "/images/projects/dairy-effluent-treatment-network/cover.webp",
+    gallery: [
+      "/images/projects/dairy-effluent-treatment-network/gallery-1.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-2.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-3.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-4.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-5.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-6.webp",
+    ],
+    capacity: { en: "High-Load Organic Effluent Treatment", ar: "معالجة صرف عضوي عالي الأحمال" },
+    client: {
+      en: "National Livestock Production Directorate",
+      ar: "جهاز مشروعات الإنتاج الحيواني",
+    },
+    consultant: {
+      en: "Environmental Engineering Advisory Board",
+      ar: "هيئة الاستشارات البيئية والهندسية",
+    },
+    scope: {
+      en: "Biological Treatment · Aeration Basins · Clarifiers · Sludge Dewatering",
+      ar: "معالجة بيولوجية · أحواض تهوية · مروقات · نزح الحمأة",
+    },
+    year: "2020",
+    region: { en: "El Hamam, Wadi Natrun, Sadat & Yesh", ar: "الحمام، وادي النطرون، السادات، يشع" },
+  },
+  "food-city-treatment": {
+    cover: "/images/projects/food-city-treatment/cover.webp",
+    gallery: [
+      "/images/projects/food-city-treatment/gallery-1.webp",
+      "/images/projects/food-city-treatment/gallery-2.webp",
+      "/images/projects/food-city-treatment/gallery-3.webp",
+      "/images/projects/food-city-treatment/gallery-4.webp",
+      "/images/projects/food-city-treatment/gallery-5.webp",
+      "/images/projects/food-city-treatment/gallery-6.webp",
+    ],
+    capacity: { en: "50 m³/day Industrial Wastewater", ar: "50 م³/يوم صرف صناعي غذائي" },
+    client: {
+      en: "Food City Industrial Complex (Biscuit Factory)",
+      ar: "مجمع المدينة الغذائية الصناعي (مصنع البسكويت)",
+    },
+    consultant: { en: "MAST Engineering Consultants", ar: "استشاريو ماست الهندسيون" },
+    scope: {
+      en: "Biological & Chemical Treatment · Skid Fabrication · Compliance Testing · Handover",
+      ar: "معالجة بيولوجية وكيميائية · تصنيع الوحدات · اختبارات المطابقة البيئية · التسليم",
+    },
+    year: "2021",
+    region: { en: "Sadat City Industrial Zone", ar: "المنطقة الصناعية بالسادات" },
+  },
+  "qabs-min-nour-mosque": {
+    cover: "/images/projects/qabs-min-nour-mosque/cover.webp",
+    gallery: [
+      "/images/projects/qabs-min-nour-mosque/gallery-1.webp",
+      "/images/projects/qabs-min-nour-mosque/gallery-2.webp",
+    ],
+    capacity: {
+      en: "2,050 m² Built Area · 1,500 Worshipers",
+      ar: "مسطح بنائي 2,050 م² · سعة 1,500 مصلٍ",
+    },
+    client: {
+      en: "Qabs Min Nour Charity Foundation",
+      ar: "جمعية قبس من نور الخيرية",
+    },
+    consultant: {
+      en: "Engineering Consultant Bureau — Qabs Min Nour",
+      ar: "المكتب الاستشاري الهندسي لجمعية قبس من نور",
+    },
+    scope: {
+      en: "Turnkey General Contracting · Civil Concrete & Dome Masonry · Architectural Stone Facades & Integrated MEP",
+      ar: "مقاولات عامة متكاملة على المفتاح · الهيكل الخرساني والقباب · الواجهات الحجرية والأعمال الكهروميكانيكية",
+    },
+    year: "2025",
+    region: {
+      en: "New Administrative Capital (R3 District)",
+      ar: "العاصمة الإدارية الجديدة (الحي السكني R3)",
+    },
+  },
+  "rafah-bedouin-housing": {
+    cover: "/images/projects/rafah-bedouin-housing/cover.webp",
+    gallery: [
+      "/images/projects/rafah-bedouin-housing/gallery-1.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-2.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-3.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-4.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-5.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-6.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-7.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-8.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-9.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-10.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Zone 1 Development · 100+ Bedouin Residential Units",
+      ar: "المرحلة الأولى · أكثر من 100 وحدة سكنية بدوية متكاملة",
+    },
+    client: {
+      en: "North Sinai Governorate & Armed Forces Engineering Authority",
+      ar: "محافظة شمال سيناء والهيئة الهندسية للقوات المسلحة",
+    },
+    consultant: {
+      en: "Armed Forces Engineering Authority Consulting Directorate",
+      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+    },
+    scope: {
+      en: "Civil Structures & Housing Units · Potable Water & Sanitation Loops · Underground Power Distribution",
+      ar: "إنشاءات مدنية ومباني سكنية · شبكات مياه الشرب والصرف الصحي · التوزيع الكهربائي الداخلي",
+    },
+    year: "2025",
+    region: { en: "Rafah, North Sinai", ar: "رفح، شمال سيناء" },
+  },
+  "sisi-city-wastewater": {
+    cover: "/images/projects/sisi-city-wastewater/cover.webp",
+    gallery: [
+      "/images/projects/sisi-city-wastewater/gallery-1.webp",
+      "/images/projects/sisi-city-wastewater/gallery-2.webp",
+      "/images/projects/sisi-city-wastewater/gallery-3.webp",
+      "/images/projects/sisi-city-wastewater/gallery-4.webp",
+      "/images/projects/sisi-city-wastewater/gallery-5.webp",
+      "/images/projects/sisi-city-wastewater/gallery-6.webp",
+      "/images/projects/sisi-city-wastewater/gallery-7.webp",
+      "/images/projects/sisi-city-wastewater/gallery-8.webp",
+      "/images/projects/sisi-city-wastewater/gallery-9.webp",
+      "/images/projects/sisi-city-wastewater/gallery-10.webp",
+      "/images/projects/sisi-city-wastewater/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Gravity Sewer & Stormwater Drainage Trunk Line",
+      ar: "شبكة انحدار رئيسية للصرف الصحي وتصريف مياه الأمطار",
+    },
+    client: {
+      en: "New Urban Communities Authority (NUCA) & Armed Forces Engineering Authority",
+      ar: "هيئة المجتمعات العمرانية الجديدة والهيئة الهندسية للقوات المسلحة",
+    },
+    consultant: {
+      en: "Armed Forces Engineering Authority Consulting Directorate",
+      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+    },
+    scope: {
+      en: "Gravity Pipeline Laying · Inspection Manholes & Chambers · Storm Catch Basins · Hydrostatic Testing",
+      ar: "مد خطوط الانحدار · غرف التفتيش والمطابق · بالوعات صرف الأمطار · الاختبارات الهيدروليكية الميدانية",
+    },
+    year: "2025",
+    region: { en: "Al-Sisi City, North Sinai", ar: "مدينة السيسي، شمال سيناء" },
+  },
+  "salam-city-cattle-farm-networks": {
+    cover: "/images/projects/salam-city-cattle-farm-networks/cover.webp",
+    gallery: [
+      "/images/projects/salam-city-cattle-farm-networks/gallery-1.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-2.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-3.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-4.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-5.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-6.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-7.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-8.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-9.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-10.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Livestock Facility Wet Utilities · 2,500 Head Farm",
+      ar: "مرافق وشبكات مجمع إنتاج حيواني سعة 2,500 رأس",
+    },
+    client: {
+      en: "National Service Projects Organization (NSPO)",
+      ar: "جهاز مشروعات الخدمة الوطنية",
+    },
+    consultant: {
+      en: "Armed Forces Engineering Authority Consulting Directorate",
+      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+    },
+    scope: {
+      en: "Feedlot Potable Supply · Effluent Drainage Collection · Milking Parlor Power & Water Lines",
+      ar: "شبكات التغذية للحظائر · تجميع وصرف المخلفات · شبكات المياه والكهرباء للمحالب الآلية",
+    },
+    year: "2024",
+    region: { en: "New Salam City, North Sinai", ar: "مدينة السلام الجديدة، شمال سيناء" },
+  },
+  "gas-egypt-stations-electromechanical": {
+    cover: "/images/projects/gas-egypt-stations-electromechanical/cover.webp",
+    gallery: [
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-1.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-2.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-3.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-4.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-5.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-6.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-7.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-8.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-9.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-10.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Specialized Station Grounding & ATEX Power",
+      ar: "منظومات تأريض متخصصة وقوى مقاومة للانفجار",
+    },
+    client: { en: "Gas Egypt Company", ar: "شركة غاز مصر" },
+    consultant: {
+      en: "Petroleum Safety & Engineering Oversight",
+      ar: "إدارة الإشراف الهندسي والسلامة البترولية",
+    },
+    scope: {
+      en: "Grounding Grid · Hazardous Area Wiring · ESD Interlocks · Safety Certification",
+      ar: "شبكة تأريض · تمديدات مناطق خطرة · دوائر إغلاق طارئ · شهادات سلامة",
+    },
+    year: "2021",
+    region: { en: "Greater Cairo & Delta Stations", ar: "القاهرة الكبرى ومحطات الدلتا" },
+  },
+  "shubra-shahab-technical-works": {
+    cover: "/images/projects/shubra-shahab-technical-works/cover.webp",
+    gallery: [
+      "/images/projects/shubra-shahab-technical-works/gallery-1.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-2.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-3.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-4.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-5.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-6.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-7.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-8.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-9.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-10.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-11.webp",
+    ],
+    capacity: { en: "Auxiliary Hydraulic Infrastructure", ar: "تجهيزات هيدروليكية تكميلية" },
+    client: { en: "Agro-Industrial Development Authority", ar: "جهاز الصناعات والتنمية الزراعية" },
+    consultant: {
+      en: "Infrastructure Engineering Committee",
+      ar: "اللجنة الهندسية للبنية التحتية",
+    },
+    scope: {
+      en: "Bypass Piping · Valve Upgrades · Quantity Surveying · Technical Handover",
+      ar: "خطوط تحويل · تحديث محابس · حصر كميات · تسليم فني",
+    },
+    year: "2022",
+    region: { en: "Shubra Shahab, Qalyubia", ar: "شبرا شهاب، القليوبية" },
+  },
+  "toshka-reclamation-pumping-package": {
+    cover: "/images/projects/toshka-reclamation-pumping-package/cover.webp",
+    gallery: [
+      "/images/projects/toshka-reclamation-pumping-package/gallery-1.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-2.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-3.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-4.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-5.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-6.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-7.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-8.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-9.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-10.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Dual Agricultural Pumping Stations (Contract 39-2022)",
+      ar: "محطتا ضخ ورفع زراعي (عقد 39-2022)",
+    },
+    client: {
+      en: "National Agricultural Reclamation Authority",
+      ar: "جهاز مشروعات استصلاح الأراضي",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Station Civil Works · Heavy Pump Sets · Trash Screens · SCADA Integration",
+      ar: "أعمال مدنية للمحطات · طلمبات خدمة شاقة · مصافي شوائب · تحكم سكادا",
+    },
+    year: "2022",
+    region: { en: "Toshka, Aswan Governorate", ar: "توشكى، محافظة أسوان" },
+  },
+  "salam-city-water-pipeline": {
+    cover: "/images/projects/salam-city-water-pipeline/cover.webp",
+    gallery: [
+      "/images/projects/salam-city-water-pipeline/gallery-1.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-2.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-3.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-4.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-5.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-6.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-7.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-8.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-9.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-10.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-11.webp",
+    ],
+    capacity: {
+      en: "High-Pressure Strategic Water Transmission Line",
+      ar: "خط مياه ناقل استراتيجي عالي الضغط من رافع الشلاق",
+    },
+    client: {
+      en: "National Service Projects Organization (NSPO) & Armed Forces Engineering Authority",
+      ar: "جهاز مشروعات الخدمة الوطنية والهيئة الهندسية للقوات المسلحة",
+    },
+    consultant: {
+      en: "Armed Forces Engineering Authority Consulting Directorate",
+      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+    },
+    scope: {
+      en: "Transmission Pipeline Laying · Valve Chambers & Air Release · Hydrostatic Pressure Testing · Commissioning",
+      ar: "مد خطوط المياه الناقلة · غرف المحابس ومحابس الهواء · اختبارات الضغط الهيدروستاتيكي · تدشين الخط",
+    },
+    year: "2024",
+    region: {
+      en: "Sheikh Zuweid to New Salam City, North Sinai",
+      ar: "من الشيخ زويد إلى مدينة السلام، شمال سيناء",
+    },
+  },
+  "beni-suef-water-wastewater": {
+    cover: "/images/projects/beni-suef-water-wastewater/cover.webp",
+    gallery: [
+      "/images/projects/beni-suef-water-wastewater/gallery-1.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-2.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-3.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-4.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-5.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-6.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-7.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-8.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-9.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-10.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Municipal Multi-Train Treatment",
+      ar: "محطات معالجة وتنقية بلدية متعددة المراحل",
+    },
+    client: {
+      en: "Beni Suef Potable Water & Sanitation Authority",
+      ar: "شركة مياه الشرب والصرف الصحي ببني سويف",
+    },
+    consultant: {
+      en: "National Infrastructure Consulting Board",
+      ar: "جهاز استشارات البنية التحتية",
+    },
+    scope: {
+      en: "Civil Works · M&E Fit-Out · Filter Media · Commissioning",
+      ar: "أعمال مدنية · كهروميكانيك · فلاتر وترويق · تشغيل تجريبي",
+    },
+    year: "2020",
+    region: { en: "Beni Suef Governorate", ar: "محافظة بني سويف" },
+  },
+  "qibili-qarun-water-purification": {
+    cover: "/images/projects/qibili-qarun-water-purification/cover.webp",
+    gallery: [
+      "/images/projects/qibili-qarun-water-purification/gallery-1.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-2.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-3.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-4.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-5.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-6.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-7.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-8.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-9.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-10.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Agricultural & Process Water Purification",
+      ar: "تنقية مياه عمليات وإنتاج زراعي",
+    },
+    client: {
+      en: "National Agricultural Development Authority",
+      ar: "جهاز المشروعات والإنتاج الزراعي",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "M&E Fit-Out · Sand Filtration · Chemical Dosing · Control Panels",
+      ar: "أعمال كهروميكانيكية · فلاتر رملية · حقن كيميائي · لوحات تحكم",
+    },
+    year: "2020",
+    region: { en: "Qibili Qarun, Fayoum", ar: "قبلي قارون، الفيوم" },
+  },
+  "shubra-shahab-industrial-wastewater": {
+    cover: "/images/projects/shubra-shahab-industrial-wastewater/cover.webp",
+    gallery: [
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-1.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-2.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-3.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-4.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-5.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-6.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-7.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-8.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-9.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-10.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Industrial Agro-Effluent Treatment Train",
+      ar: "محطة معالجة صرف صناعي زراعي متقدمة",
+    },
+    client: { en: "Agro-Industrial Development Authority", ar: "جهاز الصناعات والتنمية الزراعية" },
+    consultant: {
+      en: "Infrastructure Engineering Committee",
+      ar: "اللجنة الهندسية للبنية التحتية",
+    },
+    scope: {
+      en: "Civil Basins · DAF Units · Chemical Dosing · Environmental Compliance",
+      ar: "أحواض خرسانية · وحدات DAF · حقن كيميائي · مطابقة بيئية",
+    },
+    year: "2020",
+    region: { en: "Shubra Shahab, Qalyubia", ar: "شبرا شهاب، القليوبية" },
+  },
+  "marble-factory-desalination-plants": {
+    cover: "/images/projects/marble-factory-desalination-plants/cover.webp",
+    gallery: [
+      "/images/projects/marble-factory-desalination-plants/gallery-1.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-2.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-3.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-4.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-5.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-6.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-7.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-8.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-9.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-10.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Heavy Industrial Process Water & RO Trains",
+      ar: "تحلية مياه عمليات للخدمة الصناعية الشاقة",
+    },
+    client: {
+      en: "National Mining & Marble Industries Complex",
+      ar: "مجمع صناعات الرخام والتعدين",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Industrial RO · Sediment Hydrocyclones · Process Water Recovery · Automation",
+      ar: "تحلية صناعية · فواصل رواسب · استرجاع مياه التبريد · تحكم آلي",
+    },
+    year: "2020",
+    region: {
+      en: "Jafjaafa (North Sinai), Minya & Ras Sedr",
+      ar: "الجفجافة (شمال سيناء)، المنيا، رأس سدر",
+    },
+  },
+  "qibili-qarun-goat-farm-utilities": {
+    cover: "/images/projects/qibili-qarun-goat-farm-utilities/cover.webp",
+    gallery: [
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-1.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-2.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-3.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-4.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-5.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-6.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-7.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-8.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-9.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-10.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Specialized Agricultural Utility Networks",
+      ar: "شبكات مرافق متخصصة لمزارع الإنتاج الحيواني",
+    },
+    client: {
+      en: "National Livestock Production Directorate",
+      ar: "جهاز مشروعات الإنتاج الحيواني",
+    },
+    consultant: {
+      en: "Fayoum Agricultural Projects Directorate",
+      ar: "مديرية المشروعات الزراعية بالفيوم",
+    },
+    scope: {
+      en: "Water Supply · Drainage Piping · Holding Tanks · Booster Pumps",
+      ar: "تغذية مياه · شبكات صرف · خزانات تجميع · طلمبات رفع ضغط",
+    },
+    year: "2021",
+    region: { en: "Qibili Qarun, Fayoum", ar: "قبلي قارون، الفيوم" },
+  },
+  "capital-island-infrastructure": {
+    cover: "/images/projects/capital-island-infrastructure/cover.webp",
+    gallery: [
+      "/images/projects/capital-island-infrastructure/gallery-1.webp",
+      "/images/projects/capital-island-infrastructure/gallery-2.webp",
+      "/images/projects/capital-island-infrastructure/gallery-3.webp",
+      "/images/projects/capital-island-infrastructure/gallery-4.webp",
+      "/images/projects/capital-island-infrastructure/gallery-5.webp",
+      "/images/projects/capital-island-infrastructure/gallery-6.webp",
+      "/images/projects/capital-island-infrastructure/gallery-7.webp",
+      "/images/projects/capital-island-infrastructure/gallery-8.webp",
+      "/images/projects/capital-island-infrastructure/gallery-9.webp",
+      "/images/projects/capital-island-infrastructure/gallery-10.webp",
+      "/images/projects/capital-island-infrastructure/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Integrated Multi-Utility Urban Infrastructure",
+      ar: "بنية تحتية متكاملة لشبكات المرافق الحضرية",
+    },
+    client: {
+      en: "New Administrative Capital Urban Authority",
+      ar: "جهاز تنمية العاصمة الإدارية الجديدة",
+    },
+    consultant: {
+      en: "Capital Engineering Supervision Directorate",
+      ar: "إدارة الإشراف الهندسي بالعاصمة",
+    },
+    scope: {
+      en: "Water Mains · Gravity Sewer · Storm Drainage · Electrical Duct Banks",
+      ar: "خطوط مياه · انحدار صرف · صرف أمطار · مسارات كابلات كهربائية",
+    },
+    year: "2023",
+    region: { en: "New Administrative Capital", ar: "العاصمة الإدارية الجديدة" },
+  },
+  "toshka-pumping-basket-screens": {
+    cover: "/images/projects/toshka-pumping-basket-screens/cover.webp",
+    gallery: [
+      "/images/projects/toshka-pumping-basket-screens/gallery-1.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-2.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-3.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-4.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-5.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-6.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-7.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-8.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-9.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-10.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Deep-Well Debris Protection Systems",
+      ar: "منظومات حماية البيارات العميقة من الشوائب",
+    },
+    client: {
+      en: "National Agricultural Reclamation Authority",
+      ar: "جهاز مشروعات استصلاح الأراضي",
+    },
+    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    scope: {
+      en: "Basket Screens · Guide Rails · Lifting Hoists · Anti-Corrosion Protection",
+      ar: "مصافي سلية · مسارات توجيه · أوناش رفع · حماية ضد التآكل",
+    },
+    year: "2023",
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
+  },
+  "infrastructure-sand-procurement": {
+    cover: "/images/projects/infrastructure-sand-procurement/cover.webp",
+    gallery: [
+      "/images/projects/infrastructure-sand-procurement/gallery-1.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-2.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-3.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-4.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-5.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-6.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-7.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-8.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-9.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-10.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Certified Silica Media & Trench Bedding",
+      ar: "رمال سيليكا معتمدة ومهمات تأسيس خطوط",
+    },
+    client: {
+      en: "National Infrastructure & Contracting Authorities",
+      ar: "هيئات البنية التحتية والمقاولات الوطنية",
+    },
+    consultant: {
+      en: "Materials & Geotechnical Engineering Bureau",
+      ar: "مكتب اختبارات المواد والجيوتقنية",
+    },
+    scope: {
+      en: "Silica Sand Supply · Grain Analysis · Trench Bedding Logistics · Quality Testing",
+      ar: "توريد رمال سيليكا · تحاليل تدرج حبيبي · لوجستيات توريد · اختبارات جودة",
+    },
+    year: "2024",
+    region: { en: "National Infrastructure Corridor", ar: "محاور البنية التحتية الوطنية" },
+  },
+  "cargas-grounding-systems": {
+    cover: "/images/projects/cargas-grounding-systems/cover.webp",
+    gallery: [
+      "/images/projects/cargas-grounding-systems/gallery-1.webp",
+      "/images/projects/cargas-grounding-systems/gallery-2.webp",
+      "/images/projects/cargas-grounding-systems/gallery-3.webp",
+      "/images/projects/cargas-grounding-systems/gallery-4.webp",
+      "/images/projects/cargas-grounding-systems/gallery-5.webp",
+      "/images/projects/cargas-grounding-systems/gallery-6.webp",
+      "/images/projects/cargas-grounding-systems/gallery-7.webp",
+      "/images/projects/cargas-grounding-systems/gallery-8.webp",
+      "/images/projects/cargas-grounding-systems/gallery-9.webp",
+      "/images/projects/cargas-grounding-systems/gallery-10.webp",
+      "/images/projects/cargas-grounding-systems/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Petrochemical Grade Earth Grounding",
+      ar: "تأريض كهربائي بمواصفات المنشآت البترولية",
+    },
+    client: {
+      en: "Natural Gas Vehicles Company (Cargas)",
+      ar: "شركة الغاز الطبيعي للسيارات (كارجاس)",
+    },
+    consultant: {
+      en: "Petroleum Safety & Electrical Compliance Office",
+      ar: "مكتب السلامة والتوافق الكهربائي البترولي",
+    },
+    scope: {
+      en: "Deep Ground Wells · Equipotential Bonding · Surge Suppression · Electrical Certification",
+      ar: "آبار تأريض عميق · ربط متساوي للجهد · حماية صواعق · شهادات اعتماد",
+    },
+    year: "2024",
+    region: { en: "Greater Cairo & Delta Stations", ar: "محطات القاهرة الكبرى والدلتا" },
+  },
+  "date-palm-cold-storage-mep": {
+    cover: "/images/projects/date-palm-cold-storage-mep/cover.webp",
+    gallery: [
+      "/images/projects/date-palm-cold-storage-mep/gallery-1.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-2.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-3.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-4.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-5.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-6.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-7.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-8.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-9.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-10.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Agro-Industrial Cold Storage Utilities",
+      ar: "مرافق وخدمات التخزين المبرد الصناعي",
+    },
+    client: {
+      en: "National Agricultural Logistics Authority",
+      ar: "جهاز اللوجستيات والمشروعات الزراعية",
+    },
+    consultant: {
+      en: "Industrial Facilities Engineering Bureau",
+      ar: "مكتب هندسة المنشآت الصناعية",
+    },
+    scope: {
+      en: "Cooling Loops · Fire Suppression Pumps · Power Switchboards · Automated Controls",
+      ar: "دوائر تبريد · طلمبات إطفاء حريق · لوحات قوى · تحكم آلي",
+    },
+    year: "2024",
+    region: { en: "New Valley Governorate", ar: "محافظة الوادي الجديد" },
+  },
+  "manshiyat-nasser-pumping-station": {
+    cover: "/images/projects/manshiyat-nasser-pumping-station/cover.webp",
+    gallery: [
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-1.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-2.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-3.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-4.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-5.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-6.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-7.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-8.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-9.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-10.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-11.webp",
+    ],
+    capacity: { en: "High-Head Urban Lift Station", ar: "محطة رفع حضرية عالية الرفع والتصرف" },
+    client: {
+      en: "Cairo Potable Water & Sanitation Authority",
+      ar: "شركة الصرف الصحي للقاهرة الكبرى",
+    },
+    consultant: {
+      en: "Urban Infrastructure Engineering Directorate",
+      ar: "إدارة المشروعات الهندسية للتطوير الحضري",
+    },
+    scope: {
+      en: "Deep Wet Well · Non-Clog Submersibles · Valve Chambers · Ultrasonic Telemetry",
+      ar: "بيارة عميقة · طلمبات غاطسة · غرف محابس · تحكم بالموجات فوق الصوتية",
+    },
+    year: "2024",
+    region: { en: "Manshiyat Nasser, Cairo", ar: "منشأة ناصر، القاهرة" },
+  },
+  "nuweiba-infrastructure-works": {
+    cover: "/images/projects/nuweiba-infrastructure-works/cover.webp",
+    gallery: [
+      "/images/projects/nuweiba-infrastructure-works/gallery-1.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-2.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-3.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-4.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-5.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-6.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-7.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-8.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-9.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-10.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Saline Soil Coastal Transmission Mains",
+      ar: "خطوط نقل مياه ساحلية مقاومة للملوحة",
+    },
+    client: { en: "South Sinai Development Directorate", ar: "جهاز تنمية وتعمير جنوب سيناء" },
+    consultant: { en: "Sinai Coastal Engineering Bureau", ar: "مكتب هندسة المشروعات الساحلية" },
+    scope: {
+      en: "HDPE Butt-Fusion · Booster Station · Surge Protection · Saline Area Trenching",
+      ar: "لحام حراري HDPE · محطة تقوية · حماية مطرقة مائية · حفر ساحلي",
+    },
+    year: "2024",
+    region: { en: "Nuweiba, South Sinai", ar: "نويبع، جنوب سيناء" },
+  },
+  "future-of-egypt-potato-storage-softener": {
+    cover: "/images/projects/future-of-egypt-potato-storage-softener/cover.webp",
+    gallery: [
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-1.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-2.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-3.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-4.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-5.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-6.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-7.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-8.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-9.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-10.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-11.webp",
+    ],
+    capacity: {
+      en: "8 m³/hr Automated Ion-Exchange Softener",
+      ar: "محطة إزالة عسر مياه آلية بطاقة 8 م³/س",
+    },
+    client: {
+      en: "Future of Egypt Sustainable Development Authority",
+      ar: "جهاز مستقبل مصر للتنمية المستدامة",
+    },
+    consultant: {
+      en: "Agro-Industrial Engineering Consultants",
+      ar: "استشاريو المشروعات الزراعية والصناعية",
+    },
+    scope: {
+      en: "Water Softener Vessel · Ion Exchange Resin · Brine Tanks · Cooling Tower Protection",
+      ar: "وحدات تليين مياه · ريزن تبادل أيوني · خزانات ملح · حماية أبراج التبريد",
+    },
+    year: "2024",
+    region: { en: "Dabaa Corridor, Western Desert", ar: "محور الضبعة، الصحراء الغربية" },
+  },
+  "al-marreikh-stadium-civil-mep": {
+    cover: "/images/projects/al-marreikh-stadium-civil-mep/cover.webp",
+    gallery: [
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-1.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-2.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-3.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-4.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-5.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-6.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-7.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-8.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-9.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-10.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-11.webp",
+    ],
+    capacity: { en: "Municipal Sports Facility Upgrades", ar: "تطوير ورفع كفاءة منشآت رياضية" },
+    client: {
+      en: "Ministry of Youth & Sports & Port Said Governorate",
+      ar: "وزارة الشباب والرياضة ومحافظة بورسعيد",
+    },
+    consultant: {
+      en: "Sports Facilities Engineering Directorate",
+      ar: "إدارة المشروعات الهندسية للمنشآت الرياضية",
+    },
+    scope: {
+      en: "Concrete Remediation · Pitch Drainage · Floodlighting Power · Facility Handover",
+      ar: "ترميم خرساني · تصريف أرضية الملعب · قوى الإنارة · تسليم المنشأة",
+    },
+    year: "2024",
+    region: { en: "Port Said, Egypt", ar: "بورسعيد، مصر" },
+  },
+  "sisi-city-water-supply-network": {
+    cover: "/images/projects/sisi-city-water-supply-network/cover.webp",
+    gallery: [
+      "/images/projects/sisi-city-water-supply-network/gallery-1.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-2.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-3.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-4.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-5.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-6.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-7.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-8.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-9.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-10.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Urban Potable Transmission & Distribution Network",
+      ar: "شبكة نقل وتوزيع مياه شرب حضرية متكاملة",
+    },
+    client: {
+      en: "Armed Forces Engineering Authority & Al-Arjani Group",
+      ar: "الهيئة الهندسية ومجموعة العرجاني (أبناء سيناء)",
+    },
+    consultant: {
+      en: "Sinai Infrastructure Engineering Committee",
+      ar: "لجنة الإشراف الهندسي على مشروعات سيناء",
+    },
+    scope: {
+      en: "Ductile Mains · HDPE Distribution · Valve Chambers · Disinfection Testing",
+      ar: "خطوط زهر مرن · شبكات HDPE · غرف محابس · غسيل وتعقيم واختبار",
+    },
+    year: "2025",
+    region: { en: "Al-Sisi City, North Sinai", ar: "مدينة السيسي، شمال سيناء" },
+  },
+  "north-sinai-dc-infrastructure": {
+    cover: "/images/projects/north-sinai-dc-infrastructure/cover.webp",
+    gallery: [
+      "/images/projects/north-sinai-dc-infrastructure/gallery-1.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-2.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-3.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-4.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-5.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-6.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-7.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-8.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-9.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-10.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Strategic Regional Utility Infrastructure",
+      ar: "بنية مرافق استراتيجية إقليمية",
+    },
+    client: {
+      en: "Sinai Reconstruction Directorate & Engineering Authority",
+      ar: "جهاز تعمير سيناء والهيئة الهندسية",
+    },
+    consultant: { en: "Engineering Authority Supervision Bureau", ar: "مكتب الإشراف الهندسي" },
+    scope: {
+      en: "Utility Lines · Power Distribution · Reinforced Pads · Accelerated Handover",
+      ar: "خطوط مرافق · شبكات قوى · قواعد خرسانية · تسليم سريع",
+    },
+    year: "2025",
+    region: { en: "North Sinai Governorate", ar: "شمال سيناء" },
+  },
+  "al-azhar-institute-minya": {
+    cover: "/images/projects/al-azhar-institute-minya/cover.webp",
+    gallery: [
+      "/images/projects/al-azhar-institute-minya/gallery-1.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-2.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-3.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-4.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-5.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-6.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-7.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-8.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-9.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-10.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Educational & Community Facility Complex",
+      ar: "مجمع منشآت تعليمية ومجتمعية متكامل",
+    },
+    client: {
+      en: "Qabs Min Nour Charitable Foundation & Al-Azhar Al-Sharif",
+      ar: "جمعية قبس من نور الخيرية والأزهر الشريف",
+    },
+    consultant: {
+      en: "Educational Facilities Consulting Directorate",
+      ar: "هيئة استشارات الأبنية التعليمية",
+    },
+    scope: {
+      en: "Civil Structure · Architectural Fit-Out · Electrical Networks · Sanitary Plumbing",
+      ar: "هيكل خرساني · تشطيبات معمارية · شبكات كهرباء · سباكة وتغذية",
+    },
+    year: "2026",
+    region: { en: "Minya Governorate", ar: "محافظة المنيا" },
+  },
+  "abu-minqar-agricultural-farm-utilities": {
+    cover: "/images/projects/abu-minqar-agricultural-farm-utilities/cover.webp",
+    gallery: [
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-1.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-2.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-3.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-4.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-5.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-6.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-7.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-8.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-9.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-10.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Deep Artesian Well & Irrigation Hub",
+      ar: "منظومة آبار ارتوازية وشبكات ري زراعي",
+    },
+    client: {
+      en: "New Valley Agricultural Development Authority",
+      ar: "جهاز التنمية الزراعية بالوادي الجديد",
+    },
+    consultant: {
+      en: "Groundwater & Agricultural Reclamation Directorate",
+      ar: "إدارة المياه الجوفية واستصلاح الأراضي",
+    },
+    scope: {
+      en: "Deep Well Pumps · Pressurized Mains · Solar Hybrid Drives · Flow Calibration",
+      ar: "طلمبات آبار عميقة · خطوط ري مضغوطة · طاقة شمسية · معايرة تصرفات",
+    },
+    year: "2026",
+    region: { en: "Abu Minqar, New Valley", ar: "أبو منقار، الوادي الجديد" },
+  },
+  "hayat-karima-health-unit": {
+    cover: "/images/projects/hayat-karima-health-unit/cover.webp",
+    gallery: [
+      "/images/projects/hayat-karima-health-unit/gallery-1.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-2.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-3.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-4.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-5.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-6.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-7.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-8.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-9.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-10.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Presidential Decent Life Healthcare Clinic",
+      ar: "وحدة طب أسرة ريفية (حياة كريمة)",
+    },
+    client: {
+      en: "Decent Life Initiative & Armed Forces Engineering Authority",
+      ar: "مبادرة حياة كريمة والهيئة الهندسية",
+    },
+    consultant: {
+      en: "Ministry of Health Engineering Bureau",
+      ar: "الإدارة الهندسية لوزارة الصحة",
+    },
+    scope: {
+      en: "Civil Shell · Medical Fit-Out · Anti-Bacterial Plumbing · Emergency Power",
+      ar: "هيكل خرساني · تشطيبات طبية · سباكة معقمة · قوى طوارئ",
+    },
+    year: "2026",
+    region: { en: "Upper Egypt Rural Sectors", ar: "قطاعات ريف صعيد مصر" },
+  },
+  "bianchi-resort-infrastructure-utilities": {
+    cover: "/images/projects/bianchi-resort-infrastructure-utilities/cover.webp",
+    gallery: [
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-1.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-2.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-3.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-4.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-5.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-6.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-7.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-8.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-9.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-10.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-11.webp",
+    ],
+    capacity: {
+      en: "High-End Coastal Resort Utility Infrastructure",
+      ar: "بنية مرافق متطورة للمنتجعات الساحلية",
+    },
+    client: {
+      en: "Bianchi Tourism & Real Estate Development",
+      ar: "شركة بيانكي للتطوير السياحي والعقاري",
+    },
+    consultant: {
+      en: "Coastal Resorts Engineering Advisory Group",
+      ar: "المجموعة الاستشارية لهندسة المنتجعات الساحلية",
+    },
+    scope: {
+      en: "Ring Mains · Gravity Sewer · Landscape Irrigation · Hydrostatic Certification",
+      ar: "شبكات حلقية · انحدار صرف · ري لاندسكيب · اختبارات هيدروليكية",
+    },
+    year: "2026",
+    region: { en: "North Coast, Matrouh", ar: "الساحل الشمالي، مطروح" },
+  },
+  "rural-egypt-wells-minya": {
+    cover: "/images/projects/rural-egypt-wells-minya/cover.webp",
+    gallery: [
+      "/images/projects/rural-egypt-wells-minya/gallery-1.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-2.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-3.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-4.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-5.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-6.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-7.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-8.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-9.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-10.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-11.webp",
+    ],
+    capacity: { en: "Deep Solar-Powered Artesian Wells", ar: "آبار جوفية عميقة بمحطات ضخ شمسية" },
+    client: {
+      en: "Egyptian Countryside Development Company",
+      ar: "شركة تنمية الريف المصري الجديد",
+    },
+    consultant: {
+      en: "Groundwater Research & Technical Directorate",
+      ar: "معهد بحوث المياه الجوفية",
+    },
+    scope: {
+      en: "Well Drilling · Submersible Pumps · Solar Inverters · Step-Drawdown Testing",
+      ar: "حفر وتجهيز آبار · طلمبات أعماق · مغيرات طاقة شمسية · اختبارات ضخ",
+    },
+    year: "2026",
+    region: { en: "West Minya, Upper Egypt", ar: "غرب المنيا، صعيد مصر" },
+  },
+  "palm-hills-infrastructure-utilities": {
+    cover: "/images/projects/palm-hills-infrastructure-utilities/cover.webp",
+    gallery: [
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-1.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-2.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-3.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-4.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-5.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-6.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-7.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-8.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-9.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-10.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Luxury Residential Multi-Utility Infrastructure",
+      ar: "بنية مرافق متطورة للتجمعات السكنية الراقية",
+    },
+    client: { en: "Palm Hills Developments", ar: "شركة بالم هيلز للتعمير" },
+    consultant: {
+      en: "Premier Real Estate Infrastructure Advisory",
+      ar: "استشاريو المشروعات العقارية الكبرى",
+    },
+    scope: {
+      en: "Ductile Water Mains · Gravity Sewer · Storm Attenuation · CCTV Inspection",
+      ar: "خطوط مياه زهر · انحدار صرف · صرف أمطار · فحص تلفزيوني CCTV",
+    },
+    year: "2026",
+    region: { en: "West Cairo, Giza", ar: "غرب القاهرة، الجيزة" },
+  },
+  "abu-zaabal-landfill-environmental-works": {
+    cover: "/images/projects/abu-zaabal-landfill-environmental-works/cover.webp",
+    gallery: [
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-1.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-2.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-3.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-4.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-5.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-6.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-7.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-8.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-9.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-10.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-11.webp",
+    ],
+    capacity: {
+      en: "Environmental Containment & Leachate Drainage",
+      ar: "حماية بيئية وتجميع مياه رشيح متخصصة",
+    },
+    client: {
+      en: "Waste Management Regulatory Authority & Qalyubia Governorate",
+      ar: "جهاز تنظيم إدارة المخلفات ومحافظة القليوبية",
+    },
+    consultant: {
+      en: "Environmental Geo-Engineering Advisory Directorate",
+      ar: "إدارة الاستشارات الجيوبيئية والهندسية",
+    },
+    scope: {
+      en: "Geomembrane Lining · Perforated Leachate Pipes · Neutralization Sumps · Monitoring Wells",
+      ar: "تبطين جيوممبرين · مواسير رشيح مثقبة · بيارات تحييد · آبار مراقبة",
+    },
+    year: "2026",
+    region: { en: "Abu Zaabal, Qalyubia", ar: "أبو زعبل، القليوبية" },
+  },
   "ameriya-cold-storage": {
     cover: "/images/projects/ameriya-cold-storage/cover.jpg",
     gallery: [
@@ -153,12 +1313,18 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/ameriya-cold-storage/gallery-4.jpg",
       "/images/projects/ameriya-cold-storage/gallery-5.jpg",
     ],
-    capacity: { en: "Industrial Cooling & Water Distribution Loops", ar: "دوائر تبريد عمليات وشبكات توزيع مياه متكاملة" },
+    capacity: {
+      en: "Industrial Cooling & Water Distribution Loops",
+      ar: "دوائر تبريد عمليات وشبكات توزيع مياه متكاملة",
+    },
     client: {
       en: "Industrial Logistics & Cold Storage Complex",
       ar: "مجمع الثلاجات والمشروعات اللوجستية الصناعية بالعامرية",
     },
-    consultant: null,
+    consultant: {
+      en: "Armed Forces Engineering Authority Consulting Directorate",
+      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+    },
     scope: {
       en: "Process Cooling Loops · Water Distribution Network · Pressure Balancing · Commissioning",
       ar: "دوائر التبريد للعمليات · شبكة التوزيع والضخ · موازنة الضغوط الهيدروليكية · التشغيل التجريبي",
@@ -175,12 +1341,18 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/east-delta-wastewater/gallery-4.webp",
       "/images/projects/east-delta-wastewater/gallery-5.webp",
     ],
-    capacity: { en: "Regional Wastewater Collection & Treatment Networks", ar: "شبكات تجميع ومعالجة مياه الصرف الصحي الإقليمية" },
+    capacity: {
+      en: "Regional Wastewater Collection & Treatment Networks",
+      ar: "شبكات تجميع ومعالجة مياه الصرف الصحي الإقليمية",
+    },
     client: {
       en: "National Urban Development Authority",
       ar: "الهيئة القومية لتطوير التجمعات العمرانية والريفية",
     },
-    consultant: { en: "Infrastructure Engineering Directorate", ar: "إدارة البنية التحتية الهندسية" },
+    consultant: {
+      en: "Infrastructure Engineering Directorate",
+      ar: "إدارة البنية التحتية الهندسية",
+    },
     scope: {
       en: "Gravity Sewer Mains · Lift Stations · Treatment Works · Statutory Compliance Verification",
       ar: "خطوط الانحدار الرئيسية · محطات الرفع · محطات المعالجة · اختبارات المطابقة البيئية",
@@ -190,7 +1362,57 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   },
 };
 
+export const AUTHENTIC_PROJECT_SLUGS = [
+  "sadat-city-ro",
+  "toshka-pumping-stations",
+  "food-city-treatment",
+  "arish-water-supply",
+  "ameriya-cold-storage",
+  "future-of-egypt-potato-storage-softener",
+  "infrastructure-sand-procurement",
+  "toshka-farm-potable-water-plant",
+  "marble-factory-desalination-plants",
+  "qibili-qarun-water-purification",
+  "multi-site-desalination-purification",
+  "north-coast-desalination",
+  "rural-egypt-wells-minya",
+  "abu-minqar-agricultural-farm-utilities",
+  "manshiyat-nasser-pumping-station",
+  "toshka-pumping-basket-screens",
+] as const;
+
+export type LocalizedProjectMeta = {
+  cover: string;
+  gallery: string[];
+  capacity: string;
+  client: string;
+  consultant: string;
+  scope: string;
+  year: string;
+  region: string;
+  isAuthentic: boolean;
+};
+
 export function getProjectMeta(slug: string): ProjectMeta | undefined {
   return PROJECT_META[slug];
 }
 
+export function getLocalizedProjectMeta(
+  slug: string,
+  locale: "en" | "ar" | string,
+): LocalizedProjectMeta | null {
+  const meta = PROJECT_META[slug];
+  if (!meta) return null;
+  const isAr = locale === "ar";
+  return {
+    cover: meta.cover,
+    gallery: meta.gallery ?? [],
+    capacity: meta.capacity ? (isAr ? meta.capacity.ar : meta.capacity.en) : "",
+    client: meta.client ? (isAr ? meta.client.ar : meta.client.en) : "",
+    consultant: meta.consultant ? (isAr ? meta.consultant.ar : meta.consultant.en) : "",
+    scope: meta.scope ? (isAr ? meta.scope.ar : meta.scope.en) : "",
+    year: meta.year ?? "",
+    region: meta.region ? (isAr ? meta.region.ar : meta.region.en) : "",
+    isAuthentic: (AUTHENTIC_PROJECT_SLUGS as readonly string[]).includes(slug),
+  };
+}

@@ -47,7 +47,6 @@ export default function BlueprintBackdrop({
       {/* drafting grid */}
       <div className="iw-blueprint-grid absolute inset-0" />
 
-
       {/* hydraulic streams */}
       <svg
         className="absolute inset-0 h-full w-full"
@@ -61,13 +60,6 @@ export default function BlueprintBackdrop({
             <stop offset="45%" stopColor="var(--iw-dark-accent)" stopOpacity="0.7" />
             <stop offset="100%" stopColor="var(--iw-accent)" stopOpacity="0.1" />
           </linearGradient>
-          <filter id="iw-node-bloom" x="-200%" y="-200%" width="500%" height="500%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         {[
@@ -96,7 +88,17 @@ export default function BlueprintBackdrop({
           [1180, 400],
           [820, 780],
         ].map(([cx, cy], i) => (
-          <g key={`${cx}-${cy}`} filter="url(#iw-node-bloom)">
+          <g key={`${cx}-${cy}`}>
+            {/* High-performance fake blur underlay */}
+            <circle
+              className="iw-node-pulse"
+              cx={cx}
+              cy={cy}
+              r="12"
+              fill="var(--iw-dark-accent)"
+              opacity="0.15"
+              style={{ animationDelay: `${i * 0.9}s` }}
+            />
             <circle
               className="iw-radar"
               cx={cx}

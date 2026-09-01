@@ -22,7 +22,6 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import Logo from "@/components/infeworks/Logo";
 
-
 export const Route = createFileRoute("/admin")({
   ssr: false,
   beforeLoad: async () => {
@@ -84,7 +83,6 @@ function AdminLayout() {
   const isProduction = import.meta.env.PROD;
   const envLabel = isProduction ? "PRODUCTION" : "STAGING";
 
-
   const sidebar = (
     <nav className="flex flex-col gap-1 p-4">
       {NAV.map((item) => (
@@ -123,7 +121,11 @@ function AdminLayout() {
           <div>
             <p
               className="text-lg leading-none tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 600, color: "var(--iw-dark-text)" }}
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 600,
+                color: "var(--iw-dark-text)",
+              }}
             >
               Infeworks
             </p>
@@ -215,7 +217,10 @@ function AdminLayout() {
               View Website
             </a>
             {email ? (
-              <span className="hidden text-sm lg:inline" style={{ color: "var(--iw-text-secondary)" }}>
+              <span
+                className="hidden text-sm lg:inline"
+                style={{ color: "var(--iw-text-secondary)" }}
+              >
                 {email}
               </span>
             ) : null}

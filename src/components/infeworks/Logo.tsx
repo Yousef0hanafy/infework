@@ -69,10 +69,7 @@ export default function Logo({
 
   if (markOnly) {
     return (
-      <LogoMark
-        variant={variant}
-        className={`h-12 w-auto shrink-0 object-contain ${className}`}
-      />
+      <LogoMark variant={variant} className={`h-12 w-auto shrink-0 object-contain ${className}`} />
     );
   }
 
@@ -102,7 +99,6 @@ export default function Logo({
       {englishName}
     </span>
   );
-
 
   if (layout === "stacked") {
     return (

@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import { ArrowRight, RotateCcw } from "lucide-react";
 
 import Logo from "@/components/infeworks/Logo";
-import CustomCursor from "@/components/infeworks/CustomCursor";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -31,7 +30,10 @@ function NotFoundComponent() {
         <div className="flex justify-center">
           <Logo variant="light" isAr={isArabic} />
         </div>
-        <p className="display-xl mt-12 text-[clamp(4rem,10vw,7rem)]" style={{ color: "var(--iw-dark-accent)" }}>
+        <p
+          className="display-xl mt-12 text-[clamp(4rem,10vw,7rem)]"
+          style={{ color: "var(--iw-dark-accent)" }}
+        >
           404
         </p>
         <h1 className="display-md mt-4 text-2xl md:text-3xl text-white">
@@ -135,10 +137,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Infeworks (International for Engineering Works) — turnkey EPC contractor for water, wastewater, agricultural irrigation, and electromechanical infrastructure in Egypt since 2006.",
+          "Infeworks (International for Engineering Works) — turnkey EPC contractor for water, wastewater, civil infrastructure, and electromechanical infrastructure in Egypt since 2006.",
       },
       { name: "author", content: "Infeworks" },
-      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      {
+        name: "robots",
+        content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+      },
       { property: "og:site_name", content: "Infeworks — International for Engineering Works" },
       { property: "og:title", content: "Infeworks — Water & Infrastructure Contractor Egypt" },
       {
@@ -185,6 +190,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Corporation",
+  name: "Infeworks — International for Engineering Works",
+  alternateName: "شركة إنفووركس للأعمال الهندسية",
+  url: "https://infeworks.com",
+  logo: "https://infeworks.com/logo.png",
+  foundingDate: "2006",
+  description:
+    "Turnkey EPC contractor for water, wastewater, civil infrastructure, and electromechanical engineering in Egypt.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "313 Zahraa Nasr City",
+    addressLocality: "Cairo",
+    addressCountry: "EG",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+20224103130",
+      contactType: "customer support",
+      availableLanguage: ["Arabic", "English"],
+    },
+  ],
+};
+
 function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isArabic = pathname === "/ar" || pathname.startsWith("/ar/");
@@ -205,9 +236,14 @@ function RootShell({ children }: { children: ReactNode }) {
         <link rel="alternate" hrefLang="en" href={enUrl} />
         <link rel="alternate" hrefLang="ar" href={arUrl} />
         <link rel="alternate" hrefLang="x-default" href={enUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(ORGANIZATION_SCHEMA),
+          }}
+        />
       </head>
       <body>
-        <CustomCursor />
         {children}
         <script
           dangerouslySetInnerHTML={{

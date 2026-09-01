@@ -24,6 +24,8 @@ dist-ssr
 
 # Archives & Large Upload Bundles
 *.zip
+Infeworks_KB_Markdown
+
 
 # Wrangler / Cloudflare
 .wrangler/

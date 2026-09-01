@@ -1,0 +1,151 @@
+---
+type: extracted_document
+source_name: PR01A.xlsx
+source_extension: .xlsx
+source_path: 01- Master/2026/مشروعات للدراسه -10/احمد الحضري/04- Volume 2/Volume 2/PR01A/PLM/BOQ/PR01A.xlsx
+source_url: https://infeworks.sharepoint.com/sites/InfeworksFiles/_layouts/15/Doc.aspx?sourcedoc=%7B3C5C44D4-E41E-435B-BDD3-E8EE88ADE202%7D&file=PR01A.xlsx&action=default&mobileredirect=true
+source_id: 01TC5FCYGUIRODYHXELNB33U7I52EK3YQC
+size_bytes: 73986
+last_modified: 2026-06-09T07:32:15Z
+extraction_status: extracted
+---
+
+# PR01A.xlsx
+
+> هذا المحتوى مستخرج آليًا من الملف الأصلي. يجب الرجوع إلى المصدر عند الاعتماد على رقم أو قيمة.
+
+
+## Sheet: Div.22-PLUMBING
+
+| DIVISION 22 Plumbing |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | Project No.: | =#REF! |  |  |  |
+|  |  |  |  | Issue Date: | =#REF! |  |  |  |
+|  |  |  |  | Issued for: | =#REF! |  |  |  |
+| Project:     |  | EAST PARCEL - CRESENT WALK VILLA (PR01) |  | DIVISION 03 - Concrete |  |  |  |  |
+| ITEM |  | DESCRIPTION |  | QTY. | UNIT |  | RATE L.E. | AMOUNT L.E. |
+|  |  | 22 00 00 - PLUMBING |  |  |  |  |  | =E89*H89 |
+|  |  | NOTES:- |  |  |  |  |  | =E90*H90 |
+|  |  | *All items shall be supplied and installed complete. *Provide all labor, materials, equipment & detailed shop drawings to stated performance standards. *All work shall be executed in full accordance with the approved drawings, specifications, and Method of Measurement, and shall comply with the Egyptian Code and all relevant standards. The works shall include any additional materials or activities necessary for completion as required by the Client and as instructed by the Engineer. |  |  |  |  |  | =E91*H91 |
+|  |  | Section 22 11 16: Domestic Water Piping |  |  |  |  |  | =E92*H92 |
+| 3 |  | Supply, install, connect, and test of(PPR) piping(outer diameter/PN 16) systems for Domestic hot and cold water systems including molded injected fittings , supports , hangars and fittings and all other accessories and as shown on drawings, All exposed hot water pipes shall be insulated with closed-cell elastomeric thermal insulation of  appropriate thickness to prevent heat loss and ensure safety. Insulation shall be neatly finished and protected as necessary for the installation environment.  |  |  |  |  |  |  |
+| 3.01 |  |   (20mm - 0.75") diamter pipe. |  | 400 | m |  | 320 | =E95*H95 |
+| 3.02 |  |   (25mm - 1") diamter pipe. |  | 200 | m |  | 375 | =E96*H96 |
+| 3.03 |  |   (32mm - 1.25") diamter pipe. |  | 50 | m |  | 450 | =E97*H97 |
+| 3.04 |  |   (40mm - 1.5") diamter pipe. |  | 100 | m |  | 530 | =E98*H98 |
+| 3.05 |  |   (50mm - 2") diamter pipe. |  | 70 | m |  | 600 | =E99*H99 |
+|  |  | SECTION 22 13 16 - Sanitary, Waste, Vent& Rainwater Pipework |  |  |  |  |  | =E101*H101 |
+| 1 |  | Aboveground & Underground Drainage Piping |  |  |  |  |  | =E102*H102 |
+|  |  | Supply, install, connect and test all soil, waste and vent (UPVC) (PN.10/outer diameter) vertical & horizontal aboveground piping system complete including clean outs fittings, roof vent caps, couplings, supports, hangers and all other accessories as specified and as shown on drawings.  |  |  |  |  |  |  |
+| 1.01 |  |   (20mm - 0.75") diamter pipe. |  | 70 | m |  | 65 | =E104*H104 |
+| 1.02 |  |   (25mm - 1") diamter pipe. |  | 25 | m |  | 85 | =E105*H105 |
+| 1.02 |  |   (50mm - 2.0") diamter pipe. |  | 100 | m |  | 210 | =E106*H106 |
+| 1.03 |  |   (75mm - 3.0") diamter pipe |  | 120 | m |  | 440 | =E107*H107 |
+| 1.04 |  |   (110mm - 4.0") diamter pipe |  | 140 | m |  | 680 | =E108*H108 |
+|  |  |  |  |  |  |  |  | =E109*H109 |
+|  |  | Roof Vent Cap |  |  |  |  |  |  |
+| 5 |  | Supply, installation, and testing of roof vent cap fabricated from UV-resistant UPVC (as specified), complete with insect screen and weatherproof hood, suitable for connection to vent pipe. The vent cap shall be fixed securely at roof level to provide proper ventilation for the drainage system while preventing ingress of rainwater, debris, and vermin. |  |  |  |  |  | =E111*H111 |
+| 5.01 |  |    50 mm diam. Piping  |  | 6 | PC |  | 115 | =E112*H112 |
+| 5.02 |  |    75 mm diam. Piping  |  | 7 | PC |  | 140 | =E113*H113 |
+| 5.02 |  |    110 mm diam. Piping  |  | 5 | PC |  | 260 | =E114*H114 |
+|  |  |  |  |  |  |  |  | =E116*H116 |
+|  |  | Section 22 13 19  Sanitary Waste Piping Specialties |  |  |  |  |  | =E118*H118 |
+| 4 |  | Plumbing Accessories Supply and install drainage accessories as mentioned below. all as per specifcation, drawings. |  |  |  |  |  |  |
+|  |  | Floor Drain Decorativ Type |  |  |  |  |  |  |
+| 5 |  | Supply, install, connect and test floor drain Decorative Type. c/w:adjustable housing and cover with screw, including all fitting and accessories  according to specifications and as shown on the drawings.   |  |  |  |  |  | =E122*H122 |
+| 5.01 |  |    75 mm diam. Piping  |  | 20 | PC |  | 2550 | =E123*H123 |
+|  |  | Floor CleanOut |  |  |  |  |  |  |
+| 5 |  | Supply, install, connect and test of heavy duty floor cleanout including all fitting and accessories all according to specifications and shown on drawings.   |  |  |  |  |  | =E126*H126 |
+| 5.01 |  |    75 mm diam. Piping  |  | 2 | PC |  | 2400 | =E127*H127 |
+| 5.02 |  |    110 mm diam. Piping  |  | 4 | PC |  | 2900 | =E128*H128 |
+|  |  | SIDE WALL Roof RAIN DRAIN |  |  |  |  |  |  |
+| 6 |  | Supply, install, connect and test of heavy duty side wall rain drain including all fitting and accessories all according to specifications and as shown on the drawings.   |  |  |  |  |  | =E131*H131 |
+| 6.01 |  |    75 mm diam. Piping  |  | 8 | PC |  | 2355 | =E132*H132 |
+|  |  | SIDE Planter DRAIN |  |  |  |  |  |  |
+| 6 |  | Supply, install, connect and test of PVC side planter drain including all fitting and accessories all according to specifications and as shown on the drawings.   |  |  |  |  |  | =E135*H135 |
+| 6.01 |  |  50 mm diam. Piping  |  | 1 | PC |  | 3000 | =E136*H136 |
+|  |  | SIDE Planter DRAIN |  |  |  |  |  |  |
+| 6 |  | Supply, install, connect and test of PVC side balcony drain c/w  Dome Material.   including all fitting and accessories all according to specifications and as shown on the drawings.   |  |  |  |  |  | =E140*H140 |
+| 6.01 |  |  50 mm diam. Piping  |  | 1 | PC |  | 3500 | =E141*H141 |
+|  |  | Gully Trap |  |  |  |  |  |  |
+| 7 |  | Supply, install, connect and test of gully trap including  grating with external block works and ductile iron cover and all necessary accessories and connections ,  traps , sedimentation buckets and all ancillaries all as specified and as shown on drawings. |  |  |  |  |  | =E144*H144 |
+| 7.01 |  |    75 mm diam. Piping  |  | 6 | PC |  | 3200 | 19200 |
+|  |  | Inspection Chambers: |  |  |  |  |  |  |
+| 8 |  | construction , connecting and testing of block works inspection  chambers the item including fittings,GRP cover, puddle pieces, erection  pieces, water proofing ,soil excavation in all type soil, backfilling ,  and all as required to complete the work according to the drawings and  specifications.  |  | 2 | PC |  | 18500 | =E148*H148 |
+|  |  | 22 05 23  General-Duty Valves for Plumbing Piping |  |  |  |  |  | =E150*H150 |
+|  |  | Control Valves |  |  |  |  |  |  |
+| 11 |  | Supply and Installation of control valves , copper internal components and external body for sizes < 50mm and copper internal component and ductile body for sizes > or = 65mm as shown on specifications and drawings c/w all necessary coupling, unions , Adapters and accessories all according to specifications and shown on drawings. |  |  |  |  |  |  |
+| 11.01 |  | 40 mm diam. Valve |  | 3 | PC |  | 4950 | =E153*H153 |
+|  |  | Automatic Air Release |  |  |  |  |  |  |
+| 12 |  | Supply, installation, testing, and commissioning of 15 mm (½") automatic air release valve suitable for installation on pipes. Valve shall be of high-quality corrosion-resistant brass or composite body, equipped with a float-operated mechanism to automatically discharge trapped air from the piping system |  |  |  |  |  |  |
+| 12.01 |  | 40 mm diam. Valve |  | 4 | PC |  | 8500 | =E157*H157 |
+|  |  | Section 22 0519: Meters and Gauges for Plumbing Piping |  |  |  |  |  | =E159*H159 |
+|  |  | Water Meter Arrangement |  |  |  |  |  |  |
+| 13 |  | supply install , connect and test of water meter arrangement including  upstream and downstream ball valves with unions, downstream check  valve, and connection intermediate PPR pipe , complete with all  necessary accessories all as per drawings and specifications |  |  |  |  |  |  |
+| 13.01 |  | Ø 50mm diameter |  | 2 | PC |  | 16500 | =E162*H162 |
+| 7.2 |  | Ø 40mm diameter |  | 2 | PC |  | 14000 | =E163*H163 |
+|  |  | Water Meter Device |  |  |  |  |  |  |
+| 14 |  | supply , install, connect and test of water meter device , turbine  mechanical type including all necessary strainers , connection unions  all as per required by governmental authorities and as per drawings and  specifications |  |  |  |  |  |  |
+| 14.01 |  | Ø 50mm diameter |  | 2 | PC |  | 8500 | =E167*H167 |
+| 7.2 |  | Ø 40mm diameter |  | 2 | PC |  | 6200 | =E168*H168 |
+|  |  | Section 22 13 19: Plumbing Specialties |  |  | 2 |  |  | =E170*H170 |
+| 5 |  | Valve(s) and Accessories(s): Supplying, installing, tesing and commissioning of Isolation Valves: |  |  |  |  |  |  |
+| 5.1 |  | Ø 20mm poly propylene PPR ball valve |  | 5 | PC |  | 1250 | =E172*H172 |
+| 5.2 |  | Ø 25mm poly propylene PPR ball valve |  | 24 | PC |  | 1400 | =E173*H173 |
+| 5.3 |  | Ø 32mm poly propylene PPR ball valve |  | 0 | PC |  | 1750 | =E174*H174 |
+| 5.4 |  | Ø 40mm poly propylene PPR ball valve |  | 0 | PC |  | 2300 | =E175*H175 |
+| 5.5 |  | Ø20 mm Hose bib |  | 5 | PC |  | 600 | =E176*H176 |
+|  |  | Plumbing Fixtures: |  |  |  |  |  |  |
+|  |  | First Fix  |  |  |  |  |  |  |
+| 6 |  | The unit rate shall include the supply and installation of all concealed water supply and drainage pipes to the nearest tie-in points as shown on drawings. The contractor is solely responsible for ensuring that all stub-outs, heights, and offsets are perfectly prepared according to the approved manufacturer's cut-sheets. This includes all necessary hangers, supports, and plugging of outlets to prevent debris entry. The contractor must ensure that final installation can be completed without any site modifications or chipping. All works must comply with the engineering code of practice and instructions of the engineer. |  |  |  |  |  |  |
+|  |  | Water Closet (WC) |  |  |  |  |  |  |
+| 6.1 |  | Installing, connecting, testing, and commissioning of Water Closet (WC), including connections to the nearest tie-in points for water supply and drainage, hangers, supports, jointing materials, and all necessary works as per engineering code of practice and drawings. |  | 20 | PC |  | 16500 | =E181*H181 |
+|  |  | Water Lavatory |  |  |  |  |  |  |
+| 6.2 |  | Installing, connecting, testing, and commissioning of Water Lavatory, including water mixer, flexible hoses, connection to supply and drainage pipes, fixing materials, and supports as per ID requirement and specifications. |  | 23 | PC |  | 11000 | =E183*H183 |
+|  |  | Shower Tray |  |  |  |  |  |  |
+| 6.3 |  | Installing, connecting, testing, and commissioning of Shower Tray, including floor drain connection, overflow piping, water mixer installation, and all necessary jointing and sealing materials as per drawings and engineer's instructions. |  | 14 | PC |  | 16200 | =E185*H185 |
+|  |  | Kitchen Sink |  |  |  |  |  |  |
+| 6.4 |  | Installing, connecting, testing, and commissioning of Kitchen Sink, including connection to water supply and drainage pipes, mixer installation, and all necessary accessories to ensure a fully functional unit as per site requirements. |  | 4 | PC |  | 15500 | =E187*H187 |
+|  |  | Supply Only |  |  |  |  |  |  |
+| 6 |  | The unit rate for Supply shall include the main fixture unit and all specialized components and proprietary internal trim that are not typically available in the general market. This includes original mixers, internal traps, flushing mechanisms, and any specific mounting kits. The supplier is responsible for providing technical 'installation templates' and detailed cut-sheets to both the 'Rough-in' and 'Installation' contractors at an early stage to ensure full compatibility. All supplied items are subject to Architectural and Interior Design engineer approval |  |  |  |  |  |  |
+|  |  | Water Closet (WC) |  |  |  |  |  |  |
+| 6.1 |  | Supply only of Vitreous China Water Closet (WC), complete with flushing cistern (recessed/un-recessed), dual flush mechanism, hand spray, flexible hoses, and all related accessories as per ID consultant requirements (Cut Sheets), ASME A112.19, and specifications. |  | 20 | PC |  | 11000 | =E193*H193 |
+|  |  | Water Lavatory |  |  |  |  |  |  |
+| 6.2 |  | Supply only of Vitreous China Water Lavatory, complete with water mixer, flexible hoses, piping connections, and all related accessories as per ID consultant requirements (Cut Sheets), ASME A112.19.2/CSA B45.1, and specifications. |  | 23 | PC |  | 7820 | =E195*H195 |
+|  |  | Shower Tray |  |  |  |  |  |  |
+| 6.3 |  | Supply only of Shower Tray, complete with water mixer, flexible hoses, floor drain, overflow, and all related accessories as per ID consultant requirements (Cut Sheets), ASME A112.19.1/CSA B45.2, ANSI Z124.1.2, and specifications. |  | 14 | PC |  | 12500 | =E197*H197 |
+|  |  | Kitchen Sink |  |  |  |  |  |  |
+| 6.4 |  | Supply only of Kitchen Sink, complete with water mixer, flexible hoses, piping connections, and all related accessories as per ID consultant requirements (Cut Sheets) and specifications. |  | 4 | PC |  | 11800 | =E199*H199 |
+|  |  | Final Installation Contractor |  |  |  |  |  |  |
+|  |  | Final Installation (Second Fix): The unit rate shall include un-crating, fixing, connecting, testing, and commissioning of plumbing fixtures. This rate specifically includes the supply and installation of all chrome-plated angle valves, flexible connectors (hoses), connecting flanges, and jointing materials (sealants/gaskets) required for a professional and sound technical installation. The contractor must inspect the rough-in points before starting; proceeding implies full responsibility for the final fit. Work includes final testing and handover according to the engineering code of practice and instructions of the engineer. |  |  |  |  |  |  |
+|  |  | Water Closet (WC) |  | 20 | PC |  | 5500 | =H203*E203 |
+|  |  | Water Lavatory |  | 23 | PC |  | 3180 | =H204*E204 |
+|  |  | Shower Tray |  | 14 | PC |  | 3700 | =H205*E205 |
+|  |  | Kitchen Sink |  | 4 | PC |  | 3700 | =H206*E206 |
+|  |  | Section 22 33 00: Electric Domestic Water Heaters |  |  |  |  |  | =E208*H208 |
+| 4 |  | Individuals or Stand Alone Water Heating System: Supplying, installing, testing, commissioning, handing over and guarantee of [horizontal] , [electric] water heater, c/w two flexible connections & one ball valve ø 25 mm and piping, pressure safety valve, temperature control and programming. as per UL-174, specifications, drawings and schedules. |  |  |  |  |  |  |
+| 4.1 |  | [50 liter, 1.2 K.W], [electric] water heater. |  | 20 | PC |  | 8500 | =E210*H210 |
+| TO COLLECTION                                                 L.E. |  |  |  |  |  |  |  | =SUM(I89:I213) |
+
+## Sheet: Div.5-Metals
+
+| DIVISION 05 Metals |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | Project No.: | =#REF! |  |  |  |  |  |
+|  |  |  |  | Issue Date: | =#REF! |  |  |  |  |  |
+|  |  |  |  | Issued for: | =#REF! |  |  |  |  |  |
+| Project:     |  | =#REF! |  | DIVISION 05 - Metals |  |  |  |  |  |  |
+| ITEM |  | DESCRIPTION |  | QTY. | UNIT |  | RATE L.E. | AMOUNT L.E. |  |  |
+|  |  | DIVISION 05 - Metals |  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  | =E66*H66 |  |  |
+|  |  | NOTES:- |  |  |  |  |  | =E67*H67 |  |  |
+|  |  | *All items will be supplied & installed. *Provide all labor, equipment, materials, accessories, services & appliances required in conjunction with or related to the furnishing, fabrication, delivery & erection of all Metal fabrications indicated on the drawings & all should be in accordance with the specifications & as instructed by the Client & the Engineer |  |  |  |  |  | =E68*H68 |  |  |
+|  |  |  |  |  |  |  |  | =E69*H69 |  |  |
+|  |  |  |  |  |  |  |  | =E70*H70 |  |  |
+| 2 |  |  |  |  |  |  |  |  |  |  |
+| =IF(COUNTA(E75)>0,A74+0.1,"") |  |  |  |  |  |  |  |  |  |  |
+| 2.2 |  |  |  |  |  |  |  |  |  |  |
+| TO COLLECTION                                                 L.E. |  |  |  |  |  |  |  | =SUM(I65:I70) |  |  |
+|  |  | COLLECTION |  |  |  |  |  |  |  |  |
+| 1 |  | PAGE 1 OF 2 |  |  |  |  |  | =I77 |  |  |
+| TO BILL SUMMARY                                              L.E. |  |  |  |  |  |  |  | =SUM(I79:I113) |  |  |

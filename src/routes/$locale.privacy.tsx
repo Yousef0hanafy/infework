@@ -90,10 +90,7 @@ function PrivacyPage() {
 
       <section className="iw-section-light">
         <div className="mx-auto w-full max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
-          <div
-            className="border-t"
-            style={{ borderColor: "var(--iw-border)" }}
-          >
+          <div className="border-t" style={{ borderColor: "var(--iw-border)" }}>
             {SECTIONS.map((s) => {
               const [heading, body] = isAr ? s.ar : s.en;
               return (

@@ -7,14 +7,14 @@ import type {
 } from "./public-types";
 
 export const getPublicProjects = createServerFn({ method: "GET" })
-  .inputValidator((input: { locale: string }) => input)
+  .validator((input: { locale: string }) => input)
   .handler(async ({ data }): Promise<PublicProject[]> => {
     const { fetchPublicProjects } = await import("./public-data.server");
     return fetchPublicProjects(data.locale);
   });
 
 export const getPublicProjectBySlug = createServerFn({ method: "GET" })
-  .inputValidator((input: { slug: string; locale: string }) => input)
+  .validator((input: { slug: string; locale: string }) => input)
   .handler(async ({ data }): Promise<PublicProjectDetail | null> => {
     const { fetchPublicProjectBySlug } = await import("./public-data.server");
     return fetchPublicProjectBySlug(data.slug, data.locale);

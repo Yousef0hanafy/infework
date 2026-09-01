@@ -5,7 +5,11 @@ const inputClass =
 
 export function FieldLabel({ htmlFor, children }: { htmlFor: string; children: ReactNode }) {
   return (
-    <label htmlFor={htmlFor} className="label-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+    <label
+      htmlFor={htmlFor}
+      className="label-mono block"
+      style={{ color: "var(--iw-text-secondary)" }}
+    >
       {children}
     </label>
   );

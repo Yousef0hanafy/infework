@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "bundle_name": "client_logos_delta_v2",
+  "version": "2.0.0",
+  "generated_at": "2026-09-01",
+  "parent_pack": {
+    "name": "final_client_logo_pack",
+    "version": "1.0.0",
+    "contained_records": ["C01","C02","C03","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14"]
+  },
+  "delta_purpose": "Net-new client records that were listed in the registry (unified_clients_registry.csv) but had no physical asset in v1.0. Merge these on top of the v1 pack to reach 17-client coverage.",
+  "canvas": {
+    "width": 1600,
+    "height": 1000,
+    "safe_area": { "width": 1400, "height": 800 },
+    "aspect_ratio": "8:5",
+    "note": "Identical spec to v1 pack. Assets drop into any grid cell with aspect-ratio: 8/5 and object-fit: contain without per-logo adjustments."
+  },
+  "file_pairing_convention": {
+    "transparent_png": "NN_slug.png (primary, RGBA, use everywhere transparency is supported)",
+    "white_jpg": "NN_slug_white.jpg (fallback on #ffffff for systems that cannot render transparency)"
+  },
+  "added_clients": [
+    {
+      "record_id": "C04",
+      "slug": "ebda-initiative",
+      "name": {
+        "ar": "المبادرة الوطنية لتطوير الصناعة المصرية — ابدأ",
+        "en": "National Initiative for the Development of Egyptian Industry — EBDA"
+      },
+      "assets": {
+        "transparent_png": "14_ebda_initiative.png",
+        "white_jpg": "14_ebda_initiative_white.jpg"
+      },
+      "source": {
+        "url": "https://ebda.com.eg/assets/ebda-logo-BfFdgNRo.svg",
+        "type": "official_website_svg",
+        "acquisition_method": "Direct fetch of the SVG asset shipped by the official EBDA site. The SVG wraps a base64 PNG payload at 1182x607; that payload was extracted and re-canvased to the 1600x1000 spec."
+      },
+      "identity_status": "verified_official",
+      "logo_status": "official_source",
+      "sensitivity": "standard",
+      "notes": "Highest-confidence entry in the delta \u2014 asset comes straight from the entity's official website. No manual reconstruction."
+    },
+    {
+      "record_id": "C15",
+      "slug": "alshark-construction",
+      "name": {
+        "ar": "شركة الشرق للمقاولات",
+        "en": "AlShark Construction"
+      },
+      "assets": {
+        "transparent_png": "15_alsharq_construction.png",
+        "white_jpg": "15_alsharq_construction_white.jpg"
+      },
+      "source": {
+        "url": "https://alshaark.com/",
+        "type": "official_website",
+        "acquisition_method": "Header logo asset served from the company's WordPress instance. Full-color variant (dark navy wordmark + gold building/sun icon) was used; the site also ships a white-on-transparent variant."
+      },
+      "identity_status": "plausible_candidate_from_official_page",
+      "logo_status": "official_source",
+      "sensitivity": "standard",
+      "notes": "The registry's owner-column token was 'الشرق' (ambiguous). This is the most likely match \u2014 an Egyptian contractor operating under that exact Arabic name with a live official site. Confirm with the client's source document before publication."
+    },
+    {
+      "record_id": "C16",
+      "slug": "elzahy-group",
+      "name": {
+        "ar": "الزاهي جروب",
+        "en": "EL-ZAHY GROUP"
+      },
+      "assets": {
+        "transparent_png": "16_elzahy_group.png",
+        "white_jpg": "16_elzahy_group_white.jpg"
+      },
+      "source": {
+        "url": "https://www.facebook.com/ELZAHY-GROUP-61559425514432/",
+        "type": "official_social_page",
+        "acquisition_method": "Profile logo of the company's official Facebook page, retrieved via the page's og:image meta tag at 720x720. No other official web presence found."
+      },
+      "identity_status": "plausible_candidate_from_official_page",
+      "logo_status": "official_social_source",
+      "sensitivity": "standard",
+      "notes": "Registry token was 'الزاهي' (ambiguous). Match rationale: only Egyptian construction/group entity found under that exact Arabic wordmark. Confirm identity match with the client's source document before publication."
+    },
+    {
+      "record_id": "C17",
+      "slug": "elnuby-group",
+      "name": {
+        "ar": "مجموعة النوبى",
+        "en": "El Nuby Group"
+      },
+      "assets": {
+        "transparent_png": "17_elnuby_group.png",
+        "white_jpg": "17_elnuby_group_white.jpg"
+      },
+      "source": {
+        "url": "https://www.facebook.com/ElnubyGroup/",
+        "type": "official_social_page",
+        "acquisition_method": "Profile logo of the company's official Facebook page, retrieved via the page's og:image meta tag at 720x720. Original background was near-white; removed via alpha flood-fill during standardization."
+      },
+      "identity_status": "plausible_candidate_from_official_page",
+      "logo_status": "official_social_source",
+      "sensitivity": "standard",
+      "notes": "Registry token was 'النوبي' (ambiguous). Match rationale: only Egyptian construction group found under that exact Arabic wordmark. Confirm identity match with the client's source document before publication."
+    }
+  ],
+  "status_legend": {
+    "identity_status": {
+      "verified_official": "identity confirmed via the entity's own official website",
+      "plausible_candidate_from_official_page": "the asset is the official brand file of a real, live entity; what is unconfirmed is whether this entity is the one the client meant by the ambiguous registry token"
+    },
+    "logo_status": {
+      "official_source": "asset was fetched directly from the entity's official website",
+      "official_social_source": "asset was fetched from the entity's verified/official social page (used only when no dedicated website ships a logo asset)"
+    },
+    "sensitivity": {
+      "standard": "no restrictions beyond normal brand usage \u2014 all four delta entries are standard-sensitivity"
+    }
+  },
+  "integration": {
+    "drop_in": "Copy all 8 files into your existing logos/ directory alongside the v1 pack. No filename collisions \u2014 numbering starts at 14 to continue the v1 sequence (01-13).",
+    "example_html": "<div class=\"logo-cell\"><img src=\"logos/14_ebda_initiative.png\" alt=\"EBDA\" loading=\"lazy\"></div>",
+    "example_css": ".logo-cell{aspect-ratio:8/5;display:flex;align-items:center;justify-content:center;padding:16px}.logo-cell img{max-width:100%;max-height:100%;object-fit:contain}"
+  }
+}

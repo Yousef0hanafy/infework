@@ -6,7 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { AdminButton, AdminCard, AdminPageHeader } from "@/components/infeworks/AdminUI";
 
 const TITLE = "Site Settings — Infeworks Admin";
-const DESC = "Internal editor for Infeworks brand, company, homepage, download and SEO configuration.";
+const DESC =
+  "Internal editor for Infeworks brand, company, homepage, download and SEO configuration.";
 
 export const Route = createFileRoute("/admin/settings")({
   head: () => ({
@@ -37,7 +38,11 @@ const GROUPS: Group[] = [
       { key: "brand_name", label: "Wordmark" },
       { key: "brand_full_name_en", label: "Full legal name (EN)" },
       { key: "brand_full_name_ar", label: "Authoritative name (AR)", dir: "rtl" },
-      { key: "brand_logo_url", label: "Logo asset URL", hint: "Optional — leave empty to use the wordmark." },
+      {
+        key: "brand_logo_url",
+        label: "Logo asset URL",
+        hint: "Optional — leave empty to use the wordmark.",
+      },
       { key: "brand_primary_color", label: "Primary colour", hint: "Hex value, e.g. #B05E2A" },
     ],
   },
@@ -70,13 +75,14 @@ const GROUPS: Group[] = [
   {
     id: "capabilities",
     label: "Capabilities",
-    description: "Public labels and display order for the five engineering disciplines.",
+    description: "Public labels and display order for the six engineering capabilities.",
     fields: [
-      { key: "capability_label_water_treatment", label: "Water & Treatment label" },
-      { key: "capability_label_wastewater", label: "Wastewater label" },
-      { key: "capability_label_pumping", label: "Pumping label" },
-      { key: "capability_label_irrigation", label: "Irrigation label" },
-      { key: "capability_label_electrical_control", label: "Electrical & Control label" },
+      { key: "capability_label_water_treatment", label: "Water Treatment label" },
+      { key: "capability_label_wastewater", label: "Wastewater & Effluent label" },
+      { key: "capability_label_pumping_wells", label: "Pumping & Deep Wells label" },
+      { key: "capability_label_infrastructure_networks", label: "Infrastructure Networks label" },
+      { key: "capability_label_civil_buildings", label: "Civil & Institutional Buildings label" },
+      { key: "capability_label_industrial_mep", label: "Industrial & Electromechanical label" },
       { key: "capability_order", label: "Display order", hint: "Comma-separated slugs" },
     ],
   },
@@ -135,7 +141,10 @@ function AdminSettings() {
   const { data: settings, isLoading } = useQuery({
     queryKey: ["admin", "settings"],
     queryFn: async () => {
-      const { data, error } = await supabase.from("site_settings").select("id,key,value").order("key");
+      const { data, error } = await supabase
+        .from("site_settings")
+        .select("id,key,value")
+        .order("key");
       if (error) throw error;
       return (data ?? []) as Setting[];
     },
@@ -238,9 +247,7 @@ function AdminSettings() {
                     rows={3}
                     dir={field.dir}
                     value={draft[field.key] ?? ""}
-                    onChange={(e) =>
-                      setDraft((d) => ({ ...d, [field.key]: e.target.value }))
-                    }
+                    onChange={(e) => setDraft((d) => ({ ...d, [field.key]: e.target.value }))}
                     className="min-w-0 flex-1 border bg-transparent px-4 py-3 text-base outline-none focus:border-[var(--iw-accent)]"
                     style={{ borderColor: "var(--iw-border)" }}
                   />
@@ -249,9 +256,7 @@ function AdminSettings() {
                     id={`s-${group.id}-${field.key}`}
                     dir={field.dir}
                     value={draft[field.key] ?? ""}
-                    onChange={(e) =>
-                      setDraft((d) => ({ ...d, [field.key]: e.target.value }))
-                    }
+                    onChange={(e) => setDraft((d) => ({ ...d, [field.key]: e.target.value }))}
                     className="min-w-0 flex-1 border bg-transparent px-4 py-3 text-base outline-none focus:border-[var(--iw-accent)]"
                     style={{ borderColor: "var(--iw-border)" }}
                   />

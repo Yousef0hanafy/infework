@@ -33,7 +33,8 @@ import {
 import { logAudit } from "@/lib/audit";
 
 const TITLE = "Project Editor — Infeworks Admin";
-const DESC = "Internal editor for a single Infeworks project record: profiles, claims, evidence, location and media.";
+const DESC =
+  "Internal editor for a single Infeworks project record: profiles, claims, evidence, location and media.";
 
 export const Route = createFileRoute("/admin/projects/$projectId")({
   head: () => ({
@@ -59,14 +60,23 @@ const CLASSIFICATIONS = [
 const STEPS = [
   { key: "basics", label: "Basics", icon: FileText, hint: "Identity, sector and status" },
   { key: "story", label: "Story", icon: FileText, hint: "Challenge, scope and outcome (EN/AR)" },
-  { key: "evidence", label: "Evidence & Publish", icon: Link2, hint: "Verified claims and checklist" },
+  {
+    key: "evidence",
+    label: "Evidence & Publish",
+    icon: Link2,
+    hint: "Verified claims and checklist",
+  },
   { key: "map", label: "Map", icon: MapPin, hint: "Safe governorate centroid" },
-  { key: "media", label: "Media & Downloads", icon: ImageIcon, hint: "Cover, diagrams and alt text" },
+  {
+    key: "media",
+    label: "Media & Downloads",
+    icon: ImageIcon,
+    hint: "Cover, diagrams and alt text",
+  },
   { key: "preview", label: "Preview", icon: Eye, hint: "Desktop and mobile public cards" },
 ] as const;
 
 type StepKey = (typeof STEPS)[number]["key"];
-
 
 type Project = {
   id: string;
@@ -154,12 +164,29 @@ function ProjectEditor() {
     queryKey: ["admin", "project-completeness", projectId],
     queryFn: async () => {
       const [profiles, claims, location, media] = await Promise.all([
-        supabase.from("public_project_profiles").select("locale,title,challenge,outcome").eq("project_id", projectId),
-        supabase.from("claims").select("id", { count: "exact", head: true }).eq("project_id", projectId),
-        supabase.from("locations").select("id", { count: "exact", head: true }).eq("project_id", projectId),
-        supabase.from("media_assets").select("id", { count: "exact", head: true }).eq("project_id", projectId),
+        supabase
+          .from("public_project_profiles")
+          .select("locale,title,challenge,outcome")
+          .eq("project_id", projectId),
+        supabase
+          .from("claims")
+          .select("id", { count: "exact", head: true })
+          .eq("project_id", projectId),
+        supabase
+          .from("locations")
+          .select("id", { count: "exact", head: true })
+          .eq("project_id", projectId),
+        supabase
+          .from("media_assets")
+          .select("id", { count: "exact", head: true })
+          .eq("project_id", projectId),
       ]);
-      const rows = (profiles.data ?? []) as { locale: string; title: string | null; challenge: string | null; outcome: string | null }[];
+      const rows = (profiles.data ?? []) as {
+        locale: string;
+        title: string | null;
+        challenge: string | null;
+        outcome: string | null;
+      }[];
       const has = (locale: string) => {
         const r = rows.find((x) => x.locale === locale);
         return Boolean(r?.title && r.title.trim());
@@ -291,12 +318,23 @@ function ProjectEditor() {
                     {checklist.map((item) => (
                       <li key={item.label} className="flex items-center gap-3 text-sm">
                         {item.done ? (
-                          <CheckCircle2 className="h-4 w-4" strokeWidth={1.5} style={{ color: "var(--iw-success)" }} />
+                          <CheckCircle2
+                            className="h-4 w-4"
+                            strokeWidth={1.5}
+                            style={{ color: "var(--iw-success)" }}
+                          />
                         ) : (
-                          <Circle className="h-4 w-4" strokeWidth={1.5} style={{ color: "var(--iw-text-secondary)" }} />
+                          <Circle
+                            className="h-4 w-4"
+                            strokeWidth={1.5}
+                            style={{ color: "var(--iw-text-secondary)" }}
+                          />
                         )}
                         <span>{item.label}</span>
-                        <span className="label-mono ms-auto" style={{ color: "var(--iw-text-secondary)" }}>
+                        <span
+                          className="label-mono ms-auto"
+                          style={{ color: "var(--iw-text-secondary)" }}
+                        >
                           {item.required ? "required" : "optional"}
                         </span>
                       </li>
@@ -321,7 +359,10 @@ function ProjectEditor() {
                   Completion {completion}%
                 </p>
                 <div className="mt-2 h-1 w-40" style={{ backgroundColor: "var(--iw-border)" }}>
-                  <div className="h-1" style={{ width: `${completion}%`, backgroundColor: "var(--iw-accent)" }} />
+                  <div
+                    className="h-1"
+                    style={{ width: `${completion}%`, backgroundColor: "var(--iw-accent)" }}
+                  />
                 </div>
               </div>
 
@@ -368,13 +409,18 @@ function ProjectEditor() {
                 ) : null}
 
                 {project.status === "published" ? (
-                  <AdminButton disabled={setStatus.isPending} onClick={() => setStatus.mutate("draft")}>
+                  <AdminButton
+                    disabled={setStatus.isPending}
+                    onClick={() => setStatus.mutate("draft")}
+                  >
                     Unpublish
                   </AdminButton>
                 ) : (
                   <AdminButton
                     variant="solid"
-                    disabled={setStatus.isPending || !publishReady || project.classification === "study"}
+                    disabled={
+                      setStatus.isPending || !publishReady || project.classification === "study"
+                    }
                     onClick={() => setStatus.mutate("published")}
                   >
                     Publish
@@ -398,7 +444,12 @@ function PreviewStep({ project }: { project: Project }) {
         .select("locale,title,challenge,outcome")
         .eq("project_id", project.id);
       if (error) throw error;
-      return (rows ?? []) as { locale: string; title: string; challenge: string | null; outcome: string | null }[];
+      return (rows ?? []) as {
+        locale: string;
+        title: string;
+        challenge: string | null;
+        outcome: string | null;
+      }[];
     },
   });
 
@@ -433,7 +484,6 @@ function PreviewStep({ project }: { project: Project }) {
     </div>
   );
 }
-
 
 /* ------------------------------- Tab 1: meta ------------------------------ */
 
@@ -501,15 +551,30 @@ function MetaTab({ project }: { project: Project }) {
             className="h-4 w-4"
           />
           <label htmlFor="m-featured" className="text-sm">
-            Feature this project on the homepage <span className="label-mono" style={{ color: "var(--iw-text-secondary)" }}>optional</span>
+            Feature this project on the homepage{" "}
+            <span className="label-mono" style={{ color: "var(--iw-text-secondary)" }}>
+              optional
+            </span>
           </label>
         </div>
         <div className="mt-6">
-          <TextAreaField id="m-notes" label="Internal notes" value={notes} onChange={setNotes} rows={4} />
+          <TextAreaField
+            id="m-notes"
+            label="Internal notes"
+            value={notes}
+            onChange={setNotes}
+            rows={4}
+          />
         </div>
-        {error ? <div className="mt-6"><FormNotice tone="error">{error}</FormNotice></div> : null}
+        {error ? (
+          <div className="mt-6">
+            <FormNotice tone="error">{error}</FormNotice>
+          </div>
+        ) : null}
         {saved && !error ? (
-          <div className="mt-6"><FormNotice tone="success">Record saved.</FormNotice></div>
+          <div className="mt-6">
+            <FormNotice tone="success">Record saved.</FormNotice>
+          </div>
         ) : null}
         <div className="mt-8 flex justify-end">
           <AdminButton variant="solid" disabled={save.isPending} onClick={() => save.mutate()}>
@@ -597,7 +662,9 @@ function ProfileEditor({ projectId, locale }: { projectId: string; locale: "en" 
         <h2 className="display-md text-xl">
           Public profile — {locale === "en" ? "English" : "العربية"}
         </h2>
-        <StatusPill tone={profile ? "neutral" : "muted"}>{profile ? "exists" : "not created"}</StatusPill>
+        <StatusPill tone={profile ? "neutral" : "muted"}>
+          {profile ? "exists" : "not created"}
+        </StatusPill>
       </div>
       <div className="mt-6 space-y-6">
         <TextField
@@ -727,7 +794,8 @@ function ClaimsTab({ projectId }: { projectId: string }) {
       <AdminCard>
         <h2 className="display-md text-xl">Add a claim</h2>
         <p className="body-reading mt-3 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
-          Every public statement must be recorded as a claim, then backed by at least one piece of internal evidence.
+          Every public statement must be recorded as a claim, then backed by at least one piece of
+          internal evidence.
         </p>
         <div className="mt-6 grid gap-6 md:grid-cols-[200px_1fr]">
           <SelectField
@@ -749,7 +817,11 @@ function ClaimsTab({ projectId }: { projectId: string }) {
             dir={locale === "ar" ? "rtl" : "ltr"}
           />
         </div>
-        {error ? <div className="mt-6"><FormNotice tone="error">{error}</FormNotice></div> : null}
+        {error ? (
+          <div className="mt-6">
+            <FormNotice tone="error">{error}</FormNotice>
+          </div>
+        ) : null}
         <div className="mt-8 flex justify-end">
           <AdminButton
             variant="solid"
@@ -781,7 +853,10 @@ function ClaimsTab({ projectId }: { projectId: string }) {
                   {claim.content}
                 </p>
               </div>
-              <AdminButton disabled={deleteClaim.isPending} onClick={() => deleteClaim.mutate(claim)}>
+              <AdminButton
+                disabled={deleteClaim.isPending}
+                onClick={() => deleteClaim.mutate(claim)}
+              >
                 <Trash2 className="h-3.5 w-3.5" strokeWidth={1.5} />
                 Delete
               </AdminButton>
@@ -868,7 +943,10 @@ function EvidenceList({
                   {item.internal_description ?? "Untitled evidence"}
                 </p>
                 {item.internal_link ? (
-                  <p className="mt-1 font-mono text-xs break-all" style={{ color: "var(--iw-text-secondary)" }}>
+                  <p
+                    className="mt-1 font-mono text-xs break-all"
+                    style={{ color: "var(--iw-text-secondary)" }}
+                  >
                     {item.internal_link}
                   </p>
                 ) : null}
@@ -902,7 +980,11 @@ function EvidenceList({
           placeholder="drive://… or file reference"
         />
       </div>
-      {error ? <div className="mt-4"><FormNotice tone="error">{error}</FormNotice></div> : null}
+      {error ? (
+        <div className="mt-4">
+          <FormNotice tone="error">{error}</FormNotice>
+        </div>
+      ) : null}
       <div className="mt-6 flex justify-end">
         <AdminButton
           disabled={addEvidence.isPending || (!description.trim() && !link.trim())}
@@ -964,7 +1046,10 @@ function LocationTab({ projectId }: { projectId: string }) {
         display_name: displayName.trim() || null,
       };
       if (location) {
-        const { error: err } = await supabase.from("locations").update(payload).eq("id", location.id);
+        const { error: err } = await supabase
+          .from("locations")
+          .update(payload)
+          .eq("id", location.id);
         if (err) throw err;
       } else {
         const { error: err } = await supabase.from("locations").insert(payload);
@@ -993,15 +1078,30 @@ function LocationTab({ projectId }: { projectId: string }) {
     <AdminCard>
       <div className="flex items-center justify-between gap-4">
         <h2 className="display-md text-xl">Map location</h2>
-        <StatusPill tone={location ? "neutral" : "muted"}>{location ? "set" : "not set"}</StatusPill>
+        <StatusPill tone={location ? "neutral" : "muted"}>
+          {location ? "set" : "not set"}
+        </StatusPill>
       </div>
       <p className="body-reading mt-3 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
-        Coordinates place the project on the public Egypt impact map. Use governorate-level precision only.
+        Coordinates place the project on the public Egypt impact map. Use governorate-level
+        precision only.
       </p>
 
       <div className="mt-6 grid gap-6 md:grid-cols-3">
-        <TextField id="loc-lat" label="Latitude" value={lat} onChange={setLat} placeholder="30.3644" />
-        <TextField id="loc-lng" label="Longitude" value={lng} onChange={setLng} placeholder="30.5087" />
+        <TextField
+          id="loc-lat"
+          label="Latitude"
+          value={lat}
+          onChange={setLat}
+          placeholder="30.3644"
+        />
+        <TextField
+          id="loc-lng"
+          label="Longitude"
+          value={lng}
+          onChange={setLng}
+          placeholder="30.5087"
+        />
         <TextField
           id="loc-name"
           label="Display name"
@@ -1011,9 +1111,15 @@ function LocationTab({ projectId }: { projectId: string }) {
         />
       </div>
 
-      {error ? <div className="mt-6"><FormNotice tone="error">{error}</FormNotice></div> : null}
+      {error ? (
+        <div className="mt-6">
+          <FormNotice tone="error">{error}</FormNotice>
+        </div>
+      ) : null}
       {saved && !error ? (
-        <div className="mt-6"><FormNotice tone="success">Location saved.</FormNotice></div>
+        <div className="mt-6">
+          <FormNotice tone="success">Location saved.</FormNotice>
+        </div>
       ) : null}
 
       <div className="mt-8 flex justify-end">
@@ -1137,11 +1243,16 @@ function MediaTab({ projectId }: { projectId: string }) {
       <AdminCard>
         <h2 className="display-md text-xl">Upload project media</h2>
         <p className="body-reading mt-3 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
-          Files are stored privately. Only assets explicitly marked public are eligible for the public site.
+          Files are stored privately. Only assets explicitly marked public are eligible for the
+          public site.
         </p>
 
         <div className="mt-6">
-          <label htmlFor="media-file" className="label-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+          <label
+            htmlFor="media-file"
+            className="label-mono block"
+            style={{ color: "var(--iw-text-secondary)" }}
+          >
             Image file
           </label>
           <input
@@ -1156,7 +1267,13 @@ function MediaTab({ projectId }: { projectId: string }) {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <TextField id="media-alt-en" label="Alt text (EN)" value={altEn} onChange={setAltEn} />
-          <TextField id="media-alt-ar" label="Alt text (AR)" value={altAr} onChange={setAltAr} dir="rtl" />
+          <TextField
+            id="media-alt-ar"
+            label="Alt text (AR)"
+            value={altAr}
+            onChange={setAltAr}
+            dir="rtl"
+          />
           <SelectField
             id="media-public"
             label="Visibility"
@@ -1169,7 +1286,11 @@ function MediaTab({ projectId }: { projectId: string }) {
           />
         </div>
 
-        {error ? <div className="mt-6"><FormNotice tone="error">{error}</FormNotice></div> : null}
+        {error ? (
+          <div className="mt-6">
+            <FormNotice tone="error">{error}</FormNotice>
+          </div>
+        ) : null}
 
         <div className="mt-8 flex justify-end">
           <AdminButton variant="solid" disabled={uploading} onClick={upload}>
@@ -1222,8 +1343,14 @@ function MediaCard({
   });
 
   return (
-    <div className="border" style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}>
-      <div className="aspect-[4/3] w-full overflow-hidden" style={{ backgroundColor: "var(--iw-bg)" }}>
+    <div
+      className="border"
+      style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
+    >
+      <div
+        className="aspect-[4/3] w-full overflow-hidden"
+        style={{ backgroundColor: "var(--iw-bg)" }}
+      >
         {url ? (
           <img
             src={url}
@@ -1237,7 +1364,10 @@ function MediaCard({
         <StatusPill tone={asset.is_public ? "success" : "muted"}>
           {asset.is_public ? "public" : "internal"}
         </StatusPill>
-        <p className="font-mono text-[11px] break-all" style={{ color: "var(--iw-text-secondary)" }}>
+        <p
+          className="font-mono text-[11px] break-all"
+          style={{ color: "var(--iw-text-secondary)" }}
+        >
           {asset.storage_path}
         </p>
         <p className="text-sm">{asset.alt_en ?? "—"}</p>
@@ -1245,7 +1375,9 @@ function MediaCard({
           {asset.alt_ar ?? "—"}
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <AdminButton onClick={onToggle}>{asset.is_public ? "Make internal" : "Make public"}</AdminButton>
+          <AdminButton onClick={onToggle}>
+            {asset.is_public ? "Make internal" : "Make public"}
+          </AdminButton>
           <AdminButton onClick={onRemove}>
             <Trash2 className="h-3.5 w-3.5" strokeWidth={1.5} />
             Delete

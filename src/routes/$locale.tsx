@@ -22,10 +22,7 @@ function LocaleLayout() {
   const isAr = locale === "ar";
 
   return (
-    <div
-      className="flex min-h-screen flex-col"
-      style={{ backgroundColor: "var(--iw-bg)" }}
-    >
+    <div className="flex min-h-screen flex-col" style={{ backgroundColor: "var(--iw-bg)" }}>
       <ScrollExperience isAr={isAr} />
       <Header />
       <main className="flex-1">
@@ -36,4 +33,3 @@ function LocaleLayout() {
     </div>
   );
 }
-

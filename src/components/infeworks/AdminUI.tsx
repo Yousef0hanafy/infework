@@ -12,7 +12,8 @@ export function AdminPageHeader({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-6 border-b pb-8"
+    <div
+      className="flex flex-wrap items-end justify-between gap-6 border-b pb-8"
       style={{ borderColor: "var(--iw-border)" }}
     >
       <div>
@@ -23,7 +24,10 @@ export function AdminPageHeader({
         ) : null}
         <h1 className="display-md mt-3 text-3xl md:text-4xl">{title}</h1>
         {description ? (
-          <p className="body-reading mt-3 max-w-2xl text-sm" style={{ color: "var(--iw-text-secondary)" }}>
+          <p
+            className="body-reading mt-3 max-w-2xl text-sm"
+            style={{ color: "var(--iw-text-secondary)" }}
+          >
             {description}
           </p>
         ) : null}
@@ -33,7 +37,13 @@ export function AdminPageHeader({
   );
 }
 
-export function AdminCard({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function AdminCard({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <div
       className={`border p-6 ${className}`}
@@ -44,7 +54,13 @@ export function AdminCard({ children, className = "" }: { children: ReactNode; c
   );
 }
 
-export function StatusPill({ tone, children }: { tone: "neutral" | "success" | "warning" | "muted"; children: ReactNode }) {
+export function StatusPill({
+  tone,
+  children,
+}: {
+  tone: "neutral" | "success" | "warning" | "muted";
+  children: ReactNode;
+}) {
   const color =
     tone === "success"
       ? "var(--iw-success)"
@@ -87,7 +103,10 @@ export function Th({ children }: { children: ReactNode }) {
 
 export function Td({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <td className={`border-b px-5 py-4 align-middle ${className}`} style={{ borderColor: "var(--iw-border)" }}>
+    <td
+      className={`border-b px-5 py-4 align-middle ${className}`}
+      style={{ borderColor: "var(--iw-border)" }}
+    >
       {children}
     </td>
   );

@@ -13,7 +13,8 @@ import {
 } from "@/components/infeworks/AdminUI";
 
 const TITLE = "Projects — Infeworks Admin";
-const DESC = "Internal management of Infeworks project records, classification, and publication status.";
+const DESC =
+  "Internal management of Infeworks project records, classification, and publication status.";
 
 export const Route = createFileRoute("/admin/projects/")({
   head: () => ({
@@ -83,13 +84,17 @@ function AdminProjects() {
       setFormError(null);
       invalidate();
     },
-    onError: (e: unknown) => setFormError(e instanceof Error ? e.message : "Could not create project."),
+    onError: (e: unknown) =>
+      setFormError(e instanceof Error ? e.message : "Could not create project."),
   });
 
   const toggleStatus = useMutation({
     mutationFn: async (project: Project) => {
       const next = project.status === "published" ? "draft" : "published";
-      const { error } = await supabase.from("projects").update({ status: next }).eq("id", project.id);
+      const { error } = await supabase
+        .from("projects")
+        .update({ status: next })
+        .eq("id", project.id);
       if (error) throw error;
     },
     onSuccess: invalidate,
@@ -121,11 +126,17 @@ function AdminProjects() {
         <tbody>
           {isLoading ? (
             <tr>
-              <td colSpan={4} className="px-5 py-10 text-sm">Loading…</td>
+              <td colSpan={4} className="px-5 py-10 text-sm">
+                Loading…
+              </td>
             </tr>
           ) : (projects?.length ?? 0) === 0 ? (
             <tr>
-              <td colSpan={4} className="px-5 py-10 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
+              <td
+                colSpan={4}
+                className="px-5 py-10 text-sm"
+                style={{ color: "var(--iw-text-secondary)" }}
+              >
                 No project records yet.
               </td>
             </tr>
@@ -141,28 +152,28 @@ function AdminProjects() {
                 </Td>
                 <Td>
                   <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    to="/admin/projects/$projectId"
-                    params={{ projectId: project.id }}
-                    className="inline-flex items-center gap-2 border px-4 py-2 text-xs font-semibold tracking-wide uppercase"
-                    style={{ borderColor: "var(--iw-border)", color: "var(--iw-text-primary)" }}
-                  >
-                    <Pencil className="h-3.5 w-3.5" strokeWidth={1.5} />
-                    Edit
-                  </Link>
-                  {project.classification === "study" ? (
-                    <span className="text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-                      Publication blocked (study)
-                    </span>
-                  ) : (
-                    <AdminButton
-                      variant={project.status === "published" ? "outline" : "solid"}
-                      disabled={toggleStatus.isPending}
-                      onClick={() => toggleStatus.mutate(project)}
+                    <Link
+                      to="/admin/projects/$projectId"
+                      params={{ projectId: project.id }}
+                      className="inline-flex items-center gap-2 border px-4 py-2 text-xs font-semibold tracking-wide uppercase"
+                      style={{ borderColor: "var(--iw-border)", color: "var(--iw-text-primary)" }}
                     >
-                      {project.status === "published" ? "Unpublish" : "Publish"}
-                    </AdminButton>
-                  )}
+                      <Pencil className="h-3.5 w-3.5" strokeWidth={1.5} />
+                      Edit
+                    </Link>
+                    {project.classification === "study" ? (
+                      <span className="text-xs" style={{ color: "var(--iw-text-secondary)" }}>
+                        Publication blocked (study)
+                      </span>
+                    ) : (
+                      <AdminButton
+                        variant={project.status === "published" ? "outline" : "solid"}
+                        disabled={toggleStatus.isPending}
+                        onClick={() => toggleStatus.mutate(project)}
+                      >
+                        {project.status === "published" ? "Unpublish" : "Publish"}
+                      </AdminButton>
+                    )}
                   </div>
                 </Td>
               </tr>
@@ -196,7 +207,11 @@ function AdminProjects() {
 
             <div className="mt-8 space-y-6">
               <div>
-                <label htmlFor="p-slug" className="label-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+                <label
+                  htmlFor="p-slug"
+                  className="label-mono block"
+                  style={{ color: "var(--iw-text-secondary)" }}
+                >
                   Slug
                 </label>
                 <input
@@ -209,7 +224,11 @@ function AdminProjects() {
               </div>
 
               <div>
-                <label htmlFor="p-class" className="label-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+                <label
+                  htmlFor="p-class"
+                  className="label-mono block"
+                  style={{ color: "var(--iw-text-secondary)" }}
+                >
                   Classification
                 </label>
                 <select
@@ -228,7 +247,11 @@ function AdminProjects() {
               </div>
 
               <div>
-                <label htmlFor="p-notes" className="label-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+                <label
+                  htmlFor="p-notes"
+                  className="label-mono block"
+                  style={{ color: "var(--iw-text-secondary)" }}
+                >
                   Internal notes
                 </label>
                 <textarea
@@ -242,7 +265,11 @@ function AdminProjects() {
               </div>
 
               {formError ? (
-                <p role="alert" className="border-s-2 ps-3 text-sm" style={{ borderColor: "var(--iw-error)", color: "var(--iw-error)" }}>
+                <p
+                  role="alert"
+                  className="border-s-2 ps-3 text-sm"
+                  style={{ borderColor: "var(--iw-error)", color: "var(--iw-error)" }}
+                >
                   {formError}
                 </p>
               ) : null}

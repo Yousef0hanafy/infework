@@ -25,6 +25,10 @@ import eastOwainat from "@/assets/clients/10_east_owainat.webp";
 import environment from "@/assets/clients/11_environment.webp";
 import egyptGas from "@/assets/clients/12_egypt_gas.webp";
 import gieco from "@/assets/clients/13_gieco.webp";
+import ebdaInitiative from "@/assets/clients/14_ebda_initiative.png";
+import alsharqConstruction from "@/assets/clients/15_alsharq_construction.png";
+import elzahyGroup from "@/assets/clients/16_elzahy_group.png";
+import elnubyGroup from "@/assets/clients/17_elnuby_group.png";
 
 export type ClientCategory = "all" | "sovereign" | "utilities" | "contractors";
 
@@ -177,6 +181,54 @@ export const CLIENTS: Client[] = [
     category: "contractors",
     categoryLabel: { en: "Heavy Engineering", ar: "أعمال هندسية وبحرية متكاملة" },
   },
+  {
+    id: "ebdaInitiative",
+    src: ebdaInitiative,
+    en: "National Initiative for Egyptian Industry — EBDA",
+    ar: "المبادرة الوطنية لتطوير الصناعة المصرية — ابدأ",
+    category: "sovereign",
+    categoryLabel: { en: "National Initiative", ar: "مبادرة وطنية لتطوير الصناعة" },
+    projectHighlight: {
+      en: "Industrial Infrastructure & Factories",
+      ar: "بنية تحتية للمصانع والمناطق الصناعية",
+    },
+  },
+  {
+    id: "alsharqConstruction",
+    src: alsharqConstruction,
+    en: "AlShark Construction",
+    ar: "شركة الشرق للمقاولات",
+    category: "contractors",
+    categoryLabel: { en: "Construction Partner", ar: "شركاء التنفيذ والمقاولات" },
+    projectHighlight: {
+      en: "Infrastructure & Civil Works Delivery",
+      ar: "تنفيذ مشروعات البنية التحتية والأعمال المدنية",
+    },
+  },
+  {
+    id: "elzahyGroup",
+    src: elzahyGroup,
+    en: "EL-ZAHY GROUP",
+    ar: "الزاهي جروب",
+    category: "contractors",
+    categoryLabel: { en: "Industrial Partner", ar: "مجموعات الاستثمار الصناعي" },
+    projectHighlight: {
+      en: "Industrial & Electromechanical Packages",
+      ar: "حزم الأعمال الكهروميكانيكية والمنشآت",
+    },
+  },
+  {
+    id: "elnubyGroup",
+    src: elnubyGroup,
+    en: "El Nuby Group",
+    ar: "مجموعة النوبى",
+    category: "contractors",
+    categoryLabel: { en: "Contracting Partner", ar: "شركاء التنفيذ والمقاولات" },
+    projectHighlight: {
+      en: "Regional Utility Networks & Earthworks",
+      ar: "تنفيذ شبكات المرافق والأعمال الترابية",
+    },
+  },
 ];
 
 function ClientCard({
@@ -299,17 +351,16 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
 
   // Reduced motion preference
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia) {
-      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (mediaQuery.matches) {
-        setIsPlaying(false);
-      }
-      const handler = (e: MediaQueryListEvent) => {
-        setIsPlaying(!e.matches);
-      };
-      mediaQuery.addEventListener?.("change", handler);
-      return () => mediaQuery.removeEventListener?.("change", handler);
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      setIsPlaying(false);
     }
+    const handler = (e: MediaQueryListEvent) => {
+      setIsPlaying(!e.matches);
+    };
+    mediaQuery.addEventListener?.("change", handler);
+    return () => mediaQuery.removeEventListener?.("change", handler);
   }, []);
 
   // Continuous animation loop
@@ -381,7 +432,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     const deltaX = currentX - startXRef.current;
     const now = performance.now();
     const dt = Math.max(now - lastTimeRef.current, 1);
-    
+
     const directionFactor = isAr ? -1 : 1;
 
     velocityRef.current = (((currentX - lastXRef.current) * directionFactor) / dt) * 15;
@@ -389,7 +440,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     lastTimeRef.current = now;
 
     const setWidth = singleSetWidthRef.current;
-    let newPos = dragStartPosRef.current - (deltaX * directionFactor);
+    let newPos = dragStartPosRef.current - deltaX * directionFactor;
 
     if (setWidth > 0) {
       if (newPos >= setWidth) {
@@ -413,7 +464,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
   const handleStep = (direction: "prev" | "next") => {
     const cardWidth = 280;
     const setWidth = singleSetWidthRef.current;
-    
+
     const isNext = direction === "next";
     const shouldIncrease = isAr ? !isNext : isNext;
 
@@ -421,8 +472,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
       positionRef.current = (positionRef.current + cardWidth) % (setWidth || 1);
     } else {
       positionRef.current =
-        ((positionRef.current - cardWidth) % (setWidth || 1) + (setWidth || 1)) %
-        (setWidth || 1);
+        (((positionRef.current - cardWidth) % (setWidth || 1)) + (setWidth || 1)) % (setWidth || 1);
     }
   };
 
@@ -513,22 +563,10 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
               <button
                 type="button"
                 onClick={() => setIsPlaying((prev) => !prev)}
-                aria-label={
-                  isPlaying
-                    ? isAr
-                      ? "إيقاف مؤقت"
-                      : "Pause"
-                    : isAr
-                    ? "تشغيل"
-                    : "Play"
-                }
+                aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
               >
-                {isPlaying ? (
-                  <Pause className="h-3.5 w-3.5" />
-                ) : (
-                  <Play className="h-3.5 w-3.5" />
-                )}
+                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
               </button>
 
               <button
@@ -591,12 +629,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
       {viewMode === "grid" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-2">
           {filteredClients.map((client) => (
-            <ClientCard
-              key={client.id}
-              client={client}
-              isAr={isAr}
-              viewMode="grid"
-            />
+            <ClientCard key={client.id} client={client} isAr={isAr} viewMode="grid" />
           ))}
         </div>
       )}

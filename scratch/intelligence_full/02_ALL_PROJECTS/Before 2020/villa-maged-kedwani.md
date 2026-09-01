@@ -1,0 +1,56 @@
+---
+type: master_project_record
+project_name: villa maged kedwani
+parent_period: Before 2020
+classification: historical_or_operational_reference
+evidence_level: observed_metadata
+source_path: 01- Master/Before 2020/villa maged kedwani
+source_url: https://infeworks.sharepoint.com/sites/InfeworksFiles/Shared%20Documents/01-%20Master/Before%202020/villa%20maged%20kedwani
+source_id: 01TC5FCYCJOEKNMBVVCZAJUGZJNNBLLAGL
+file_count: 27
+---
+
+# villa maged kedwani
+
+## Classification
+
+- **الفترة/المجلد:** Before 2020
+- **حالة التصنيف:** `historical_or_operational_reference`
+- **مستوى الدليل الحالي:** `observed_metadata`. هذا السجل يثبت وجود المسار وبنيته فقط؛ لا يثبت التنفيذ أو قيمة العقد أو الكميات دون قراءة الوثائق الداخلية.
+
+## Business identity
+
+الاسم التالي هو الاسم الأصلي كما ظهر في SharePoint: **villa maged kedwani**. تُستخرج هوية العميل والموقع والقطاع ونطاق الأعمال من المستندات الداخلية، ولا تُستنتج من الاسم وحده.
+
+## Source inventory
+
+- عدد الملفات داخل المسار: **27**
+- المسار: `01- Master/Before 2020/villa maged kedwani`
+- رابط SharePoint: https://infeworks.sharepoint.com/sites/InfeworksFiles/Shared%20Documents/01-%20Master/Before%202020/villa%20maged%20kedwani
+
+## Fields for future enrichment
+
+| Field | Value | Evidence |
+|---|---|---|
+| client | unknown | unknown |
+| location | unknown | unknown |
+| contract_number | unknown | unknown |
+| scope_of_work | unknown | unknown |
+| systems_and_assets | unknown | unknown |
+| execution_status | unknown | unknown |
+| contract_value | unknown | unknown |
+| quantities | unknown | unknown |
+| start_date | unknown | unknown |
+| completion_date | unknown | unknown |
+| team_and_partners | unknown | unknown |
+| risks_and_lessons | unknown | unknown |
+
+## AI guardrail
+
+لا يجوز استخدام هذا السجل لإثبات أن المشروع نُفّذ أو ما زال جاريًا إذا كانت حالته `study` أو `pipeline` أو إذا لم توجد وثيقة تنفيذية مباشرة. استخدم الملفات المستخرجة المرتبطة بالمشروع، وسجّل أي استنتاج على أنه `derived`.
+
+## Extracted evidence files
+
+- لا توجد وثائق مستخرجة مرتبطة بهذا المسار في هذه النسخة.
+
+عدد الوثائق المستخرجة المرتبطة: **0**.

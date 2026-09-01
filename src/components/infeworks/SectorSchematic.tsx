@@ -13,7 +13,15 @@ function Unit({ x, y, w, h, l, sub }: Box) {
   return (
     <g>
       <rect x={x} y={y} width={w} height={h} fill="none" stroke={LINE} strokeWidth="1.2" />
-      <line x1={x} y1={y + 16} x2={x + w} y2={y + 16} stroke={LINE} strokeWidth="0.6" opacity="0.5" />
+      <line
+        x1={x}
+        y1={y + 16}
+        x2={x + w}
+        y2={y + 16}
+        stroke={LINE}
+        strokeWidth="0.6"
+        opacity="0.5"
+      />
       <text x={x + 8} y={y + 11} fontSize="7.5" letterSpacing="1.1" fill={ACCENT}>
         {l.toUpperCase()}
       </text>
@@ -26,7 +34,19 @@ function Unit({ x, y, w, h, l, sub }: Box) {
   );
 }
 
-function Flow({ x1, y1, x2, y2, dashed }: { x1: number; y1: number; x2: number; y2: number; dashed?: boolean }) {
+function Flow({
+  x1,
+  y1,
+  x2,
+  y2,
+  dashed,
+}: {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  dashed?: boolean;
+}) {
   return (
     <g>
       <line
@@ -49,7 +69,17 @@ function Flow({ x1, y1, x2, y2, dashed }: { x1: number; y1: number; x2: number; 
   );
 }
 
-function Tag({ x, y, text, colour = COPPER }: { x: number; y: number; text: string; colour?: string }) {
+function Tag({
+  x,
+  y,
+  text,
+  colour = COPPER,
+}: {
+  x: number;
+  y: number;
+  text: string;
+  colour?: string;
+}) {
   return (
     <text x={x} y={y} fontSize="7.5" letterSpacing="1.1" fill={colour}>
       {text.toUpperCase()}
@@ -61,14 +91,23 @@ function Pump({ x, y }: { x: number; y: number }) {
   return (
     <g stroke={LINE} strokeWidth="1.2" fill="none">
       <circle cx={x} cy={y} r="13" />
-      <polygon points={`${x - 5},${y - 7} ${x - 5},${y + 7} ${x + 8},${y}`} fill={ACCENT} opacity="0.5" stroke="none" />
+      <polygon
+        points={`${x - 5},${y - 7} ${x - 5},${y + 7} ${x + 8},${y}`}
+        fill={ACCENT}
+        opacity="0.5"
+        stroke="none"
+      />
     </g>
   );
 }
 
 function Frame({ children }: { children: React.ReactNode }) {
   return (
-    <svg viewBox="0 0 900 300" className="h-full w-full" fontFamily="var(--font-mono, ui-monospace)">
+    <svg
+      viewBox="0 0 900 300"
+      className="h-full w-full"
+      fontFamily="var(--font-mono, ui-monospace)"
+    >
       <rect x="0" y="0" width="900" height="300" fill="#0b1628" />
       <g stroke={ACCENT} strokeOpacity="0.07" strokeWidth="0.7">
         {Array.from({ length: 18 }, (_, i) => (
@@ -98,7 +137,16 @@ function WaterTreatment() {
       <Flow x1={500} y1={145} x2={532} y2={145} />
       <Unit x={532} y={96} w={140} h={98} l="04 RO Membranes" sub="Pressure vessels" />
       {[118, 140, 162].map((y) => (
-        <line key={y} x1={544} y1={y} x2={660} y2={y} stroke={ACCENT} strokeWidth="3" opacity="0.35" />
+        <line
+          key={y}
+          x1={544}
+          y1={y}
+          x2={660}
+          y2={y}
+          stroke={ACCENT}
+          strokeWidth="3"
+          opacity="0.35"
+        />
       ))}
       <Flow x1={672} y1={145} x2={708} y2={145} />
       <Unit x={708} y={110} w={168} h={70} l="05 Post-treatment" sub="Disinfect · remineralise" />
@@ -141,12 +189,23 @@ function Wastewater() {
       <Unit x={432} y={30} w={148} h={44} l="Blowers" />
       <Flow x1={506} y1={74} x2={506} y2={90} dashed />
       {/* RAS / sludge */}
-      <path d="M670 180 L670 236 L500 236" fill="none" stroke={COPPER} strokeWidth="1.2" strokeDasharray="4 4" />
+      <path
+        d="M670 180 L670 236 L500 236"
+        fill="none"
+        stroke={COPPER}
+        strokeWidth="1.2"
+        strokeDasharray="4 4"
+      />
       <Flow x1={520} y1={236} x2={500} y2={236} dashed />
       <Tag x={520} y={252} text="Return activated sludge" />
       <Unit x={760} y={30} w={116} h={44} l="Reuse" />
       <Flow x1={818} y1={104} x2={818} y2={78} />
-      <Tag x={24} y={268} text="Discharge compliance verified by laboratory sampling" colour={ACCENT} />
+      <Tag
+        x={24}
+        y={268}
+        text="Discharge compliance verified by laboratory sampling"
+        colour={ACCENT}
+      />
     </Frame>
   );
 }
@@ -166,9 +225,19 @@ function Pumping() {
           <Pump x={292} y={y} />
           <line x1={308} y1={y} x2={352} y2={y} stroke={ACCENT} strokeWidth="1.3" />
           {/* check + isolation valve symbols */}
-          <polygon points={`${360},${y - 8} ${360},${y + 8} ${374},${y}`} fill="none" stroke={LINE} strokeWidth="1.1" />
+          <polygon
+            points={`${360},${y - 8} ${360},${y + 8} ${374},${y}`}
+            fill="none"
+            stroke={LINE}
+            strokeWidth="1.1"
+          />
           <line x1={374} y1={y} x2={430} y2={y} stroke={ACCENT} strokeWidth="1.3" />
-          <Tag x={252} y={y - 20} text={i === 2 ? "Standby" : `Duty 0${i + 1}`} colour={i === 2 ? COPPER : ACCENT} />
+          <Tag
+            x={252}
+            y={y - 20}
+            text={i === 2 ? "Standby" : `Duty 0${i + 1}`}
+            colour={i === 2 ? COPPER : ACCENT}
+          />
         </g>
       ))}
       {/* discharge header */}
@@ -179,41 +248,55 @@ function Pumping() {
       <Unit x={700} y={120} w={176} h={60} l="Rising main" sub="To network" />
       <Unit x={520} y={30} w={356} h={44} l="VFD control panel · flow · pressure · level" />
       <Flow x1={698} y1={74} x2={698} y2={112} dashed />
-      <Tag x={24} y={268} text="Duty point set from measured system curve · witnessed performance test" colour={ACCENT} />
+      <Tag
+        x={24}
+        y={268}
+        text="Duty point set from measured system curve · witnessed performance test"
+        colour={ACCENT}
+      />
     </Frame>
   );
 }
 
-/* ── irrigation: head station ────────────────────────────────────────────── */
-function Irrigation() {
+/* ── infrastructure-networks: pipeline laying ───────────────────────────────── */
+function InfrastructureNetworks() {
   return (
     <Frame>
-      <Tag x={24} y={30} text="Irrigation Head Station" colour={ACCENT} />
-      <Unit x={24} y={120} w={112} h={64} l="Source" sub="Canal / well" />
-      <Flow x1={136} y1={152} x2={168} y2={152} />
-      <Pump x={184} y={152} />
-      <Flow x1={200} y1={152} x2={232} y2={152} />
-      <Unit x={232} y={120} w={124} h={64} l="Sand filter" sub="Back-washable" />
-      <Flow x1={356} y1={152} x2={388} y2={152} />
-      <Unit x={388} y={120} w={124} h={64} l="Screen filter" sub="Disc / mesh" />
-      <Flow x1={512} y1={152} x2={544} y2={152} />
-      <Unit x={544} y={104} w={140} h={96} l="Fertigation" sub="Venturi dosing" />
-      {[124, 144, 164].map((y) => (
-        <line key={y} x1={556} y1={y + 22} x2={672} y2={y + 22} stroke={COPPER} strokeWidth="1" opacity="0.5" />
-      ))}
-      <Unit x={544} y={30} w={140} h={44} l="Nutrient tanks" />
-      <Flow x1={614} y1={74} x2={614} y2={98} dashed />
-      {/* zoning manifold */}
-      <line x1={684} y1={152} x2={730} y2={152} stroke={ACCENT} strokeWidth="1.6" />
-      <line x1={730} y1={72} x2={730} y2={236} stroke={ACCENT} strokeWidth="2.2" />
-      {[86, 124, 162, 220].map((y, i) => (
-        <g key={y}>
-          <line x1={730} y1={y} x2={856} y2={y} stroke={ACCENT} strokeWidth="1.1" opacity="0.8" />
-          <circle cx={868} cy={y} r="5" fill="none" stroke={LINE} strokeWidth="1.1" />
-          <Tag x={744} y={y - 8} text={`Zone 0${i + 1}`} colour={ACCENT} />
-        </g>
-      ))}
-      <Tag x={24} y={268} text="Pressure zoning and scheduling by field block" colour={ACCENT} />
+      <Tag x={24} y={30} text="Infrastructure & Pipeline Network" colour={ACCENT} />
+      <Unit x={24} y={110} w={120} h={70} l="01 Trenching" sub="Excavation" />
+      <Flow x1={144} y1={145} x2={180} y2={145} />
+      <Unit x={180} y={110} w={120} h={70} l="02 Pipe Laying" sub="HDPE / DI" />
+      <Flow x1={300} y1={145} x2={336} y2={145} />
+      <Unit x={336} y={110} w={120} h={70} l="03 Valves" sub="Chambers" />
+      <Flow x1={456} y1={145} x2={492} y2={145} />
+      <Unit x={492} y={110} w={120} h={70} l="04 Testing" sub="Hydrostatic" />
+      <Flow x1={612} y1={145} x2={648} y2={145} />
+      <Unit x={648} y={110} w={120} h={70} l="05 Handover" sub="Backfill" />
+      <Tag x={24} y={268} text="Tested & commissioned utility networks" colour={ACCENT} />
+    </Frame>
+  );
+}
+
+/* ── civil-buildings: turnkey construction ───────────────────────────────── */
+function CivilBuildings() {
+  return (
+    <Frame>
+      <Tag x={24} y={30} text="Turnkey Building Construction" colour={ACCENT} />
+      <Unit x={24} y={110} w={120} h={70} l="01 Foundation" sub="Raft / Footing" />
+      <Flow x1={144} y1={145} x2={180} y2={145} />
+      <Unit x={180} y={110} w={120} h={70} l="02 Structure" sub="Concrete" />
+      <Flow x1={300} y1={145} x2={336} y2={145} />
+      <Unit x={336} y={110} w={120} h={70} l="03 MEP Rough-in" sub="Conduits" />
+      <Flow x1={456} y1={145} x2={492} y2={145} />
+      <Unit x={492} y={110} w={120} h={70} l="04 Finishing" sub="Architectural" />
+      <Flow x1={612} y1={145} x2={648} y2={145} />
+      <Unit x={648} y={110} w={120} h={70} l="05 Turnover" sub="Snagging" />
+      <Tag
+        x={24}
+        y={268}
+        text="Delivering fully functional commercial and institutional facilities"
+        colour={ACCENT}
+      />
     </Frame>
   );
 }
@@ -249,7 +332,14 @@ function ElectricalControl() {
       <Flow x1={448} y1={144} x2={480} y2={144} />
       <Flow x1={676} y1={144} x2={708} y2={144} />
       {/* supervisory */}
-      <Unit x={480} y={30} w={396} h={52} l="Operations dashboard" sub="Output logging · alarm escalation · monthly report" />
+      <Unit
+        x={480}
+        y={30}
+        w={396}
+        h={52}
+        l="Operations dashboard"
+        sub="Output logging · alarm escalation · monthly report"
+      />
       <Flow x1={792} y1={112} x2={792} y2={86} />
       <Tag x={24} y={72} text="Unmanned sites monitored remotely" colour={COPPER} />
       <Tag x={24} y={92} text="Every alarm resolves to a named responsibility" colour={ACCENT} />
@@ -260,9 +350,10 @@ function ElectricalControl() {
 const MAP: Record<SectorSlug, () => React.ReactElement> = {
   "water-treatment": WaterTreatment,
   wastewater: Wastewater,
-  pumping: Pumping,
-  irrigation: Irrigation,
-  "electrical-control": ElectricalControl,
+  "pumping-wells": Pumping,
+  "infrastructure-networks": InfrastructureNetworks,
+  "civil-buildings": CivilBuildings,
+  "industrial-mep": ElectricalControl,
 };
 
 export default function SectorSchematic({
@@ -280,7 +371,7 @@ export default function SectorSchematic({
       className={`border ${className}`}
       style={{ borderColor: "var(--iw-dark-border)", backgroundColor: "#0b1628" }}
     >
-      <div className="aspect-[3/1] w-full">
+      <div className="aspect-[3/1] w-full" dir="ltr">
         <Diagram />
       </div>
       <figcaption

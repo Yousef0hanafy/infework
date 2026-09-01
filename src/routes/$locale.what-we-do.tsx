@@ -2,7 +2,7 @@ import { Outlet, createFileRoute } from "@tanstack/react-router";
 
 const TITLE = "What We Do — Infeworks";
 const DESC =
-  "Infeworks capabilities: water treatment, wastewater, pumping, irrigation, and electrical & control systems delivered as one scope.";
+  "Infeworks EPC capabilities: water treatment, wastewater, pumping stations, infrastructure networks, civil buildings, and electromechanical systems.";
 
 export const Route = createFileRoute("/$locale/what-we-do")({
   head: () => ({

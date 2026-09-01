@@ -1,0 +1,783 @@
+{
+  "sadat-city-ro": {
+    "cover": "/images/projects/sadat-city-ro/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/sadat-city-ro/gallery-1.webp",
+      "/images/projects/sadat-city-ro/gallery-2.webp",
+      "/images/projects/sadat-city-ro/gallery-3.webp",
+      "/images/projects/sadat-city-ro/gallery-4.webp",
+      "/images/projects/sadat-city-ro/gallery-5.webp",
+      "/images/projects/sadat-city-ro/gallery-6.webp",
+      "/images/projects/sadat-city-ro/gallery-7.webp",
+      "/images/projects/sadat-city-ro/gallery-8.webp",
+      "/images/projects/sadat-city-ro/gallery-9.webp",
+      "/images/projects/sadat-city-ro/gallery-10.webp",
+      "/images/projects/sadat-city-ro/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 16
+  },
+  "toshka-pumping-stations": {
+    "cover": "/images/projects/toshka-pumping-stations/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/toshka-pumping-stations/gallery-1.webp",
+      "/images/projects/toshka-pumping-stations/gallery-2.webp",
+      "/images/projects/toshka-pumping-stations/gallery-3.webp",
+      "/images/projects/toshka-pumping-stations/gallery-4.webp",
+      "/images/projects/toshka-pumping-stations/gallery-5.webp",
+      "/images/projects/toshka-pumping-stations/gallery-6.webp",
+      "/images/projects/toshka-pumping-stations/gallery-7.webp",
+      "/images/projects/toshka-pumping-stations/gallery-8.webp",
+      "/images/projects/toshka-pumping-stations/gallery-9.webp",
+      "/images/projects/toshka-pumping-stations/gallery-10.webp",
+      "/images/projects/toshka-pumping-stations/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 23
+  },
+  "toshka-farm-potable-water-plant": {
+    "cover": "/images/projects/toshka-farm-potable-water-plant/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/toshka-farm-potable-water-plant/gallery-1.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-2.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-3.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-4.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-5.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-6.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-7.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-8.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-9.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-10.webp",
+      "/images/projects/toshka-farm-potable-water-plant/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 25
+  },
+  "toshka-expanded-water-networks": {
+    "cover": "/images/projects/toshka-expanded-water-networks/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/toshka-expanded-water-networks/gallery-1.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-2.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-3.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-4.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-5.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-6.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-7.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-8.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-9.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-10.webp",
+      "/images/projects/toshka-expanded-water-networks/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 15
+  },
+  "arish-water-supply": {
+    "cover": "/images/projects/arish-water-supply/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/arish-water-supply/gallery-1.webp",
+      "/images/projects/arish-water-supply/gallery-2.webp",
+      "/images/projects/arish-water-supply/gallery-3.webp",
+      "/images/projects/arish-water-supply/gallery-4.webp",
+      "/images/projects/arish-water-supply/gallery-5.webp",
+      "/images/projects/arish-water-supply/gallery-6.webp",
+      "/images/projects/arish-water-supply/gallery-7.webp",
+      "/images/projects/arish-water-supply/gallery-8.webp",
+      "/images/projects/arish-water-supply/gallery-9.webp",
+      "/images/projects/arish-water-supply/gallery-10.webp",
+      "/images/projects/arish-water-supply/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 206
+  },
+  "awlad-el-sheikh-pumping": {
+    "cover": "/images/projects/awlad-el-sheikh-pumping/cover.webp",
+    "gallery_count": 6,
+    "gallery": [
+      "/images/projects/awlad-el-sheikh-pumping/gallery-1.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-2.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-3.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-4.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-5.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-6.webp"
+    ],
+    "total_extracted": 7,
+    "source_count": 8
+  },
+  "north-coast-desalination": {
+    "cover": "/images/projects/north-coast-desalination/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/north-coast-desalination/gallery-1.webp",
+      "/images/projects/north-coast-desalination/gallery-2.webp",
+      "/images/projects/north-coast-desalination/gallery-3.webp",
+      "/images/projects/north-coast-desalination/gallery-4.webp",
+      "/images/projects/north-coast-desalination/gallery-5.webp",
+      "/images/projects/north-coast-desalination/gallery-6.webp",
+      "/images/projects/north-coast-desalination/gallery-7.webp",
+      "/images/projects/north-coast-desalination/gallery-8.webp",
+      "/images/projects/north-coast-desalination/gallery-9.webp",
+      "/images/projects/north-coast-desalination/gallery-10.webp",
+      "/images/projects/north-coast-desalination/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 92
+  },
+  "multi-site-desalination-purification": {
+    "cover": "/images/projects/multi-site-desalination-purification/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/multi-site-desalination-purification/gallery-1.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-2.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-3.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-4.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-5.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-6.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-7.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-8.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-9.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-10.webp",
+      "/images/projects/multi-site-desalination-purification/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 92
+  },
+  "dairy-effluent-treatment-network": {
+    "cover": "/images/projects/dairy-effluent-treatment-network/cover.webp",
+    "gallery_count": 6,
+    "gallery": [
+      "/images/projects/dairy-effluent-treatment-network/gallery-1.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-2.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-3.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-4.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-5.webp",
+      "/images/projects/dairy-effluent-treatment-network/gallery-6.webp"
+    ],
+    "total_extracted": 7,
+    "source_count": 7
+  },
+  "food-city-treatment": {
+    "cover": "/images/projects/food-city-treatment/cover.webp",
+    "gallery_count": 6,
+    "gallery": [
+      "/images/projects/food-city-treatment/gallery-1.webp",
+      "/images/projects/food-city-treatment/gallery-2.webp",
+      "/images/projects/food-city-treatment/gallery-3.webp",
+      "/images/projects/food-city-treatment/gallery-4.webp",
+      "/images/projects/food-city-treatment/gallery-5.webp",
+      "/images/projects/food-city-treatment/gallery-6.webp"
+    ],
+    "total_extracted": 7,
+    "source_count": 7
+  },
+  "qabs-min-nour-mosque": {
+    "cover": "/images/projects/qabs-min-nour-mosque/cover.webp",
+    "gallery_count": 2,
+    "gallery": [
+      "/images/projects/qabs-min-nour-mosque/gallery-1.webp",
+      "/images/projects/qabs-min-nour-mosque/gallery-2.webp"
+    ],
+    "total_extracted": 3,
+    "source_count": 3
+  },
+  "rafah-bedouin-housing": {
+    "cover": "/images/projects/rafah-bedouin-housing/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/rafah-bedouin-housing/gallery-1.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-2.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-3.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-4.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-5.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-6.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-7.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-8.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-9.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-10.webp",
+      "/images/projects/rafah-bedouin-housing/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 269
+  },
+  "sisi-city-wastewater": {
+    "cover": "/images/projects/sisi-city-wastewater/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/sisi-city-wastewater/gallery-1.webp",
+      "/images/projects/sisi-city-wastewater/gallery-2.webp",
+      "/images/projects/sisi-city-wastewater/gallery-3.webp",
+      "/images/projects/sisi-city-wastewater/gallery-4.webp",
+      "/images/projects/sisi-city-wastewater/gallery-5.webp",
+      "/images/projects/sisi-city-wastewater/gallery-6.webp",
+      "/images/projects/sisi-city-wastewater/gallery-7.webp",
+      "/images/projects/sisi-city-wastewater/gallery-8.webp",
+      "/images/projects/sisi-city-wastewater/gallery-9.webp",
+      "/images/projects/sisi-city-wastewater/gallery-10.webp",
+      "/images/projects/sisi-city-wastewater/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 341
+  },
+  "salam-city-cattle-farm-networks": {
+    "cover": "/images/projects/salam-city-cattle-farm-networks/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/salam-city-cattle-farm-networks/gallery-1.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-2.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-3.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-4.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-5.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-6.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-7.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-8.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-9.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-10.webp",
+      "/images/projects/salam-city-cattle-farm-networks/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 29
+  },
+  "gas-egypt-stations-electromechanical": {
+    "cover": "/images/projects/gas-egypt-stations-electromechanical/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-1.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-2.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-3.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-4.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-5.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-6.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-7.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-8.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-9.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-10.webp",
+      "/images/projects/gas-egypt-stations-electromechanical/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "shubra-shahab-technical-works": {
+    "cover": "/images/projects/shubra-shahab-technical-works/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/shubra-shahab-technical-works/gallery-1.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-2.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-3.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-4.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-5.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-6.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-7.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-8.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-9.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-10.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "toshka-reclamation-pumping-package": {
+    "cover": "/images/projects/toshka-reclamation-pumping-package/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/toshka-reclamation-pumping-package/gallery-1.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-2.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-3.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-4.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-5.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-6.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-7.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-8.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-9.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-10.webp",
+      "/images/projects/toshka-reclamation-pumping-package/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "salam-city-water-pipeline": {
+    "cover": "/images/projects/salam-city-water-pipeline/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/salam-city-water-pipeline/gallery-1.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-2.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-3.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-4.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-5.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-6.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-7.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-8.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-9.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-10.webp",
+      "/images/projects/salam-city-water-pipeline/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "beni-suef-water-wastewater": {
+    "cover": "/images/projects/beni-suef-water-wastewater/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/beni-suef-water-wastewater/gallery-1.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-2.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-3.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-4.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-5.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-6.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-7.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-8.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-9.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-10.webp",
+      "/images/projects/beni-suef-water-wastewater/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "qibili-qarun-water-purification": {
+    "cover": "/images/projects/qibili-qarun-water-purification/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/qibili-qarun-water-purification/gallery-1.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-2.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-3.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-4.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-5.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-6.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-7.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-8.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-9.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-10.webp",
+      "/images/projects/qibili-qarun-water-purification/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "shubra-shahab-industrial-wastewater": {
+    "cover": "/images/projects/shubra-shahab-industrial-wastewater/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-1.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-2.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-3.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-4.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-5.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-6.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-7.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-8.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-9.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-10.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "marble-factory-desalination-plants": {
+    "cover": "/images/projects/marble-factory-desalination-plants/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/marble-factory-desalination-plants/gallery-1.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-2.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-3.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-4.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-5.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-6.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-7.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-8.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-9.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-10.webp",
+      "/images/projects/marble-factory-desalination-plants/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "qibili-qarun-goat-farm-utilities": {
+    "cover": "/images/projects/qibili-qarun-goat-farm-utilities/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-1.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-2.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-3.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-4.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-5.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-6.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-7.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-8.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-9.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-10.webp",
+      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "capital-island-infrastructure": {
+    "cover": "/images/projects/capital-island-infrastructure/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/capital-island-infrastructure/gallery-1.webp",
+      "/images/projects/capital-island-infrastructure/gallery-2.webp",
+      "/images/projects/capital-island-infrastructure/gallery-3.webp",
+      "/images/projects/capital-island-infrastructure/gallery-4.webp",
+      "/images/projects/capital-island-infrastructure/gallery-5.webp",
+      "/images/projects/capital-island-infrastructure/gallery-6.webp",
+      "/images/projects/capital-island-infrastructure/gallery-7.webp",
+      "/images/projects/capital-island-infrastructure/gallery-8.webp",
+      "/images/projects/capital-island-infrastructure/gallery-9.webp",
+      "/images/projects/capital-island-infrastructure/gallery-10.webp",
+      "/images/projects/capital-island-infrastructure/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "toshka-pumping-basket-screens": {
+    "cover": "/images/projects/toshka-pumping-basket-screens/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/toshka-pumping-basket-screens/gallery-1.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-2.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-3.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-4.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-5.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-6.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-7.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-8.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-9.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-10.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "infrastructure-sand-procurement": {
+    "cover": "/images/projects/infrastructure-sand-procurement/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/infrastructure-sand-procurement/gallery-1.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-2.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-3.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-4.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-5.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-6.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-7.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-8.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-9.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-10.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "cargas-grounding-systems": {
+    "cover": "/images/projects/cargas-grounding-systems/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/cargas-grounding-systems/gallery-1.webp",
+      "/images/projects/cargas-grounding-systems/gallery-2.webp",
+      "/images/projects/cargas-grounding-systems/gallery-3.webp",
+      "/images/projects/cargas-grounding-systems/gallery-4.webp",
+      "/images/projects/cargas-grounding-systems/gallery-5.webp",
+      "/images/projects/cargas-grounding-systems/gallery-6.webp",
+      "/images/projects/cargas-grounding-systems/gallery-7.webp",
+      "/images/projects/cargas-grounding-systems/gallery-8.webp",
+      "/images/projects/cargas-grounding-systems/gallery-9.webp",
+      "/images/projects/cargas-grounding-systems/gallery-10.webp",
+      "/images/projects/cargas-grounding-systems/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "date-palm-cold-storage-mep": {
+    "cover": "/images/projects/date-palm-cold-storage-mep/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/date-palm-cold-storage-mep/gallery-1.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-2.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-3.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-4.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-5.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-6.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-7.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-8.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-9.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-10.webp",
+      "/images/projects/date-palm-cold-storage-mep/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "manshiyat-nasser-pumping-station": {
+    "cover": "/images/projects/manshiyat-nasser-pumping-station/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-1.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-2.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-3.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-4.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-5.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-6.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-7.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-8.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-9.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-10.webp",
+      "/images/projects/manshiyat-nasser-pumping-station/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "nuweiba-infrastructure-works": {
+    "cover": "/images/projects/nuweiba-infrastructure-works/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/nuweiba-infrastructure-works/gallery-1.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-2.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-3.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-4.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-5.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-6.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-7.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-8.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-9.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-10.webp",
+      "/images/projects/nuweiba-infrastructure-works/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "future-of-egypt-potato-storage-softener": {
+    "cover": "/images/projects/future-of-egypt-potato-storage-softener/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-1.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-2.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-3.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-4.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-5.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-6.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-7.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-8.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-9.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-10.webp",
+      "/images/projects/future-of-egypt-potato-storage-softener/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "al-marreikh-stadium-civil-mep": {
+    "cover": "/images/projects/al-marreikh-stadium-civil-mep/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-1.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-2.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-3.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-4.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-5.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-6.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-7.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-8.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-9.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-10.webp",
+      "/images/projects/al-marreikh-stadium-civil-mep/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "sisi-city-water-supply-network": {
+    "cover": "/images/projects/sisi-city-water-supply-network/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/sisi-city-water-supply-network/gallery-1.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-2.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-3.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-4.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-5.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-6.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-7.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-8.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-9.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-10.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "north-sinai-dc-infrastructure": {
+    "cover": "/images/projects/north-sinai-dc-infrastructure/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/north-sinai-dc-infrastructure/gallery-1.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-2.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-3.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-4.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-5.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-6.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-7.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-8.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-9.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-10.webp",
+      "/images/projects/north-sinai-dc-infrastructure/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "al-azhar-institute-minya": {
+    "cover": "/images/projects/al-azhar-institute-minya/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/al-azhar-institute-minya/gallery-1.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-2.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-3.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-4.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-5.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-6.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-7.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-8.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-9.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-10.webp",
+      "/images/projects/al-azhar-institute-minya/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "abu-minqar-agricultural-farm-utilities": {
+    "cover": "/images/projects/abu-minqar-agricultural-farm-utilities/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-1.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-2.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-3.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-4.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-5.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-6.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-7.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-8.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-9.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-10.webp",
+      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "hayat-karima-health-unit": {
+    "cover": "/images/projects/hayat-karima-health-unit/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/hayat-karima-health-unit/gallery-1.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-2.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-3.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-4.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-5.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-6.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-7.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-8.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-9.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-10.webp",
+      "/images/projects/hayat-karima-health-unit/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "bianchi-resort-infrastructure-utilities": {
+    "cover": "/images/projects/bianchi-resort-infrastructure-utilities/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-1.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-2.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-3.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-4.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-5.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-6.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-7.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-8.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-9.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-10.webp",
+      "/images/projects/bianchi-resort-infrastructure-utilities/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "rural-egypt-wells-minya": {
+    "cover": "/images/projects/rural-egypt-wells-minya/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/rural-egypt-wells-minya/gallery-1.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-2.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-3.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-4.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-5.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-6.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-7.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-8.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-9.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-10.webp",
+      "/images/projects/rural-egypt-wells-minya/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "palm-hills-infrastructure-utilities": {
+    "cover": "/images/projects/palm-hills-infrastructure-utilities/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-1.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-2.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-3.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-4.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-5.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-6.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-7.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-8.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-9.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-10.webp",
+      "/images/projects/palm-hills-infrastructure-utilities/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "abu-zaabal-landfill-environmental-works": {
+    "cover": "/images/projects/abu-zaabal-landfill-environmental-works/cover.webp",
+    "gallery_count": 11,
+    "gallery": [
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-1.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-2.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-3.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-4.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-5.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-6.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-7.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-8.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-9.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-10.webp",
+      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-11.webp"
+    ],
+    "total_extracted": 12,
+    "source_count": 0
+  },
+  "ameriya-cold-storage": {
+    "cover": "/images/projects/ameriya-cold-storage/cover.jpg",
+    "gallery_count": 5,
+    "gallery": [
+      "/images/projects/ameriya-cold-storage/gallery-1.jpg",
+      "/images/projects/ameriya-cold-storage/gallery-2.jpg",
+      "/images/projects/ameriya-cold-storage/gallery-3.jpg",
+      "/images/projects/ameriya-cold-storage/gallery-4.jpg",
+      "/images/projects/ameriya-cold-storage/gallery-5.jpg"
+    ],
+    "total_extracted": 6,
+    "source_count": 6
+  },
+  "east-delta-wastewater": {
+    "cover": "/images/projects/east-delta-wastewater/cover.webp",
+    "gallery_count": 5,
+    "gallery": [
+      "/images/projects/east-delta-wastewater/gallery-1.webp",
+      "/images/projects/east-delta-wastewater/gallery-2.webp",
+      "/images/projects/east-delta-wastewater/gallery-3.webp",
+      "/images/projects/east-delta-wastewater/gallery-4.webp",
+      "/images/projects/east-delta-wastewater/gallery-5.webp"
+    ],
+    "total_extracted": 6,
+    "source_count": 6
+  }
+}
