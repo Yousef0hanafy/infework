@@ -24,11 +24,36 @@ dist-ssr
 
 # Archives, Scratch & Large Upload Bundles
 *.zip
-*.sql
-*.csv
+/*.sql
+!supabase/migrations/*.sql
+/*.csv
+/*.py
 scratch/
 Cleints_more_logos/
 Infeworks_KB_Markdown/
+
+# One-off migration & audit files
+/CURRENT_STATE_AUDIT.md
+/INFEWORKS_CORPORATE_PROFILE_MASTER.md
+/PORTFOLIO_STATE.md
+/PROJECT_INTELLIGENCE.md
+/supplier_final_report.md
+/generate_migration_sql.js
+/migrate_taxonomy.js
+/fetch_projects.js
+/test_db.js
+/all_images_manifest.json
+/extracted_stats.json
+/full_batch_projects_data.json
+/manifest_projects.json
+/pilot_projects_data.json
+/project_inventory_master.json
+/sample_manifest.json
+/sample_manifest_valid.json
+/supabase_projects.json
+/supplier_logo_manifest.json
+/suppliers_parsed.json
+/zip_files.json
 
 
 # Wrangler / Cloudflare
