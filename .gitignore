@@ -22,9 +22,13 @@ dist-ssr
 .tanstack/**
 .nitro
 
-# Archives & Large Upload Bundles
+# Archives, Scratch & Large Upload Bundles
 *.zip
-Infeworks_KB_Markdown
+*.sql
+*.csv
+scratch/
+Cleints_more_logos/
+Infeworks_KB_Markdown/
 
 
 # Wrangler / Cloudflare
