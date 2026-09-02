@@ -76,12 +76,12 @@ const ICONS: Record<string, LucideIcon> = {
 
 const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
   "water-treatment": {
-    en: "Sadat City RO Plant (1,500 m³/day)",
-    ar: "محطة تحلية السادات (1,500 م³/يوم)",
+    en: "Sadat City RO Plant",
+    ar: "محطة تحلية السادات",
   },
   wastewater: {
-    en: "Food City Industrial WWTP (50 m³/day)",
-    ar: "محطة معالجة المدينة الغذائية (50 م³/يوم)",
+    en: "Shubra Shahab Industrial WWTP",
+    ar: "محطة معالجة شبرا شهاب",
   },
   "pumping-wells": {
     en: "Toshka Multi-Station System (22 Hubs)",
@@ -92,13 +92,23 @@ const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
     ar: "خطوط نقل مياه مطار العريش الإقليمية",
   },
   "civil-buildings": {
-    en: "Heavy Civil Basins & Control Centers",
-    ar: "الأحواض الخرسانية ومباني التحكم والمحولات",
+    en: "Qabs Min Nour Grand Mosque",
+    ar: "جامع ومجمع قبس من نور",
   },
   "industrial-mep": {
     en: "Ameriya Cold Storage Process Cooling",
     ar: "دوائر تبريد العمليات الصناعية بالعامرية",
   },
+};
+
+const PROJECT_SECTORS: Record<string, { en: string; ar: string }> = {
+  "sadat-city-ro": { en: "Water & Desalination", ar: "المياه والتحلية" },
+  "toshka-pumping-stations": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
+  "shubra-shahab-industrial-wastewater": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
+  "food-city-treatment": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
+  "arish-water-supply": { en: "Infrastructure Networks", ar: "شبكات المرافق والبنية التحتية" },
+  "ameriya-cold-storage": { en: "Industrial MEP & Energy", ar: "الكهروميكانيكا والطاقة" },
+  "qabs-min-nour-mosque": { en: "Civil & Buildings", ar: "الإنشاءات المدنية والمعمارية" },
 };
 
 const METRICS = [
@@ -136,8 +146,8 @@ const TELEMETRY = [
   },
   {
     icon: Zap,
-    en: "Electromechanical & SCADA",
-    ar: "كهروميكانيكا وتحكم سكادا",
+    en: "Electromechanical",
+    ar: "كهروميكانيكا",
     subEn: "Large-scale pumping hubs & automation systems",
     subAr: "محطات رفع كبرى وأنظمة تحكم آلي متكاملة",
   },
@@ -179,9 +189,10 @@ function LocaleHome() {
     const flagships = [
       "sadat-city-ro",
       "toshka-pumping-stations",
-      "food-city-treatment",
+      "shubra-shahab-industrial-wastewater",
       "arish-water-supply",
       "ameriya-cold-storage",
+      "qabs-min-nour-mosque",
     ];
     return [...projects]
       .sort((a, b) => {
@@ -195,7 +206,7 @@ function LocaleHome() {
         const dateB = b.created_at ? new Date(b.created_at).getTime() : 0;
         return dateB - dateA;
       })
-      .slice(0, 4);
+      .slice(0, 6);
   }, [projects]);
   const spot = useSpotlight();
 
@@ -236,7 +247,7 @@ function LocaleHome() {
             style={{ color: "var(--iw-dark-text-muted)" }}
           >
             {t(
-              "Turnkey EPC contractor delivering national water, wastewater, civil infrastructure, and industrial electromechanical infrastructure across Egypt.",
+              "Turnkey EPC contractor delivering Large-scale water treatment, wastewater treatment, civil infrastructure, and industrial electromechanical infrastructure across Egypt.",
               "المقاول العام لتنفيذ محطات معالجة وتنقية المياه، شبكات المرافق والأعمال المدنية، ومحطات الرفع الكبرى والأنظمة الكهروميكانيكية في مصر منذ عام 2006.",
             )}
           </p>
@@ -315,7 +326,7 @@ function LocaleHome() {
               style={{ color: "var(--iw-dark-accent)" }}
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
-              {t("Download Company Profile (PDF, 2.5 MB)", "تحميل ملف الشركة (PDF, 2.5 MB)")}
+              {t("Download Company Profile", "تحميل ملف الشركة")}
             </a>
           </div>
 
@@ -482,110 +493,298 @@ function LocaleHome() {
         </div>
       </section>
 
-      {/* SECTION D — DELIVERED FLAGSHIP PROJECTS */}
+      {/* SECTION D — DELIVERED FLAGSHIP PROJECTS (BENTO SHOWCASE) */}
       <section className="iw-section-light border-b" style={{ borderColor: "var(--iw-border)" }}>
         <div className="mx-auto w-full max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <Reveal>
-            <SectionHeading
-              eyebrow={t("Portfolio", "سجل الأعمال")}
-              title={t("Delivered Flagship Projects", "مشروعات مرجعية منفذة")}
-            />
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <p className="label-mono" style={{ color: "var(--iw-accent)" }}>
+                  {t("Portfolio", "سجل الأعمال")}
+                </p>
+                <h2 className="display-lg mt-4 text-[clamp(2rem,4.5vw,3.75rem)]">
+                  {t("Flagship Projects", "مشروعات مرجعية")}
+                </h2>
+              </div>
+              <p
+                className="body-reading max-w-xl text-sm md:text-base leading-relaxed"
+                style={{ color: "var(--iw-text-secondary)" }}
+              >
+                {t(
+                  "Six engineering benchmarks delivered across state, municipal, and industrial sectors in Egypt.",
+                  "ستة نماذج هندسية مرجعية تم تنفيذها لقطاعات الدولة والهيئات القومية والصناعية في مصر.",
+                )}
+              </p>
+            </div>
           </Reveal>
-          <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2">
+
+          {/* BENTO GRID (2 + 3 + 1) */}
+          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-12">
             {featured.map((p, idx) => {
               const meta = getProjectMeta(p.slug);
+              const sectorInfo = PROJECT_SECTORS[p.slug];
+              const isHeroCard = idx === 0;
+              const isCompanionCard = idx === 1;
+              const isGrandShowcase = idx === 5;
+
+              // Card 5: Full-width Grand Split Showcase Banner
+              if (isGrandShowcase) {
+                return (
+                  <Reveal key={p.project_id} delay={idx * 60} className="lg:col-span-12">
+                    <Link
+                      to="/$locale/work/$slug"
+                      params={{ locale, slug: p.slug }}
+                      preload={false}
+                      onMouseMove={spot}
+                      className="group iw-spotlight relative block overflow-hidden rounded-md border bg-[var(--iw-surface)] transition-all duration-500 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-[0_20px_48px_-16px_rgba(0,0,0,0.1)]"
+                      style={{ borderColor: "var(--iw-border)" }}
+                    >
+                      <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                        {/* Image Panel */}
+                        <div
+                          className="relative aspect-[16/10] lg:aspect-auto lg:col-span-7 min-h-[300px] overflow-hidden"
+                          style={{ backgroundColor: "var(--iw-surface-alt)" }}
+                        >
+                          <span
+                            className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                            style={{
+                              background:
+                                "linear-gradient(to top, color-mix(in oklab, var(--iw-dark-bg) 60%, transparent), transparent 60%)",
+                            }}
+                            aria-hidden="true"
+                          />
+                          {meta ? (
+                            <img
+                              src={meta.cover}
+                              alt={p.title}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover grayscale-[25%] transition-[filter,transform] duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                            />
+                          ) : null}
+
+                          {/* Technical Spec Badge */}
+                          {meta?.badge || meta?.capacity ? (
+                            <div className="absolute top-4 start-4 z-20 flex items-center gap-2 rounded-sm bg-[#0b1628]/95 px-3.5 py-2 backdrop-blur-md border border-white/15 shadow-lg">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-dark-accent)] animate-pulse" />
+                              <span className="label-mono text-xs font-semibold text-white tracking-wide">
+                                {isAr
+                                  ? (meta.badge?.ar ?? meta.capacity?.ar)
+                                  : (meta.badge?.en ?? meta.capacity?.en)}
+                              </span>
+                            </div>
+                          ) : null}
+                        </div>
+
+                        {/* Content Panel */}
+                        <div
+                          className="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-s"
+                          style={{ borderColor: "var(--iw-border)" }}
+                        >
+                          <div>
+                            <div className="flex items-center justify-between text-xs label-mono">
+                              {sectorInfo ? (
+                                <span className="font-semibold uppercase tracking-wider text-[var(--iw-accent)]">
+                                  {isAr ? sectorInfo.ar : sectorInfo.en}
+                                </span>
+                              ) : (
+                                <span />
+                              )}
+                              <span className="text-[var(--iw-text-secondary)]">
+                                {p.location?.display_name ?? meta?.region?.en ?? ""} · {meta?.year ?? "2025"}
+                              </span>
+                            </div>
+
+                            <h3 className="display-md mt-4 text-2xl lg:text-3xl font-bold leading-tight">
+                              {p.title}
+                            </h3>
+
+                            {meta?.client ? (
+                              <p
+                                className="label-mono mt-3 text-xs font-medium"
+                                style={{ color: "var(--iw-accent)" }}
+                              >
+                                {isAr ? meta.client.ar : meta.client.en}
+                              </p>
+                            ) : null}
+
+                            <p
+                              className="mt-5 text-sm leading-relaxed"
+                              style={{ color: "var(--iw-text-secondary)" }}
+                            >
+                              {p.outcome ?? p.challenge}
+                            </p>
+
+                            {meta?.scope ? (
+                              <div
+                                className="mt-6 border-t pt-4 text-xs font-normal"
+                                style={{
+                                  borderColor: "var(--iw-border)",
+                                  color: "var(--iw-text-secondary)",
+                                }}
+                              >
+                                <span className="label-mono font-semibold text-[var(--iw-text-primary)] block mb-1">
+                                  {isAr ? "نطاق التنفيذ المتكامل:" : "Turnkey Scope:"}
+                                </span>
+                                {isAr ? meta.scope.ar : meta.scope.en}
+                              </div>
+                            ) : null}
+                          </div>
+
+                          <div
+                            className="mt-8 border-t pt-5 flex items-center justify-between"
+                            style={{ borderColor: "var(--iw-border)" }}
+                          >
+                            <span
+                              className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]"
+                            >
+                              {t("Explore Case Study", "عرض دراسة الحالة")}
+                              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
+                            </span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-60" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </Reveal>
+                );
+              }
+
+              // Card Layout Grid Spans:
+              // Card 0: lg:col-span-7 (Hero)
+              // Card 1: lg:col-span-5 (Companion)
+              // Cards 2, 3, 4: lg:col-span-4 (Standard 3-column row)
+              const colSpanClass = isHeroCard
+                ? "lg:col-span-7"
+                : isCompanionCard
+                ? "lg:col-span-5"
+                : idx === 2
+                ? "md:col-span-6 lg:col-span-4"
+                : idx === 3
+                ? "md:col-span-6 lg:col-span-4"
+                : "md:col-span-12 lg:col-span-4";
+
               return (
-                <Reveal key={p.project_id} delay={idx * 80}>
+                <Reveal key={p.project_id} delay={idx * 60} className={colSpanClass}>
                   <Link
                     to="/$locale/work/$slug"
                     params={{ locale, slug: p.slug }}
                     preload={false}
                     onMouseMove={spot}
-                    className="group iw-spotlight block p-3 transition-transform duration-500 hover:-translate-y-1.5"
+                    className="group iw-spotlight relative flex flex-col justify-between h-full overflow-hidden rounded-md border bg-[var(--iw-surface)] p-5 md:p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.08)]"
+                    style={{ borderColor: "var(--iw-border)" }}
                   >
-                    <div
-                      className="relative aspect-[16/10] w-full overflow-hidden"
-                      style={{ backgroundColor: "var(--iw-surface-alt)" }}
-                    >
-                      <span
-                        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        style={{
-                          background:
-                            "linear-gradient(to top, color-mix(in oklab, var(--iw-dark-bg) 55%, transparent), transparent 60%)",
-                        }}
-                        aria-hidden="true"
-                      />
-                      {meta ? (
-                        <img
-                          src={meta.cover}
-                          alt={p.title}
-                          loading="lazy"
-                          className="h-full w-full object-cover grayscale-[30%] transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
-                        />
-                      ) : null}
-                      {meta?.capacity ? (
+                    <div>
+                      {/* Image Frame */}
+                      <div
+                        className="relative aspect-[16/10] w-full overflow-hidden rounded-sm"
+                        style={{ backgroundColor: "var(--iw-surface-alt)" }}
+                      >
                         <span
-                          className="label-mono absolute top-0 px-4 py-2.5"
+                          className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                           style={{
-                            backgroundColor: "var(--iw-dark-bg)",
-                            color: "var(--iw-dark-accent)",
+                            background:
+                              "linear-gradient(to top, color-mix(in oklab, var(--iw-dark-bg) 55%, transparent), transparent 60%)",
                           }}
+                          aria-hidden="true"
+                        />
+                        {meta ? (
+                          <img
+                            src={meta.cover}
+                            alt={p.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover grayscale-[25%] transition-[filter,transform] duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                          />
+                        ) : null}
+
+                        {/* Floating Technical Badge */}
+                        {meta?.badge || meta?.capacity ? (
+                          <div className="absolute top-3 start-3 z-20 flex items-center gap-1.5 rounded-sm bg-[#0b1628]/95 px-3 py-1.5 backdrop-blur-md border border-white/15 shadow-md">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-dark-accent)] animate-pulse" />
+                            <span className="label-mono text-[10.5px] font-semibold text-white tracking-wide">
+                              {isAr
+                                ? (meta.badge?.ar ?? meta.capacity?.ar)
+                                : (meta.badge?.en ?? meta.capacity?.en)}
+                            </span>
+                          </div>
+                        ) : null}
+                      </div>
+
+                      {/* Header & Meta */}
+                      <div
+                        className="mt-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 border-t pt-4"
+                        style={{ borderColor: "var(--iw-border)" }}
+                      >
+                        <div className="flex items-center gap-2">
+                          {sectorInfo ? (
+                            <span className="label-mono text-[11px] font-semibold uppercase tracking-wider text-[var(--iw-accent)]">
+                              {isAr ? sectorInfo.ar : sectorInfo.en}
+                            </span>
+                          ) : null}
+                        </div>
+                        <span
+                          className="label-mono text-xs shrink-0"
+                          style={{ color: "var(--iw-text-secondary)" }}
                         >
-                          {isAr ? meta.capacity.ar : meta.capacity.en}
+                          {p.location?.display_name ?? meta?.year ?? ""}
                         </span>
+                      </div>
+
+                      <h3 className={`display-md mt-2 font-bold ${isHeroCard ? "text-xl lg:text-2xl" : "text-lg lg:text-xl"}`}>
+                        {p.title}
+                      </h3>
+
+                      {meta?.client ? (
+                        <p className="label-mono mt-2 text-xs" style={{ color: "var(--iw-accent)" }}>
+                          {isAr ? meta.client.ar : meta.client.en}
+                        </p>
                       ) : null}
+
+                      <div className="mt-3.5 flex items-start gap-2.5">
+                        <span className="mt-1.5 flex h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--iw-accent)]" />
+                        <p
+                          className="text-xs md:text-sm leading-relaxed"
+                          style={{ color: "var(--iw-text-secondary)" }}
+                        >
+                          {p.outcome ?? p.challenge}
+                        </p>
+                      </div>
                     </div>
+
+                    {/* Action Bar */}
                     <div
-                      className="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-t pt-5"
-                      style={{ borderColor: "var(--iw-text-primary)" }}
+                      className="mt-6 border-t pt-4 flex items-center justify-between"
+                      style={{ borderColor: "var(--iw-border)" }}
                     >
-                      <h3 className="display-md text-xl md:text-2xl">{p.title}</h3>
                       <span
-                        className="label-mono shrink-0"
-                        style={{ color: "var(--iw-text-secondary)" }}
+                        className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]"
                       >
-                        {p.location?.display_name ?? meta?.year ?? ""}
+                        {t("View Case Study", "عرض دراسة الحالة")}
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
                       </span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-60" />
                     </div>
-                    {meta?.client ? (
-                      <p className="label-mono mt-3 text-xs" style={{ color: "var(--iw-accent)" }}>
-                        {isAr ? meta.client.ar : meta.client.en}
-                      </p>
-                    ) : null}
-                    <div className="mt-4 flex items-start gap-2.5">
-                      <span className="mt-1 flex h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--iw-accent)]" />
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{ color: "var(--iw-text-secondary)" }}
-                      >
-                        {p.outcome ?? p.challenge}
-                      </p>
-                    </div>
-                    <span
-                      className="label-mono mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-colors group-hover:text-[var(--iw-accent)]"
-                      style={{ color: "var(--iw-text-primary)" }}
-                    >
-                      {t("View Case Study", "عرض دراسة الحالة")}
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                    </span>
                   </Link>
                 </Reveal>
               );
             })}
           </div>
 
-          <Link
-            to="/$locale/work"
-            params={{ locale }}
-            className="mt-16 inline-flex items-center gap-3 border-t pt-6 text-sm font-semibold tracking-wide uppercase"
-            style={{
-              borderColor: "var(--iw-text-primary)",
-              color: "var(--iw-text-primary)",
-            }}
-          >
-            {t("View all work", "عرض كل الأعمال")}
-            <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-          </Link>
+          <div className="mt-16 flex items-center justify-between border-t pt-8" style={{ borderColor: "var(--iw-border)" }}>
+            <Link
+              to="/$locale/work"
+              params={{ locale }}
+              className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide uppercase transition-colors hover:text-[var(--iw-accent)]"
+              style={{ color: "var(--iw-text-primary)" }}
+            >
+              {t("Explore Complete Portfolio", "استكشف السجل الكامل للأعمال")}
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+            </Link>
+            <span className="label-mono text-xs text-[var(--iw-text-secondary)]">
+              {t("6 Sector Benchmarks", "6 مشروعات قطاعية مرجعية")}
+            </span>
+          </div>
         </div>
       </section>
 

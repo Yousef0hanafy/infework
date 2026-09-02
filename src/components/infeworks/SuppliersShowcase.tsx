@@ -14,6 +14,7 @@ import {
 import {
   SUPPLIERS,
   SUPPLIER_CATEGORIES,
+  CATEGORY_BADGES,
   type Supplier,
   type SupplierCategory,
 } from "@/lib/suppliers";
@@ -27,35 +28,37 @@ function SupplierCard({
   isAr: boolean;
   viewMode?: "marquee" | "grid";
 }) {
+  const badge = CATEGORY_BADGES[supplier.category] || { en: "Partner", ar: "شريك" };
+
   return (
     <figure
-      className={`group relative flex select-none flex-col justify-between rounded-xl border bg-white/95 p-3.5 sm:p-4 md:p-5 backdrop-blur-sm transition-all duration-300 ${
+      className={`group relative flex select-none flex-col justify-between rounded-xl border bg-white p-3.5 sm:p-4 md:p-5 transition-all duration-200 ${
         viewMode === "marquee"
-          ? "mx-2 sm:mx-2.5 h-38 w-48 shrink-0 sm:h-44 sm:w-60 md:h-44 md:w-64 hover:-translate-y-1.5"
-          : "h-44 sm:h-48 w-full hover:-translate-y-1 hover:shadow-lg"
+          ? "mx-2 sm:mx-2.5 h-38 w-48 shrink-0 sm:h-44 sm:w-60 md:h-44 md:w-64 hover:-translate-y-1 hover:shadow-md"
+          : "h-44 sm:h-48 w-full hover:-translate-y-1 hover:shadow-md"
       }`}
       style={{
-        borderColor: "var(--iw-border, rgba(11,22,40,0.12))",
-        boxShadow: "0 4px 20px -8px rgba(11, 22, 40, 0.06)",
+        borderColor: "var(--iw-border, rgba(11,22,40,0.1))",
+        boxShadow: "0 2px 12px -4px rgba(11, 22, 40, 0.05)",
       }}
     >
       {/* Category micro badge */}
       <div className="flex w-full items-center justify-between gap-1">
         <span
-          className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[8.5px] font-semibold tracking-wide uppercase sm:text-[9.5px] md:text-[10px]"
+          className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[9px] font-semibold tracking-wide uppercase sm:text-[9.5px]"
           style={{
             backgroundColor: "rgba(11, 22, 40, 0.05)",
             color: "var(--iw-text-secondary, #4b5563)",
           }}
         >
           <Factory className="h-2.5 w-2.5 shrink-0 text-slate-500" />
-          <span className="truncate max-w-[120px]">
-            {isAr ? supplier.categoryLabel.ar : supplier.categoryLabel.en}
+          <span className="whitespace-nowrap font-medium">
+            {isAr ? badge.ar : badge.en}
           </span>
         </span>
 
         <span
-          className="flex items-center gap-0.5 text-[8.5px] font-medium transition-colors group-hover:text-[var(--iw-accent)] sm:text-[9.5px]"
+          className="flex items-center gap-0.5 text-[9px] font-medium transition-colors group-hover:text-[var(--iw-accent)] sm:text-[9.5px]"
           style={{ color: "var(--iw-text-muted, #9ca3af)" }}
         >
           <CheckCircle2 className="h-2.5 w-2.5 text-emerald-500 shrink-0" />
@@ -69,8 +72,9 @@ function SupplierCard({
           src={supplier.src}
           alt={isAr ? supplier.ar : supplier.en}
           loading="lazy"
+          decoding="async"
           draggable={false}
-          className="max-h-full max-w-[85%] object-contain transition-all duration-300 filter group-hover:scale-105"
+          className="max-h-full max-w-[85%] object-contain transition-transform duration-200 filter group-hover:scale-105"
         />
       </div>
 
@@ -87,7 +91,7 @@ function SupplierCard({
       {/* Accent edge indicator */}
       <span
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-[2.5px] rounded-b-xl origin-center scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+        className="absolute inset-x-0 bottom-0 h-[2.5px] rounded-b-xl origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
         style={{ backgroundColor: "var(--iw-accent, #c27803)" }}
       />
     </figure>
@@ -107,7 +111,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
 
   // Animation state in refs (reverse direction from clients for visual harmony)
   const positionRef = useRef(0);
-  const baseSpeedRef = useRef(0.6); // Pixels per frame
+  const baseSpeedRef = useRef(0.65); // Pixels per frame
   const animFrameId = useRef<number | null>(null);
   const singleSetWidthRef = useRef(0);
 
@@ -122,6 +126,18 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
     if (activeCategory === "all") return SUPPLIERS;
     return SUPPLIERS.filter((s) => s.category === activeCategory);
   }, [activeCategory]);
+
+  // Ensure marquee set always has enough items (at least 8 cards, ~2000px+) to span any monitor width
+  const displaySuppliers = useMemo(() => {
+    if (filteredSuppliers.length === 0) return [];
+    if (filteredSuppliers.length >= 8) return filteredSuppliers;
+    const repeatCount = Math.ceil(8 / filteredSuppliers.length);
+    const repeated: Supplier[] = [];
+    for (let i = 0; i < repeatCount; i++) {
+      repeated.push(...filteredSuppliers);
+    }
+    return repeated;
+  }, [filteredSuppliers]);
 
   const updateMetrics = useCallback(() => {
     if (singleSetRef.current) {
@@ -149,7 +165,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
     return () => mediaQuery.removeEventListener?.("change", handler);
   }, []);
 
-  // Continuous animation loop
+  // Continuous animation loop (hardware accelerated translate3d)
   useEffect(() => {
     if (viewMode !== "marquee") return;
 
@@ -172,7 +188,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
           velocityRef.current *= 0.92;
         }
 
-        // Infinite loop wrap
+        // Seamless 2-set infinite loop wrap
         if (positionRef.current >= setWidth) {
           positionRef.current = positionRef.current % setWidth;
         } else if (positionRef.current < 0) {
@@ -194,7 +210,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
         cancelAnimationFrame(animFrameId.current);
       }
     };
-  }, [isDragging, isPlaying, isHovered, viewMode]);
+  }, [isDragging, isPlaying, isHovered, viewMode, isAr]);
 
   // Drag gestures
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -262,135 +278,120 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
     }
   };
 
-  const sets = [0, 1, 2];
+  // Only 2 sets needed for seamless infinite looping (33% performance gain)
+  const sets = [0, 1];
 
   return (
     <section
       aria-label={isAr ? "الموردون المعتمدون" : "Approved Suppliers"}
-      className="relative mt-16 sm:mt-20 w-full select-none"
+      className="relative mt-8 sm:mt-10 w-full select-none"
     >
-      {/* Section Sub-heading / Context */}
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between px-2">
-        <div>
+      {/* Unified Controls Bar — 2-tier responsive layout preventing any element collisions */}
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 mb-6 flex flex-col gap-3.5">
+        {/* Sub-bar: Status indicator & View/Playback Controls */}
+        <div className="flex items-center justify-between gap-3 w-full border-b border-gray-200/70 pb-3">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--iw-accent)] opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--iw-accent)]"></span>
             </span>
             <span
-              className="text-xs font-bold uppercase tracking-widest"
+              className="text-xs font-bold uppercase tracking-wider"
               style={{ color: "var(--iw-accent, #c27803)" }}
             >
-              {isAr ? "سلسلة التوريد والتصنيع" : "Supply Chain & Manufacturing"}
+              {isAr ? "شركاء التوريد والتصنيع" : "Verified Supply Chain"}
             </span>
           </div>
-          <h3
-            className="mt-1 text-xl font-bold tracking-tight md:text-2xl"
-            style={{ color: "var(--iw-text-primary, #0b1628)" }}
-          >
-            {isAr ? "الموردون المعتمدون وشركاء المواد" : "Approved Suppliers & Material Partners"}
-          </h3>
-          <p
-            className="mt-1 max-w-xl text-xs md:text-sm"
-            style={{ color: "var(--iw-text-secondary, #6b7280)" }}
-          >
-            {isAr
-              ? "شراكات توريد مباشرة وموثوقة مع ٣٨ من كبرى مصانع الأنابيب والمضخات والمسابك وأنظمة مكافحة الحريق."
-              : "Direct supply lines and technical agreements with 38 leading manufacturers across piping, pumps, foundries, and fire protection."}
-          </p>
-        </div>
 
-        {/* View mode toggle & playback controls */}
-        <div
-          className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-2 sm:pt-0"
-          dir="ltr"
-        >
-          {/* View Mode Toggle: Ribbon vs Grid */}
-          <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
-            <button
-              type="button"
-              onClick={() => setViewMode("marquee")}
-              aria-label={isAr ? "شريط متحرك" : "Marquee Ribbon"}
-              className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                viewMode === "marquee"
-                  ? "bg-gray-100 text-gray-900 font-semibold"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              <span className="inline">{isAr ? "شريط" : "Ribbon"}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setViewMode("grid")}
-              aria-label={isAr ? "شبكة الكل" : "Grid Directory"}
-              className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                viewMode === "grid"
-                  ? "bg-gray-100 text-gray-900 font-semibold"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <LayoutGrid className="h-3.5 w-3.5" />
-              <span className="inline">{isAr ? "شبكة" : "Grid"}</span>
-            </button>
-          </div>
-
-          {/* Marquee Playback Controls */}
-          {viewMode === "marquee" && (
-            <div className="flex items-center gap-1">
+          {/* View mode toggle & playback controls */}
+          <div className="flex items-center gap-2.5" dir="ltr">
+            {/* View Mode Toggle: Ribbon vs Grid */}
+            <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
               <button
                 type="button"
-                onClick={() => handleStep("prev")}
-                aria-label={isAr ? "السابق" : "Previous"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
+                onClick={() => setViewMode("marquee")}
+                aria-label={isAr ? "شريط متحرك" : "Marquee Ribbon"}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  viewMode === "marquee"
+                    ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
               >
-                <ChevronLeft className="h-4 w-4" />
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>{isAr ? "شريط" : "Ribbon"}</span>
               </button>
-
               <button
                 type="button"
-                onClick={() => setIsPlaying((prev) => !prev)}
-                aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
+                onClick={() => setViewMode("grid")}
+                aria-label={isAr ? "شبكة الكل" : "Grid Directory"}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  viewMode === "grid"
+                    ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
               >
-                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleStep("next")}
-                aria-label={isAr ? "التالي" : "Next"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
-              >
-                <ChevronRight className="h-4 w-4" />
+                <LayoutGrid className="h-3.5 w-3.5" />
+                <span>{isAr ? "شبكة" : "Grid"}</span>
               </button>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* Category filtering tabs - scrollable on mobile */}
-      <div className="mb-5 flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 px-2">
-        {SUPPLIER_CATEGORIES.map((cat) => {
-          const isActive = activeCategory === cat.id;
-          return (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => {
-                setActiveCategory(cat.id as SupplierCategory);
-                positionRef.current = 0;
-              }}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-300 ${
-                isActive
-                  ? "bg-[var(--iw-text-primary)] text-white shadow-md scale-105"
-                  : "border border-gray-200 bg-white/70 backdrop-blur-md text-gray-600 hover:border-gray-300 hover:bg-white hover:text-gray-900"
-              }`}
-            >
-              {isAr ? cat.ar : cat.en}
-            </button>
-          );
-        })}
+            {/* Marquee Playback Controls */}
+            {viewMode === "marquee" && (
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => handleStep("prev")}
+                  aria-label={isAr ? "السابق" : "Previous"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsPlaying((prev) => !prev)}
+                  aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleStep("next")}
+                  aria-label={isAr ? "التالي" : "Next"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Category filtering tabs — full width, scrollable on mobile, wraps on tablet/desktop */}
+        <div className="flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap">
+          {SUPPLIER_CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => {
+                  setActiveCategory(cat.id as SupplierCategory);
+                  positionRef.current = 0;
+                }}
+                className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                  isActive
+                    ? "bg-[var(--iw-text-primary,#0b1628)] text-white shadow-sm"
+                    : "border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900"
+                }`}
+              >
+                {isAr ? cat.ar : cat.en}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* VIEW 1: Marquee Kinetic Ribbon */}
@@ -402,9 +403,9 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
           onMouseLeave={() => setIsHovered(false)}
           style={{
             maskImage:
-              "linear-gradient(to right, transparent, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 94%, transparent)",
+              "linear-gradient(to right, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 94%, transparent)",
+              "linear-gradient(to right, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent)",
           }}
         >
           <div
@@ -422,9 +423,9 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
                 className="flex shrink-0"
                 aria-hidden={sIdx > 0}
               >
-                {filteredSuppliers.map((supplier) => (
+                {displaySuppliers.map((supplier, idx) => (
                   <SupplierCard
-                    key={`${sIdx}-${supplier.id}`}
+                    key={`${sIdx}-${supplier.id}-${idx}`}
                     supplier={supplier}
                     isAr={isAr}
                     viewMode="marquee"
@@ -438,7 +439,7 @@ export default function SuppliersShowcase({ isAr }: { isAr: boolean }) {
 
       {/* VIEW 2: Grid Directory View */}
       {viewMode === "grid" && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-2">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-2">
           {filteredSuppliers.map((supplier) => (
             <SupplierCard key={supplier.id} supplier={supplier} isAr={isAr} viewMode="grid" />
           ))}

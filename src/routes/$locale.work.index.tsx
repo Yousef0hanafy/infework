@@ -89,9 +89,10 @@ function WorkIndex() {
     const flagships = [
       "sadat-city-ro",
       "toshka-pumping-stations",
-      "food-city-treatment",
+      "shubra-shahab-industrial-wastewater",
       "arish-water-supply",
       "ameriya-cold-storage",
+      "qabs-min-nour-mosque",
     ];
     return [...filtered].sort((a, b) => {
       const aIndex = flagships.indexOf(a.slug);

@@ -7,6 +7,7 @@ export type ProjectMeta = {
   cover: string;
   gallery: string[];
   capacity?: Bi;
+  badge?: Bi;
   client?: Bi;
   consultant?: Bi | null;
   scope?: Bi;
@@ -31,6 +32,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/sadat-city-ro/gallery-11.webp",
     ],
     capacity: { en: "1,500 m³/day", ar: "1,500 م³/يوم" },
+    badge: { en: "Industrial RO Desalination", ar: "تحلية مياه بالتناضح العكسي" },
     client: {
       en: "Macaroni & Biscuit Factories Complex — NSPO",
       ar: "مجمع مصانع المكرونة والبسكويت — الخدمة الوطنية",
@@ -62,6 +64,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "22 Pumping Stations · 150 m³/day Purification",
       ar: "22 محطة رفع · محطة تنقية 150 م³/يوم",
     },
+    badge: {
+      en: "22 Strategic Pumping Stations & Purification Hub",
+      ar: "22 محطة رفع زراعي استراتيجية ومحطة تنقية",
+    },
     client: {
       en: "National Agricultural Reclamation Authority",
       ar: "جهاز مشروعات الخدمة الوطنية واستصلاح الأراضي",
@@ -92,6 +98,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     capacity: {
       en: "150 m³/day Potable Purification Station",
       ar: "محطة تنقية مياه شرب 150 م³/يوم",
+    },
+    badge: {
+      en: "Potable Water Purification Station",
+      ar: "محطة تنقية مياه شرب متكاملة",
     },
     client: {
       en: "National Service Projects Organization (NSPO)",
@@ -283,6 +293,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/food-city-treatment/gallery-6.webp",
     ],
     capacity: { en: "50 m³/day Industrial Wastewater", ar: "50 م³/يوم صرف صناعي غذائي" },
+    badge: { en: "Industrial Agro-Effluent Treatment Train", ar: "محطة معالجة صرف صناعي غذائي متقدمة" },
     client: {
       en: "Food City Industrial Complex (Biscuit Factory)",
       ar: "مجمع المدينة الغذائية الصناعي (مصنع البسكويت)",
@@ -389,7 +400,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "مد خطوط الانحدار · غرف التفتيش والمطابق · بالوعات صرف الأمطار · الاختبارات الهيدروليكية الميدانية",
     },
     year: "2025",
-    region: { en: "Al-Sisi City, North Sinai", ar: "مدينة السيسي، شمال سيناء" },
+    region: { en: "Al-Salam City, North Sinai", ar: "مدينة السلام، شمال سيناء" },
   },
   "salam-city-cattle-farm-networks": {
     cover: "/images/projects/salam-city-cattle-farm-networks/cover.webp",
@@ -623,16 +634,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/shubra-shahab-industrial-wastewater/gallery-1.webp",
       "/images/projects/shubra-shahab-industrial-wastewater/gallery-2.webp",
       "/images/projects/shubra-shahab-industrial-wastewater/gallery-3.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-4.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-5.webp",
       "/images/projects/shubra-shahab-industrial-wastewater/gallery-6.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-7.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-8.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-9.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-10.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-11.webp",
     ],
     capacity: {
+      en: "Industrial Agro-Effluent Treatment Train",
+      ar: "محطة معالجة صرف صناعي زراعي متقدمة",
+    },
+    badge: {
       en: "Industrial Agro-Effluent Treatment Train",
       ar: "محطة معالجة صرف صناعي زراعي متقدمة",
     },
@@ -961,6 +969,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "8 m³/hr Automated Ion-Exchange Softener",
       ar: "محطة إزالة عسر مياه آلية بطاقة 8 م³/س",
     },
+    badge: {
+      en: "Automated Ion-Exchange Softener Station",
+      ar: "محطة إزالة عسر وتبادل أيوني آلية",
+    },
     client: {
       en: "Future of Egypt Sustainable Development Authority",
       ar: "جهاز مستقبل مصر للتنمية المستدامة",
@@ -1039,7 +1051,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "خطوط زهر مرن · شبكات HDPE · غرف محابس · غسيل وتعقيم واختبار",
     },
     year: "2025",
-    region: { en: "Al-Sisi City, North Sinai", ar: "مدينة السيسي، شمال سيناء" },
+    region: { en: "Al-Salam City, North Sinai", ar: "مدينة السلام، شمال سيناء" },
   },
   "north-sinai-dc-infrastructure": {
     cover: "/images/projects/north-sinai-dc-infrastructure/cover.webp",
@@ -1365,6 +1377,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
 export const AUTHENTIC_PROJECT_SLUGS = [
   "sadat-city-ro",
   "toshka-pumping-stations",
+  "shubra-shahab-industrial-wastewater",
   "food-city-treatment",
   "arish-water-supply",
   "ameriya-cold-storage",

@@ -59,6 +59,7 @@ export default function ParallaxImage({
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-[124%] w-full object-cover will-change-transform"
         style={{ top: "-12%", transform: `translate3d(0, 0px, 0)` }}
       />

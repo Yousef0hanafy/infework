@@ -10,73 +10,63 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const locales = ["en", "ar"];
 
-        type SitemapEntry = {
-          loc: string;
+        type PagePath = {
+          path: string;
           priority: string;
           changefreq: "daily" | "weekly" | "monthly";
         };
 
-        const entries: SitemapEntry[] = [];
+        const pages: PagePath[] = [
+          { path: "", priority: "1.0", changefreq: "weekly" },
+          { path: "/about", priority: "0.8", changefreq: "monthly" },
+          { path: "/what-we-do", priority: "0.9", changefreq: "weekly" },
+          { path: "/work", priority: "0.9", changefreq: "weekly" },
+          { path: "/contact", priority: "0.9", changefreq: "monthly" },
+          { path: "/privacy", priority: "0.3", changefreq: "monthly" },
+        ];
 
-        // Root locales
-        for (const loc of locales) {
-          entries.push({
-            loc: `${BASE_URL}/${loc}`,
-            priority: "1.0",
-            changefreq: "weekly",
+        // Sector pages
+        for (const sector of SECTORS) {
+          pages.push({
+            path: `/what-we-do/${sector.slug}`,
+            priority: "0.85",
+            changefreq: "monthly",
           });
-          entries.push({
-            loc: `${BASE_URL}/${loc}/about`,
+        }
+
+        // Flagship projects
+        for (const slug of Object.keys(PROJECT_META)) {
+          pages.push({
+            path: `/work/${slug}`,
             priority: "0.8",
             changefreq: "monthly",
           });
-          entries.push({
-            loc: `${BASE_URL}/${loc}/what-we-do`,
-            priority: "0.9",
-            changefreq: "weekly",
-          });
-          entries.push({
-            loc: `${BASE_URL}/${loc}/work`,
-            priority: "0.9",
-            changefreq: "weekly",
-          });
-          entries.push({
-            loc: `${BASE_URL}/${loc}/contact`,
-            priority: "0.9",
-            changefreq: "monthly",
-          });
-          entries.push({
-            loc: `${BASE_URL}/${loc}/privacy`,
-            priority: "0.3",
-            changefreq: "monthly",
-          });
+        }
 
-          // Sector pages
-          for (const sector of SECTORS) {
-            entries.push({
-              loc: `${BASE_URL}/${loc}/what-we-do/${sector.slug}`,
-              priority: "0.85",
-              changefreq: "monthly",
-            });
-          }
+        const urlEntries: string[] = [];
+        for (const loc of locales) {
+          for (const page of pages) {
+            const currentUrl = `${BASE_URL}/${loc}${page.path}`;
+            const enUrl = `${BASE_URL}/en${page.path}`;
+            const arUrl = `${BASE_URL}/ar${page.path}`;
 
-          // Flagship projects
-          for (const slug of Object.keys(PROJECT_META)) {
-            entries.push({
-              loc: `${BASE_URL}/${loc}/work/${slug}`,
-              priority: "0.8",
-              changefreq: "monthly",
-            });
+            urlEntries.push(
+              `  <url>\n` +
+              `    <loc>${currentUrl}</loc>\n` +
+              `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>\n` +
+              `    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>\n` +
+              `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>\n` +
+              `    <changefreq>${page.changefreq}</changefreq>\n` +
+              `    <priority>${page.priority}</priority>\n` +
+              `  </url>`
+            );
           }
         }
 
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
-          `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-          ...entries.map(
-            (e) =>
-              `  <url>\n    <loc>${e.loc}</loc>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
-          ),
+          `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">`,
+          ...urlEntries,
           `</urlset>`,
         ].join("\n");
 

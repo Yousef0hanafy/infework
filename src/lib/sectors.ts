@@ -41,11 +41,11 @@ export const SECTORS: Sector[] = [
     en: "Water & Treatment",
     ar: "المياه والمعالجة",
     defEn:
-      "Potable, process, and desalinated water plants from raw intake to metered distribution — 100 to 1,500 m³/day.",
+      "Potable, process, and desalinated water plants from raw intake to metered distribution.",
     defAr:
-      "محطات مياه الشرب ومياه العمليات والتحلية من المأخذ الخام حتى التوزيع المقنن — من 100 إلى 1,500 م³/يوم.",
+      "محطات مياه الشرب ومياه العمليات والتحلية من المأخذ الخام حتى التوزيع.",
     icon: "droplets",
-    metric: { en: "Up to 1,500 m³/day", ar: "حتى 1,500 م³/يوم" },
+    metric: { en: "TRUNKEY EPC SOLUTIONS", ar: "حلول متكاملة (EPC)" },
     intro: {
       en: "We design and build treatment trains sized to the actual raw-water analysis, not to a catalogue. Brackish and seawater reverse osmosis, conventional clarification, multimedia and cartridge filtration, disinfection, and food-grade process water loops are all delivered in-house — including the civil tanks, the skids, the panels, and the commissioning record.",
       ar: "نصمم وننفذ خطوط المعالجة وفق التحليل الفعلي للمياه الخام لا وفق كتالوج جاهز. تشمل أعمالنا التحلية بالتناضح العكسي للمياه المالحة ومياه البحر، والترويب التقليدي، والترشيح المتعدد والخرطوشي، والتطهير، ودوائر مياه العمليات المطابقة للاشتراطات الغذائية — بما في ذلك الخزانات المدنية والوحدات المجمعة واللوحات وسجل التشغيل التجريبي.",

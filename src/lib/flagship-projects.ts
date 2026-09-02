@@ -58,13 +58,37 @@ const SEEDS: FlagshipSeed[] = [
     location: { lat: 22.5, lng: 31.4, en: "Toshka, Aswan", ar: "توشكى، أسوان" },
   },
   {
+    slug: "shubra-shahab-industrial-wastewater",
+    en: {
+      title: "Shubra Shahab Industrial Wastewater Treatment Facility",
+      challenge:
+        "An agro-industrial processing complex required a specialized industrial wastewater treatment facility to treat high-load organic and chemical effluents in full compliance with environmental standards.",
+      outcome:
+        "Civil basins, dissolved air flotation (DAF), chemical dosing, and biological treatment train fabricated, installed, and commissioned.",
+    },
+    ar: {
+      title: "محطة معالجة الصرف الصناعي الزراعي — شبرا شهاب",
+      challenge:
+        "مجمع صناعي زراعي يتطلب محطة معالجة صرف صناعي متخصصة لمعالجة المنصرفات العضوية والكيميائية عالية الأحمال ومطابقة المعايير البيئية.",
+      outcome:
+        "أحواض خرسانية، ووحدات تعويم بالهواء المذاب (DAF)، وحقن كيميائي، وخط معالجة بيولوجية تم تصنيعها وتركيبها وتشغيلها بنجاح.",
+    },
+    capability_slugs: ["wastewater", "industrial-mep"],
+    location: {
+      lat: 30.2833,
+      lng: 31.2167,
+      en: "Shubra Shahab, Qalyubia",
+      ar: "شبرا شهاب، القليوبية",
+    },
+  },
+  {
     slug: "food-city-treatment",
     en: {
       title: "Food City Industrial Wastewater Treatment",
       challenge:
         "An industrial food complex discharged high-load effluent that had to meet municipal compliance limits before release.",
       outcome:
-        "50 m³/day treatment train designed, fabricated, installed and compliance-tested against discharge limits.",
+        "Treatment train designed, fabricated, installed and compliance-tested against discharge limits.",
     },
     ar: {
       title: "معالجة الصرف الصناعي — المدينة الغذائية",

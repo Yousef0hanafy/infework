@@ -49,7 +49,7 @@ export const CLIENTS: Client[] = [
     en: "National Service Projects Organization",
     ar: "جهاز مشروعات الخدمة الوطنية",
     category: "sovereign",
-    categoryLabel: { en: "Sovereign Authority", ar: "جهة سيادية وتنموية" },
+    categoryLabel: { en: "Sovereign Authority", ar: "جهة سيادية" },
     projectHighlight: {
       en: "Sadat City RO & Food City Complex",
       ar: "محطة تحلية السادات ومجمع الصناعات الغذائية",
@@ -62,7 +62,7 @@ export const CLIENTS: Client[] = [
     en: "Engineering Authority of the Armed Forces",
     ar: "الهيئة الهندسية للقوات المسلحة",
     category: "sovereign",
-    categoryLabel: { en: "National Engineering", ar: "إدارة المشروعات الكبرى" },
+    categoryLabel: { en: "Major Projects", ar: "مشروعات كبرى" },
     projectHighlight: {
       en: "Arish Airport Regional Trunk Lines",
       ar: "خطوط نقل مياه مطار العريش",
@@ -75,7 +75,7 @@ export const CLIENTS: Client[] = [
     en: "Egyptian Armed Forces",
     ar: "القوات المسلحة المصرية",
     category: "sovereign",
-    categoryLabel: { en: "Defense & Strategic Works", ar: "الأعمال الاستراتيجية" },
+    categoryLabel: { en: "Defense & Strategic", ar: "أعمال استراتيجية" },
     projectHighlight: {
       en: "Strategic Lifting & Water Systems",
       ar: "منظومات الرفع والمياه الاستراتيجية",
@@ -87,7 +87,7 @@ export const CLIENTS: Client[] = [
     en: "Ministry of Interior",
     ar: "وزارة الداخلية المصرية",
     category: "sovereign",
-    categoryLabel: { en: "Government Authority", ar: "جهة حكومية رسمية" },
+    categoryLabel: { en: "Government", ar: "جهة حكومية" },
   },
   {
     id: "nopwasd",
@@ -95,7 +95,7 @@ export const CLIENTS: Client[] = [
     en: "NOPWASD — Potable Water & Sanitary Drainage",
     ar: "الهيئة القومية لمياه الشرب والصرف الصحي",
     category: "utilities",
-    categoryLabel: { en: "National Water Authority", ar: "مرفق المياه القومي" },
+    categoryLabel: { en: "Water Authority", ar: "مرفق المياه" },
     projectHighlight: {
       en: "Awlad El-Sheikh Potable Water Hub",
       ar: "محطة رفع وتغذية أولاد الشيخ",
@@ -108,7 +108,7 @@ export const CLIENTS: Client[] = [
     en: "Red Sea Water & Wastewater Company",
     ar: "شركة مياه الشرب والصرف الصحي بالبحر الأحمر",
     category: "utilities",
-    categoryLabel: { en: "Regional Utility", ar: "شركة مياه إقليمية" },
+    categoryLabel: { en: "Regional Utility", ar: "مياه إقليمية" },
   },
   {
     id: "malr",
@@ -116,7 +116,7 @@ export const CLIENTS: Client[] = [
     en: "Ministry of Agriculture & Land Reclamation",
     ar: "وزارة الزراعة واستصلاح الأراضي",
     category: "sovereign",
-    categoryLabel: { en: "Reclamation & Agriculture", ar: "استصلاح وزراعة" },
+    categoryLabel: { en: "Reclamation", ar: "استصلاح وزراعة" },
   },
   {
     id: "environment",
@@ -124,7 +124,7 @@ export const CLIENTS: Client[] = [
     en: "Ministry of Environment (EEAA)",
     ar: "وزارة البيئة وجهاز شؤون البيئة",
     category: "utilities",
-    categoryLabel: { en: "Environmental Regulation", ar: "شؤون البيئة والمطابقة" },
+    categoryLabel: { en: "Environment", ar: "شؤون البيئة" },
   },
   {
     id: "egyptGas",
@@ -132,7 +132,7 @@ export const CLIENTS: Client[] = [
     en: "Egypt Gas",
     ar: "غاز مصر",
     category: "utilities",
-    categoryLabel: { en: "Energy & Infrastructure", ar: "قطاع الطاقة والمرافق" },
+    categoryLabel: { en: "Energy Sector", ar: "قطاع الطاقة" },
   },
   {
     id: "eastOwainat",
@@ -140,7 +140,7 @@ export const CLIENTS: Client[] = [
     en: "East Owainat Land Reclamation Co.",
     ar: "شركة شرق العوينات لاستصلاح الأراضي",
     category: "sovereign",
-    categoryLabel: { en: "National Reclamation", ar: "استصلاح توشكى والعوينات" },
+    categoryLabel: { en: "Land Reclamation", ar: "استصلاح أراضي" },
     projectHighlight: {
       en: "Toshka & Owainat Pumping Stations",
       ar: "محطات رفع وتغذية توشكى والعوينات",
@@ -153,7 +153,7 @@ export const CLIENTS: Client[] = [
     en: "National Co. for General Contracting & Supplies",
     ar: "الشركة الوطنية للمقاولات العامة والتوريدات",
     category: "contractors",
-    categoryLabel: { en: "Strategic Contracting", ar: "مقاولات وتوريدات كبرى" },
+    categoryLabel: { en: "General Contracting", ar: "مقاولات عامة" },
     projectHighlight: {
       en: "East Delta Infrastructure Networks",
       ar: "شبكات ومحطات دلتا الشرق",
@@ -166,7 +166,7 @@ export const CLIENTS: Client[] = [
     en: "Abnaa Sinai Construction & Building",
     ar: "أبناء سيناء للتشييد والبناء — العرجاني جروب",
     category: "contractors",
-    categoryLabel: { en: "Strategic Infrastructure", ar: "تطوير البنية التحتية" },
+    categoryLabel: { en: "Infrastructure", ar: "بنية تحتية" },
     projectHighlight: {
       en: "Arish Strategic Water Supply",
       ar: "مشروع تغذية العريش وشمال سيناء",
@@ -179,7 +179,7 @@ export const CLIENTS: Client[] = [
     en: "GIECO — Gharably Integrated Engineering",
     ar: "مجموعة الغرابلي للأعمال الهندسية المتكاملة",
     category: "contractors",
-    categoryLabel: { en: "Heavy Engineering", ar: "أعمال هندسية وبحرية متكاملة" },
+    categoryLabel: { en: "Heavy Engineering", ar: "هندسة متكاملة" },
   },
   {
     id: "ebdaInitiative",
@@ -187,7 +187,7 @@ export const CLIENTS: Client[] = [
     en: "National Initiative for Egyptian Industry — EBDA",
     ar: "المبادرة الوطنية لتطوير الصناعة المصرية — ابدأ",
     category: "sovereign",
-    categoryLabel: { en: "National Initiative", ar: "مبادرة وطنية لتطوير الصناعة" },
+    categoryLabel: { en: "National Initiative", ar: "مبادرة وطنية" },
     projectHighlight: {
       en: "Industrial Infrastructure & Factories",
       ar: "بنية تحتية للمصانع والمناطق الصناعية",
@@ -199,7 +199,7 @@ export const CLIENTS: Client[] = [
     en: "AlShark Construction",
     ar: "شركة الشرق للمقاولات",
     category: "contractors",
-    categoryLabel: { en: "Construction Partner", ar: "شركاء التنفيذ والمقاولات" },
+    categoryLabel: { en: "Contracting", ar: "مقاولات وتشييد" },
     projectHighlight: {
       en: "Infrastructure & Civil Works Delivery",
       ar: "تنفيذ مشروعات البنية التحتية والأعمال المدنية",
@@ -211,7 +211,7 @@ export const CLIENTS: Client[] = [
     en: "EL-ZAHY GROUP",
     ar: "الزاهي جروب",
     category: "contractors",
-    categoryLabel: { en: "Industrial Partner", ar: "مجموعات الاستثمار الصناعي" },
+    categoryLabel: { en: "Industrial Group", ar: "مجموعة صناعية" },
     projectHighlight: {
       en: "Industrial & Electromechanical Packages",
       ar: "حزم الأعمال الكهروميكانيكية والمنشآت",
@@ -223,7 +223,7 @@ export const CLIENTS: Client[] = [
     en: "El Nuby Group",
     ar: "مجموعة النوبى",
     category: "contractors",
-    categoryLabel: { en: "Contracting Partner", ar: "شركاء التنفيذ والمقاولات" },
+    categoryLabel: { en: "Civil Contracting", ar: "مقاولات وتنفيذ" },
     projectHighlight: {
       en: "Regional Utility Networks & Earthworks",
       ar: "تنفيذ شبكات المرافق والأعمال الترابية",
@@ -242,27 +242,27 @@ function ClientCard({
 }) {
   return (
     <figure
-      className={`group relative flex select-none flex-col justify-between rounded-xl border bg-white/95 p-3.5 sm:p-4 md:p-5 backdrop-blur-sm transition-all duration-300 ${
+      className={`group relative flex select-none flex-col justify-between rounded-xl border bg-white p-3.5 sm:p-4 md:p-5 transition-all duration-200 ${
         viewMode === "marquee"
-          ? "mx-2 sm:mx-2.5 h-38 w-48 shrink-0 sm:h-44 sm:w-60 md:h-48 md:w-68 hover:-translate-y-1.5"
-          : "h-44 sm:h-48 w-full hover:-translate-y-1 hover:shadow-lg"
+          ? "mx-2 sm:mx-2.5 h-38 w-48 shrink-0 sm:h-44 sm:w-60 md:h-48 md:w-68 hover:-translate-y-1 hover:shadow-md"
+          : "h-44 sm:h-48 w-full hover:-translate-y-1 hover:shadow-md"
       }`}
       style={{
-        borderColor: "var(--iw-border, rgba(11,22,40,0.12))",
-        boxShadow: "0 4px 20px -8px rgba(11, 22, 40, 0.07)",
+        borderColor: "var(--iw-border, rgba(11,22,40,0.1))",
+        boxShadow: "0 2px 12px -4px rgba(11, 22, 40, 0.05)",
       }}
     >
       {/* Category micro badge */}
       <div className="flex w-full items-center justify-between">
         <span
-          className="inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-[9px] font-semibold tracking-wide uppercase sm:text-[9.5px] md:text-[10px]"
+          className="inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-[9px] font-semibold tracking-wide uppercase sm:text-[9.5px]"
           style={{
             backgroundColor: "rgba(194, 120, 3, 0.08)",
             color: "var(--iw-accent, #c27803)",
           }}
         >
           <ShieldCheck className="h-2.5 w-2.5 shrink-0" />
-          <span className="truncate max-w-[140px]">
+          <span className="whitespace-nowrap font-medium">
             {isAr ? client.categoryLabel.ar : client.categoryLabel.en}
           </span>
         </span>
@@ -274,8 +274,9 @@ function ClientCard({
           src={client.src}
           alt={isAr ? client.ar : client.en}
           loading="lazy"
+          decoding="async"
           draggable={false}
-          className="max-h-full max-w-[85%] object-contain transition-all duration-300 filter group-hover:scale-105"
+          className="max-h-full max-w-[85%] object-contain transition-transform duration-200 filter group-hover:scale-105"
         />
       </div>
 
@@ -300,7 +301,7 @@ function ClientCard({
       {/* Copper accent edge indicator */}
       <span
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-[2.5px] rounded-b-xl origin-center scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+        className="absolute inset-x-0 bottom-0 h-[2.5px] rounded-b-xl origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
         style={{ backgroundColor: "var(--iw-accent, #c27803)" }}
       />
     </figure>
@@ -337,6 +338,18 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     return CLIENTS.filter((c) => c.category === activeCategory);
   }, [activeCategory]);
 
+  // Ensure marquee set always has enough items (at least 8 cards, ~2000px+) to span any monitor width
+  const displayClients = useMemo(() => {
+    if (filteredClients.length === 0) return [];
+    if (filteredClients.length >= 8) return filteredClients;
+    const repeatCount = Math.ceil(8 / filteredClients.length);
+    const repeated: Client[] = [];
+    for (let i = 0; i < repeatCount; i++) {
+      repeated.push(...filteredClients);
+    }
+    return repeated;
+  }, [filteredClients]);
+
   const updateMetrics = useCallback(() => {
     if (singleSetRef.current) {
       singleSetWidthRef.current = singleSetRef.current.offsetWidth;
@@ -363,7 +376,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     return () => mediaQuery.removeEventListener?.("change", handler);
   }, []);
 
-  // Continuous animation loop
+  // Continuous animation loop (hardware accelerated translate3d)
   useEffect(() => {
     if (viewMode !== "marquee") return;
 
@@ -386,7 +399,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
           velocityRef.current *= 0.92;
         }
 
-        // Infinite loop wrap
+        // Seamless 2-set infinite loop wrap
         if (positionRef.current >= setWidth) {
           positionRef.current = positionRef.current % setWidth;
         } else if (positionRef.current < 0) {
@@ -408,7 +421,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
         cancelAnimationFrame(animFrameId.current);
       }
     };
-  }, [isDragging, isPlaying, isHovered, speedMultiplier, viewMode]);
+  }, [isDragging, isPlaying, isHovered, speedMultiplier, viewMode, isAr]);
 
   // Drag gestures
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -476,10 +489,11 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     }
   };
 
-  const sets = [0, 1, 2];
+  // Only 2 sets needed for seamless infinite looping (33% performance gain)
+  const sets = [0, 1];
 
   const categories = [
-    { id: "all", en: "All Partners (13)", ar: "جميع الشركاء (١٣)" },
+    { id: "all", en: "All Partners", ar: "جميع الشركاء" },
     { id: "sovereign", en: "Sovereign & Defense", ar: "جهات سيادية ودفاعية" },
     { id: "utilities", en: "National Utilities", ar: "مرافق وطنية وبيئية" },
     { id: "contractors", en: "Key Contractors", ar: "كبرى شركات المقاولات" },
@@ -488,12 +502,93 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
   return (
     <section
       aria-label={isAr ? "عملاؤنا وشركاؤنا" : "Our Clients & Partners"}
-      className="relative mt-12 w-full select-none"
+      className="relative mt-8 sm:mt-10 w-full select-none"
     >
-      {/* Top Interactive Controls Bar */}
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-2">
-        {/* Category filtering tabs - scrollable on mobile */}
-        <div className="flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:w-auto sm:pb-0">
+      {/* Unified Controls Bar — 2-tier responsive layout preventing any element collisions */}
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 mb-6 flex flex-col gap-3.5">
+        {/* Sub-bar: Status indicator & View/Playback Controls */}
+        <div className="flex items-center justify-between gap-3 w-full border-b border-gray-200/70 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--iw-accent)] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--iw-accent)]"></span>
+            </span>
+            <span
+              className="text-xs font-bold uppercase tracking-wider"
+              style={{ color: "var(--iw-accent, #c27803)" }}
+            >
+              {isAr ? "سجل التعاقدات والشراكات" : "Contracting Record"}
+            </span>
+          </div>
+
+          {/* View mode toggle & playback controls */}
+          <div className="flex items-center gap-2.5" dir="ltr">
+            {/* View Mode Toggle: Ribbon vs Grid */}
+            <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
+              <button
+                type="button"
+                onClick={() => setViewMode("marquee")}
+                aria-label={isAr ? "شريط متحرك" : "Marquee Ribbon"}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  viewMode === "marquee"
+                    ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>{isAr ? "شريط" : "Ribbon"}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("grid")}
+                aria-label={isAr ? "شبكة الكل" : "Grid Directory"}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  viewMode === "grid"
+                    ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <LayoutGrid className="h-3.5 w-3.5" />
+                <span>{isAr ? "شبكة" : "Grid"}</span>
+              </button>
+            </div>
+
+            {/* Marquee Playback Controls */}
+            {viewMode === "marquee" && (
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => handleStep("prev")}
+                  aria-label={isAr ? "السابق" : "Previous"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsPlaying((prev) => !prev)}
+                  aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleStep("next")}
+                  aria-label={isAr ? "التالي" : "Next"}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 sm:h-9 sm:w-9"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Category filtering tabs — full width, scrollable on mobile, wraps on tablet/desktop */}
+        <div className="flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -504,9 +599,9 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
                   setActiveCategory(cat.id as ClientCategory);
                   positionRef.current = 0;
                 }}
-                className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold transition-all duration-200 ${
+                className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
                   isActive
-                    ? "bg-[var(--iw-accent,#c27803)] text-white shadow-sm"
+                    ? "bg-[var(--iw-text-primary,#0b1628)] text-white shadow-sm"
                     : "border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900"
                 }`}
               >
@@ -514,71 +609,6 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
               </button>
             );
           })}
-        </div>
-
-        {/* View mode toggle & playback controls */}
-        <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0" dir="ltr">
-          {/* View Mode Toggle: Ribbon vs Grid */}
-          <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
-            <button
-              type="button"
-              onClick={() => setViewMode("marquee")}
-              aria-label={isAr ? "شريط متحرك" : "Marquee Ribbon"}
-              className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                viewMode === "marquee"
-                  ? "bg-gray-100 text-gray-900 font-semibold"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              <span className="inline">{isAr ? "شريط" : "Ribbon"}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setViewMode("grid")}
-              aria-label={isAr ? "شبكة الكل" : "Grid Directory"}
-              className={`flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                viewMode === "grid"
-                  ? "bg-gray-100 text-gray-900 font-semibold"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <LayoutGrid className="h-3.5 w-3.5" />
-              <span className="inline">{isAr ? "شبكة" : "Grid"}</span>
-            </button>
-          </div>
-
-          {/* Marquee Playback Controls */}
-          {viewMode === "marquee" && (
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                onClick={() => handleStep("prev")}
-                aria-label={isAr ? "السابق" : "Previous"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setIsPlaying((prev) => !prev)}
-                aria-label={isPlaying ? (isAr ? "إيقاف مؤقت" : "Pause") : isAr ? "تشغيل" : "Play"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
-              >
-                {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleStep("next")}
-                aria-label={isAr ? "التالي" : "Next"}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] active:scale-95 md:h-9 md:w-9"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-          )}
         </div>
       </div>
 
@@ -591,9 +621,9 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
           onMouseLeave={() => setIsHovered(false)}
           style={{
             maskImage:
-              "linear-gradient(to right, transparent, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 94%, transparent)",
+              "linear-gradient(to right, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 94%, transparent)",
+              "linear-gradient(to right, transparent, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent)",
           }}
         >
           <div
@@ -611,9 +641,9 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
                 className="flex shrink-0"
                 aria-hidden={sIdx > 0}
               >
-                {filteredClients.map((client) => (
+                {displayClients.map((client, idx) => (
                   <ClientCard
-                    key={`${sIdx}-${client.id}`}
+                    key={`${sIdx}-${client.id}-${idx}`}
                     client={client}
                     isAr={isAr}
                     viewMode="marquee"
@@ -627,7 +657,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
 
       {/* VIEW 2: Grid Directory View */}
       {viewMode === "grid" && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-2">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-2">
           {filteredClients.map((client) => (
             <ClientCard key={client.id} client={client} isAr={isAr} viewMode="grid" />
           ))}

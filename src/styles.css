@@ -505,16 +505,16 @@
 
 @keyframes iw-radar-ring {
   0% {
-    opacity: 0.55;
-    r: 4;
+    opacity: 0.65;
+    r: 3;
   }
-  70% {
+  65% {
     opacity: 0;
-    r: 22;
+    r: 11;
   }
   100% {
     opacity: 0;
-    r: 22;
+    r: 11;
   }
 }
 

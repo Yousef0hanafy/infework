@@ -271,7 +271,7 @@ function CapabilityIndex() {
       >
         <div className="mx-auto w-full max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
           <div className="max-w-3xl mb-16">
-            <p className="label-mono" style={{ color: "var(--iw-accent)" }}>
+            <p className="label-mono font-semibold" style={{ color: "var(--iw-accent)" }}>
               {t("Integrated EPC Lifecycle", "منظومة الهندسة والتنفيذ المتكاملة")}
             </p>
             <h2 className="display-lg mt-3 text-3xl md:text-4xl text-[var(--iw-text-primary)] font-bold">
@@ -285,135 +285,156 @@ function CapabilityIndex() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
-            <div className="hidden lg:block absolute top-[120px] left-0 right-0 h-px bg-[var(--iw-border)]" />
+          {/* Connected Multi-Stage Process Ribbon */}
+          <div className="relative">
+            {/* Top Connected Process Track (Desktop) */}
+            <div
+              className="hidden lg:block absolute top-7 left-[12%] right-[12%] h-[2px] -z-0 opacity-40"
+              style={{
+                background:
+                  "linear-gradient(to right, var(--iw-accent) 0%, color-mix(in oklab, var(--iw-accent) 50%, var(--iw-border)) 50%, var(--iw-border) 100%)",
+              }}
+              aria-hidden="true"
+            />
 
-            {/* Stage 1 */}
-            <div className="relative pt-8 lg:pt-0">
-              <div
-                className="absolute left-0 top-0 lg:top-[120px] -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--iw-surface)] border-2 z-10"
-                style={{ borderColor: "var(--iw-accent)" }}
-              />
-              <div
-                className="mb-6 lg:mb-12 aspect-[4/3] w-full overflow-hidden rounded-sm border bg-slate-900"
-                style={{ borderColor: "var(--iw-border)" }}
-              >
-                <img
-                  src="/images/about/site-eng-team.jpg"
-                  alt="Engineering & Design Team"
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="pr-6">
-                <PenTool className="h-6 w-6 mb-4" style={{ color: "var(--iw-accent)" }} />
-                <h3 className="display-md text-xl text-[var(--iw-text-primary)]">
-                  {t("Engineering & Design", "الهندسة والتصميم")}
-                </h3>
-                <p className="body-reading mt-3 text-sm text-[var(--iw-text-secondary)] leading-relaxed">
-                  {t(
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
+              {[
+                {
+                  num: "01",
+                  icon: PenTool,
+                  image: "/images/about/site-eng-team.jpg",
+                  stageEn: "Stage 01",
+                  stageAr: "المرحلة 01",
+                  titleEn: "Engineering & Design",
+                  titleAr: "الهندسة والتصميم",
+                  descEn:
                     "Process and hydraulic design, detailed shop drawings, static & dynamic calculation assumptions, and comprehensive multi-disciplinary coordination.",
+                  descAr:
                     "التصميم الهيدروليكي والعملياتي، إعداد المخططات التنفيذية التفصيلية (Shop Drawings)، مذكرات الحسابات الهندسية، والتنسيق الشامل بين التخصصات.",
-                  )}
-                </p>
-              </div>
-            </div>
-
-            {/* Stage 2 */}
-            <div className="relative pt-8 lg:pt-0">
-              <div
-                className="absolute left-0 top-0 lg:top-[120px] -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--iw-surface)] border-2 z-10"
-                style={{ borderColor: "var(--iw-accent)" }}
-              />
-              <div
-                className="mb-6 lg:mb-12 aspect-[4/3] w-full overflow-hidden rounded-sm border bg-slate-900"
-                style={{ borderColor: "var(--iw-border)" }}
-              >
-                <img
-                  src="/images/about/consltant-team.jpg"
-                  alt="Technical Procurement & Consultant Approvals"
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="pr-6">
-                <PackageCheck className="h-6 w-6 mb-4" style={{ color: "var(--iw-accent)" }} />
-                <h3 className="display-md text-xl text-[var(--iw-text-primary)]">
-                  {t("Technical Procurement", "التوريدات وسلاسل الإمداد")}
-                </h3>
-                <p className="body-reading mt-3 text-sm text-[var(--iw-text-secondary)] leading-relaxed">
-                  {t(
+                  deliverableEn: "Hydraulic Modeling & Drawings",
+                  deliverableAr: "النمذجة الهيدروليكية والمخططات",
+                },
+                {
+                  num: "02",
+                  icon: PackageCheck,
+                  image: "/images/about/consltant-team.jpg",
+                  stageEn: "Stage 02",
+                  stageAr: "المرحلة 02",
+                  titleEn: "Technical Procurement",
+                  titleAr: "التوريدات وسلاسل الإمداد",
+                  descEn:
                     "Strict BOQ verification, global OEM catalog approvals, materials tracing, and ensuring all components meet demanding specifications.",
+                  descAr:
                     "المراجعة الدقيقة لجداول الكميات (BOQ)، اعتماد الكتالوجات من كبرى المصانع العالمية، وضمان مطابقة المواد للمواصفات الصارمة.",
-                  )}
-                </p>
-              </div>
-            </div>
-
-            {/* Stage 3 */}
-            <div className="relative pt-8 lg:pt-0">
-              <div
-                className="absolute left-0 top-0 lg:top-[120px] -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--iw-surface)] border-2 z-10"
-                style={{ borderColor: "var(--iw-accent)" }}
-              />
-              <div
-                className="mb-6 lg:mb-12 aspect-[4/3] w-full overflow-hidden rounded-sm border bg-slate-900"
-                style={{ borderColor: "var(--iw-border)" }}
-              >
-                <img
-                  src="/images/about/site-team.webp"
-                  alt="Field Engineering & Site Execution"
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="pr-6">
-                <HardHat className="h-6 w-6 mb-4" style={{ color: "var(--iw-accent)" }} />
-                <h3 className="display-md text-xl text-[var(--iw-text-primary)]">
-                  {t("Site Execution", "التنفيذ والإدارة الميدانية")}
-                </h3>
-                <p className="body-reading mt-3 text-sm text-[var(--iw-text-secondary)] leading-relaxed">
-                  {t(
+                  deliverableEn: "Tier-1 OEM Approvals & BOQ",
+                  deliverableAr: "اعتمادات كبرى المصانع وجداول الكميات",
+                },
+                {
+                  num: "03",
+                  icon: HardHat,
+                  image: "/images/about/site-team.webp",
+                  stageEn: "Stage 03",
+                  stageAr: "المرحلة 03",
+                  titleEn: "Site Execution",
+                  titleAr: "التنفيذ والإدارة الميدانية",
+                  descEn:
                     "Methodical civil and mechanical installation, active RFI/IR correspondence, field safety management, and accurate quantity surveying.",
+                  descAr:
                     "التركيبات المدنية والميكانيكية المنهجية، إدارة المراسلات الفنية (RFI/IR)، إدارة السلامة الميدانية، والحصر الدقيق للكميات.",
-                  )}
-                </p>
-              </div>
-            </div>
-
-            {/* Stage 4 */}
-            <div className="relative pt-8 lg:pt-0">
-              <div
-                className="absolute left-0 top-0 lg:top-[120px] -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--iw-surface)] border-2 z-10"
-                style={{ borderColor: "var(--iw-accent)" }}
-              />
-              <div
-                className="mb-6 lg:mb-12 aspect-[4/3] w-full overflow-hidden rounded-sm border bg-slate-900"
-                style={{ borderColor: "var(--iw-border)" }}
-              >
-                <img
-                  src="/images/about/om-team.jpg"
-                  alt="Commissioning & O&M Field Engineering"
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="pr-6">
-                <Settings className="h-6 w-6 mb-4" style={{ color: "var(--iw-accent)" }} />
-                <h3 className="display-md text-xl text-[var(--iw-text-primary)]">
-                  {t("Commissioning & O&M", "الاختبار، التشغيل، والتسليم")}
-                </h3>
-                <p className="body-reading mt-3 text-sm text-[var(--iw-text-secondary)] leading-relaxed">
-                  {t(
+                  deliverableEn: "Civil & Mechanical Assembly",
+                  deliverableAr: "التركيبات الميدانية وإدارة الجودة",
+                },
+                {
+                  num: "04",
+                  icon: Settings,
+                  image: "/images/about/om-team.jpg",
+                  stageEn: "Stage 04",
+                  stageAr: "المرحلة 04",
+                  titleEn: "Commissioning & O&M",
+                  titleAr: "الاختبار، التشغيل، والتسليم",
+                  descEn:
                     "Hydrostatic testing, Factory Acceptance Tests (FAT), system flushing, performance verification, and long-term operator training.",
+                  descAr:
                     "الاختبارات الهيدروستاتيكية، اختبارات المصنع (FAT)، غسيل الشبكات، التحقق من الأداء، وتدريب مشغلي المحطات.",
-                  )}
-                </p>
-              </div>
+                  deliverableEn: "72h Performance Trial & Handover",
+                  deliverableAr: "التشغيل التجريبي والتسليم النهائي",
+                },
+              ].map((stage) => {
+                const Icon = stage.icon;
+                return (
+                  <div
+                    key={stage.num}
+                    className="group relative flex flex-col justify-between rounded-xl border bg-[var(--iw-bg)] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-xl"
+                    style={{ borderColor: "var(--iw-border)" }}
+                  >
+                    <div>
+                      {/* Step Header */}
+                      <div
+                        className="flex items-center justify-between pb-4 border-b mb-5"
+                        style={{ borderColor: "var(--iw-border)" }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-xs font-bold transition-transform duration-300 group-hover:scale-110 shadow-xs"
+                            style={{
+                              borderColor: "var(--iw-accent)",
+                              backgroundColor: "var(--iw-surface)",
+                              color: "var(--iw-accent)",
+                            }}
+                          >
+                            {stage.num}
+                          </span>
+                          <div>
+                            <span className="label-mono block text-[10px] font-bold uppercase tracking-wider text-[var(--iw-accent)]">
+                              {isAr ? stage.stageAr : stage.stageEn}
+                            </span>
+                            <span className="display-md block text-xs font-bold text-[var(--iw-text-primary)]">
+                              {isAr ? stage.titleAr : stage.titleEn}
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          className="flex h-8 w-8 items-center justify-center rounded-sm border bg-[var(--iw-surface)] text-[var(--iw-text-muted)] transition-colors group-hover:border-[var(--iw-accent)] group-hover:text-[var(--iw-accent)]"
+                          style={{ borderColor: "var(--iw-border)" }}
+                        >
+                          <Icon className="h-4 w-4" />
+                        </div>
+                      </div>
+
+                      {/* Photo Frame */}
+                      <div
+                        className="relative aspect-[4/3] w-full overflow-hidden rounded-md border bg-slate-900 mb-5 shadow-xs transition-colors group-hover:border-[var(--iw-accent)]"
+                        style={{ borderColor: "var(--iw-border)" }}
+                      >
+                        <img
+                          src={stage.image}
+                          alt={isAr ? stage.titleAr : stage.titleEn}
+                          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                      </div>
+
+                      {/* Description */}
+                      <p className="body-reading text-xs leading-relaxed text-[var(--iw-text-secondary)]">
+                        {isAr ? stage.descAr : stage.descEn}
+                      </p>
+                    </div>
+
+                    {/* Deliverable Badge */}
+                    <div
+                      className="mt-6 border-t pt-3 flex items-center justify-between text-[11px]"
+                      style={{ borderColor: "var(--iw-border)" }}
+                    >
+                      <span className="label-mono text-[10px] font-medium text-[var(--iw-text-muted)]">
+                        {isAr ? stage.deliverableAr : stage.deliverableEn}
+                      </span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-40 transition-opacity group-hover:opacity-100" />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -438,8 +459,8 @@ function CapabilityIndex() {
               </h2>
               <p className="body-reading mt-6 text-base text-[var(--iw-text-secondary)] leading-relaxed">
                 {t(
-                  "We have successfully delivered complex infrastructure systems for high-profile national programs including the Toshka Agricultural Reclamation, Hayah Karima initiatives, Sisi City developments, and major Armed Forces Engineering Authority (AFEA) assignments.",
-                  "قمنا بتنفيذ وتسليم أنظمة بنية تحتية معقدة لبرامج قومية كبرى، شملت الاستصلاح الزراعي في توشكى، ومبادرات حياة كريمة، ومشروعات مدينة السيسي، والتكليفات الكبرى للهيئة الهندسية للقوات المسلحة.",
+                  "We have successfully delivered complex infrastructure systems for high-profile national programs including the Toshka Agricultural Reclamation, Hayah Karima initiatives, Salam City developments, and major Armed Forces Engineering Authority (AFEA) assignments.",
+                  "قمنا بتنفيذ وتسليم أنظمة بنية تحتية معقدة لبرامج قومية كبرى، شملت الاستصلاح الزراعي في توشكى، ومبادرات حياة كريمة، ومشروعات مدينة السلام، والتكليفات الكبرى للهيئة الهندسية للقوات المسلحة.",
                 )}
               </p>
               <p className="body-reading mt-4 text-base text-[var(--iw-text-secondary)] leading-relaxed">

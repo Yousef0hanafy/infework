@@ -58,6 +58,16 @@ export type Supplier = {
   categoryLabel: { en: string; ar: string };
 };
 
+export const CATEGORY_BADGES: Record<SupplierCategory, { en: string; ar: string }> = {
+  all: { en: "Partner", ar: "شريك" },
+  pipes_piping: { en: "Piping", ar: "أنابيب ومحابس" },
+  pumps_treatment: { en: "Pumps", ar: "مضخات ومعالجة" },
+  foundries_castings: { en: "Foundries", ar: "مسابك ومسبوكات" },
+  safety_fire: { en: "Fire Safety", ar: "مكافحة حريق" },
+  hvac_ventilation: { en: "HVAC", ar: "تهوية وتكييف" },
+  materials_engineering: { en: "Engineering", ar: "توريدات هندسية" },
+};
+
 export const SUPPLIERS: Supplier[] = [
   {
     id: "01_seif_pipes",
@@ -366,7 +376,7 @@ export const SUPPLIERS: Supplier[] = [
 ];
 
 export const SUPPLIER_CATEGORIES = [
-  { id: "all", en: "All Suppliers (38)", ar: "جميع الموردين (٣٨)" },
+  { id: "all", en: "All Suppliers", ar: "جميع الموردين" },
   { id: "pipes_piping", en: "Piping & Valves", ar: "الأنابيب والمحابس" },
   { id: "pumps_treatment", en: "Pumps & Treatment", ar: "المضخات ومحطات المعالجة" },
   { id: "foundries_castings", en: "Foundries & Castings", ar: "المسابك والمسبوكات" },

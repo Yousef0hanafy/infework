@@ -274,7 +274,7 @@ function SectorPage() {
                     className="group flex flex-col justify-between border bg-[var(--iw-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     style={{ borderColor: "var(--iw-border)" }}
                   >
-                    {meta?.capacity ? (
+                    {meta?.badge || meta?.capacity ? (
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
@@ -289,7 +289,9 @@ function SectorPage() {
                             color: "var(--iw-dark-accent)",
                           }}
                         >
-                          {isAr ? meta.capacity.ar : meta.capacity.en}
+                          {isAr
+                            ? (meta.badge?.ar ?? meta.capacity?.ar)
+                            : (meta.badge?.en ?? meta.capacity?.en)}
                         </span>
                       </div>
                     ) : meta ? (

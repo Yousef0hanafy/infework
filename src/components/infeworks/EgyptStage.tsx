@@ -352,78 +352,76 @@ export default function EgyptStage({
             className="iw-stage-node"
             opacity={dim ? 0.4 : 1}
           >
+            {/* Ambient telemetry glow — compact and crisp */}
             <circle
               cx={x}
               cy={y}
-              r="46"
+              r={on ? 24 : 14}
               fill="url(#iw-node-glow)"
-              opacity={on ? 1 : 0.55}
+              opacity={on ? 0.95 : dim ? 0.15 : 0.4}
               pointerEvents="none"
             />
-            {/* hover/click target */}
-            <circle cx={x} cy={y} r="22" fill="transparent" />
+            {/* hover/click target — generous hit area */}
+            <circle cx={x} cy={y} r="24" fill="transparent" />
+
+            {/* Subtle radar wave */}
             {!dim ? (
-              <>
-                <circle
-                  className="iw-radar"
-                  pointerEvents="none"
-                  cx={x}
-                  cy={y}
-                  r="12"
-                  fill="none"
-                  stroke="#00c8d5"
-                  strokeWidth="1.2"
-                />
-                <circle
-                  className="iw-radar"
-                  pointerEvents="none"
-                  cx={x}
-                  cy={y}
-                  r="12"
-                  fill="none"
-                  stroke="#00c8d5"
-                  strokeWidth="1"
-                  style={{ animationDelay: "1.4s" }}
-                />
-              </>
-            ) : null}
-            {/* crosshair ticks */}
-            <g stroke="#00c8d5" strokeOpacity={on ? 0.9 : 0.45} strokeWidth="1">
-              <line x1={x - 22} y1={y} x2={x - 12} y2={y} />
-              <line x1={x + 12} y1={y} x2={x + 22} y2={y} />
-              <line x1={x} y1={y - 22} x2={x} y2={y - 12} />
-              <line x1={x} y1={y + 12} x2={x} y2={y + 22} />
-            </g>
-            <circle
-              cx={x}
-              cy={y}
-              r={on ? 10 : 8}
-              fill="#070e1a"
-              stroke={on ? "#ffffff" : "#00c8d5"}
-              strokeWidth={on ? 2.4 : 1.8}
-            />
-            {n.count && n.count > 1 ? (
-              <text
-                x={x}
-                y={y + 3.5}
-                textAnchor="middle"
-                fill={on ? "#ffffff" : "#00c8d5"}
-                fontSize="10"
-                fontWeight="bold"
-                fontFamily="var(--font-mono, ui-monospace)"
+              <circle
+                className="iw-radar"
                 pointerEvents="none"
-              >
-                {n.count}
-              </text>
-            ) : (
+                cx={x}
+                cy={y}
+                r="3"
+                fill="none"
+                stroke={on ? "#ffffff" : "#00c8d5"}
+                strokeWidth={on ? "1.4" : "1"}
+              />
+            ) : null}
+
+            {/* Active Target Reticle (only on active/selected node) */}
+            {on ? (
+              <g stroke="#ffffff" strokeOpacity="0.9" strokeWidth="1.2">
+                <line x1={x - 14} y1={y} x2={x - 8} y2={y} />
+                <line x1={x + 8} y1={y} x2={x + 14} y2={y} />
+                <line x1={x} y1={y - 14} x2={x} y2={y - 8} />
+                <line x1={x} y1={y + 8} x2={x} y2={y + 14} />
+              </g>
+            ) : null}
+
+            {/* Multi-project concentric halo (when count > 1) */}
+            {n.count && n.count > 1 && !on ? (
               <circle
                 cx={x}
                 cy={y}
-                r={on ? 3.5 : 2.5}
-                fill={on ? "#ffffff" : "#00c8d5"}
+                r="7"
+                fill="none"
+                stroke="#00c8d5"
+                strokeWidth="0.8"
+                strokeDasharray="2 2"
+                strokeOpacity="0.75"
                 pointerEvents="none"
               />
-            )}
+            ) : null}
+
+            {/* Central Beacon Core */}
+            <circle
+              cx={x}
+              cy={y}
+              r={on ? 6 : 4}
+              fill={on ? "#00c8d5" : "#070e1a"}
+              stroke={on ? "#ffffff" : "#00c8d5"}
+              strokeWidth={on ? 2 : 1.2}
+              pointerEvents="none"
+            />
+
+            {/* Inner illuminated dot */}
+            <circle
+              cx={x}
+              cy={y}
+              r={on ? 2.2 : 1.6}
+              fill={on ? "#ffffff" : "#00c8d5"}
+              pointerEvents="none"
+            />
           </g>
         );
       })}

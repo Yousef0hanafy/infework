@@ -172,7 +172,15 @@ const PILLARS = [
   },
 ];
 
-const LEADERSHIP = [
+const LEADERSHIP: {
+  name: { en: string; ar: string };
+  title: { en: string; ar: string };
+  bio: { en: string; ar: string };
+  initials: string;
+  image?: string;
+  imageScale?: string;
+  linkedin?: string;
+}[] = [
   {
     name: { en: "Ahmed Houssien", ar: "أحمد حسين" },
     title: { en: "CEO", ar: "الرئيس التنفيذي (CEO)" },
@@ -181,7 +189,9 @@ const LEADERSHIP = [
       ar: "يقود الإدارة التنفيذية للشركة، وحوكمة التعاقدات والشراكات مع الهيئات الحكومية وكبرى جهات التطوير.",
     },
     initials: "AH",
-    linkedin: "https://www.linkedin.com/",
+    image: "/images/team/ahmed-houssien.png",
+    imageScale: "scale-[1.08] translate-y-1",
+    linkedin: "https://www.linkedin.com/in/ahmed-hussien-derbaz-463781143/",
   },
   {
     name: { en: "Abdelaziz Elwaily", ar: "عبد العزيز الويلي" },
@@ -191,7 +201,9 @@ const LEADERSHIP = [
       ar: "يشرف على التصميم والنمذجة الهيدروليكية، واعتماد مواصفات المحطات والمراجعات الفنية للمشروعات.",
     },
     initials: "AE",
-    linkedin: "https://www.linkedin.com/",
+    image: "/images/team/abdlaziz.png",
+    imageScale: "scale-[1.02] translate-y-1",
+    linkedin: "https://www.linkedin.com/in/abdelaziz-abdallah-elwaily-1aa922286/",
   },
   {
     name: { en: "Eslam Tarek", ar: "إسلام طارق" },
@@ -201,7 +213,9 @@ const LEADERSHIP = [
       ar: "يتولى إدارة التصنيع الميكانيكي بالورش، وتجميع شاسيهات الطلمبات ومجمعات الأنابيب عالية الضغط.",
     },
     initials: "ET",
-    linkedin: "https://www.linkedin.com/",
+    image: "/images/team/islam-tarek.png",
+    imageScale: "scale-[1.12] translate-y-2",
+    linkedin: "https://www.linkedin.com/in/isllamtarekk/",
   },
   {
     name: { en: "Adham Mahmoud", ar: "أدهم محمود" },
@@ -211,7 +225,6 @@ const LEADERSHIP = [
       ar: "يدير الأعمال المدنية والإنشائية للمحطات والبيارات العميقة وشبكات المرافق والانحدار في مواقع العمل.",
     },
     initials: "AM",
-    linkedin: "https://www.linkedin.com/",
   },
 ];
 
@@ -358,22 +371,22 @@ const TIMELINE: TimelineMilestone[] = [
     en: "Food-Grade RO & Sovereign Food Security",
     ar: "تحلية السادات الغذائية ومنظومات الأمن الغذائي القومي",
     detail: {
-      en: "Delivery of the 1,500 m³/day Sadat City RO plant for the NSPO Macaroni & Biscuit Complex under strict food-grade hygienic standards, alongside specialized industrial wastewater treatment.",
-      ar: "تسليم محطة تحلية السادات 1,500 م³/يوم لمجمع مصانع المكرونة والبسكويت بالخدمة الوطنية بمواصفات غذائية معتمدة، مع محطة معالجة الصرف الصناعي.",
+      en: "Delivery of the Sadat City RO plant for the NSPO Macaroni & Biscuit Complex under strict food-grade hygienic standards, alongside specialized industrial wastewater treatment.",
+      ar: "تسليم محطة تحلية السادات لمجمع مصانع المكرونة والبسكويت بالخدمة الوطنية بمواصفات غذائية معتمدة، مع محطة معالجة الصرف الصناعي.",
     },
     meta: "Flagship Delivery",
     image: "/images/projects/sadat-city-ro/cover.webp",
     entries: [
       {
-        en: "Sadat City RO Plant (1,500 m³/day) — NSPO Food Complex",
-        ar: "محطة تحلية السادات (1,500 م³/يوم) — مجمع مصانع الخدمة الوطنية",
+        en: "Sadat City RO Plant — NSPO Food Complex",
+        ar: "محطة تحلية السادات — مجمع مصانع الخدمة الوطنية",
         note: { en: "Food-Grade Reverse Osmosis", ar: "تناضح عكسي بمواصفات غذائية" },
         slug: "sadat-city-ro",
         slugLabel: { en: "View Sadat City RO Dossier", ar: "استعراض ملف محطة السادات" },
       },
       {
-        en: "Food City industrial wastewater compliance facility (50 m³/day)",
-        ar: "محطة معالجة الصرف الصناعي المطابقة للاشتراطات بالمدينة الغذائية (50 م³/يوم)",
+        en: "Food City industrial wastewater compliance facility",
+        ar: "محطة معالجة الصرف الصناعي المطابقة للاشتراطات بالمدينة الغذائية",
         note: { en: "Industrial Effluent", ar: "صرف صناعي مطابق" },
         slug: "food-city-treatment",
         slugLabel: { en: "View Food City Dossier", ar: "استعراض ملف المدينة الغذائية" },
@@ -487,11 +500,11 @@ const TIMELINE: TimelineMilestone[] = [
         slugLabel: { en: "View Mosque Dossier", ar: "استعراض ملف المسجد" },
       },
       {
-        en: "Al-Sisi City gravity sewer & storm trunk network",
-        ar: "شبكة انحدار الصرف الصحي وصرف الأمطار بمدينة السيسي",
+        en: "Al-Salam City gravity sewer & storm trunk network",
+        ar: "شبكة انحدار الصرف الصحي وصرف الأمطار بمدينة السلام",
         note: { en: "Gravity Sewer Mains", ar: "خطوط انحدار ومطابق" },
         slug: "sisi-city-wastewater",
-        slugLabel: { en: "View Sisi City Dossier", ar: "استعراض ملف مدينة السيسي" },
+        slugLabel: { en: "View Salam City Dossier", ar: "استعراض ملف مدينة السلام" },
       },
       {
         en: "Rafah Bedouin housing Zone 1 integrated utilities (100+ Units)",
@@ -1060,18 +1073,66 @@ function AboutPage() {
               >
                 <div>
                   {/* Portrait / Avatar Container */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-[#070e1a] border border-white/10 mb-6 flex flex-col items-center justify-center text-center p-4 transition-colors group-hover:border-[var(--iw-accent)]">
-                    {/* Subtle ambient gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e1a] via-transparent to-transparent opacity-80" />
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-[#070e1a] border border-white/10 mb-6 flex flex-col items-center justify-end text-center transition-all duration-500 group-hover:border-[var(--iw-accent)] group-hover:shadow-[0_12px_32px_-10px_rgba(0,0,0,0.5)]">
+                    {/* Engineering grid backdrop */}
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-[0.12]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+                        backgroundSize: "24px 24px",
+                      }}
+                      aria-hidden="true"
+                    />
+                    {/* Studio spotlight glow */}
+                    <div
+                      className="pointer-events-none absolute inset-0"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse at 50% 30%, rgba(0, 200, 213, 0.16) 0%, rgba(176, 94, 42, 0.10) 50%, transparent 80%)",
+                      }}
+                      aria-hidden="true"
+                    />
 
-                    {/* Monogram Badge */}
-                    <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-[var(--iw-dark-accent)] bg-white/5 text-2xl font-bold tracking-widest text-[var(--iw-dark-accent)] shadow-[0_0_20px_rgba(0,200,213,0.15)] transition-transform duration-300 group-hover:scale-105">
-                      {leader.initials}
+                    {leader.image ? (
+                      <>
+                        <img
+                          src={leader.image}
+                          alt={isAr ? leader.name.ar : leader.name.en}
+                          loading="lazy"
+                          decoding="async"
+                          className={`relative z-10 h-full w-full object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-105 ${
+                            leader.imageScale ?? ""
+                          }`}
+                        />
+                        {/* Seamless bottom fade */}
+                        <div
+                          className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-16"
+                          style={{
+                            background:
+                              "linear-gradient(to top, rgba(7, 14, 26, 0.95) 0%, rgba(7, 14, 26, 0.4) 60%, transparent 100%)",
+                          }}
+                          aria-hidden="true"
+                        />
+                      </>
+                    ) : (
+                      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-6">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[var(--iw-dark-accent)] bg-white/5 text-2xl font-bold tracking-widest text-[var(--iw-dark-accent)] shadow-[0_0_24px_rgba(0,200,213,0.18)] transition-transform duration-500 group-hover:scale-105">
+                          {leader.initials}
+                        </div>
+                        <span className="label-mono mt-4 text-[10px] font-medium text-white/50 uppercase tracking-widest">
+                          Infeworks Directorate
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Top corner role badge */}
+                    <div className="pointer-events-none absolute top-3 end-3 z-20 flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-0.5 backdrop-blur-md">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-dark-accent)]" />
+                      <span className="label-mono text-[9px] font-medium text-white/70">
+                        {leader.initials}
+                      </span>
                     </div>
-
-                    <span className="relative z-10 label-mono mt-4 text-[10px] font-medium text-white/50 uppercase tracking-widest">
-                      Infeworks Directorate
-                    </span>
                   </div>
 
                   {/* Name & Title */}
@@ -1101,16 +1162,23 @@ function AboutPage() {
                   className="mt-6 border-t pt-4 flex items-center justify-between"
                   style={{ borderColor: "var(--iw-border)" }}
                 >
-                  <a
-                    href={leader.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`LinkedIn Profile - ${isAr ? leader.name.ar : leader.name.en}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--iw-text-muted)] transition-colors hover:text-[var(--iw-accent)]"
-                  >
-                    <Linkedin className="h-3.5 w-3.5" />
-                    <span className="label-mono text-[11px]">LinkedIn</span>
-                  </a>
+                  {leader.linkedin ? (
+                    <a
+                      href={leader.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`LinkedIn Profile - ${isAr ? leader.name.ar : leader.name.en}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--iw-text-muted)] transition-colors hover:text-[#0a66c2]"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" />
+                      <span className="label-mono text-[11px]">LinkedIn</span>
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--iw-text-muted)] opacity-60">
+                      <Linkedin className="h-3.5 w-3.5" />
+                      <span className="label-mono text-[11px]">Infeworks</span>
+                    </span>
+                  )}
                   <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-60" />
                 </div>
               </div>

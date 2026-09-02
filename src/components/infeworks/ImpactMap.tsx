@@ -182,26 +182,47 @@ export default function ImpactMap({
               )}
             />
 
-            {/* Glass hover card */}
+            {/* Glass hover card with Smart Adaptive Positioning */}
             {hovered ? (
               <div
-                className="iw-glass-dark iw-reveal pointer-events-none absolute z-20 w-64 p-4"
-                style={{
-                  left: `${Math.min(Math.max(hover!.x, 6), 72)}%`,
-                  top: `${Math.min(Math.max(hover!.y, 4), 82)}%`,
-                  transform: "translate(12px, -50%)",
-                  boxShadow: "0 26px 60px -30px rgba(0,0,0,0.75)",
-                }}
+                className="iw-glass-dark iw-reveal pointer-events-none absolute z-30 w-64 rounded-sm border border-white/15 p-4 transition-all duration-150"
+                style={(() => {
+                  const x = hover!.x;
+                  const y = hover!.y;
+                  let translateY = "-50%";
+                  if (y < 35) {
+                    translateY = "14px";
+                  } else if (y > 75) {
+                    translateY = "calc(-100% - 14px)";
+                  }
+
+                  let translateX = isAr ? "calc(-100% - 14px)" : "14px";
+                  if (x > 58) {
+                    translateX = "calc(-100% - 14px)";
+                  } else if (x < 32) {
+                    translateX = "14px";
+                  }
+
+                  return {
+                    left: `${Math.min(Math.max(x, 4), 96)}%`,
+                    top: `${Math.min(Math.max(y, 4), 96)}%`,
+                    transform: `translate(${translateX}, ${translateY})`,
+                    boxShadow: "0 24px 50px -15px rgba(0,0,0,0.85)",
+                    backgroundColor: "rgba(11, 22, 40, 0.95)",
+                  };
+                })()}
               >
                 {hoveredMeta ? (
                   <img
                     src={hoveredMeta.cover}
                     alt=""
-                    className="mb-3 h-24 w-full object-cover"
+                    aria-hidden="true"
+                    className="mb-3 h-24 w-full rounded-sm object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 ) : null}
-                <p className="label-mono" style={{ color: "var(--iw-dark-accent)" }}>
+                <p className="label-mono text-xs font-semibold" style={{ color: "var(--iw-dark-accent)" }}>
                   {hovered.display_name}
                 </p>
                 {hovered.projects.length === 1 ? (
@@ -209,30 +230,32 @@ export default function ImpactMap({
                     <p className="display-md mt-2 text-sm leading-snug">
                       {hovered.projects[0]!.title}
                     </p>
-                    {hoveredMeta?.capacity || hoveredMeta?.client ? (
-                      <dl className="mt-3 space-y-1.5">
-                        {hoveredMeta?.capacity ? (
+                    {hoveredMeta?.badge || hoveredMeta?.capacity || hoveredMeta?.client ? (
+                      <dl className="mt-3 space-y-2 border-t border-white/10 pt-2.5">
+                        {hoveredMeta?.badge || hoveredMeta?.capacity ? (
                           <div>
                             <dt
-                              className="label-mono"
+                              className="label-mono text-[10px] uppercase"
                               style={{ color: "var(--iw-dark-text-muted)" }}
                             >
-                              {t("Capacity", "الطاقة")}
+                              {t("Descriptor", "الوصف الهندسي")}
                             </dt>
-                            <dd className="text-xs">
-                              {isAr ? hoveredMeta.capacity.ar : hoveredMeta.capacity.en}
+                            <dd className="label-mono text-xs font-semibold text-[var(--iw-dark-accent)]">
+                              {isAr
+                                ? (hoveredMeta.badge?.ar ?? hoveredMeta.capacity?.ar)
+                                : (hoveredMeta.badge?.en ?? hoveredMeta.capacity?.en)}
                             </dd>
                           </div>
                         ) : null}
                         {hoveredMeta?.client ? (
                           <div>
                             <dt
-                              className="label-mono"
+                              className="label-mono text-[10px] uppercase"
                               style={{ color: "var(--iw-dark-text-muted)" }}
                             >
                               {t("Client", "جهة التعاقد")}
                             </dt>
-                            <dd className="text-xs leading-snug">
+                            <dd className="text-xs leading-snug text-white/90">
                               {isAr ? hoveredMeta.client.ar : hoveredMeta.client.en}
                             </dd>
                           </div>
@@ -242,14 +265,14 @@ export default function ImpactMap({
                   </>
                 ) : (
                   <div className="mt-2 flex items-baseline gap-2">
-                    <span className="display-md text-2xl" style={{ color: "var(--iw-dark-text)" }}>
+                    <span className="display-md text-2xl font-bold" style={{ color: "var(--iw-dark-text)" }}>
                       {hovered.projects.length}
                     </span>
                     <span
                       className="label-mono text-xs"
                       style={{ color: "var(--iw-dark-text-muted)" }}
                     >
-                      {t("Projects", "مشروعات")}
+                      {t("Projects Delivered", "مشروعات منفذة")}
                     </span>
                   </div>
                 )}
@@ -315,7 +338,7 @@ export default function ImpactMap({
                   return (
                     <div key={proj.slug} className="iw-reveal relative">
                       <h3 className="display-md text-lg sm:text-xl leading-snug">{proj.title}</h3>
-                      {meta?.capacity ? (
+                      {meta?.badge || meta?.capacity ? (
                         <p
                           className="label-mono mt-3 inline-block border px-2.5 py-1 text-xs"
                           style={{
@@ -323,7 +346,9 @@ export default function ImpactMap({
                             color: "var(--iw-dark-accent)",
                           }}
                         >
-                          {isAr ? meta.capacity.ar : meta.capacity.en}
+                          {isAr
+                            ? (meta.badge?.ar ?? meta.capacity?.ar)
+                            : (meta.badge?.en ?? meta.capacity?.en)}
                         </p>
                       ) : null}
 
@@ -416,28 +441,35 @@ export default function ImpactMap({
                 </p>
               </div>
               <ul className="overflow-y-auto no-scrollbar p-2 sm:p-4">
-                {visibleLocations.map((loc) => (
-                  <li key={loc.id} className="mb-2 last:mb-0">
-                    <button
-                      type="button"
-                      onClick={() => handleSelectLocation(loc.id)}
-                      className="group flex w-full flex-col gap-2 rounded-sm border p-4 text-start transition-all hover:bg-white/5"
-                      style={{ borderColor: "var(--iw-dark-border)" }}
-                    >
-                      <div className="flex w-full items-start justify-between gap-3">
-                        <span className="text-sm font-semibold leading-snug break-words text-[var(--iw-dark-text)] group-hover:text-[var(--iw-dark-accent)] transition-colors">
-                          {loc.display_name}
-                        </span>
-                        <div className="label-mono shrink-0 rounded-full bg-[var(--iw-dark-bg)] px-2 py-0.5 text-[10px] text-[var(--iw-dark-accent)]">
-                          {loc.projects.length}
+                {visibleLocations.map((loc) => {
+                  const isSelected = selectedId === loc.id;
+                  return (
+                    <li key={loc.id} className="mb-2 last:mb-0">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectLocation(loc.id)}
+                        className={`group flex w-full flex-col gap-2 rounded-sm border p-4 text-start transition-all ${
+                          isSelected
+                            ? "border-[var(--iw-dark-accent)] bg-white/10 shadow-[0_0_20px_rgba(0,200,213,0.12)]"
+                            : "hover:border-white/20 hover:bg-white/5"
+                        }`}
+                        style={{ borderColor: isSelected ? "var(--iw-dark-accent)" : "var(--iw-dark-border)" }}
+                      >
+                        <div className="flex w-full items-start justify-between gap-3">
+                          <span className="text-sm font-semibold leading-snug break-words text-[var(--iw-dark-text)] group-hover:text-[var(--iw-dark-accent)] transition-colors">
+                            {loc.display_name}
+                          </span>
+                          <ArrowRight
+                            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--iw-dark-text-muted)] transition-all group-hover:text-[var(--iw-dark-accent)] group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                          />
                         </div>
-                      </div>
-                      <p className="text-xs text-[var(--iw-dark-text-muted)] line-clamp-1">
-                        {loc.projects.map((p) => p.title).join(" • ")}
-                      </p>
-                    </button>
-                  </li>
-                ))}
+                        <p className="text-xs text-[var(--iw-dark-text-muted)] line-clamp-1">
+                          {loc.projects.map((p) => p.title).join(" • ")}
+                        </p>
+                      </button>
+                    </li>
+                  );
+                })}
                 {visibleLocations.length === 0 && (
                   <li className="p-4 text-center">
                     <p className="body-reading text-sm text-[var(--iw-dark-text-muted)]">

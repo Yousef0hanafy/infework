@@ -101,6 +101,7 @@ function CaseStudyPage() {
     name: project.title,
     description: project.challenge || project.outcome || project.title,
     url: `https://infeworks.com/${locale}/work/${slug}`,
+    inLanguage: isAr ? "ar-EG" : "en-EG",
     image: meta?.cover
       ? meta.cover.startsWith("http")
         ? meta.cover
@@ -117,9 +118,21 @@ function CaseStudyPage() {
           },
         }
       : undefined,
+    customer: meta?.client
+      ? {
+          "@type": "Organization",
+          name: isAr ? meta.client.ar : meta.client.en,
+        }
+      : undefined,
+    contributor: meta?.consultant
+      ? {
+          "@type": "Organization",
+          name: isAr ? meta.consultant.ar : meta.consultant.en,
+        }
+      : undefined,
     provider: {
       "@type": "Corporation",
-      name: "Infeworks",
+      name: "Infeworks — International for Engineering Works",
       url: "https://infeworks.com",
     },
   };

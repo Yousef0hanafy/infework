@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Clock, FileDown, Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { Clock, FileDown, Linkedin, Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 
 import Logo from "@/components/infeworks/Logo";
 
@@ -65,16 +65,16 @@ export function Footer() {
 
   return (
     <footer className="iw-section-dark">
-      <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10">
+      <div className="mx-auto w-full max-w-[1400px] px-6 py-12 md:px-10 md:py-14">
         <h2
-          className="display-lg max-w-2xl text-3xl md:text-4xl"
+          className="display-lg max-w-2xl text-2xl sm:text-3xl md:text-4xl"
           style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
         >
           {t("Build with one accountable partner.", "ابنِ مع شريك واحد مسؤول.")}
         </h2>
 
         <div
-          className="mt-10 grid gap-10 border-t pt-10 md:grid-cols-2 lg:grid-cols-4"
+          className="mt-8 grid gap-8 border-t pt-8 md:grid-cols-2 lg:grid-cols-4"
           style={{ borderColor: "var(--iw-dark-border)" }}
         >
           {/* Column 1 — identity & profile */}
@@ -104,6 +104,19 @@ export function Footer() {
             </a>
 
             <div className="mt-5 flex items-center gap-2.5">
+              <a
+                href="https://www.linkedin.com/company/international-for-engineering-works/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Infeworks LinkedIn Page"
+                className="flex h-8 w-8 items-center justify-center rounded-sm border transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-[var(--iw-dark-accent)] hover:bg-[color-mix(in_oklab,var(--iw-dark-accent)_12%,transparent)]"
+                style={{
+                  borderColor: "var(--iw-dark-border)",
+                  color: "var(--iw-dark-text-muted)",
+                }}
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
               <a
                 href="https://www.facebook.com/Infeworks/"
                 target="_blank"
@@ -240,6 +253,20 @@ export function Footer() {
               </a>
 
               <a
+                href="https://www.linkedin.com/company/international-for-engineering-works/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
+                style={{ color: "var(--iw-dark-text)" }}
+              >
+                <Linkedin
+                  className="h-4 w-4 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                />
+                linkedin.com/company/infeworks
+              </a>
+
+              <a
                 href="https://www.facebook.com/Infeworks/"
                 target="_blank"
                 rel="noreferrer"
@@ -287,34 +314,46 @@ export function Footer() {
         </div>
 
         <div
-          className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-xs"
+          className="mt-8 flex flex-col gap-4 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
           style={{
             borderColor: "var(--iw-dark-border)",
             color: "var(--iw-dark-text-muted)",
           }}
         >
-          <span>
-            © {new Date().getFullYear()} Infeworks (International for Engineering Works /{" "}
-            <span style={arabicFont}>الدولية للأعمال الهندسية</span>).{" "}
-            {t("All rights reserved.", "جميع الحقوق محفوظة.")}
-          </span>
-          <span className="ms-auto flex items-center gap-4">
+          {/* Left: Copyright */}
+          <div className="flex items-center">
+            <span>
+              © {new Date().getFullYear()} Infeworks. {t("All rights reserved.", "جميع الحقوق محفوظة.")}
+            </span>
+          </div>
+
+          {/* Center: Developer Credit */}
+          <div className="flex items-center sm:justify-center">
+            <span className="inline-flex items-center gap-1.5">
+              <span>{t("Developed by", "تطوير:")}</span>
+              <a
+                href="https://portfolio-yousef-hanafy.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium transition-colors hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-2"
+                style={{ color: "var(--iw-dark-text)" }}
+              >
+                {t("Youssef Hanafy", "يوسف حنفي")}
+              </a>
+            </span>
+          </div>
+
+          {/* Right: Legal */}
+          <div className="flex items-center sm:justify-end">
             <Link
               to="/$locale/privacy"
               params={{ locale }}
-              className="transition-colors hover:text-[var(--iw-dark-accent)]"
+              className="transition-colors hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-2"
               style={isAr ? arabicFont : undefined}
             >
               {t("Privacy Policy", "سياسة الخصوصية")}
             </Link>
-            <a
-              href="/sitemap.xml"
-              className="transition-colors hover:text-[var(--iw-dark-accent)]"
-              style={isAr ? arabicFont : undefined}
-            >
-              {t("Sitemap", "خريطة الموقع")}
-            </a>
-          </span>
+          </div>
         </div>
       </div>
     </footer>
