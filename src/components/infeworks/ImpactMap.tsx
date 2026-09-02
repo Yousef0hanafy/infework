@@ -222,7 +222,10 @@ export default function ImpactMap({
                     decoding="async"
                   />
                 ) : null}
-                <p className="label-mono text-xs font-semibold" style={{ color: "var(--iw-dark-accent)" }}>
+                <p
+                  className="label-mono text-xs font-semibold"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                >
                   {hovered.display_name}
                 </p>
                 {hovered.projects.length === 1 ? (
@@ -265,7 +268,10 @@ export default function ImpactMap({
                   </>
                 ) : (
                   <div className="mt-2 flex items-baseline gap-2">
-                    <span className="display-md text-2xl font-bold" style={{ color: "var(--iw-dark-text)" }}>
+                    <span
+                      className="display-md text-2xl font-bold"
+                      style={{ color: "var(--iw-dark-text)" }}
+                    >
                       {hovered.projects.length}
                     </span>
                     <span
@@ -453,15 +459,17 @@ export default function ImpactMap({
                             ? "border-[var(--iw-dark-accent)] bg-white/10 shadow-[0_0_20px_rgba(0,200,213,0.12)]"
                             : "hover:border-white/20 hover:bg-white/5"
                         }`}
-                        style={{ borderColor: isSelected ? "var(--iw-dark-accent)" : "var(--iw-dark-border)" }}
+                        style={{
+                          borderColor: isSelected
+                            ? "var(--iw-dark-accent)"
+                            : "var(--iw-dark-border)",
+                        }}
                       >
                         <div className="flex w-full items-start justify-between gap-3">
                           <span className="text-sm font-semibold leading-snug break-words text-[var(--iw-dark-text)] group-hover:text-[var(--iw-dark-accent)] transition-colors">
                             {loc.display_name}
                           </span>
-                          <ArrowRight
-                            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--iw-dark-text-muted)] transition-all group-hover:text-[var(--iw-dark-accent)] group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
-                          />
+                          <ArrowRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--iw-dark-text-muted)] transition-all group-hover:text-[var(--iw-dark-accent)] group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                         </div>
                         <p className="text-xs text-[var(--iw-dark-text-muted)] line-clamp-1">
                           {loc.projects.map((p) => p.title).join(" • ")}

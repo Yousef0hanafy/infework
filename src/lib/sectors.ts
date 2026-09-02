@@ -42,8 +42,7 @@ export const SECTORS: Sector[] = [
     ar: "المياه والمعالجة",
     defEn:
       "Potable, process, and desalinated water plants from raw intake to metered distribution.",
-    defAr:
-      "محطات مياه الشرب ومياه العمليات والتحلية من المأخذ الخام حتى التوزيع.",
+    defAr: "محطات مياه الشرب ومياه العمليات والتحلية من المأخذ الخام حتى التوزيع.",
     icon: "droplets",
     metric: { en: "TRUNKEY EPC SOLUTIONS", ar: "حلول متكاملة (EPC)" },
     intro: {

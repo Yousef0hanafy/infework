@@ -371,7 +371,10 @@ export default function SectorSchematic({
       className={`border ${className}`}
       style={{ borderColor: "var(--iw-dark-border)", backgroundColor: "#0b1628" }}
     >
-      <div className="aspect-[3/1] w-full" dir="ltr">
+      <div
+        className="aspect-[2/1] sm:aspect-[5/2] md:aspect-[3/1] w-full overflow-x-auto no-scrollbar"
+        dir="ltr"
+      >
         <Diagram />
       </div>
       <figcaption

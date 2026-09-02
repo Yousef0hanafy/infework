@@ -51,6 +51,7 @@ const NAV = [
   { to: "/$locale/work" as const, en: "Selected Work", ar: "أعمال مختارة" },
   { to: "/$locale/about" as const, en: "About Infeworks", ar: "عن إنفيوركس" },
   { to: "/$locale/contact" as const, en: "Contact", ar: "اتصل بنا" },
+  { to: "/$locale/privacy" as const, en: "Privacy Policy", ar: "سياسة الخصوصية" },
 ];
 
 export function Footer() {
@@ -64,8 +65,8 @@ export function Footer() {
     "text-sm transition-all duration-300 hover:text-[var(--iw-dark-accent)] hover:translate-x-1 rtl:hover:-translate-x-1";
 
   return (
-    <footer className="iw-section-dark">
-      <div className="mx-auto w-full max-w-[1400px] px-6 py-12 md:px-10 md:py-14">
+    <footer className="iw-section-dark border-t border-[var(--iw-dark-border)]">
+      <div className="mx-auto w-full max-w-[1400px] px-6 pt-12 pb-20 md:px-10 md:pt-14 md:pb-12">
         <h2
           className="display-lg max-w-2xl text-2xl sm:text-3xl md:text-4xl"
           style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
@@ -252,49 +253,6 @@ export function Footer() {
                 info@infeworks.com
               </a>
 
-              <a
-                href="https://www.linkedin.com/company/international-for-engineering-works/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
-                style={{ color: "var(--iw-dark-text)" }}
-              >
-                <Linkedin
-                  className="h-4 w-4 shrink-0"
-                  style={{ color: "var(--iw-dark-accent)" }}
-                />
-                linkedin.com/company/infeworks
-              </a>
-
-              <a
-                href="https://www.facebook.com/Infeworks/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
-                style={{ color: "var(--iw-dark-text)" }}
-              >
-                <FacebookIcon
-                  className="h-4 w-4 shrink-0"
-                  style={{ color: "var(--iw-dark-accent)" }}
-                />
-                facebook.com/Infeworks
-              </a>
-
-              <p
-                className="flex items-start gap-2.5 text-sm leading-relaxed"
-                style={{ ...muted, ...(isAr ? arabicFont : {}) }}
-              >
-                <ShieldCheck
-                  className="mt-0.5 h-4 w-4 shrink-0"
-                  style={{ color: "var(--iw-dark-accent)" }}
-                  aria-hidden="true"
-                />
-                {t(
-                  "Single Accountable Contract • In-House Delivery",
-                  "عقد واحد بمسؤولية كاملة • تنفيذ داخلي",
-                )}
-              </p>
-
               <p
                 className="flex items-start gap-2.5 text-xs leading-relaxed"
                 style={{ ...muted, ...(isAr ? arabicFont : {}) }}
@@ -305,8 +263,23 @@ export function Footer() {
                   aria-hidden="true"
                 />
                 {t(
-                  "Sun–Thu, 09:00–4:00 — replies within one working day",
-                  "الأحد–الخميس، 05:00–09:00 — نرد خلال يوم عمل",
+                  "Sun–Thu, 09:00–17:00 — Official Working Hours",
+                  "الأحد–الخميس، 09:00 ص – 05:00 م — ساعات العمل الرسمية",
+                )}
+              </p>
+
+              <p
+                className="flex items-start gap-2.5 text-xs leading-relaxed"
+                style={{ ...muted, ...(isAr ? arabicFont : {}) }}
+              >
+                <ShieldCheck
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                  style={{ color: "var(--iw-dark-accent)" }}
+                  aria-hidden="true"
+                />
+                {t(
+                  "Replies within 1 business day · Direct Technical Dispatch",
+                  "الرد خلال يوم عمل واحد · تواصل فني مباشر وموثق",
                 )}
               </p>
             </div>
@@ -314,7 +287,7 @@ export function Footer() {
         </div>
 
         <div
-          className="mt-8 flex flex-col gap-4 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
+          className="mt-10 flex flex-col gap-4 border-t pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
           style={{
             borderColor: "var(--iw-dark-border)",
             color: "var(--iw-dark-text-muted)",
@@ -323,19 +296,20 @@ export function Footer() {
           {/* Left: Copyright */}
           <div className="flex items-center">
             <span>
-              © {new Date().getFullYear()} Infeworks. {t("All rights reserved.", "جميع الحقوق محفوظة.")}
+              © {new Date().getFullYear()} Infeworks.{" "}
+              {t("All rights reserved.", "جميع الحقوق محفوظة.")}
             </span>
           </div>
 
           {/* Center: Developer Credit */}
           <div className="flex items-center sm:justify-center">
             <span className="inline-flex items-center gap-1.5">
-              <span>{t("Developed by", "تطوير:")}</span>
+              <span>{t("Developed by", "تطوير المنصة:")}</span>
               <a
                 href="https://portfolio-yousef-hanafy.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium transition-colors hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-2"
+                className="font-medium transition-all duration-200 hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-4"
                 style={{ color: "var(--iw-dark-text)" }}
               >
                 {t("Youssef Hanafy", "يوسف حنفي")}
@@ -348,7 +322,7 @@ export function Footer() {
             <Link
               to="/$locale/privacy"
               params={{ locale }}
-              className="transition-colors hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-2"
+              className="transition-colors hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-4"
               style={isAr ? arabicFont : undefined}
             >
               {t("Privacy Policy", "سياسة الخصوصية")}

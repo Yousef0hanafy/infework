@@ -74,45 +74,49 @@ export const submitContact = createServerFn({ method: "POST" })
         },
       });
 
-      // Map expanded UI options to strict database CHECK constraints explicitly
-      const audienceMap: Record<string, string> = {
-        state: "state",
-        industrial: "industrial",
-        agricultural: "agricultural",
-        developer: "other",
-        contractor: "other",
-        other: "other",
-        general: "other",
-        supplier: "other",
-        technical: "other",
-      };
+      // Validate audience and need values against updated database constraints
+      const validAudiences = new Set([
+        "state",
+        "industrial",
+        "agricultural",
+        "developer",
+        "contractor",
+        "commercial",
+        "supplier",
+        "general",
+        "technical",
+        "other",
+      ]);
 
       const rawAudience = payload.audience_type || payload.inquiry_type || "other";
-      const dbAudience = audienceMap[rawAudience];
-      if (!dbAudience) {
-        return { success: false, message: "Invalid client type selected." };
-      }
+      const dbAudience = validAudiences.has(rawAudience) ? rawAudience : "other";
 
-      const needMap: Record<string, string> = {
-        turnkey: "turnkey",
-        "water-treatment": "other",
-        wastewater: "other",
-        pumping: "other",
-        networks: "other",
-        mep: "other",
-        om: "om",
-        design: "design",
-        other: "other",
-        general: "other",
-        supplier: "other",
-        technical: "other",
-      };
+      const validNeeds = new Set([
+        "design",
+        "execution",
+        "om",
+        "turnkey",
+        "water-treatment",
+        "wastewater",
+        "pumping",
+        "networks",
+        "mep",
+        "pumps",
+        "pipes",
+        "valves",
+        "membranes",
+        "electrical",
+        "automation",
+        "chemicals",
+        "civil-subcontract",
+        "supplier",
+        "general",
+        "technical",
+        "other",
+      ]);
 
       const rawNeed = payload.need_type || payload.inquiry_type || "other";
-      const dbNeed = needMap[rawNeed];
-      if (!dbNeed) {
-        return { success: false, message: "Invalid project scope selected." };
-      }
+      const dbNeed = validNeeds.has(rawNeed) ? rawNeed : "other";
 
       const { error } = await client.from("leads").insert({
         audience_type: dbAudience,

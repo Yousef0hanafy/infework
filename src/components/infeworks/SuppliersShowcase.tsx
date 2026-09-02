@@ -52,9 +52,7 @@ function SupplierCard({
           }}
         >
           <Factory className="h-2.5 w-2.5 shrink-0 text-slate-500" />
-          <span className="whitespace-nowrap font-medium">
-            {isAr ? badge.ar : badge.en}
-          </span>
+          <span className="whitespace-nowrap font-medium">{isAr ? badge.ar : badge.en}</span>
         </span>
 
         <span

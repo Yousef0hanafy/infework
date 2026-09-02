@@ -183,7 +183,7 @@ const LEADERSHIP: {
 }[] = [
   {
     name: { en: "Ahmed Houssien", ar: "أحمد حسين" },
-    title: { en: "CEO", ar: "الرئيس التنفيذي (CEO)" },
+    title: { en: "Managing Director", ar: "العضو المنتدب" },
     bio: {
       en: "Leads overall corporate direction, contract administration, and executive partnerships with state authorities and master developers.",
       ar: "يقود الإدارة التنفيذية للشركة، وحوكمة التعاقدات والشراكات مع الهيئات الحكومية وكبرى جهات التطوير.",
@@ -195,7 +195,7 @@ const LEADERSHIP: {
   },
   {
     name: { en: "Abdelaziz Elwaily", ar: "عبد العزيز الويلي" },
-    title: { en: "CTO & Chief Engineer", ar: "المدير الفني ورئيس المهندسين (CTO)" },
+    title: { en: "Head of Engineering", ar: "رئيس القطاع الهندسي" },
     bio: {
       en: "Directs hydraulic process engineering, treatment plant specifications, and technical reviews across all turnkey installations.",
       ar: "يشرف على التصميم والنمذجة الهيدروليكية، واعتماد مواصفات المحطات والمراجعات الفنية للمشروعات.",
@@ -1043,7 +1043,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 5.5. Executive Leadership & Engineering Directorate */}
+      {/* 5.5. Core Management Team & Engineering Directorate */}
       <section
         className="iw-section-light border-t bg-[var(--iw-bg)]"
         style={{ borderColor: "var(--iw-border)" }}
@@ -1051,15 +1051,15 @@ function AboutPage() {
         <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
           <Reveal className="mb-12">
             <p className="label-mono font-semibold uppercase" style={{ color: "var(--iw-accent)" }}>
-              {t("Executive Leadership", "القيادة التنفيذية والهندسية")}
+              {t("Core Operations Management", "فريق الإدارة التنفيذية")}
             </p>
             <h2 className="display-lg mt-3 text-[clamp(1.75rem,4vw,3rem)] font-bold text-[var(--iw-text-primary)]">
               {t("The Team Behind the Engineering", "القيادات القائمة على التنفيذ الهندسي")}
             </h2>
             <p className="body-reading mt-3 max-w-2xl text-base text-[var(--iw-text-secondary)]">
               {t(
-                "Senior leadership directing corporate governance, technical precision, and on-site delivery across all infrastructure disciplines.",
-                "قيادات متخصصة تقود حوكمة المشروعات والدقة الفنية في مختلف قطاعات البنية التحتية والمياه.",
+                "Building on two decades of institutional legacy, our dynamic management team brings modern engineering practices, technical precision, and on-site delivery to our infrastructure projects.",
+                "بالبناء على إرث مؤسسي يمتد لعقدين، يقود فريقنا الإداري الشاب عمليات التنفيذ الميداني برؤية هندسية حديثة ودقة فنية عالية في قطاعات البنية التحتية والمياه.",
               )}
             </p>
           </Reveal>

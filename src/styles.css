@@ -10,8 +10,7 @@
  */
 
 @theme inline {
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-arabic: "Cairo", system-ui, sans-serif;
 
@@ -110,8 +109,7 @@
 
   ::-webkit-scrollbar-track {
     background: color-mix(in oklab, var(--iw-bg, #faf8f5) 85%, rgba(11, 22, 40, 0.05));
-    border-inline-start: 1px solid
-      color-mix(in oklab, var(--iw-text-primary) 6%, transparent);
+    border-inline-start: 1px solid color-mix(in oklab, var(--iw-text-primary) 6%, transparent);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -144,8 +142,6 @@
     scrollbar-width: none;
   }
 
-
-
   body {
     background-color: var(--iw-bg);
     color: var(--iw-text-primary);
@@ -161,8 +157,6 @@
   html[dir="ltr"] body {
     font-family: var(--font-sans);
   }
-
-
 
   /* RTL Typography refinements — prevent descender collisions in Arabic */
   html[dir="rtl"] .display-xl {
@@ -271,7 +265,11 @@
     linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
     linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px, 32px 32px, 160px 160px, 160px 160px;
+  background-size:
+    32px 32px,
+    32px 32px,
+    160px 160px,
+    160px 160px;
   mask-image: radial-gradient(ellipse at 30% 20%, #000 10%, transparent 78%);
 }
 
@@ -287,19 +285,11 @@
       color-mix(in oklab, var(--iw-accent) 14%, transparent),
       transparent 66%
     ),
-    linear-gradient(
-      to bottom,
-      transparent 34%,
-      var(--iw-dark-bg) 100%
-    );
+    linear-gradient(to bottom, transparent 34%, var(--iw-dark-bg) 100%);
 }
 
 .iw-hero-wash {
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    var(--iw-dark-deep) 100%
-  );
+  background: radial-gradient(circle at center, transparent 0%, var(--iw-dark-deep) 100%);
   opacity: 0.8;
 }
 
@@ -420,8 +410,6 @@
   }
 }
 
-
-
 @utility iw-flow-stream {
   stroke-dasharray: 180 1400;
   stroke-dashoffset: 1580;
@@ -534,7 +522,10 @@
 
 @utility iw-whatsapp-glow {
   box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45);
-  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -579,9 +570,10 @@
 .iw-client-card {
   border-color: var(--iw-border, rgba(11, 22, 40, 0.12));
   background-color: #ffffff;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
 }
 
 .iw-client-card:hover {
@@ -593,4 +585,3 @@
     transform: none;
   }
 }
-

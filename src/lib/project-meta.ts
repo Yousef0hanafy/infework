@@ -293,7 +293,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/food-city-treatment/gallery-6.webp",
     ],
     capacity: { en: "50 m³/day Industrial Wastewater", ar: "50 م³/يوم صرف صناعي غذائي" },
-    badge: { en: "Industrial Agro-Effluent Treatment Train", ar: "محطة معالجة صرف صناعي غذائي متقدمة" },
+    badge: {
+      en: "Industrial Agro-Effluent Treatment Train",
+      ar: "محطة معالجة صرف صناعي غذائي متقدمة",
+    },
     client: {
       en: "Food City Industrial Complex (Biscuit Factory)",
       ar: "مجمع المدينة الغذائية الصناعي (مصنع البسكويت)",
@@ -435,37 +438,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     year: "2024",
     region: { en: "New Salam City, North Sinai", ar: "مدينة السلام الجديدة، شمال سيناء" },
-  },
-  "gas-egypt-stations-electromechanical": {
-    cover: "/images/projects/gas-egypt-stations-electromechanical/cover.webp",
-    gallery: [
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-1.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-2.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-3.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-4.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-5.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-6.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-7.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-8.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-9.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-10.webp",
-      "/images/projects/gas-egypt-stations-electromechanical/gallery-11.webp",
-    ],
-    capacity: {
-      en: "Specialized Station Grounding & ATEX Power",
-      ar: "منظومات تأريض متخصصة وقوى مقاومة للانفجار",
-    },
-    client: { en: "Gas Egypt Company", ar: "شركة غاز مصر" },
-    consultant: {
-      en: "Petroleum Safety & Engineering Oversight",
-      ar: "إدارة الإشراف الهندسي والسلامة البترولية",
-    },
-    scope: {
-      en: "Grounding Grid · Hazardous Area Wiring · ESD Interlocks · Safety Certification",
-      ar: "شبكة تأريض · تمديدات مناطق خطرة · دوائر إغلاق طارئ · شهادات سلامة",
-    },
-    year: "2021",
-    region: { en: "Greater Cairo & Delta Stations", ar: "القاهرة الكبرى ومحطات الدلتا" },
   },
   "shubra-shahab-technical-works": {
     cover: "/images/projects/shubra-shahab-technical-works/cover.webp",

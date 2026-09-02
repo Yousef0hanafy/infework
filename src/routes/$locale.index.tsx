@@ -591,7 +591,8 @@ function LocaleHome() {
                                 <span />
                               )}
                               <span className="text-[var(--iw-text-secondary)]">
-                                {p.location?.display_name ?? meta?.region?.en ?? ""} · {meta?.year ?? "2025"}
+                                {p.location?.display_name ?? meta?.region?.en ?? ""} ·{" "}
+                                {meta?.year ?? "2025"}
                               </span>
                             </div>
 
@@ -635,9 +636,7 @@ function LocaleHome() {
                             className="mt-8 border-t pt-5 flex items-center justify-between"
                             style={{ borderColor: "var(--iw-border)" }}
                           >
-                            <span
-                              className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]"
-                            >
+                            <span className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]">
                               {t("Explore Case Study", "عرض دراسة الحالة")}
                               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
                             </span>
@@ -657,12 +656,12 @@ function LocaleHome() {
               const colSpanClass = isHeroCard
                 ? "lg:col-span-7"
                 : isCompanionCard
-                ? "lg:col-span-5"
-                : idx === 2
-                ? "md:col-span-6 lg:col-span-4"
-                : idx === 3
-                ? "md:col-span-6 lg:col-span-4"
-                : "md:col-span-12 lg:col-span-4";
+                  ? "lg:col-span-5"
+                  : idx === 2
+                    ? "md:col-span-6 lg:col-span-4"
+                    : idx === 3
+                      ? "md:col-span-6 lg:col-span-4"
+                      : "md:col-span-12 lg:col-span-4";
 
               return (
                 <Reveal key={p.project_id} delay={idx * 60} className={colSpanClass}>
@@ -731,12 +730,17 @@ function LocaleHome() {
                         </span>
                       </div>
 
-                      <h3 className={`display-md mt-2 font-bold ${isHeroCard ? "text-xl lg:text-2xl" : "text-lg lg:text-xl"}`}>
+                      <h3
+                        className={`display-md mt-2 font-bold ${isHeroCard ? "text-xl lg:text-2xl" : "text-lg lg:text-xl"}`}
+                      >
                         {p.title}
                       </h3>
 
                       {meta?.client ? (
-                        <p className="label-mono mt-2 text-xs" style={{ color: "var(--iw-accent)" }}>
+                        <p
+                          className="label-mono mt-2 text-xs"
+                          style={{ color: "var(--iw-accent)" }}
+                        >
                           {isAr ? meta.client.ar : meta.client.en}
                         </p>
                       ) : null}
@@ -757,9 +761,7 @@ function LocaleHome() {
                       className="mt-6 border-t pt-4 flex items-center justify-between"
                       style={{ borderColor: "var(--iw-border)" }}
                     >
-                      <span
-                        className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]"
-                      >
+                      <span className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]">
                         {t("View Case Study", "عرض دراسة الحالة")}
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
                       </span>
@@ -771,7 +773,10 @@ function LocaleHome() {
             })}
           </div>
 
-          <div className="mt-16 flex items-center justify-between border-t pt-8" style={{ borderColor: "var(--iw-border)" }}>
+          <div
+            className="mt-16 flex items-center justify-between border-t pt-8"
+            style={{ borderColor: "var(--iw-border)" }}
+          >
             <Link
               to="/$locale/work"
               params={{ locale }}

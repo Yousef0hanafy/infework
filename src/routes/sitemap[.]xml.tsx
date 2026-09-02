@@ -52,13 +52,13 @@ export const Route = createFileRoute("/sitemap.xml")({
 
             urlEntries.push(
               `  <url>\n` +
-              `    <loc>${currentUrl}</loc>\n` +
-              `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>\n` +
-              `    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>\n` +
-              `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>\n` +
-              `    <changefreq>${page.changefreq}</changefreq>\n` +
-              `    <priority>${page.priority}</priority>\n` +
-              `  </url>`
+                `    <loc>${currentUrl}</loc>\n` +
+                `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>\n` +
+                `    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>\n` +
+                `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>\n` +
+                `    <changefreq>${page.changefreq}</changefreq>\n` +
+                `    <priority>${page.priority}</priority>\n` +
+                `  </url>`,
             );
           }
         }
