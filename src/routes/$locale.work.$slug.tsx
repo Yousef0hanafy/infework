@@ -10,7 +10,7 @@ import { getFlagshipDetail } from "@/lib/flagship-projects";
 
 import { getPublicProjectBySlug } from "@/lib/public.functions";
 
-const EgyptMap = lazy(() => import("@/components/infeworks/EgyptMap"));
+const ProjectLocationMap = lazy(() => import("@/components/infeworks/ProjectLocationMap"));
 
 export const Route = createFileRoute("/$locale/work/$slug")({
   loader: async ({ params }) => {
@@ -353,12 +353,12 @@ function CaseStudyPage() {
               >
                 <ClientOnly fallback={null}>
                   <Suspense fallback={null}>
-                    <EgyptMap
-                      center={[location.lat, location.lng]}
+                    <ProjectLocationMap
+                      lat={location.lat}
+                      lng={location.lng}
+                      label={location.display_name}
                       zoom={9}
-                      markers={[
-                        { lat: location.lat, lng: location.lng, label: location.display_name },
-                      ]}
+                      locale={locale}
                     />
                   </Suspense>
                 </ClientOnly>

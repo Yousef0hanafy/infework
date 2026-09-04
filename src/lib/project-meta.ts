@@ -48,17 +48,9 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "toshka-pumping-stations": {
     cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
     gallery: [
-      "/images/projects/toshka-pumping-stations/gallery-1.webp",
       "/images/projects/toshka-pumping-stations/gallery-2.webp",
       "/images/projects/toshka-pumping-stations/gallery-3.webp",
-      "/images/projects/toshka-pumping-stations/gallery-4.webp",
-      "/images/projects/toshka-pumping-stations/gallery-5.webp",
-      "/images/projects/toshka-pumping-stations/gallery-6.webp",
-      "/images/projects/toshka-pumping-stations/gallery-7.webp",
-      "/images/projects/toshka-pumping-stations/gallery-8.webp",
-      "/images/projects/toshka-pumping-stations/gallery-9.webp",
       "/images/projects/toshka-pumping-stations/gallery-10.webp",
-      "/images/projects/toshka-pumping-stations/gallery-11.webp",
     ],
     capacity: {
       en: "22 Pumping Stations · 150 m³/day Purification",
@@ -89,8 +81,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/toshka-farm-potable-water-plant/gallery-4.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-5.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-6.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-7.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-8.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-9.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-10.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-11.webp",
@@ -118,12 +108,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "toshka-expanded-water-networks": {
     cover: "/images/projects/toshka-expanded-water-networks/cover.webp",
     gallery: [
-      "/images/projects/toshka-expanded-water-networks/gallery-1.webp",
-      "/images/projects/toshka-expanded-water-networks/gallery-2.webp",
-      "/images/projects/toshka-expanded-water-networks/gallery-3.webp",
       "/images/projects/toshka-expanded-water-networks/gallery-4.webp",
       "/images/projects/toshka-expanded-water-networks/gallery-5.webp",
-      "/images/projects/toshka-expanded-water-networks/gallery-6.webp",
       "/images/projects/toshka-expanded-water-networks/gallery-7.webp",
       "/images/projects/toshka-expanded-water-networks/gallery-8.webp",
       "/images/projects/toshka-expanded-water-networks/gallery-9.webp",
@@ -174,12 +160,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "awlad-el-sheikh-pumping": {
     cover: "/images/projects/awlad-el-sheikh-pumping/cover.webp",
     gallery: [
-      "/images/projects/awlad-el-sheikh-pumping/gallery-1.webp",
       "/images/projects/awlad-el-sheikh-pumping/gallery-2.webp",
-      "/images/projects/awlad-el-sheikh-pumping/gallery-3.webp",
-      "/images/projects/awlad-el-sheikh-pumping/gallery-4.webp",
-      "/images/projects/awlad-el-sheikh-pumping/gallery-5.webp",
-      "/images/projects/awlad-el-sheikh-pumping/gallery-6.webp",
     ],
     capacity: { en: "Potable Water Lifting Hub", ar: "محطة رفع وتغذية مياه الشرب" },
     client: {
@@ -199,10 +180,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     gallery: [
       "/images/projects/north-coast-desalination/gallery-1.webp",
       "/images/projects/north-coast-desalination/gallery-2.webp",
-      "/images/projects/north-coast-desalination/gallery-3.webp",
       "/images/projects/north-coast-desalination/gallery-4.webp",
       "/images/projects/north-coast-desalination/gallery-5.webp",
-      "/images/projects/north-coast-desalination/gallery-6.webp",
       "/images/projects/north-coast-desalination/gallery-7.webp",
       "/images/projects/north-coast-desalination/gallery-8.webp",
       "/images/projects/north-coast-desalination/gallery-9.webp",
@@ -285,8 +264,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "food-city-treatment": {
     cover: "/images/projects/food-city-treatment/cover.webp",
     gallery: [
-      "/images/projects/food-city-treatment/gallery-1.webp",
-      "/images/projects/food-city-treatment/gallery-2.webp",
       "/images/projects/food-city-treatment/gallery-3.webp",
       "/images/projects/food-city-treatment/gallery-4.webp",
       "/images/projects/food-city-treatment/gallery-5.webp",
@@ -374,7 +351,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "sisi-city-wastewater": {
     cover: "/images/projects/sisi-city-wastewater/cover.webp",
     gallery: [
-      "/images/projects/sisi-city-wastewater/gallery-1.webp",
       "/images/projects/sisi-city-wastewater/gallery-2.webp",
       "/images/projects/sisi-city-wastewater/gallery-3.webp",
       "/images/projects/sisi-city-wastewater/gallery-4.webp",
@@ -418,7 +394,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/salam-city-cattle-farm-networks/gallery-8.webp",
       "/images/projects/salam-city-cattle-farm-networks/gallery-9.webp",
       "/images/projects/salam-city-cattle-farm-networks/gallery-10.webp",
-      "/images/projects/salam-city-cattle-farm-networks/gallery-11.webp",
     ],
     capacity: {
       en: "Livestock Facility Wet Utilities · 2,500 Head Farm",
@@ -448,11 +423,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/shubra-shahab-technical-works/gallery-4.webp",
       "/images/projects/shubra-shahab-technical-works/gallery-5.webp",
       "/images/projects/shubra-shahab-technical-works/gallery-6.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-7.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-8.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-9.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-10.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-11.webp",
     ],
     capacity: { en: "Auxiliary Hydraulic Infrastructure", ar: "تجهيزات هيدروليكية تكميلية" },
     client: { en: "Agro-Industrial Development Authority", ar: "جهاز الصناعات والتنمية الزراعية" },
@@ -472,14 +442,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     gallery: [
       "/images/projects/toshka-reclamation-pumping-package/gallery-1.webp",
       "/images/projects/toshka-reclamation-pumping-package/gallery-2.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-3.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-4.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-5.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-6.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-7.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-8.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-9.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-10.webp",
       "/images/projects/toshka-reclamation-pumping-package/gallery-11.webp",
     ],
     capacity: {
@@ -511,7 +473,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/salam-city-water-pipeline/gallery-8.webp",
       "/images/projects/salam-city-water-pipeline/gallery-9.webp",
       "/images/projects/salam-city-water-pipeline/gallery-10.webp",
-      "/images/projects/salam-city-water-pipeline/gallery-11.webp",
     ],
     capacity: {
       en: "High-Pressure Strategic Water Transmission Line",
@@ -538,12 +499,9 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "beni-suef-water-wastewater": {
     cover: "/images/projects/beni-suef-water-wastewater/cover.webp",
     gallery: [
-      "/images/projects/beni-suef-water-wastewater/gallery-1.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-2.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-3.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-4.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-5.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-6.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-7.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-8.webp",
       "/images/projects/beni-suef-water-wastewater/gallery-9.webp",
@@ -572,9 +530,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "qibili-qarun-water-purification": {
     cover: "/images/projects/qibili-qarun-water-purification/cover.webp",
     gallery: [
-      "/images/projects/qibili-qarun-water-purification/gallery-1.webp",
-      "/images/projects/qibili-qarun-water-purification/gallery-2.webp",
-      "/images/projects/qibili-qarun-water-purification/gallery-3.webp",
       "/images/projects/qibili-qarun-water-purification/gallery-4.webp",
       "/images/projects/qibili-qarun-water-purification/gallery-5.webp",
       "/images/projects/qibili-qarun-water-purification/gallery-6.webp",
@@ -631,7 +586,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "marble-factory-desalination-plants": {
     cover: "/images/projects/marble-factory-desalination-plants/cover.webp",
     gallery: [
-      "/images/projects/marble-factory-desalination-plants/gallery-1.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-2.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-3.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-4.webp",
@@ -667,8 +621,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     gallery: [
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-1.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-2.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-3.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-4.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-5.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-6.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-7.webp",
@@ -737,13 +689,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/toshka-pumping-basket-screens/gallery-2.webp",
       "/images/projects/toshka-pumping-basket-screens/gallery-3.webp",
       "/images/projects/toshka-pumping-basket-screens/gallery-4.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-5.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-6.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-7.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-8.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-9.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-10.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-11.webp",
     ],
     capacity: {
       en: "Deep-Well Debris Protection Systems",
@@ -805,8 +750,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/cargas-grounding-systems/gallery-5.webp",
       "/images/projects/cargas-grounding-systems/gallery-6.webp",
       "/images/projects/cargas-grounding-systems/gallery-7.webp",
-      "/images/projects/cargas-grounding-systems/gallery-8.webp",
-      "/images/projects/cargas-grounding-systems/gallery-9.webp",
       "/images/projects/cargas-grounding-systems/gallery-10.webp",
       "/images/projects/cargas-grounding-systems/gallery-11.webp",
     ],
@@ -838,11 +781,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/date-palm-cold-storage-mep/gallery-4.webp",
       "/images/projects/date-palm-cold-storage-mep/gallery-5.webp",
       "/images/projects/date-palm-cold-storage-mep/gallery-6.webp",
-      "/images/projects/date-palm-cold-storage-mep/gallery-7.webp",
-      "/images/projects/date-palm-cold-storage-mep/gallery-8.webp",
-      "/images/projects/date-palm-cold-storage-mep/gallery-9.webp",
-      "/images/projects/date-palm-cold-storage-mep/gallery-10.webp",
-      "/images/projects/date-palm-cold-storage-mep/gallery-11.webp",
     ],
     capacity: {
       en: "Agro-Industrial Cold Storage Utilities",
@@ -866,17 +804,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "manshiyat-nasser-pumping-station": {
     cover: "/images/projects/manshiyat-nasser-pumping-station/cover.webp",
     gallery: [
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-1.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-2.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-3.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-4.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-5.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-6.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-7.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-8.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-9.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-10.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-11.webp",
     ],
     capacity: { en: "High-Head Urban Lift Station", ar: "محطة رفع حضرية عالية الرفع والتصرف" },
     client: {
@@ -1001,9 +933,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/sisi-city-water-supply-network/gallery-5.webp",
       "/images/projects/sisi-city-water-supply-network/gallery-6.webp",
       "/images/projects/sisi-city-water-supply-network/gallery-7.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-8.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-9.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-10.webp",
       "/images/projects/sisi-city-water-supply-network/gallery-11.webp",
     ],
     capacity: {
@@ -1093,17 +1022,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "abu-minqar-agricultural-farm-utilities": {
     cover: "/images/projects/abu-minqar-agricultural-farm-utilities/cover.webp",
     gallery: [
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-1.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-2.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-3.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-4.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-5.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-6.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-7.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-8.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-9.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-10.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-11.webp",
     ],
     capacity: {
       en: "Deep Artesian Well & Irrigation Hub",
@@ -1195,17 +1118,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "rural-egypt-wells-minya": {
     cover: "/images/projects/rural-egypt-wells-minya/cover.webp",
     gallery: [
-      "/images/projects/rural-egypt-wells-minya/gallery-1.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-2.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-3.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-4.webp",
       "/images/projects/rural-egypt-wells-minya/gallery-5.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-6.webp",
       "/images/projects/rural-egypt-wells-minya/gallery-7.webp",
       "/images/projects/rural-egypt-wells-minya/gallery-8.webp",
       "/images/projects/rural-egypt-wells-minya/gallery-9.webp",
       "/images/projects/rural-egypt-wells-minya/gallery-10.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-11.webp",
     ],
     capacity: { en: "Deep Solar-Powered Artesian Wells", ar: "آبار جوفية عميقة بمحطات ضخ شمسية" },
     client: {
@@ -1267,7 +1184,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/abu-zaabal-landfill-environmental-works/gallery-8.webp",
       "/images/projects/abu-zaabal-landfill-environmental-works/gallery-9.webp",
       "/images/projects/abu-zaabal-landfill-environmental-works/gallery-10.webp",
-      "/images/projects/abu-zaabal-landfill-environmental-works/gallery-11.webp",
     ],
     capacity: {
       en: "Environmental Containment & Leachate Drainage",

@@ -59,7 +59,7 @@ const ICONS: Record<string, LucideIcon> = {
 const SECTOR_IMAGES: Record<string, string> = {
   "water-treatment": "/images/projects/sadat-city-ro/cover.webp",
   wastewater: "/images/projects/shubra-shahab-industrial-wastewater/cover.webp",
-  "pumping-wells": "/images/projects/qibili-qarun-water-purification/gallery-2.webp",
+  "pumping-wells": "/images/projects/qibili-qarun-water-purification/cover.webp",
   "industrial-mep": "/images/projects/ameriya-cold-storage/cover.jpg",
   "infrastructure-networks": "/images/projects/capital-island-infrastructure/cover.webp",
   "civil-buildings": "/images/projects/al-azhar-institute-minya/cover.webp",

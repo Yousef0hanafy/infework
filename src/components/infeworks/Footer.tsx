@@ -263,8 +263,8 @@ export function Footer() {
                   aria-hidden="true"
                 />
                 {t(
-                  "Sun–Thu, 09:00–17:00 — Official Working Hours",
-                  "الأحد–الخميس، 09:00 ص – 05:00 م — ساعات العمل الرسمية",
+                  "Sun–Thu, 09:00–4:00 — Official Working Hours",
+                  "الأحد–الخميس، 04:00 م – 09:00 ص — ساعات العمل الرسمية",
                 )}
               </p>
 

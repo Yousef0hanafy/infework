@@ -1126,13 +1126,6 @@ function AboutPage() {
                       </div>
                     )}
 
-                    {/* Top corner role badge */}
-                    <div className="pointer-events-none absolute top-3 end-3 z-20 flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-0.5 backdrop-blur-md">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-dark-accent)]" />
-                      <span className="label-mono text-[9px] font-medium text-white/70">
-                        {leader.initials}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Name & Title */}
