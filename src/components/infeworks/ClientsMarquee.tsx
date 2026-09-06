@@ -75,7 +75,7 @@ export const CLIENTS: Client[] = [
     en: "Egyptian Armed Forces",
     ar: "القوات المسلحة المصرية",
     category: "sovereign",
-    categoryLabel: { en: "Defense & Strategic", ar: "أعمال استراتيجية" },
+    categoryLabel: { en: "Strategic Projects", ar: "أعمال استراتيجية" },
     projectHighlight: {
       en: "Strategic Lifting & Water Systems",
       ar: "منظومات الرفع والمياه الاستراتيجية",

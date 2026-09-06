@@ -107,20 +107,16 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     gallery: [
       "/images/projects/arish-water-supply/gallery-1.webp",
       "/images/projects/arish-water-supply/gallery-2.webp",
-      "/images/projects/arish-water-supply/gallery-3.webp",
       "/images/projects/arish-water-supply/gallery-4.webp",
       "/images/projects/arish-water-supply/gallery-5.webp",
-      "/images/projects/arish-water-supply/gallery-6.webp",
-      "/images/projects/arish-water-supply/gallery-7.webp",
       "/images/projects/arish-water-supply/gallery-8.webp",
-      "/images/projects/arish-water-supply/gallery-9.webp",
       "/images/projects/arish-water-supply/gallery-10.webp",
       "/images/projects/arish-water-supply/gallery-11.webp",
     ],
     capacity: { en: "Regional Trunk Lines & Booster Stations", ar: "خطوط نقل رئيسية ومحطات رافع" },
     client: {
-      en: "Engineering Authority & Al-Arjani Group",
-      ar: "الهيئة الهندسية ومجموعة العرجاني (أبناء سيناء)",
+      en: "Al-Arjani Group",
+      ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: { en: "Engineering Authority Supervision Office", ar: "مكتب الإشراف الهندسي" },
     scope: {
@@ -132,9 +128,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   },
   "awlad-el-sheikh-pumping": {
     cover: "/images/projects/awlad-el-sheikh-pumping/cover.webp",
-    gallery: [
-      "/images/projects/awlad-el-sheikh-pumping/gallery-2.webp",
-    ],
+    gallery: ["/images/projects/awlad-el-sheikh-pumping/gallery-2.webp"],
     capacity: { en: "Potable Water Lifting Hub", ar: "محطة رفع وتغذية مياه الشرب" },
     client: {
       en: "Potable Water & Sanitation Authority (NOPWASD)",
@@ -307,11 +301,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "المرحلة الأولى · أكثر من 100 وحدة سكنية بدوية متكاملة",
     },
     client: {
-      en: "North Sinai Governorate & Armed Forces Engineering Authority",
-      ar: "محافظة شمال سيناء والهيئة الهندسية للقوات المسلحة",
+      en: "Al-Organi Group",
+      ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: {
-      en: "Armed Forces Engineering Authority Consulting Directorate",
+      en: "Engineering Authority Consulting Directorate",
       ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
     },
     scope: {
@@ -340,11 +334,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "شبكة انحدار رئيسية للصرف الصحي وتصريف مياه الأمطار",
     },
     client: {
-      en: "New Urban Communities Authority (NUCA) & Armed Forces Engineering Authority",
-      ar: "هيئة المجتمعات العمرانية الجديدة والهيئة الهندسية للقوات المسلحة",
+      en: "Al-Organi Group",
+      ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: {
-      en: "Armed Forces Engineering Authority Consulting Directorate",
+      en: "Engineering Authority Consulting Directorate",
       ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
     },
     scope: {
@@ -395,8 +389,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/toshka-reclamation-pumping-package/gallery-11.webp",
     ],
     capacity: {
-      en: "Dual Agricultural Pumping Stations (Contract 39-2022)",
-      ar: "محطتا ضخ ورفع زراعي (عقد 39-2022)",
+      en: "Dual Agricultural Pumping Stations",
+      ar: "محطتا ضخ ورفع زراعي",
     },
     client: {
       en: "National Agricultural Reclamation Authority",
@@ -429,11 +423,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "خط مياه ناقل استراتيجي عالي الضغط من رافع الشلاق",
     },
     client: {
-      en: "National Service Projects Organization (NSPO) & Armed Forces Engineering Authority",
-      ar: "جهاز مشروعات الخدمة الوطنية والهيئة الهندسية للقوات المسلحة",
+      en: "National Service Projects Organization (NSPO)",
+      ar: "جهاز مشروعات الخدمة الوطنية",
     },
     consultant: {
-      en: "Armed Forces Engineering Authority Consulting Directorate",
+      en: "Engineering Authority Consulting Directorate",
       ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
     },
     scope: {
@@ -800,8 +794,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "شبكة نقل وتوزيع مياه شرب حضرية متكاملة",
     },
     client: {
-      en: "Armed Forces Engineering Authority & Al-Arjani Group",
-      ar: "الهيئة الهندسية ومجموعة العرجاني (أبناء سيناء)",
+      en: "Al-Organi Group",
+      ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: {
       en: "Sinai Infrastructure Engineering Committee",

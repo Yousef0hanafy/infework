@@ -1125,7 +1125,6 @@ function AboutPage() {
                         </span>
                       </div>
                     )}
-
                   </div>
 
                   {/* Name & Title */}

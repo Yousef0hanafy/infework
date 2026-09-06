@@ -144,7 +144,7 @@ The Canonical Inventory represents the **evidence-based reconstruction of what I
 - **Current Portfolio Slug:** `toshka-farm-potable-water-plant`
 - **KB ID / Year:** `INF-P-2020-007` / 2020
 - **Source Folder:** `01- Master/2020/07-(محطة تنقية مياه الشرب بمزرعة توشكي سعة 150م3-يوم (عقد 115-2020`
-- **Client / Consultant:** National Service Projects Organization (NSPO) / Armed Forces Engineering Authority
+- **Client / Consultant:** National Service Projects Organization (NSPO)
 - **Scope & Capacity:** Compact clarification skids, multi-media pressure filters, UV disinfection, and high-pressure potable distribution pumps.
 - **Evidence & Confidence:** **Confirmed Match (High Confidence)**. 79 source files, 25 authentic site photos.
 - **Image Asset State:** ✅ Complete (10 authentic WebP photos).
@@ -244,7 +244,7 @@ The Canonical Inventory represents the **evidence-based reconstruction of what I
 - **Current Portfolio Slug:** `sisi-city-wastewater`
 - **KB ID / Year:** `INF-P-2025-003` / 2025
 - **Source Folder:** `01- Master/2025/3- مدينة السيسى عقد الصرف`
-- **Client / Consultant:** North Sinai Urban Development Authority / Armed Forces Engineering Authority
+- **Client / Consultant:** Al-Organi Group
 - **Scope & Capacity:** Turnkey supply and laying of UPVC SN8 Ø160–400mm gravity sewer trunks, precast concrete manholes, stormwater catch basins, and hydrostatic pressure testing.
 - **Evidence & Confidence:** **Confirmed Match (High Confidence)**. 1,524 source files, 341 authentic site photos in archive.
 - **Image Asset State:** ✅ Complete (11 authentic WebP photos).
@@ -324,7 +324,7 @@ The Canonical Inventory represents the **evidence-based reconstruction of what I
 - **Current Portfolio Slug:** `arish-water-supply`
 - **KB ID / Year:** `INF-P-2024-005` / 2024
 - **Source Folder:** `01- Master/2024/05-مشروع تغذيه مطار العريش العرجاني جروب`
-- **Client / Consultant:** Al-Organi Group / Armed Forces Engineering Authority
+- **Client / Consultant:** Al-Organi Group
 - **Scope & Capacity:** Strategic ductile iron and HDPE trunk water pipeline, valve chambers, booster pump skids, and ground storage reservoirs supplying Arish International Airport.
 - **Evidence & Confidence:** **Confirmed Match (High Confidence)**. 947 source files, 206 authentic site photos in archive.
 - **Image Asset State:** ✅ Complete (12 authentic WebP photos).
@@ -336,7 +336,7 @@ The Canonical Inventory represents the **evidence-based reconstruction of what I
 - **Current Portfolio Slug:** `sisi-city-water-supply-network`
 - **KB ID / Year:** `INF-P-2025-004` / 2025
 - **Source Folder:** `01- Master/2025/4-مدينة السيسى عقد المياه`
-- **Client / Consultant:** North Sinai Urban Development Authority / Armed Forces Engineering Authority
+- **Client / Consultant:** Al-Organi Group
 - **Scope & Capacity:** High-pressure potable water feeder pipelines, sectional isolation valves, air release/washout chambers, and district metering units.
 - **Evidence & Confidence:** **Confirmed Match (High Confidence)**. 376 source files.
 - **Image Asset State:** 🔄 Sector-Pooled (9 WebP photos).
