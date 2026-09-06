@@ -70,3 +70,5 @@ Infeworks_KB_Markdown/
 *.njsproj
 *.sln
 *.sw?
+
+temp_projects/
