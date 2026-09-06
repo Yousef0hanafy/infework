@@ -45,33 +45,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2021",
     region: { en: "Sadat City, Menoufia", ar: "مدينة السادات، المنوفية" },
   },
-  "toshka-pumping-stations": {
-    cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
-    gallery: [
-      "/images/projects/toshka-pumping-stations/gallery-2.webp",
-      "/images/projects/toshka-pumping-stations/gallery-3.webp",
-      "/images/projects/toshka-pumping-stations/gallery-10.webp",
-    ],
-    capacity: {
-      en: "22 Pumping Stations · 150 m³/day Purification",
-      ar: "22 محطة رفع · محطة تنقية 150 م³/يوم",
-    },
-    badge: {
-      en: "22 Strategic Pumping Stations & Purification Hub",
-      ar: "22 محطة رفع زراعي استراتيجية ومحطة تنقية",
-    },
-    client: {
-      en: "National Agricultural Reclamation Authority",
-      ar: "جهاز مشروعات الخدمة الوطنية واستصلاح الأراضي",
-    },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
-    scope: {
-      en: "Hydraulic Design · Pumping Station Construction · Electromechanical Fit-Out · SCADA",
-      ar: "تصميم هيدروليكي · إنشاء محطات الرفع · أعمال كهروميكانيكية · تحكم سكادا",
-    },
-    year: "2021",
-    region: { en: "Toshka & East Owainat, Aswan", ar: "توشكى وشرق العوينات، أسوان" },
-  },
   "toshka-farm-potable-water-plant": {
     cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
     gallery: [
@@ -414,29 +387,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2024",
     region: { en: "New Salam City, North Sinai", ar: "مدينة السلام الجديدة، شمال سيناء" },
   },
-  "shubra-shahab-technical-works": {
-    cover: "/images/projects/shubra-shahab-technical-works/cover.webp",
-    gallery: [
-      "/images/projects/shubra-shahab-technical-works/gallery-1.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-2.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-3.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-4.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-5.webp",
-      "/images/projects/shubra-shahab-technical-works/gallery-6.webp",
-    ],
-    capacity: { en: "Auxiliary Hydraulic Infrastructure", ar: "تجهيزات هيدروليكية تكميلية" },
-    client: { en: "Agro-Industrial Development Authority", ar: "جهاز الصناعات والتنمية الزراعية" },
-    consultant: {
-      en: "Infrastructure Engineering Committee",
-      ar: "اللجنة الهندسية للبنية التحتية",
-    },
-    scope: {
-      en: "Bypass Piping · Valve Upgrades · Quantity Surveying · Technical Handover",
-      ar: "خطوط تحويل · تحديث محابس · حصر كميات · تسليم فني",
-    },
-    year: "2022",
-    region: { en: "Shubra Shahab, Qalyubia", ar: "شبرا شهاب، القليوبية" },
-  },
   "toshka-reclamation-pumping-package": {
     cover: "/images/projects/toshka-reclamation-pumping-package/cover.webp",
     gallery: [
@@ -681,96 +631,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     year: "2023",
     region: { en: "New Administrative Capital", ar: "العاصمة الإدارية الجديدة" },
-  },
-  "toshka-pumping-basket-screens": {
-    cover: "/images/projects/toshka-pumping-basket-screens/cover.webp",
-    gallery: [
-      "/images/projects/toshka-pumping-basket-screens/gallery-1.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-2.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-3.webp",
-      "/images/projects/toshka-pumping-basket-screens/gallery-4.webp",
-    ],
-    capacity: {
-      en: "Deep-Well Debris Protection Systems",
-      ar: "منظومات حماية البيارات العميقة من الشوائب",
-    },
-    client: {
-      en: "National Agricultural Reclamation Authority",
-      ar: "جهاز مشروعات استصلاح الأراضي",
-    },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
-    scope: {
-      en: "Basket Screens · Guide Rails · Lifting Hoists · Anti-Corrosion Protection",
-      ar: "مصافي سلية · مسارات توجيه · أوناش رفع · حماية ضد التآكل",
-    },
-    year: "2023",
-    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
-  },
-  "infrastructure-sand-procurement": {
-    cover: "/images/projects/infrastructure-sand-procurement/cover.webp",
-    gallery: [
-      "/images/projects/infrastructure-sand-procurement/gallery-1.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-2.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-3.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-4.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-5.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-6.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-7.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-8.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-9.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-10.webp",
-      "/images/projects/infrastructure-sand-procurement/gallery-11.webp",
-    ],
-    capacity: {
-      en: "Certified Silica Media & Trench Bedding",
-      ar: "رمال سيليكا معتمدة ومهمات تأسيس خطوط",
-    },
-    client: {
-      en: "National Infrastructure & Contracting Authorities",
-      ar: "هيئات البنية التحتية والمقاولات الوطنية",
-    },
-    consultant: {
-      en: "Materials & Geotechnical Engineering Bureau",
-      ar: "مكتب اختبارات المواد والجيوتقنية",
-    },
-    scope: {
-      en: "Silica Sand Supply · Grain Analysis · Trench Bedding Logistics · Quality Testing",
-      ar: "توريد رمال سيليكا · تحاليل تدرج حبيبي · لوجستيات توريد · اختبارات جودة",
-    },
-    year: "2024",
-    region: { en: "National Infrastructure Corridor", ar: "محاور البنية التحتية الوطنية" },
-  },
-  "cargas-grounding-systems": {
-    cover: "/images/projects/cargas-grounding-systems/cover.webp",
-    gallery: [
-      "/images/projects/cargas-grounding-systems/gallery-1.webp",
-      "/images/projects/cargas-grounding-systems/gallery-2.webp",
-      "/images/projects/cargas-grounding-systems/gallery-3.webp",
-      "/images/projects/cargas-grounding-systems/gallery-4.webp",
-      "/images/projects/cargas-grounding-systems/gallery-5.webp",
-      "/images/projects/cargas-grounding-systems/gallery-6.webp",
-      "/images/projects/cargas-grounding-systems/gallery-7.webp",
-      "/images/projects/cargas-grounding-systems/gallery-10.webp",
-      "/images/projects/cargas-grounding-systems/gallery-11.webp",
-    ],
-    capacity: {
-      en: "Petrochemical Grade Earth Grounding",
-      ar: "تأريض كهربائي بمواصفات المنشآت البترولية",
-    },
-    client: {
-      en: "Natural Gas Vehicles Company (Cargas)",
-      ar: "شركة الغاز الطبيعي للسيارات (كارجاس)",
-    },
-    consultant: {
-      en: "Petroleum Safety & Electrical Compliance Office",
-      ar: "مكتب السلامة والتوافق الكهربائي البترولي",
-    },
-    scope: {
-      en: "Deep Ground Wells · Equipotential Bonding · Surge Suppression · Electrical Certification",
-      ar: "آبار تأريض عميق · ربط متساوي للجهد · حماية صواعق · شهادات اعتماد",
-    },
-    year: "2024",
-    region: { en: "Greater Cairo & Delta Stations", ar: "محطات القاهرة الكبرى والدلتا" },
   },
   "date-palm-cold-storage-mep": {
     cover: "/images/projects/date-palm-cold-storage-mep/cover.webp",
@@ -1231,34 +1091,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     year: "2021",
     region: { en: "Ameriya, Alexandria", ar: "العامرية، الإسكندرية" },
-  },
-  "east-delta-wastewater": {
-    cover: "/images/projects/east-delta-wastewater/cover.webp",
-    gallery: [
-      "/images/projects/east-delta-wastewater/gallery-1.webp",
-      "/images/projects/east-delta-wastewater/gallery-2.webp",
-      "/images/projects/east-delta-wastewater/gallery-3.webp",
-      "/images/projects/east-delta-wastewater/gallery-4.webp",
-      "/images/projects/east-delta-wastewater/gallery-5.webp",
-    ],
-    capacity: {
-      en: "Regional Wastewater Collection & Treatment Networks",
-      ar: "شبكات تجميع ومعالجة مياه الصرف الصحي الإقليمية",
-    },
-    client: {
-      en: "National Urban Development Authority",
-      ar: "الهيئة القومية لتطوير التجمعات العمرانية والريفية",
-    },
-    consultant: {
-      en: "Infrastructure Engineering Directorate",
-      ar: "إدارة البنية التحتية الهندسية",
-    },
-    scope: {
-      en: "Gravity Sewer Mains · Lift Stations · Treatment Works · Statutory Compliance Verification",
-      ar: "خطوط الانحدار الرئيسية · محطات الرفع · محطات المعالجة · اختبارات المطابقة البيئية",
-    },
-    year: "2025",
-    region: { en: "East Delta, Sharqia & Peace City", ar: "دلتا الشرق، الشرقية ومدينة السلام" },
   },
 };
 

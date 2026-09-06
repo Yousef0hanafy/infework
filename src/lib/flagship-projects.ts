@@ -39,25 +39,6 @@ const SEEDS: FlagshipSeed[] = [
     },
   },
   {
-    slug: "toshka-pumping-stations",
-    en: {
-      title: "Toshka Multi-Station Infrastructure",
-      challenge:
-        "National agricultural reclamation required 22 pumping stations lifting irrigation water across a dispersed desert footprint on a fixed programme.",
-      outcome:
-        "Hydraulic design, station construction, electromechanical works and O&M executed in-house across all 22 hubs.",
-    },
-    ar: {
-      title: "منظومة محطات الرفع — توشكى",
-      challenge:
-        "مشروع استصلاح زراعي قومي يتطلب 22 محطة ضخ لرفع مياه الري على امتداد صحراوي متباعد وبجدول زمني محدد.",
-      outcome:
-        "تصميم هيدروليكي وإنشاء المحطات وأعمال كهروميكانيكية وتشغيل وصيانة بأطقمنا الذاتية في المحطات الـ22.",
-    },
-    capability_slugs: ["pumping-wells", "infrastructure-networks"],
-    location: { lat: 22.5, lng: 31.4, en: "Toshka, Aswan", ar: "توشكى، أسوان" },
-  },
-  {
     slug: "shubra-shahab-industrial-wastewater",
     en: {
       title: "Shubra Shahab Industrial Wastewater Treatment Facility",
@@ -178,24 +159,6 @@ const SEEDS: FlagshipSeed[] = [
     },
     capability_slugs: ["water-treatment"],
     location: { lat: 31.0409, lng: 28.4, en: "North Coast, Matrouh", ar: "الساحل الشمالي، مطروح" },
-  },
-  {
-    slug: "east-delta-wastewater",
-    en: {
-      title: "East Delta Wastewater Treatment",
-      challenge:
-        "A municipal utility needed treatment works and electromechanical fit-out to bring effluent within statutory limits.",
-      outcome:
-        "Treatment works, electromechanical fit-out, compliance testing and ongoing O&M delivered in-house.",
-    },
-    ar: {
-      title: "معالجة صرف صحي — دلتا الشرق",
-      challenge:
-        "مرفق بلدي يحتاج أعمال معالجة وتجهيز كهروميكانيكي لتوافق المخلفات مع الحدود القانونية.",
-      outcome: "أعمال معالجة وتجهيز كهروميكانيكي واختبارات مطابقة وتشغيل وصيانة بأطقمنا الذاتية.",
-    },
-    capability_slugs: ["wastewater", "infrastructure-networks"],
-    location: { lat: 30.7, lng: 31.75, en: "East Delta, Sharqia", ar: "دلتا الشرق، الشرقية" },
   },
 ];
 
