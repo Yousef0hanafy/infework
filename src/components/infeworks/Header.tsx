@@ -7,7 +7,7 @@ import Logo from "@/components/infeworks/Logo";
 type Locale = "en" | "ar";
 
 const NAV = [
-  { to: "/$locale/what-we-do" as const, en: "What We Do", ar: "ما نفعله" },
+  { to: "/$locale/what-we-do" as const, en: "What We Do", ar: "ما نقوم به" },
   { to: "/$locale/work" as const, en: "Our Work", ar: "أعمالنا" },
   { to: "/$locale/about" as const, en: "About", ar: "من نحن" },
   { to: "/$locale/contact" as const, en: "Contact", ar: "اتصل بنا" },
@@ -109,7 +109,7 @@ export function Header() {
 
       {open ? (
         <div
-          className="iw-glass-light iw-reveal fixed left-0 right-0 top-[73px] z-40 flex flex-col gap-6 px-6 py-10 md:hidden border-b shadow-lg"
+          className="iw-glass-light iw-reveal fixed left-0 right-0 top-[73px] z-40 flex max-h-[calc(100vh-73px)] flex-col gap-6 overflow-y-auto px-6 py-10 md:hidden border-b shadow-lg"
           style={{ backgroundColor: "color-mix(in oklab, var(--iw-surface) 94%, transparent)" }}
         >
           {NAV.map((item) => (

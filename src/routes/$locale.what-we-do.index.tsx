@@ -31,19 +31,32 @@ import { getCapabilities } from "@/lib/public.functions";
 const TITLE = "What We Do — Engineering & EPC Capabilities | Infeworks";
 const DESC =
   "Institutional EPC contractor delivering national water infrastructure, pump stations, treatment plants, pipelines, and industrial electromechanical systems across Egypt.";
+const TITLE_AR = "ما نقوم به — القدرات والمجالات الهندسية ومقاولات EPC | إنفيوركس";
+const DESC_AR =
+  "المقاول الهندسي المتكامل لتنفيذ مشروعات البنية التحتية القومية للمياه، محطات الرفع والضخ، محطات المعالجة والتحلية، شبكات خطوط الأنابيب، والأنظمة الكهروميكانيكية في مصر.";
 
 export const Route = createFileRoute("/$locale/what-we-do/")({
   loader: async () => ({ capabilities: await getCapabilities() }),
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: ({ params }) => {
+    const isAr = params.locale === "ar";
+    const title = isAr ? TITLE_AR : TITLE;
+    const desc = isAr ? DESC_AR : DESC;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image:alt", content: title },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+      ],
+    };
+  },
   component: CapabilityIndex,
 });
 
@@ -58,11 +71,11 @@ const ICONS: Record<string, LucideIcon> = {
 
 const SECTOR_IMAGES: Record<string, string> = {
   "water-treatment": "/images/projects/sadat-city-ro/cover.webp",
-  wastewater: "/images/projects/shubra-shahab-industrial-wastewater/cover.webp",
+  wastewater: "/images/projects/shubra-shahab-industrial-wastewater/cover.jpg",
   "pumping-wells": "/images/projects/qibili-qarun-water-purification/cover.webp",
   "industrial-mep": "/images/projects/ameriya-cold-storage/cover.jpg",
   "infrastructure-networks": "/images/projects/capital-island-infrastructure/cover.webp",
-  "civil-buildings": "/images/projects/al-azhar-institute-minya/cover.webp",
+  "civil-buildings": "/images/projects/qabs-min-nour-mosque/cover.webp",
 };
 
 function CapabilityIndex() {
@@ -642,6 +655,7 @@ function CapabilityIndex() {
                           alt={isAr ? sector.ar : sector.en}
                           className="h-full w-full object-cover"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
 

@@ -47,7 +47,7 @@ const SECTORS = [
 ] as const;
 
 const NAV = [
-  { to: "/$locale/what-we-do" as const, en: "What We Do", ar: "ما نفعله" },
+  { to: "/$locale/what-we-do" as const, en: "What We Do", ar: "ما نقوم به" },
   { to: "/$locale/work" as const, en: "Selected Work", ar: "أعمال مختارة" },
   { to: "/$locale/about" as const, en: "About Infeworks", ar: "عن إنفيوركس" },
   { to: "/$locale/contact" as const, en: "Contact", ar: "اتصل بنا" },

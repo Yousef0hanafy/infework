@@ -3,18 +3,31 @@ import { createFileRoute } from "@tanstack/react-router";
 const TITLE = "Privacy Notice — Infeworks";
 const DESC =
   "How Infeworks collects, uses, and retains information submitted through this website.";
+const TITLE_AR = "إشعار الخصوصية — إنفيوركس";
+const DESC_AR =
+  "بيان سياسة الخصوصية وكيفية تعامل إنفيوركس مع البيانات والمعلومات المستلمة عبر الموقع الإلكتروني.";
 
 export const Route = createFileRoute("/$locale/privacy")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: ({ params }) => {
+    const isAr = params.locale === "ar";
+    const title = isAr ? TITLE_AR : TITLE;
+    const desc = isAr ? DESC_AR : DESC;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image:alt", content: title },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+      ],
+    };
+  },
   component: PrivacyPage,
 });
 

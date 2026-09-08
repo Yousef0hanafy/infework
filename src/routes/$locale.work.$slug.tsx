@@ -22,12 +22,17 @@ export const Route = createFileRoute("/$locale/work/$slug")({
     return resolved;
   },
 
-  head: ({ loaderData }) => {
-    const title = loaderData ? `${loaderData.project.title} — Infeworks` : "Case Study — Infeworks";
+  head: ({ loaderData, params }) => {
+    const isAr = params?.locale === "ar";
+    const suffix = isAr ? "إنفيوركس" : "Infeworks";
+    const fallbackTitle = isAr ? "دراسة حالة لمشروع — إنفيوركس" : "Case Study — Infeworks";
+    const title = loaderData ? `${loaderData.project.title} — ${suffix}` : fallbackTitle;
     const description =
       loaderData?.project.challenge?.slice(0, 155) ??
       loaderData?.project.outcome?.slice(0, 155) ??
-      "Infeworks project case study — scope, execution, and outcome of a delivered water infrastructure facility.";
+      (isAr
+        ? "دراسة حالة لمشروع من إنفيوركس — نطاق الأعمال والتنفيذ والنتائج لمشروعات البنية التحتية للمياه في مصر."
+        : "Infeworks project case study — scope, execution, and outcome of a delivered water infrastructure facility.");
     const meta = loaderData?.project ? getProjectMeta(loaderData.project.slug) : undefined;
     const rawImage = loaderData?.media[0]?.url ?? meta?.cover;
     const absImage = rawImage
@@ -137,8 +142,9 @@ function CaseStudyPage() {
     },
   };
 
-  const schematicSlug = (SECTORS.find((s) => project.capability_slugs?.includes(s.slug))?.slug ??
-    "water-treatment") as SectorSlug;
+  const schematicSlug = project.capability_slugs?.find((slug) =>
+    SECTORS.some((s) => s.slug === slug),
+  ) as SectorSlug | undefined;
 
   const facts = [
     ...(meta?.client
@@ -268,16 +274,20 @@ function CaseStudyPage() {
             ) : null}
 
             {/* Authored process schematic */}
-            <h2 className="display-md mt-16 text-2xl md:text-3xl">
-              {t("Process Schematic", "المخطط الهندسي للعملية")}
-            </h2>
-            <p className="body-reading mt-6 max-w-3xl text-[var(--iw-text-secondary)]">
-              {t(
-                "The treatment and transfer sequence applied on this facility, drawn at concept level.",
-                "تسلسل المعالجة والنقل المطبق في هذه المحطة، معروض على المستوى المفاهيمي.",
-              )}
-            </p>
-            <SectorSchematic slug={schematicSlug} isAr={isAr} className="mt-8" />
+            {schematicSlug ? (
+              <>
+                <h2 className="display-md mt-16 text-2xl md:text-3xl">
+                  {t("Process Schematic", "المخطط الهندسي للعملية")}
+                </h2>
+                <p className="body-reading mt-6 max-w-3xl text-[var(--iw-text-secondary)]">
+                  {t(
+                    "The treatment and transfer sequence applied on this facility, drawn at concept level.",
+                    "تسلسل المعالجة والنقل المطبق في هذه المحطة، معروض على المستوى المفاهيمي.",
+                  )}
+                </p>
+                <SectorSchematic slug={schematicSlug} isAr={isAr} className="mt-8" />
+              </>
+            ) : null}
 
             {gallery.length > 0 ? (
               <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">

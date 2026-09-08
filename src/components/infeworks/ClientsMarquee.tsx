@@ -408,7 +408,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
       }
 
       if (trackRef.current) {
-        trackRef.current.style.transform = `translate3d(${isAr ? positionRef.current : -positionRef.current}px, 0, 0)`;
+        trackRef.current.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
       }
 
       animFrameId.current = requestAnimationFrame(loop);
@@ -446,14 +446,12 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     const now = performance.now();
     const dt = Math.max(now - lastTimeRef.current, 1);
 
-    const directionFactor = isAr ? -1 : 1;
-
-    velocityRef.current = (((currentX - lastXRef.current) * directionFactor) / dt) * 15;
+    velocityRef.current = ((currentX - lastXRef.current) / dt) * 15;
     lastXRef.current = currentX;
     lastTimeRef.current = now;
 
     const setWidth = singleSetWidthRef.current;
-    let newPos = dragStartPosRef.current - deltaX * directionFactor;
+    let newPos = dragStartPosRef.current - deltaX;
 
     if (setWidth > 0) {
       if (newPos >= setWidth) {
@@ -479,9 +477,8 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
     const setWidth = singleSetWidthRef.current;
 
     const isNext = direction === "next";
-    const shouldIncrease = isAr ? !isNext : isNext;
 
-    if (shouldIncrease) {
+    if (isNext) {
       positionRef.current = (positionRef.current + cardWidth) % (setWidth || 1);
     } else {
       positionRef.current =
@@ -616,6 +613,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
       {viewMode === "marquee" && (
         <div
           ref={containerRef}
+          dir="ltr"
           className="relative w-full cursor-grab overflow-hidden active:cursor-grabbing"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

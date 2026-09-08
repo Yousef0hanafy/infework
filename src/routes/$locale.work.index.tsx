@@ -14,6 +14,9 @@ const workSearchSchema = z.object({
 const TITLE = "Engineering Portfolio & Proven Track Record — Infeworks";
 const DESC =
   "Exhaustive case studies and documented deliverables across water treatment, wastewater, utility networks, mega pumping stations, and civil infrastructure in Egypt.";
+const TITLE_AR = "سجل الأعمال والمشروعات الهندسية — إنفيوركس";
+const DESC_AR =
+  "مشروعات ودراسات حالة موثقة لمحطات تنقية وتحلية المياه، محطات الصرف الصحي والصناعي، شبكات المرافق، ومحطات الرفع والضخ العملاقة المنفذة في مصر.";
 
 export const Route = createFileRoute("/$locale/work/")({
   validateSearch: (search: Record<string, unknown>) => workSearchSchema.parse(search),
@@ -24,17 +27,30 @@ export const Route = createFileRoute("/$locale/work/")({
     ]);
     return { projects, capabilities };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
+    const isAr = params?.locale === "ar";
+    const title = isAr ? TITLE_AR : TITLE;
+    const baseDesc = isAr ? DESC_AR : DESC;
     const count = loaderData?.projects.length ?? 0;
-    const description = count > 0 ? `${count} documented engineering projects. ${DESC}` : DESC;
+    const description =
+      count > 0
+        ? isAr
+          ? `${count} مشروعاً هندسياً موثقاً. ${baseDesc}`
+          : `${count} documented engineering projects. ${baseDesc}`
+        : baseDesc;
     return {
       meta: [
-        { title: TITLE },
+        { title },
         { name: "description", content: description },
-        { property: "og:title", content: TITLE },
+        { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
       ],
     };
   },
@@ -89,9 +105,9 @@ function WorkIndex() {
     const flagships = [
       "sadat-city-ro",
       "multi-site-desalination-purification",
-      "shubra-shahab-industrial-wastewater",
+      "toshka-pumping-stations",
       "arish-water-supply",
-      "ameriya-cold-storage",
+      "shubra-shahab-industrial-wastewater",
       "qabs-min-nour-mosque",
     ];
     return [...filtered].sort((a, b) => {
@@ -347,10 +363,7 @@ function WorkIndex() {
                 onClick={() => setLimit((prev) => prev + 12)}
                 className="label-mono inline-flex items-center gap-3 rounded-sm border border-[var(--iw-border)] bg-[var(--iw-surface)] px-8 py-4 text-xs font-bold tracking-widest uppercase text-[var(--iw-text-primary)] transition-all duration-300 hover:border-[var(--iw-accent)] hover:bg-[var(--iw-accent)] hover:text-white cursor-pointer shadow-xs"
               >
-                {t(
-                  `Load More Projects (${visible.length} of ${filteredAndSorted.length})`,
-                  `عرض المزيد من المشروعات (${visible.length} من ${filteredAndSorted.length})`,
-                )}
+                {t("Load More Projects", "عرض المزيد من المشروعات")}
               </button>
             </div>
           )}

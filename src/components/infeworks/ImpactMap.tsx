@@ -150,7 +150,6 @@ export default function ImpactMap({
               }
             >
               {p.label}
-              <span className="ms-1.5 opacity-60">({p.count})</span>
             </button>
           );
         })}
@@ -442,8 +441,7 @@ export default function ImpactMap({
                 }}
               >
                 <p className="label-mono text-[var(--iw-dark-text-muted)]">
-                  {t("Project Directory", "دليل المشروعات")} (
-                  {visibleLocations.reduce((acc, loc) => acc + loc.projects.length, 0)})
+                  {t("Project Directory", "دليل المشروعات")}
                 </p>
               </div>
               <ul className="overflow-y-auto no-scrollbar p-2 sm:p-4">

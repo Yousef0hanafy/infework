@@ -1,5 +1,6 @@
 // Infeworks — server-only public data access (publishable key, RLS as anon)
 import { createClient } from "@supabase/supabase-js";
+import { getProjectMeta } from "./project-meta";
 import type { Database } from "@/integrations/supabase/types";
 import type {
   PublicCapability,
@@ -33,6 +34,71 @@ function normaliseLocale(locale: string): "en" | "ar" {
   return locale === "ar" ? "ar" : "en";
 }
 
+function cleanProjectTitle(title: string): string {
+  return title
+    .replace(/\s*\((?:Contract|عقد)[^)]+\)/gi, "")
+    .replace(/\s*—\s*مكمل\s*\d+/gi, "")
+    .trim();
+}
+
+function resolveCanonicalLocation(
+  slug: string | null,
+  locale: string,
+  location: PublicLocation | null,
+): PublicLocation | null {
+  if (!slug) return location;
+  const isAr = locale === "ar";
+  const meta = getProjectMeta(slug);
+
+  if (slug === "shubra-shahab-industrial-wastewater") {
+    return {
+      lat: location?.lat ?? 30.265,
+      lng: location?.lng ?? 31.25,
+      display_name: isAr ? "شبرا شهاب، القليوبية" : "Shubra Shahab, Qalyubia",
+    };
+  }
+  if (slug === "qabs-min-nour-mosque") {
+    return {
+      lat: location?.lat ?? 30.015,
+      lng: location?.lng ?? 31.685,
+      display_name: isAr ? "العاصمة الإدارية الجديدة" : "New Administrative Capital",
+    };
+  }
+  if (slug === "marble-factory-desalination-plants") {
+    return {
+      lat: location?.lat ?? 29.59,
+      lng: location?.lng ?? 32.71,
+      display_name: isAr ? "رأس سدر (جنوب سيناء)" : "Ras Sedr, South Sinai",
+    };
+  }
+  if (slug === "multi-site-desalination-purification") {
+    return {
+      lat: location?.lat ?? 30.84, // Approx El Hamam / North Coast
+      lng: location?.lng ?? 29.3,
+      display_name: isAr ? "متعدد المواقع" : "Multi-Site",
+    };
+  }
+
+  // If Arabic locale and meta has region, always return localized Arabic region
+  if (isAr && meta?.region?.ar) {
+    return {
+      lat: location?.lat ?? 30.0444,
+      lng: location?.lng ?? 31.2357,
+      display_name: meta.region.ar,
+    };
+  }
+
+  // Clean up any remaining "Governorate" trailing text in English
+  if (location?.display_name) {
+    return {
+      ...location,
+      display_name: location.display_name.replace(/\s+Governorate$/i, "").trim(),
+    };
+  }
+
+  return location;
+}
+
 function toProject(
   row: {
     project_id: string | null;
@@ -47,16 +113,22 @@ function toProject(
   location: PublicLocation | null = null,
 ): PublicProject | null {
   if (!row.project_id || !row.slug || !row.title) return null;
+  const locLang = row.locale ?? "en";
+  let finalCapabilitySlugs = capability_slugs;
+  if (row.slug === "toshka-pumping-stations") {
+    finalCapabilitySlugs = ["wastewater", ...capability_slugs.filter((s) => s !== "pumping-wells")];
+  }
+
   return {
     project_id: row.project_id,
     slug: row.slug,
-    locale: row.locale ?? "en",
-    title: row.title,
+    locale: locLang,
+    title: cleanProjectTitle(row.title),
     challenge: row.challenge,
     outcome: row.outcome,
     created_at: row.created_at,
-    capability_slugs,
-    location,
+    capability_slugs: finalCapabilitySlugs,
+    location: resolveCanonicalLocation(row.slug, locLang, location),
   };
 }
 
@@ -239,9 +311,9 @@ export async function fetchPublicProjectBySlug(
       }
     }
 
-    project.location = location;
+    project.location = resolveCanonicalLocation(slug, lang, location);
 
-    return { project, location, claims, media };
+    return { project, location: project.location, claims, media };
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjectBySlug exception", err);
     return null;

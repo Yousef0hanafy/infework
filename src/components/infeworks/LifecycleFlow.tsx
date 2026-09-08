@@ -168,7 +168,7 @@ export default function LifecycleFlow({ isAr }: { isAr: boolean }) {
                 {t(s.name)}
               </span>
               <span
-                className="mt-6 block h-px w-full origin-left transition-transform duration-500"
+                className="mt-6 block h-px w-full origin-left rtl:origin-right transition-transform duration-500"
                 style={{
                   backgroundColor: isActive ? "var(--iw-dark-accent)" : "var(--iw-border)",
                   transform: isActive ? "scaleX(1)" : "scaleX(0.25)",

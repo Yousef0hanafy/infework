@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SECTORS } from "@/lib/sectors";
 
-const BASE_URL = "https://infeworks.com";
+const BASE_URL =
+  (typeof process !== "undefined" && (process.env.SITE_URL || process.env.VITE_SITE_URL)) ||
+  "https://www.infeworks.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -33,17 +35,28 @@ export const Route = createFileRoute("/sitemap.xml")({
           });
         }
 
-        // Active published projects from database (with fallback to flagship seeds)
+        // Active published projects from database, seeds, and curated project metadata
         const { fetchPublicProjects } = await import("@/lib/public-data.server");
         const { getFlagshipProjects } = await import("@/lib/flagship-projects");
-        const publicProjects = await fetchPublicProjects("en").catch(() => []);
-        const activeProjects =
-          publicProjects.length > 0 ? publicProjects : getFlagshipProjects("en");
+        const { PROJECT_META } = await import("@/lib/project-meta");
 
-        for (const project of activeProjects) {
-          if (project.slug === "east-delta-wastewater") continue;
+        const publicProjects = await fetchPublicProjects("en").catch(() => []);
+        const seedProjects = getFlagshipProjects("en");
+
+        const projectSlugs = new Set<string>();
+        for (const p of publicProjects) {
+          if (p.slug && p.slug !== "east-delta-wastewater") projectSlugs.add(p.slug);
+        }
+        for (const p of seedProjects) {
+          if (p.slug && p.slug !== "east-delta-wastewater") projectSlugs.add(p.slug);
+        }
+        for (const slug of Object.keys(PROJECT_META)) {
+          if (slug && slug !== "east-delta-wastewater") projectSlugs.add(slug);
+        }
+
+        for (const slug of projectSlugs) {
           pages.push({
-            path: `/work/${project.slug}`,
+            path: `/work/${slug}`,
             priority: "0.8",
             changefreq: "monthly",
           });

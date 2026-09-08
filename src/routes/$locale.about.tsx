@@ -861,7 +861,7 @@ function AboutPage() {
                       {t("Houssien Derbaze", "حسين درباز")}
                     </h3>
                     <p className="label-mono text-xs text-[var(--iw-dark-accent)] mt-1 uppercase tracking-wider font-semibold">
-                      {t("Founder & Chairman", "المؤسس ورئيس مجلس الإدارة")}
+                      {t("Chairman", "المؤسس ورئيس مجلس الإدارة")}
                     </p>
                   </div>
                 </div>
@@ -909,7 +909,7 @@ function AboutPage() {
                       {t("Houssien Derbaze", "حسين درباز")}
                     </span>
                     <span className="label-mono text-xs text-white/60 mt-0.5 block">
-                      {t("Founder & Chairman · Infeworks", "المؤسس ورئيس مجلس الإدارة · إنفيوركس")}
+                      {t("Chairman · Infeworks", "المؤسس ورئيس مجلس الإدارة · إنفيوركس")}
                     </span>
                   </div>
 

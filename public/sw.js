@@ -1,7 +1,7 @@
 // Infeworks Progressive Web App Service Worker
-const CACHE_NAME = "infeworks-pwa-v1";
+const CACHE_NAME = "infeworks-pwa-v2";
 const STATIC_ASSETS = [
-  "/",
+  "/offline.html",
   "/manifest.webmanifest",
   "/pwa-192x192.png",
   "/pwa-512x512.png",
@@ -56,8 +56,17 @@ self.addEventListener("fetch", (event) => {
   // Network-first with cache fallback for navigation & pages
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request).catch(() => {
-        return caches.match(request).then((cached) => cached || caches.match("/"));
+      fetch(request).catch(async () => {
+        const cached = await caches.match(request);
+        if (cached) return cached;
+        const offline = await caches.match("/offline.html");
+        return (
+          offline ||
+          new Response("Offline", {
+            status: 503,
+            headers: { "Content-Type": "text/plain" },
+          })
+        );
       }),
     );
     return;

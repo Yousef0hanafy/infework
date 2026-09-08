@@ -556,8 +556,22 @@
   }
 }
 
+@keyframes iw-scroll-trace-rtl {
+  0% {
+    transform: translateX(140%);
+  }
+  100% {
+    transform: translateX(-400%);
+  }
+}
+
 .iw-scroll-trace {
   animation: iw-scroll-trace 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+[dir="rtl"] .iw-scroll-trace,
+html[dir="rtl"] .iw-scroll-trace {
+  animation-name: iw-scroll-trace-rtl;
 }
 
 @media (prefers-reduced-motion: reduce) {

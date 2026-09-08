@@ -152,12 +152,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Turnkey engineering contractor delivering water treatment, desalination, wastewater networks, pumping stations, and industrial electromechanical systems across Egypt.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://infeworks.com/logo.png" },
+      { property: "og:image", content: "https://www.infeworks.com/logo.png" },
       { property: "og:image:alt", content: "Infeworks International for Engineering Works Logo" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Infeworks" },
-      { name: "twitter:image", content: "https://infeworks.com/logo.png" },
-      { name: "theme-color", content: "#070e1a" },
+      { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
       { name: "mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
@@ -166,6 +165,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com" },
+      { rel: "preconnect", href: "https://www.clarity.ms" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -194,9 +195,9 @@ const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Corporation",
   name: "Infeworks — International for Engineering Works",
-  alternateName: "شركة إنفووركس للأعمال الهندسية",
-  url: "https://infeworks.com",
-  logo: "https://infeworks.com/logo.png",
+  alternateName: "الشركة الدولية للأعمال الهندسية (إنفيوركس)",
+  url: "https://www.infeworks.com",
+  logo: "https://www.infeworks.com/logo.png",
   foundingDate: "2006",
   description:
     "Turnkey EPC contractor for water, wastewater, civil infrastructure, and electromechanical engineering in Egypt.",
@@ -224,14 +225,28 @@ function RootShell({ children }: { children: ReactNode }) {
 
   // Build canonical and alternate hreflang URLs
   const cleanPath = pathname.replace(/^\/(?:en|ar)(?=\/|$)/, "") || "/";
-  const enUrl = `https://infeworks.com/en${cleanPath === "/" ? "" : cleanPath}`;
-  const arUrl = `https://infeworks.com/ar${cleanPath === "/" ? "" : cleanPath}`;
+  const enUrl = `https://www.infeworks.com/en${cleanPath === "/" ? "" : cleanPath}`;
+  const arUrl = `https://www.infeworks.com/ar${cleanPath === "/" ? "" : cleanPath}`;
   const currentCanonical = isArabic ? arUrl : enUrl;
 
   return (
     <html lang={lang} dir={dir}>
       <head>
         <HeadContent />
+        {/* Google Analytics 4 (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRLEBFMCSD" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-DRLEBFMCSD');`,
+          }}
+        />
+        {/* Microsoft Clarity */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yf8qn299e3");`,
+          }}
+        />
         <link rel="canonical" href={currentCanonical} />
         <link rel="alternate" hrefLang="en" href={enUrl} />
         <link rel="alternate" hrefLang="ar" href={arUrl} />

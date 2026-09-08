@@ -28,12 +28,15 @@ export const Route = createFileRoute("/$locale/what-we-do/$sector")({
     return { published };
   },
   head: ({ params }) => {
+    const isAr = params.locale === "ar";
     const sector = getSector(params.sector);
-    const name = sector ? sector.en : "Capability";
-    const title = `${name} — Infeworks`;
+    const name = sector ? (isAr ? sector.ar : sector.en) : (isAr ? "المجالات الهندسية" : "Capability");
+    const title = isAr ? `${name} — إنفيوركس` : `${name} — Infeworks`;
     const desc = sector
-      ? sector.defEn
-      : "Infeworks engineering capability — water and wastewater infrastructure in Egypt.";
+      ? (isAr ? sector.defAr : sector.defEn)
+      : isAr
+        ? "مجالات وقدرات إنفيوركس الهندسية — محطات وشبكات البنية التحتية للمياه في مصر."
+        : "Infeworks engineering capability — water and wastewater infrastructure in Egypt.";
     return {
       meta: [
         { title },
@@ -280,6 +283,7 @@ function SectorPage() {
                           src={meta.cover}
                           alt={p.title}
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <span
@@ -300,6 +304,7 @@ function SectorPage() {
                           src={meta.cover}
                           alt={p.title}
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
@@ -326,7 +331,7 @@ function SectorPage() {
                         style={{ color: "var(--iw-accent)" }}
                       >
                         {t("Case study & specs", "دراسة الحالة والمواصفات")}
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </span>
                     </div>
                   </Link>

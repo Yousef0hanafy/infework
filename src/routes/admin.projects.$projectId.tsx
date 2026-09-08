@@ -1357,6 +1357,7 @@ function MediaCard({
             alt={asset.alt_en ?? asset.alt_ar ?? "Project media"}
             className="h-full w-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         ) : null}
       </div>

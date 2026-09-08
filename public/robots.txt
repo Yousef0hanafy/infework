@@ -1,5 +1,7 @@
 User-agent: *
+Disallow: /admin
 Disallow: /admin/
+Disallow: /admin_
 Allow: /
 
-Sitemap: https://infeworks.com/sitemap.xml
+Sitemap: https://www.infeworks.com/sitemap.xml

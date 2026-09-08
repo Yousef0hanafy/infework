@@ -39,6 +39,30 @@ const SEEDS: FlagshipSeed[] = [
     },
   },
   {
+    slug: "toshka-pumping-stations",
+    en: {
+      title: "Toshka Multi-Station Pumping System (22 Hubs)",
+      challenge:
+        "Critical desert lifting, pumping, and distribution infrastructure to support strategic agricultural reclamation in Toshka under harsh ambient temperatures and high hydraulic heads.",
+      outcome:
+        "Completed mechanical, electrical, and hydraulic stations with heavy-duty pump sets, basket screens, and automated discharge controls handed over for long-term operation.",
+    },
+    ar: {
+      title: "منظومة محطات رفع وتوزيع مياه توشكى (22 محطة)",
+      challenge:
+        "بنية تحتية استراتيجية للرفع والضخ والتوزيع لدعم مشروعات الاستصلاح الزراعي في توشكى تحت ظروف مناخية صحراوية قاسية وفروق مناسيب هيدروليكية عالية.",
+      outcome:
+        "استكمال وتدشين محطات ميكانيكية وكهربائية ومحطات رفع مع طلمبات الخدمة الشاقة ومصافي حجز الشوائب وأنظمة التحكم الآلي في التصرف.",
+    },
+    capability_slugs: ["wastewater", "infrastructure-networks"],
+    location: {
+      lat: 22.6833,
+      lng: 31.7167,
+      en: "Toshka, Aswan",
+      ar: "توشكى، أسوان",
+    },
+  },
+  {
     slug: "shubra-shahab-industrial-wastewater",
     en: {
       title: "Shubra Shahab Industrial Wastewater Treatment Facility",
@@ -54,7 +78,7 @@ const SEEDS: FlagshipSeed[] = [
       outcome:
         "أحواض خرسانية، ووحدات تعويم بالهواء المذاب (DAF)، وحقن كيميائي، وخط معالجة بيولوجية تم تصنيعها وتركيبها وتشغيلها بنجاح.",
     },
-    capability_slugs: ["wastewater", "industrial-mep"],
+    capability_slugs: ["industrial-mep", "wastewater"],
     location: {
       lat: 30.2833,
       lng: 31.2167,

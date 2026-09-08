@@ -31,6 +31,10 @@ import { getPublicProjects, getSiteSettings } from "@/lib/public.functions";
 const DEFAULT_TITLE = "Infeworks — Water Infrastructure, Engineered & Delivered";
 const DEFAULT_DESC =
   "Infeworks — the vertically integrated water and wastewater infrastructure contractor for Egypt's state, industrial, and agricultural clients.";
+const DEFAULT_TITLE_AR =
+  "إنفيوركس — الشركة الدولية للأعمال الهندسية | محطات وشبكات المياه والبنية التحتية";
+const DEFAULT_DESC_AR =
+  "المقاول الهندسي المتكامل لتنفيذ محطات تنقية وتحلية ومعالجة المياه والصرف الصحي وشبكات المرافق الكبرى في مصر منذ عام 2006.";
 
 export const Route = createFileRoute("/$locale/")({
   loader: async ({ params }) => {
@@ -40,10 +44,13 @@ export const Route = createFileRoute("/$locale/")({
     ]);
     return { projects, settings };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
+    const isAr = params?.locale === "ar";
+    const defaultTitle = isAr ? DEFAULT_TITLE_AR : DEFAULT_TITLE;
+    const defaultDesc = isAr ? DEFAULT_DESC_AR : DEFAULT_DESC;
     const settings = loaderData?.settings ?? {};
-    const title = settings["home_title"] ?? DEFAULT_TITLE;
-    const description = settings["home_description"] ?? DEFAULT_DESC;
+    const title = (isAr ? settings["home_title_ar"] : settings["home_title"]) ?? settings["home_title"] ?? defaultTitle;
+    const description = (isAr ? settings["home_description_ar"] : settings["home_description"]) ?? settings["home_description"] ?? defaultDesc;
 
     return {
       meta: [
@@ -53,7 +60,7 @@ export const Route = createFileRoute("/$locale/")({
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
         { property: "og:image", content: "https://infeworks.com/logo.png" },
-        { property: "og:image:alt", content: "Infeworks Logo" },
+        { property: "og:image:alt", content: isAr ? "شعار إنفيوركس" : "Infeworks Logo" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
@@ -80,8 +87,8 @@ const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
     ar: "محطة تحلية السادات",
   },
   wastewater: {
-    en: "Shubra Shahab Industrial WWTP",
-    ar: "محطة معالجة شبرا شهاب",
+    en: "Food City Industrial Wastewater",
+    ar: "محطة معالجة الصرف بالمدينة الغذائية",
   },
   "pumping-wells": {
     en: "Toshka Multi-Station System (22 Hubs)",
@@ -96,19 +103,19 @@ const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
     ar: "جامع ومجمع قبس من نور",
   },
   "industrial-mep": {
-    en: "Ameriya Cold Storage Process Cooling",
-    ar: "دوائر تبريد العمليات الصناعية بالعامرية",
+    en: "Shubra Shahab Industrial Agro-Effluent Plant",
+    ar: "محطة معالجة الصرف الصناعي بشبرا شهاب",
   },
 };
 
 const PROJECT_SECTORS: Record<string, { en: string; ar: string }> = {
   "sadat-city-ro": { en: "Water & Desalination", ar: "المياه والتحلية" },
   "multi-site-desalination-purification": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
-  "toshka-pumping-stations": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
-  "shubra-shahab-industrial-wastewater": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
+  "toshka-pumping-stations": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
+  "shubra-shahab-industrial-wastewater": { en: "Industrial & MEP", ar: "الصناعة والكهروميكانيك" },
   "food-city-treatment": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
   "arish-water-supply": { en: "Infrastructure Networks", ar: "شبكات المرافق والبنية التحتية" },
-  "ameriya-cold-storage": { en: "Industrial MEP & Energy", ar: "الكهروميكانيكا والطاقة" },
+  "ameriya-cold-storage": { en: "Industrial & MEP", ar: "الصناعة والكهروميكانيك" },
   "qabs-min-nour-mosque": { en: "Civil & Buildings", ar: "الإنشاءات المدنية والمعمارية" },
 };
 
@@ -190,9 +197,9 @@ function LocaleHome() {
     const flagships = [
       "sadat-city-ro",
       "multi-site-desalination-purification",
-      "shubra-shahab-industrial-wastewater",
+      "toshka-pumping-stations",
       "arish-water-supply",
-      "ameriya-cold-storage",
+      "shubra-shahab-industrial-wastewater",
       "qabs-min-nour-mosque",
     ];
     return [...projects]
@@ -374,7 +381,7 @@ function LocaleHome() {
                   {t(item.en, item.ar)}
                 </p>
                 <span
-                  className="mt-6 block h-px w-10 origin-left transition-transform duration-500 group-hover:scale-x-[4]"
+                  className="mt-6 block h-px w-10 origin-left rtl:origin-right transition-transform duration-500 group-hover:scale-x-[4]"
                   style={{ backgroundColor: "var(--iw-dark-accent)" }}
                 />
               </div>
@@ -485,7 +492,7 @@ function LocaleHome() {
                     style={{ color: "var(--iw-accent)" }}
                   >
                     {t("Technical detail", "التفاصيل الفنية")}
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </span>
                 </Link>
               );
@@ -592,7 +599,9 @@ function LocaleHome() {
                                 <span />
                               )}
                               <span className="text-[var(--iw-text-secondary)]">
-                                {p.location?.display_name ?? meta?.region?.en ?? ""} ·{" "}
+                                {isAr
+                                  ? (meta?.region?.ar ?? p.location?.display_name ?? "")
+                                  : (p.location?.display_name ?? meta?.region?.en ?? "")} ·{" "}
                                 {meta?.year ?? "2025"}
                               </span>
                             </div>
@@ -639,7 +648,7 @@ function LocaleHome() {
                           >
                             <span className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]">
                               {t("Explore Case Study", "عرض دراسة الحالة")}
-                              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
+                              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180 rtl:group-hover:-translate-x-1.5" />
                             </span>
                             <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-60" />
                           </div>
@@ -713,21 +722,23 @@ function LocaleHome() {
 
                       {/* Header & Meta */}
                       <div
-                        className="mt-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 border-t pt-4"
+                        className="mt-5 flex items-start justify-between gap-2 border-t pt-4 min-h-[2.75rem]"
                         style={{ borderColor: "var(--iw-border)" }}
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
                           {sectorInfo ? (
-                            <span className="label-mono text-[11px] font-semibold uppercase tracking-wider text-[var(--iw-accent)]">
+                            <span className="label-mono text-[11px] font-semibold uppercase tracking-wider text-[var(--iw-accent)] leading-tight">
                               {isAr ? sectorInfo.ar : sectorInfo.en}
                             </span>
                           ) : null}
                         </div>
                         <span
-                          className="label-mono text-xs shrink-0"
+                          className="label-mono text-xs text-end shrink-0 max-w-[50%] truncate"
                           style={{ color: "var(--iw-text-secondary)" }}
                         >
-                          {p.location?.display_name ?? meta?.year ?? ""}
+                          {isAr
+                            ? (meta?.region?.ar ?? p.location?.display_name ?? meta?.year ?? "")
+                            : (p.location?.display_name ?? meta?.region?.en ?? meta?.year ?? "")}
                         </span>
                       </div>
 
@@ -764,7 +775,7 @@ function LocaleHome() {
                     >
                       <span className="label-mono inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]">
                         {t("View Case Study", "عرض دراسة الحالة")}
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180" />
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1.5 rtl:rotate-180 rtl:group-hover:-translate-x-1.5" />
                       </span>
                       <span className="h-1.5 w-1.5 rounded-full bg-[var(--iw-accent)] opacity-60" />
                     </div>

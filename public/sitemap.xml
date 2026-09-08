@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.infeworks.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <!-- Sectors -->
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/water-treatment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/water-treatment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/water-treatment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/water-treatment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/water-treatment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/water-treatment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/water-treatment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/water-treatment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/wastewater</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/wastewater"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/wastewater"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/wastewater"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/wastewater</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/wastewater"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/wastewater"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/wastewater"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/pumping-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/pumping-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/pumping-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/pumping-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/pumping-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/pumping-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/pumping-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/pumping-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/infrastructure-networks</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/infrastructure-networks"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/infrastructure-networks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/infrastructure-networks"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/infrastructure-networks</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/infrastructure-networks"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/infrastructure-networks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/infrastructure-networks"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/civil-buildings</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/civil-buildings"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/civil-buildings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/civil-buildings"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/civil-buildings</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/civil-buildings"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/civil-buildings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/civil-buildings"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/what-we-do/industrial-mep</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/industrial-mep"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/industrial-mep"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/industrial-mep"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/what-we-do/industrial-mep</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/what-we-do/industrial-mep"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/what-we-do/industrial-mep"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/what-we-do/industrial-mep"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Documented Projects -->
+  <url>
+    <loc>https://www.infeworks.com/en/work/sadat-city-ro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/sadat-city-ro"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/sadat-city-ro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/sadat-city-ro"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/sadat-city-ro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/sadat-city-ro"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/sadat-city-ro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/sadat-city-ro"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/toshka-pumping-stations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/toshka-pumping-stations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/toshka-pumping-stations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/toshka-pumping-stations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/toshka-pumping-stations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/toshka-pumping-stations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/toshka-pumping-stations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/toshka-pumping-stations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/shubra-shahab-industrial-wastewater</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/shubra-shahab-industrial-wastewater"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/shubra-shahab-industrial-wastewater"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/shubra-shahab-industrial-wastewater"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/shubra-shahab-industrial-wastewater</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/shubra-shahab-industrial-wastewater"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/shubra-shahab-industrial-wastewater"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/shubra-shahab-industrial-wastewater"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/food-city-treatment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/food-city-treatment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/food-city-treatment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/food-city-treatment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/food-city-treatment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/food-city-treatment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/food-city-treatment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/food-city-treatment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/arish-water-supply</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/arish-water-supply"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/arish-water-supply"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/arish-water-supply"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/arish-water-supply</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/arish-water-supply"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/arish-water-supply"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/arish-water-supply"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/ameriya-cold-storage</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/ameriya-cold-storage"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/ameriya-cold-storage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/ameriya-cold-storage"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/ameriya-cold-storage</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/ameriya-cold-storage"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/ameriya-cold-storage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/ameriya-cold-storage"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/awlad-el-sheikh-pumping</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/awlad-el-sheikh-pumping"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/awlad-el-sheikh-pumping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/awlad-el-sheikh-pumping"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/awlad-el-sheikh-pumping</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/awlad-el-sheikh-pumping"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/awlad-el-sheikh-pumping"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/awlad-el-sheikh-pumping"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/badr-city-civil-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-civil-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-civil-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-civil-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/badr-city-civil-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-civil-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-civil-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-civil-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/badr-city-hospital</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-hospital"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-hospital"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-hospital"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/badr-city-hospital</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-hospital"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-hospital"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-hospital"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/badr-city-sports-club</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-sports-club"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-sports-club"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-sports-club"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/badr-city-sports-club</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-sports-club"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-sports-club"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-sports-club"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/badr-city-traffic-department</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-traffic-department"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-traffic-department"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-traffic-department"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/badr-city-traffic-department</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/badr-city-traffic-department"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/badr-city-traffic-department"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/badr-city-traffic-department"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/qabs-min-nour-mosque</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/qabs-min-nour-mosque"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/qabs-min-nour-mosque"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/qabs-min-nour-mosque"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/qabs-min-nour-mosque</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/qabs-min-nour-mosque"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/qabs-min-nour-mosque"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/qabs-min-nour-mosque"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/rawdet-sayeda-infrastructure</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/rawdet-sayeda-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/rawdet-sayeda-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/rawdet-sayeda-infrastructure"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/rawdet-sayeda-infrastructure</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/rawdet-sayeda-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/rawdet-sayeda-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/rawdet-sayeda-infrastructure"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/sisi-city-water-supply-network</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/sisi-city-water-supply-network"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/sisi-city-water-supply-network"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/sisi-city-water-supply-network"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/sisi-city-water-supply-network</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/sisi-city-water-supply-network"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/sisi-city-water-supply-network"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/sisi-city-water-supply-network"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/south-valley-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/south-valley-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/south-valley-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/south-valley-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/south-valley-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/south-valley-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/south-valley-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/south-valley-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/en/work/western-desert-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/western-desert-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/western-desert-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/western-desert-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.infeworks.com/ar/work/western-desert-wells</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.infeworks.com/en/work/western-desert-wells"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.infeworks.com/ar/work/western-desert-wells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.infeworks.com/en/work/western-desert-wells"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -45,18 +45,41 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2021",
     region: { en: "Sadat City, Menoufia", ar: "مدينة السادات، المنوفية" },
   },
+  "toshka-pumping-stations": {
+    cover: "/images/projects/toshka-pumping-stations/cover.webp",
+    gallery: [
+      "/images/projects/toshka-pumping-stations/gallery-2.webp",
+      "/images/projects/toshka-pumping-stations/gallery-3.webp",
+      "/images/projects/toshka-pumping-stations/gallery-10.webp",
+    ],
+    capacity: {
+      en: "22 Irrigation & Water Pumping Stations",
+      ar: "منظومة 22 محطة رفع وضخ مياه",
+    },
+    badge: {
+      en: "22-Station Pumping Complex",
+      ar: "مجمع 22 محطة رفع زراعي استراتيجي",
+    },
+    client: {
+      en: "National Service Projects Organization (NSPO)",
+      ar: "جهاز مشروعات الخدمة الوطنية",
+    },
+    consultant: {
+      en: "Al-Amar Group",
+      ar: "مجموعة العمار",
+    },
+    scope: {
+      en: "Turnkey Mechanical & Electrical Pumping · Basket Screens · Automation · Long-Term O&M",
+      ar: "أعمال كهروميكانيكية متكاملة · مصافي شوائب · تحكم آلي · تشغيل وصيانة ممتدة",
+    },
+    year: "2022",
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
+  },
   "toshka-farm-potable-water-plant": {
     cover: "/images/projects/toshka-farm-potable-water-plant/cover.webp",
     gallery: [
       "/images/projects/toshka-farm-potable-water-plant/gallery-1.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-2.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-3.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-4.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-5.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-6.webp",
       "/images/projects/toshka-farm-potable-water-plant/gallery-9.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-10.webp",
-      "/images/projects/toshka-farm-potable-water-plant/gallery-11.webp",
     ],
     capacity: {
       en: "150 m³/day Potable Purification Station",
@@ -70,13 +93,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "National Service Projects Organization (NSPO)",
       ar: "جهاز مشروعات الخدمة الوطنية",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "Al-Amar Group", ar: "مجموعة العمار" },
     scope: {
       en: "Compact Water Treatment · Clarifiers · UV Disinfection · Distribution Pumps",
       ar: "تنقية مياه مدمجة · مروقات · تعقيم UV · طلمبات توزيع",
     },
     year: "2020",
-    region: { en: "Toshka, Aswan Governorate", ar: "توشكى، محافظة أسوان" },
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
   },
   "toshka-expanded-water-networks": {
     cover: "/images/projects/toshka-expanded-water-networks/cover.webp",
@@ -91,7 +114,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     ],
     capacity: { en: "Expanded Desert Lift Stations", ar: "محطات رفع مياه صحراوية مستجدة" },
     client: {
-      en: "National Service Projects Organization",
+      en: "National Service Projects Organization (NSPO)",
       ar: "جهاز مشروعات الخدمة الوطنية",
     },
     consultant: { en: "MAST Group", ar: "مجموعة ماست" },
@@ -118,7 +141,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "Al-Organi Group",
       ar: "مجموعة العرجاني (أبناء سيناء)",
     },
-    consultant: { en: "Engineering Authority Supervision Office", ar: "مكتب الإشراف الهندسي" },
+    consultant: { en: "Amar Group", ar: "مجموعة عمار" },
     scope: {
       en: "Supply Trunk Lines · Strategic Storage Tanks · Booster Stations · Valve Chambers",
       ar: "خطوط التغذية الناقلة · خزانات التكديس الاستراتيجية · محطات الرفع · غرف المحابس",
@@ -128,7 +151,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   },
   "awlad-el-sheikh-pumping": {
     cover: "/images/projects/awlad-el-sheikh-pumping/cover.webp",
-    gallery: ["/images/projects/awlad-el-sheikh-pumping/gallery-2.webp"],
+    gallery: [
+      "/images/projects/awlad-el-sheikh-pumping/gallery-2.webp",
+      "/images/projects/awlad-el-sheikh-pumping/gallery-3.webp",
+    ],
     capacity: { en: "Potable Water Lifting Hub", ar: "محطة رفع وتغذية مياه الشرب" },
     client: {
       en: "Potable Water & Sanitation Authority (NOPWASD)",
@@ -178,9 +204,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/multi-site-desalination-purification/gallery-5.webp",
       "/images/projects/multi-site-desalination-purification/gallery-6.webp",
       "/images/projects/multi-site-desalination-purification/gallery-7.webp",
-      "/images/projects/multi-site-desalination-purification/gallery-8.webp",
       "/images/projects/multi-site-desalination-purification/gallery-9.webp",
-      "/images/projects/multi-site-desalination-purification/gallery-10.webp",
       "/images/projects/multi-site-desalination-purification/gallery-11.webp",
     ],
     capacity: {
@@ -277,8 +301,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     year: "2025",
     region: {
-      en: "New Administrative Capital (R3 District)",
-      ar: "العاصمة الإدارية الجديدة (الحي السكني R3)",
+      en: "New Administrative Capital",
+      ar: "العاصمة الإدارية الجديدة",
     },
   },
   "rafah-bedouin-housing": {
@@ -294,7 +318,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/rafah-bedouin-housing/gallery-8.webp",
       "/images/projects/rafah-bedouin-housing/gallery-9.webp",
       "/images/projects/rafah-bedouin-housing/gallery-10.webp",
-      "/images/projects/rafah-bedouin-housing/gallery-11.webp",
     ],
     capacity: {
       en: "Zone 1 Development · 100+ Bedouin Residential Units",
@@ -324,10 +347,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       "/images/projects/sisi-city-wastewater/gallery-5.webp",
       "/images/projects/sisi-city-wastewater/gallery-6.webp",
       "/images/projects/sisi-city-wastewater/gallery-7.webp",
-      "/images/projects/sisi-city-wastewater/gallery-8.webp",
       "/images/projects/sisi-city-wastewater/gallery-9.webp",
-      "/images/projects/sisi-city-wastewater/gallery-10.webp",
-      "/images/projects/sisi-city-wastewater/gallery-11.webp",
     ],
     capacity: {
       en: "Gravity Sewer & Stormwater Drainage Trunk Line",
@@ -396,13 +416,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "National Service Projects Organization",
       ar: "جهاز مشروعات الخدمة الوطنية",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "Al-Amar Group", ar: "مجموعة العمار" },
     scope: {
       en: "Station Civil Works · Heavy Pump Sets · Trash Screens · SCADA Integration",
       ar: "أعمال مدنية للمحطات · طلمبات خدمة شاقة · مصافي شوائب · تحكم سكادا",
     },
     year: "2022",
-    region: { en: "Toshka, Aswan Governorate", ar: "توشكى، محافظة أسوان" },
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
   },
   "salam-city-water-pipeline": {
     cover: "/images/projects/salam-city-water-pipeline/cover.webp",
@@ -469,7 +489,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "أعمال مدنية · كهروميكانيك · فلاتر وترويق · تشغيل تجريبي",
     },
     year: "2020",
-    region: { en: "Beni Suef Governorate", ar: "محافظة بني سويف" },
+    region: { en: "Beni Suef", ar: "بني سويف" },
   },
   "qibili-qarun-water-purification": {
     cover: "/images/projects/qibili-qarun-water-purification/cover.webp",
@@ -500,12 +520,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Qibili Qarun, Fayoum", ar: "قبلي قارون، الفيوم" },
   },
   "shubra-shahab-industrial-wastewater": {
-    cover: "/images/projects/shubra-shahab-industrial-wastewater/cover.webp",
+    cover: "/images/projects/shubra-shahab-industrial-wastewater/cover.jpg",
     gallery: [
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-1.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-2.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-3.webp",
-      "/images/projects/shubra-shahab-industrial-wastewater/gallery-6.webp",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-1.jpg",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-2.jpg",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-3.jpg",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-4.jpg",
+      "/images/projects/shubra-shahab-industrial-wastewater/gallery-5.jpg",
     ],
     capacity: {
       en: "Industrial Agro-Effluent Treatment Train",
@@ -530,11 +551,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "marble-factory-desalination-plants": {
     cover: "/images/projects/marble-factory-desalination-plants/cover.webp",
     gallery: [
-      "/images/projects/marble-factory-desalination-plants/gallery-2.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-3.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-4.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-5.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-6.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-7.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-8.webp",
       "/images/projects/marble-factory-desalination-plants/gallery-9.webp",
@@ -556,18 +572,15 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     year: "2020",
     region: {
-      en: "Jafjaafa (North Sinai), Minya & Ras Sedr",
-      ar: "الجفجافة (شمال سيناء)، المنيا، رأس سدر",
+      en: "Ras Sedr, South Sinai",
+      ar: "رأس سدر، جنوب سيناء",
     },
   },
   "qibili-qarun-goat-farm-utilities": {
     cover: "/images/projects/qibili-qarun-goat-farm-utilities/cover.webp",
     gallery: [
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-1.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-2.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-5.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-6.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-7.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-8.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-9.webp",
       "/images/projects/qibili-qarun-goat-farm-utilities/gallery-10.webp",
@@ -653,7 +666,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "دوائر تبريد · طلمبات إطفاء حريق · لوحات قوى · تحكم آلي",
     },
     year: "2024",
-    region: { en: "New Valley Governorate", ar: "محافظة الوادي الجديد" },
+    region: { en: "New Valley", ar: "الوادي الجديد" },
   },
   "manshiyat-nasser-pumping-station": {
     cover: "/images/projects/manshiyat-nasser-pumping-station/cover.webp",
@@ -763,7 +776,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     ],
     capacity: { en: "Municipal Sports Facility Upgrades", ar: "تطوير ورفع كفاءة منشآت رياضية" },
     client: {
-      en: "Ministry of Youth & Sports & Port Said Governorate",
+      en: "Ministry of Youth & Sports & Port Said",
       ar: "وزارة الشباب والرياضة ومحافظة بورسعيد",
     },
     consultant: {
@@ -778,16 +791,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Port Said, Egypt", ar: "بورسعيد، مصر" },
   },
   "sisi-city-water-supply-network": {
-    cover: "/images/projects/sisi-city-water-supply-network/cover.webp",
+    cover: "/images/projects/sisi-city-water-supply-network/cover.jpg",
     gallery: [
-      "/images/projects/sisi-city-water-supply-network/gallery-1.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-2.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-3.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-4.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-5.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-6.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-7.webp",
-      "/images/projects/sisi-city-water-supply-network/gallery-11.webp",
+      "/images/projects/sisi-city-water-supply-network/gallery-1.jpg",
+      "/images/projects/sisi-city-water-supply-network/gallery-2.jpg",
+      "/images/projects/sisi-city-water-supply-network/gallery-3.jpg",
+      "/images/projects/sisi-city-water-supply-network/gallery-4.jpg",
+      "/images/projects/sisi-city-water-supply-network/gallery-5.jpg",
     ],
     capacity: {
       en: "Urban Potable Transmission & Distribution Network",
@@ -837,7 +847,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "خطوط مرافق · شبكات قوى · قواعد خرسانية · تسليم سريع",
     },
     year: "2025",
-    region: { en: "North Sinai Governorate", ar: "شمال سيناء" },
+    region: { en: "North Sinai", ar: "شمال سيناء" },
   },
   "al-azhar-institute-minya": {
     cover: "/images/projects/al-azhar-institute-minya/cover.webp",
@@ -871,13 +881,11 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "هيكل خرساني · تشطيبات معمارية · شبكات كهرباء · سباكة وتغذية",
     },
     year: "2026",
-    region: { en: "Minya Governorate", ar: "محافظة المنيا" },
+    region: { en: "Minya", ar: "المنيا" },
   },
   "abu-minqar-agricultural-farm-utilities": {
     cover: "/images/projects/abu-minqar-agricultural-farm-utilities/cover.webp",
     gallery: [
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-4.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-5.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-6.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-7.webp",
       "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-8.webp",
@@ -1044,7 +1052,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "حماية بيئية وتجميع مياه رشيح متخصصة",
     },
     client: {
-      en: "Waste Management Regulatory Authority & Qalyubia Governorate",
+      en: "Waste Management Regulatory Authority & Qalyubia",
       ar: "جهاز تنظيم إدارة المخلفات ومحافظة القليوبية",
     },
     consultant: {
