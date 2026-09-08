@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SECTORS } from "@/lib/sectors";
-import { PROJECT_META } from "@/lib/project-meta";
 
 const BASE_URL = "https://infeworks.com";
 
@@ -34,10 +33,17 @@ export const Route = createFileRoute("/sitemap.xml")({
           });
         }
 
-        // Flagship projects
-        for (const slug of Object.keys(PROJECT_META)) {
+        // Active published projects from database (with fallback to flagship seeds)
+        const { fetchPublicProjects } = await import("@/lib/public-data.server");
+        const { getFlagshipProjects } = await import("@/lib/flagship-projects");
+        const publicProjects = await fetchPublicProjects("en").catch(() => []);
+        const activeProjects =
+          publicProjects.length > 0 ? publicProjects : getFlagshipProjects("en");
+
+        for (const project of activeProjects) {
+          if (project.slug === "east-delta-wastewater") continue;
           pages.push({
-            path: `/work/${slug}`,
+            path: `/work/${project.slug}`,
             priority: "0.8",
             changefreq: "monthly",
           });

@@ -218,7 +218,7 @@ const LEADERSHIP: {
     linkedin: "https://www.linkedin.com/in/isllamtarekk/",
   },
   {
-    name: { en: "Adham Mahmoud", ar: "أدهم محمود" },
+    name: { en: "Mahmoud Adham", ar: "محمود أدهم" },
     title: { en: "Head of Civil Engineering", ar: "رئيس القطاع المدني" },
     bio: {
       en: "Manages on-site civil works, deep lift pump stations, intake structures, and gravity utility networks across active sites.",

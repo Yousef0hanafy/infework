@@ -38,8 +38,8 @@ export type Sector = {
 export const SECTORS: Sector[] = [
   {
     slug: "water-treatment",
-    en: "Water & Treatment",
-    ar: "المياه والمعالجة",
+    en: "Water Desilinations & Purifications",
+    ar: "تحلية وتنقية المياة",
     defEn:
       "Potable, process, and desalinated water plants from raw intake to metered distribution.",
     defAr: "محطات مياه الشرب ومياه العمليات والتحلية من المأخذ الخام حتى التوزيع.",
@@ -177,8 +177,8 @@ export const SECTORS: Sector[] = [
   },
   {
     slug: "wastewater",
-    en: "Wastewater",
-    ar: "الصرف الصحي",
+    en: "Wastewater Treatment",
+    ar: "معالجة الصرف  ",
     defEn:
       "Municipal and industrial effluent collection, biological and physico-chemical treatment, and compliant reuse.",
     defAr:

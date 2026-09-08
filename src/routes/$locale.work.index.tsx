@@ -88,7 +88,7 @@ function WorkIndex() {
     // 2. Sort to prioritize explicit flagship projects
     const flagships = [
       "sadat-city-ro",
-      "toshka-pumping-stations",
+      "multi-site-desalination-purification",
       "shubra-shahab-industrial-wastewater",
       "arish-water-supply",
       "ameriya-cold-storage",

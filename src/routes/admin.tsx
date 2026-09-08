@@ -26,7 +26,7 @@ export const Route = createFileRoute("/admin")({
   ssr: false,
   beforeLoad: async () => {
     const { data, error } = await supabase.auth.getUser();
-    if (error || !data.user) {
+    if (error || !data.user || data.user.is_anonymous) {
       throw redirect({ to: "/admin/login" });
     }
     return { user: data.user };

@@ -91,10 +91,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     ],
     capacity: { en: "Expanded Desert Lift Stations", ar: "محطات رفع مياه صحراوية مستجدة" },
     client: {
-      en: "National Agricultural Reclamation Authority",
-      ar: "جهاز مشروعات استصلاح الأراضي",
+      en: "National Service Projects Organization",
+      ar: "جهاز مشروعات الخدمة الوطنية",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "MAST Group", ar: "مجموعة ماست" },
     scope: {
       en: "Wet Wells · Turbine Pumps · HDPE Manifolds · Electrical MCC",
       ar: "بيارات خرسانية · طلمبات رأسية · خطوط طرد HDPE · لوحات تحكم",
@@ -115,7 +115,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     ],
     capacity: { en: "Regional Trunk Lines & Booster Stations", ar: "خطوط نقل رئيسية ومحطات رافع" },
     client: {
-      en: "Al-Arjani Group",
+      en: "Al-Organi Group",
       ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: { en: "Engineering Authority Supervision Office", ar: "مكتب الإشراف الهندسي" },
@@ -165,7 +165,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "Pre-Filtration · Brackish RO Trains · Chemical Dosing · Lab Quality Verification",
       ar: "مراحل الفلترة الرملية والميكرونية · وحدات التناضح العكسي · منظومة الحقن الكيميائي",
     },
-    year: "2020",
+    year: "2019",
     region: { en: "El Hamam & Coastal Strip, Matrouh", ar: "الحمام والشريط الساحلي، مطروح" },
   },
   "multi-site-desalination-purification": {
@@ -188,10 +188,10 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "محطات تحلية مياه بالتناضح العكسي متعددة المواقع",
     },
     client: {
-      en: "National Development & Agriculture Directorate",
-      ar: "جهاز التنمية والاستصلاح الزراعي",
+      en: "National Service Projects Organizations",
+      ar: "جهاز مشروعات الخدمة الوطنية",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "MAST Group", ar: "مجموعة ماست" },
     scope: {
       en: "Skid Fabrication · RO Trains · Pre-Filtration · Multi-Site Commissioning",
       ar: "تصنيع شاسيهات · وحدات تناضح عكسي · فلترة أولية · تشغيل متعدد المواقع",
@@ -305,12 +305,12 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: {
-      en: "Engineering Authority Consulting Directorate",
-      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+      en: "Diaa Consulting",
+      ar: "مكتب ضياء للاستشارات الهندسية",
     },
     scope: {
-      en: "Civil Structures & Housing Units · Potable Water & Sanitation Loops · Underground Power Distribution",
-      ar: "إنشاءات مدنية ومباني سكنية · شبكات مياه الشرب والصرف الصحي · التوزيع الكهربائي الداخلي",
+      en: "Housing Units · Potable Water & Sanitation Loops",
+      ar: "إنشاءات مدنية ومباني سكنية · شبكات مياه الشرب والصرف الصحي",
     },
     year: "2025",
     region: { en: "Rafah, North Sinai", ar: "رفح، شمال سيناء" },
@@ -338,8 +338,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "مجموعة العرجاني (أبناء سيناء)",
     },
     consultant: {
-      en: "Engineering Authority Consulting Directorate",
-      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+      en: "AL-Shima Engineering",
+      ar: "مكتب شيما للاستشارات الهندسية",
     },
     scope: {
       en: "Gravity Pipeline Laying · Inspection Manholes & Chambers · Storm Catch Basins · Hydrostatic Testing",
@@ -378,7 +378,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "Feedlot Potable Supply · Effluent Drainage Collection · Milking Parlor Power & Water Lines",
       ar: "شبكات التغذية للحظائر · تجميع وصرف المخلفات · شبكات المياه والكهرباء للمحالب الآلية",
     },
-    year: "2024",
+    year: "2025",
     region: { en: "New Salam City, North Sinai", ar: "مدينة السلام الجديدة، شمال سيناء" },
   },
   "toshka-reclamation-pumping-package": {
@@ -393,8 +393,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "محطتا ضخ ورفع زراعي",
     },
     client: {
-      en: "National Agricultural Reclamation Authority",
-      ar: "جهاز مشروعات استصلاح الأراضي",
+      en: "National Service Projects Organization",
+      ar: "جهاز مشروعات الخدمة الوطنية",
     },
     consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
     scope: {
@@ -427,8 +427,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "جهاز مشروعات الخدمة الوطنية",
     },
     consultant: {
-      en: "Engineering Authority Consulting Directorate",
-      ar: "إدارة المهندسين العسكريين — الهيئة الهندسية",
+      en: "AL-Shima Engineering",
+      ar: "مكتب الشيما للاستشارات الهندسية",
     },
     scope: {
       en: "Transmission Pipeline Laying · Valve Chambers & Air Release · Hydrostatic Pressure Testing · Commissioning",
@@ -465,7 +465,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "جهاز استشارات البنية التحتية",
     },
     scope: {
-      en: "Civil Works · M&E Fit-Out · Filter Media · Commissioning",
+      en: "Civil Works · MEP Fit-Out · Filter Media · Commissioning",
       ar: "أعمال مدنية · كهروميكانيك · فلاتر وترويق · تشغيل تجريبي",
     },
     year: "2020",
@@ -488,12 +488,12 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "تنقية مياه عمليات وإنتاج زراعي",
     },
     client: {
-      en: "National Agricultural Development Authority",
-      ar: "جهاز المشروعات والإنتاج الزراعي",
+      en: "National Service Projects Organization",
+      ar: "جهاز مشروعات الخدمة الوطنية",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "Amar Misr Consultions", ar: "عمار مصر للاستشارات الهندسية" },
     scope: {
-      en: "M&E Fit-Out · Sand Filtration · Chemical Dosing · Control Panels",
+      en: "MEP Fit-Out · Sand Filtration · Chemical Dosing · Control Panels",
       ar: "أعمال كهروميكانيكية · فلاتر رملية · حقن كيميائي · لوحات تحكم",
     },
     year: "2020",
@@ -517,8 +517,8 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
     client: { en: "Agro-Industrial Development Authority", ar: "جهاز الصناعات والتنمية الزراعية" },
     consultant: {
-      en: "Infrastructure Engineering Committee",
-      ar: "اللجنة الهندسية للبنية التحتية",
+      en: "MAST Group",
+      ar: "مجموعة ماست",
     },
     scope: {
       en: "Civil Basins · DAF Units · Chemical Dosing · Environmental Compliance",
@@ -549,7 +549,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       en: "National Mining & Marble Industries Complex",
       ar: "مجمع صناعات الرخام والتعدين",
     },
-    consultant: { en: "Armed Forces Engineering Department", ar: "إدارة المهندسين العسكريين" },
+    consultant: { en: "Ideal Group Consulting Office", ar: "مجموعة ايديال للاستشارات الهندسية" },
     scope: {
       en: "Industrial RO · Sediment Hydrocyclones · Process Water Recovery · Automation",
       ar: "تحلية صناعية · فواصل رواسب · استرجاع مياه التبريد · تحكم آلي",

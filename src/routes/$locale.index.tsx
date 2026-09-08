@@ -103,6 +103,7 @@ const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
 
 const PROJECT_SECTORS: Record<string, { en: string; ar: string }> = {
   "sadat-city-ro": { en: "Water & Desalination", ar: "المياه والتحلية" },
+  "multi-site-desalination-purification": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
   "toshka-pumping-stations": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
   "shubra-shahab-industrial-wastewater": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
   "food-city-treatment": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
@@ -188,7 +189,7 @@ function LocaleHome() {
   const featured = useMemo(() => {
     const flagships = [
       "sadat-city-ro",
-      "toshka-pumping-stations",
+      "multi-site-desalination-purification",
       "shubra-shahab-industrial-wastewater",
       "arish-water-supply",
       "ameriya-cold-storage",

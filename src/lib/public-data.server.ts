@@ -120,7 +120,7 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
       console.error("[Infeworks] fetchPublicProjects failed", error.message);
       return [];
     }
-    const rows = data ?? [];
+    const rows = (data ?? []).filter((r) => r.slug !== "east-delta-wastewater");
     const ids = rows.map((r) => r.project_id).filter((id): id is string => !!id);
     const [caps, locs] = await Promise.all([
       fetchCapabilitySlugs(client, ids),
@@ -145,6 +145,9 @@ export async function fetchPublicProjectBySlug(
   slug: string,
   locale: string,
 ): Promise<PublicProjectDetail | null> {
+  if (slug === "east-delta-wastewater") {
+    return null;
+  }
   try {
     const client = publicClient();
     const lang = normaliseLocale(locale);
@@ -203,22 +206,34 @@ export async function fetchPublicProjectBySlug(
     let media: PublicMedia[] = [];
     if (mediaRows.length > 0) {
       try {
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const signed = await supabaseAdmin.storage.from("project-media").createSignedUrls(
-          mediaRows.map((m) => m.storage_path),
-          60 * 60,
-        );
-        media = mediaRows.flatMap((m, i) => {
-          const url = signed.data?.[i]?.signedUrl;
-          if (!url) return [];
-          return [
-            {
+        const { supabaseAdmin, isServiceRoleConfigured } =
+          await import("@/integrations/supabase/client.server");
+        if (isServiceRoleConfigured()) {
+          const signed = await supabaseAdmin.storage.from("project-media").createSignedUrls(
+            mediaRows.map((m) => m.storage_path),
+            60 * 60,
+          );
+          media = mediaRows.flatMap((m, i) => {
+            const url = signed.data?.[i]?.signedUrl;
+            if (!url) return [];
+            return [
+              {
+                id: m.id,
+                url,
+                alt: (lang === "ar" ? m.alt_ar : m.alt_en) ?? null,
+              },
+            ];
+          });
+        } else {
+          media = mediaRows.map((m) => {
+            const { data } = client.storage.from("project-media").getPublicUrl(m.storage_path);
+            return {
               id: m.id,
-              url,
+              url: data.publicUrl,
               alt: (lang === "ar" ? m.alt_ar : m.alt_en) ?? null,
-            },
-          ];
-        });
+            };
+          });
+        }
       } catch (err) {
         console.error("[Infeworks] media signing failed", err);
       }
