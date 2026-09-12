@@ -9,6 +9,7 @@ import type {
   PublicMedia,
   PublicProject,
   PublicProjectDetail,
+  PublicProjectFacts,
   SiteSettings,
 } from "./public-types";
 
@@ -111,6 +112,8 @@ function toProject(
   },
   capability_slugs: string[] = [],
   location: PublicLocation | null = null,
+  cover_url: string | null = null,
+  featured: boolean = false,
 ): PublicProject | null {
   if (!row.project_id || !row.slug || !row.title) return null;
   const locLang = row.locale ?? "en";
@@ -129,6 +132,8 @@ function toProject(
     created_at: row.created_at,
     capability_slugs: finalCapabilitySlugs,
     location: resolveCanonicalLocation(row.slug, locLang, location),
+    cover_url,
+    featured,
   };
 }
 
@@ -179,6 +184,99 @@ async function fetchLocations(
   return map;
 }
 
+async function fetchCoverMedia(
+  client: ReturnType<typeof publicClient>,
+  projectIds: string[],
+): Promise<Map<string, string | null>> {
+  const map = new Map<string, string | null>();
+  if (projectIds.length === 0) return map;
+
+  let rows: Array<{ id: string; project_id: string | null; storage_path: string }> = [];
+
+  const { data, error } = await client
+    .from("media_assets")
+    .select("id, project_id, storage_path, sort_order")
+    .in("project_id", projectIds)
+    .eq("is_public", true)
+    .eq("media_type", "photo")
+    .order("sort_order", { ascending: true });
+
+  if (error) {
+    const fallbackRes = await client
+      .from("media_assets")
+      .select("id, project_id, storage_path")
+      .in("project_id", projectIds)
+      .eq("is_public", true);
+    if (!fallbackRes.error && fallbackRes.data) {
+      rows = fallbackRes.data;
+    }
+  } else if (data) {
+    rows = data;
+  }
+
+  const firstPhotoByProject = new Map<string, string>();
+  for (const row of rows) {
+    if (row.project_id && !firstPhotoByProject.has(row.project_id)) {
+      firstPhotoByProject.set(row.project_id, row.storage_path);
+    }
+  }
+
+  if (firstPhotoByProject.size === 0) return map;
+
+  try {
+    const { supabaseAdmin, isServiceRoleConfigured } =
+      await import("@/integrations/supabase/client.server");
+    const paths = Array.from(firstPhotoByProject.values());
+    const pIds = Array.from(firstPhotoByProject.keys());
+
+    if (isServiceRoleConfigured()) {
+      const signed = await supabaseAdmin.storage
+        .from("project-media")
+        .createSignedUrls(paths, 60 * 60);
+      signed.data?.forEach((s, idx) => {
+        const pId = pIds[idx];
+        if (pId && s.signedUrl) {
+          map.set(pId, s.signedUrl);
+        }
+      });
+    } else {
+      pIds.forEach((pId, idx) => {
+        const pPath = paths[idx];
+        if (pId && pPath) {
+          const { data: pubUrl } = client.storage
+            .from("project-media")
+            .getPublicUrl(pPath);
+          map.set(pId, pubUrl.publicUrl);
+        }
+      });
+    }
+  } catch (err) {
+    console.error("[Infeworks] fetchCoverMedia signing failed", err);
+  }
+
+  return map;
+}
+
+async function fetchFeaturedMap(
+  client: ReturnType<typeof publicClient>,
+  projectIds: string[],
+): Promise<Map<string, boolean>> {
+  const map = new Map<string, boolean>();
+  if (projectIds.length === 0) return map;
+  const { data, error } = await client
+    .from("projects")
+    .select("id, featured")
+    .in("id", projectIds);
+  if (error) {
+    console.error("[Infeworks] fetchFeaturedMap failed", error.message);
+    return map;
+  }
+  for (const row of data ?? []) {
+    map.set(row.id, !!row.featured);
+  }
+  return map;
+}
+
 export async function fetchPublicProjects(locale: string): Promise<PublicProject[]> {
   try {
     const client = publicClient();
@@ -192,11 +290,13 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
       console.error("[Infeworks] fetchPublicProjects failed", error.message);
       return [];
     }
-    const rows = (data ?? []).filter((r) => r.slug !== "east-delta-wastewater");
+    const rows = data ?? [];
     const ids = rows.map((r) => r.project_id).filter((id): id is string => !!id);
-    const [caps, locs] = await Promise.all([
+    const [caps, locs, covers, featuredMap] = await Promise.all([
       fetchCapabilitySlugs(client, ids),
       fetchLocations(client, ids),
+      fetchCoverMedia(client, ids),
+      fetchFeaturedMap(client, ids),
     ]);
     return rows
       .map((row) =>
@@ -204,6 +304,8 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
           row,
           caps.get(row.project_id ?? "") ?? [],
           locs.get(row.project_id ?? "") ?? null,
+          covers.get(row.project_id ?? "") ?? null,
+          featuredMap.get(row.project_id ?? "") ?? false,
         ),
       )
       .filter((p): p is PublicProject => p !== null);
@@ -217,9 +319,6 @@ export async function fetchPublicProjectBySlug(
   slug: string,
   locale: string,
 ): Promise<PublicProjectDetail | null> {
-  if (slug === "east-delta-wastewater") {
-    return null;
-  }
   try {
     const client = publicClient();
     const lang = normaliseLocale(locale);
@@ -240,7 +339,7 @@ export async function fetchPublicProjectBySlug(
     project.capability_slugs =
       (await fetchCapabilitySlugs(client, [project.project_id])).get(project.project_id) ?? [];
 
-    const [locationRes, claimsRes, mediaRes] = await Promise.all([
+    const [locationRes, claimsRes, mediaRes, projectRes] = await Promise.all([
       client
         .from("locations")
         .select("lat, lng, display_name")
@@ -254,10 +353,17 @@ export async function fetchPublicProjectBySlug(
         .order("created_at", { ascending: true }),
       client
         .from("media_assets")
-        .select("id, storage_path, alt_en, alt_ar")
+        .select("id, storage_path, alt_en, alt_ar, media_type, mime_type, sort_order")
         .eq("project_id", project.project_id)
         .eq("is_public", true)
-        .order("created_at", { ascending: true }),
+        .order("sort_order", { ascending: true }),
+      client
+        .from("projects")
+        .select(
+          "id, featured, client_en, client_ar, consultant_en, consultant_ar, scope_en, scope_ar, capacity_en, capacity_ar, year, region_en, region_ar",
+        )
+        .eq("id", project.project_id)
+        .maybeSingle(),
     ]);
 
     const location: PublicLocation | null = locationRes.data
@@ -274,35 +380,98 @@ export async function fetchPublicProjectBySlug(
       locale: c.locale,
     }));
 
-    const mediaRows = mediaRes.data ?? [];
-    let media: PublicMedia[] = [];
-    if (mediaRows.length > 0) {
+    const meta = getProjectMeta(slug);
+    const isAr = lang === "ar";
+    
+    let projData: any = projectRes.data;
+    if (projectRes.error) {
+      const fb = await client
+        .from("projects")
+        .select("id, featured")
+        .eq("id", project.project_id)
+        .maybeSingle();
+      if (fb.data) {
+        projData = fb.data;
+      }
+    }
+
+    const facts: PublicProjectFacts = {
+      client:
+        (isAr ? projData?.client_ar : projData?.client_en) ??
+        (isAr ? meta?.client?.ar : meta?.client?.en) ??
+        "",
+      consultant:
+        (isAr ? projData?.consultant_ar : projData?.consultant_en) ??
+        (isAr ? meta?.consultant?.ar : meta?.consultant?.en) ??
+        "",
+      scope:
+        (isAr ? projData?.scope_ar : projData?.scope_en) ??
+        (isAr ? meta?.scope?.ar : meta?.scope?.en) ??
+        "",
+      capacity:
+        (isAr ? projData?.capacity_ar : projData?.capacity_en) ??
+        (isAr ? meta?.capacity?.ar : meta?.capacity?.en) ??
+        "",
+      year: projData?.year ?? meta?.year ?? "",
+      region:
+        (isAr ? projData?.region_ar : projData?.region_en) ??
+        (isAr ? meta?.region?.ar : meta?.region?.en) ??
+        "",
+    };
+
+    if (projData?.featured !== undefined) {
+      project.featured = projData.featured;
+    }
+
+    let rawMediaRows = mediaRes.data ?? [];
+    if (mediaRes.error) {
+      const fb = await client
+        .from("media_assets")
+        .select("id, storage_path, alt_en, alt_ar")
+        .eq("project_id", project.project_id)
+        .eq("is_public", true);
+      if (fb.data) {
+        rawMediaRows = fb.data.map((m) => ({
+          ...m,
+          media_type: "photo",
+          mime_type: null,
+          sort_order: 1,
+        }));
+      }
+    }
+    let signedMedia: Array<PublicMedia> = [];
+
+    if (rawMediaRows.length > 0) {
       try {
         const { supabaseAdmin, isServiceRoleConfigured } =
           await import("@/integrations/supabase/client.server");
         if (isServiceRoleConfigured()) {
           const signed = await supabaseAdmin.storage.from("project-media").createSignedUrls(
-            mediaRows.map((m) => m.storage_path),
+            rawMediaRows.map((m) => m.storage_path),
             60 * 60,
           );
-          media = mediaRows.flatMap((m, i) => {
+          signedMedia = rawMediaRows.flatMap((m, i) => {
             const url = signed.data?.[i]?.signedUrl;
             if (!url) return [];
             return [
               {
                 id: m.id,
                 url,
-                alt: (lang === "ar" ? m.alt_ar : m.alt_en) ?? null,
+                alt: (isAr ? m.alt_ar : m.alt_en) ?? null,
+                media_type: m.media_type as "photo" | "schema",
+                mime_type: m.mime_type,
               },
             ];
           });
         } else {
-          media = mediaRows.map((m) => {
+          signedMedia = rawMediaRows.map((m) => {
             const { data } = client.storage.from("project-media").getPublicUrl(m.storage_path);
             return {
               id: m.id,
               url: data.publicUrl,
-              alt: (lang === "ar" ? m.alt_ar : m.alt_en) ?? null,
+              alt: (isAr ? m.alt_ar : m.alt_en) ?? null,
+              media_type: m.media_type as "photo" | "schema",
+              mime_type: m.mime_type,
             };
           });
         }
@@ -311,9 +480,13 @@ export async function fetchPublicProjectBySlug(
       }
     }
 
+    const photos = signedMedia.filter((m) => m.media_type === "photo");
+    const schema = signedMedia.find((m) => m.media_type === "schema") ?? null;
+
+    project.cover_url = photos[0]?.url ?? meta?.cover ?? null;
     project.location = resolveCanonicalLocation(slug, lang, location);
 
-    return { project, location: project.location, claims, media };
+    return { project, location: project.location, claims, media: photos, facts, schema };
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjectBySlug exception", err);
     return null;

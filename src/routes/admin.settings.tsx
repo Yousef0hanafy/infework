@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Save } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { AdminButton, AdminCard, AdminPageHeader } from "@/components/infeworks/AdminUI";
 
@@ -177,7 +178,12 @@ function AdminSettings() {
     },
     onSuccess: (_data, key) => {
       setSaved(key);
+      toast.success(`Setting "${key}" saved.`);
       void qc.invalidateQueries({ queryKey: ["admin", "settings"] });
+    },
+    onError: (err: unknown, key) => {
+      const msg = err instanceof Error ? err.message : "Failed to save setting.";
+      toast.error(`Could not save "${key}": ${msg}`);
     },
   });
 

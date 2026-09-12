@@ -111,6 +111,8 @@ function WorkIndex() {
       "qabs-min-nour-mosque",
     ];
     return [...filtered].sort((a, b) => {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
       const aIndex = flagships.indexOf(a.slug);
       const bIndex = flagships.indexOf(b.slug);
       if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
@@ -265,6 +267,7 @@ function WorkIndex() {
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {visible.map((p) => {
                 const meta = getProjectMeta(p.slug);
+                const coverSrc = p.cover_url ?? meta?.cover ?? null;
 
                 return (
                   <Link
@@ -277,9 +280,9 @@ function WorkIndex() {
                   >
                     {/* Visual Header (Clean, no text overlays) */}
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
-                      {meta?.cover ? (
+                      {coverSrc ? (
                         <img
-                          src={meta.cover}
+                          src={coverSrc}
                           alt={p.title}
                           loading="lazy"
                           decoding="async"

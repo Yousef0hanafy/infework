@@ -205,12 +205,15 @@ export function getFlagshipProjects(locale: string): PublicProject[] {
         lng: s.location.lng,
         display_name: isAr ? s.location.ar : s.location.en,
       },
+      cover_url: PROJECT_META[s.slug]?.cover ?? null,
+      featured: true,
     } satisfies PublicProject;
   });
 }
 
 /** Fallback case-study detail for a curated flagship slug. */
 export function getFlagshipDetail(slug: string, locale: string): PublicProjectDetail | null {
+  const isAr = locale === "ar";
   const project = getFlagshipProjects(locale).find((p) => p.slug === slug);
   if (!project) return null;
   const meta = PROJECT_META[slug];
@@ -223,7 +226,20 @@ export function getFlagshipDetail(slug: string, locale: string): PublicProjectDe
           id: `${slug}-media-${i}`,
           url,
           alt: project.title,
+          media_type: "photo" as const,
+          mime_type: "image/webp",
         }))
       : [],
+    facts: meta
+      ? {
+          client: (isAr ? meta.client?.ar : meta.client?.en) ?? "",
+          consultant: (isAr ? meta.consultant?.ar : meta.consultant?.en) ?? "",
+          scope: (isAr ? meta.scope?.ar : meta.scope?.en) ?? "",
+          capacity: (isAr ? meta.capacity?.ar : meta.capacity?.en) ?? "",
+          year: meta.year ?? "",
+          region: (isAr ? meta.region?.ar : meta.region?.en) ?? "",
+        }
+      : null,
+    schema: null,
   };
 }

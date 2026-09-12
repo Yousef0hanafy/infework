@@ -244,8 +244,8 @@ function ClientCard({
     <figure
       className={`group relative flex select-none flex-col justify-between rounded-xl border bg-white p-3.5 sm:p-4 md:p-5 transition-all duration-200 ${
         viewMode === "marquee"
-          ? "mx-2 sm:mx-2.5 h-38 w-48 shrink-0 sm:h-44 sm:w-60 md:h-48 md:w-68 hover:-translate-y-1 hover:shadow-md"
-          : "h-44 sm:h-48 w-full hover:-translate-y-1 hover:shadow-md"
+          ? "mx-2 sm:mx-2.5 h-44 w-56 shrink-0 sm:h-46 sm:w-60 md:h-48 md:w-68 hover:-translate-y-1 hover:shadow-md"
+          : "h-46 sm:h-48 w-full hover:-translate-y-1 hover:shadow-md"
       }`}
       style={{
         borderColor: "var(--iw-border, rgba(11,22,40,0.1))",
@@ -283,7 +283,7 @@ function ClientCard({
       {/* Bilingual caption */}
       <figcaption className="mt-1 flex flex-col items-center justify-center text-center">
         <span
-          className="line-clamp-1 w-full text-[11px] font-semibold tracking-tight sm:text-xs md:text-[13px]"
+          className="line-clamp-2 min-h-[2.4em] leading-snug w-full text-[11px] font-semibold tracking-tight sm:text-xs md:text-[13px]"
           style={{ color: "var(--iw-text-primary, #0b1628)" }}
         >
           {isAr ? client.ar : client.en}
@@ -502,9 +502,9 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
       className="relative mt-8 sm:mt-10 w-full select-none"
     >
       {/* Unified Controls Bar — 2-tier responsive layout preventing any element collisions */}
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 mb-6 flex flex-col gap-3.5">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-10 mb-6 flex flex-col gap-3.5">
         {/* Sub-bar: Status indicator & View/Playback Controls */}
-        <div className="flex items-center justify-between gap-3 w-full border-b border-gray-200/70 pb-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 w-full border-b border-gray-200/70 pb-3">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--iw-accent)] opacity-75"></span>
@@ -519,14 +519,14 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
           </div>
 
           {/* View mode toggle & playback controls */}
-          <div className="flex items-center gap-2.5" dir="ltr">
+          <div className="flex items-center justify-between sm:justify-end gap-2.5 w-full sm:w-auto" dir="ltr">
             {/* View Mode Toggle: Ribbon vs Grid */}
             <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
               <button
                 type="button"
                 onClick={() => setViewMode("marquee")}
                 aria-label={isAr ? "شريط متحرك" : "Marquee Ribbon"}
-                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-1.5 rounded-md px-2.5 sm:px-3 py-1.5 text-xs font-medium transition-colors ${
                   viewMode === "marquee"
                     ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
                     : "text-gray-500 hover:text-gray-700"
@@ -539,7 +539,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
                 type="button"
                 onClick={() => setViewMode("grid")}
                 aria-label={isAr ? "شبكة الكل" : "Grid Directory"}
-                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-1.5 rounded-md px-2.5 sm:px-3 py-1.5 text-xs font-medium transition-colors ${
                   viewMode === "grid"
                     ? "bg-gray-100 text-gray-900 font-semibold shadow-xs"
                     : "text-gray-500 hover:text-gray-700"
@@ -584,8 +584,8 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
           </div>
         </div>
 
-        {/* Category filtering tabs — full width, scrollable on mobile, wraps on tablet/desktop */}
-        <div className="flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap">
+        {/* Category filtering tabs — full width, scrollable on mobile with smooth cushioning */}
+        <div className="flex w-full items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth px-1 sm:px-0 pb-1 sm:flex-wrap">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -596,7 +596,7 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
                   setActiveCategory(cat.id as ClientCategory);
                   positionRef.current = 0;
                 }}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                className={`shrink-0 rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
                   isActive
                     ? "bg-[var(--iw-text-primary,#0b1628)] text-white shadow-sm"
                     : "border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900"
@@ -606,6 +606,8 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
               </button>
             );
           })}
+          {/* Mobile end cushion to prevent edge clipping */}
+          <div className="w-4 shrink-0 sm:hidden" aria-hidden="true" />
         </div>
       </div>
 

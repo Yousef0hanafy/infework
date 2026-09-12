@@ -10,6 +10,8 @@ export type PublicProject = {
   created_at: string | null;
   capability_slugs: string[];
   location: PublicLocation | null;
+  cover_url: string | null;
+  featured?: boolean;
 };
 
 export type PublicLocation = {
@@ -24,10 +26,21 @@ export type PublicClaim = {
   locale: string;
 };
 
+export type PublicProjectFacts = {
+  client: string;
+  consultant: string;
+  scope: string;
+  capacity: string;
+  year: string;
+  region: string;
+};
+
 export type PublicMedia = {
   id: string;
   url: string;
   alt: string | null;
+  media_type: "photo" | "schema";
+  mime_type: string | null;
 };
 
 export type PublicProjectDetail = {
@@ -35,6 +48,8 @@ export type PublicProjectDetail = {
   location: PublicLocation | null;
   claims: PublicClaim[];
   media: PublicMedia[];
+  facts: PublicProjectFacts | null;
+  schema: PublicMedia | null;
 };
 
 export type PublicCapability = {

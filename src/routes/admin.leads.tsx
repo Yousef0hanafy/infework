@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Building, Eye, Mail, Phone, X } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
   AdminButton,
@@ -95,8 +96,12 @@ function AdminLeads() {
       if (err) throw err;
     },
     onSuccess: () => {
+      toast.success("Enquiry marked as reviewed.");
       void qc.invalidateQueries({ queryKey: ["admin", "leads"] });
       void qc.invalidateQueries({ queryKey: ["admin", "summary"] });
+    },
+    onError: (err: unknown) => {
+      toast.error(err instanceof Error ? err.message : "Failed to update lead status.");
     },
   });
 

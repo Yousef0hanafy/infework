@@ -168,6 +168,29 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2022",
     region: { en: "Awlad El-Sheikh, Sohag", ar: "أولاد الشيخ، سوهاج" },
   },
+  "east-delta-wastewater": {
+    cover: "/images/projects/east-delta-wastewater/cover.webp",
+    gallery: [
+      "/images/projects/east-delta-wastewater/gallery-1.webp",
+      "/images/projects/east-delta-wastewater/gallery-2.webp",
+      "/images/projects/east-delta-wastewater/gallery-3.webp",
+      "/images/projects/east-delta-wastewater/gallery-4.webp",
+      "/images/projects/east-delta-wastewater/gallery-5.webp",
+    ],
+    capacity: { en: "Municipal Wastewater Treatment", ar: "محطة معالجة مياه الصرف الصحي البلدية" },
+    badge: { en: "Municipal Wastewater Treatment", ar: "معالجة الصرف الصحي" },
+    client: {
+      en: "National Potable Water & Sanitation Authority (NOPWASD)",
+      ar: "الهيئة القومية لمياه الشرب والصرف الصحي",
+    },
+    consultant: { en: "Delta Infrastructure Advisory", ar: "استشاريو البنية التحتية بالدلتا" },
+    scope: {
+      en: "Biological Treatment · Aeration Basins · Clarifiers · Sludge Handling · Disinfection",
+      ar: "معالجة بيولوجية · أحواض تهوية · مروقات ثانوية · تجفيف حمأة · تعقيم نهائي",
+    },
+    year: "2023",
+    region: { en: "East Delta", ar: "دلتا الشرق" },
+  },
   "north-coast-desalination": {
     cover: "/images/projects/north-coast-desalination/cover.webp",
     gallery: [
@@ -671,8 +694,6 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
   "manshiyat-nasser-pumping-station": {
     cover: "/images/projects/manshiyat-nasser-pumping-station/cover.webp",
     gallery: [
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-2.webp",
-      "/images/projects/manshiyat-nasser-pumping-station/gallery-3.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-4.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-5.webp",
       "/images/projects/manshiyat-nasser-pumping-station/gallery-6.webp",
@@ -1094,6 +1115,101 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     year: "2021",
     region: { en: "Ameriya, Alexandria", ar: "العامرية، الإسكندرية" },
   },
+  "cargas-grounding-systems": {
+    cover: "/images/projects/cargas-grounding-systems/cover.webp",
+    gallery: [
+      "/images/projects/cargas-grounding-systems/gallery-1.webp",
+      "/images/projects/cargas-grounding-systems/gallery-2.webp",
+      "/images/projects/cargas-grounding-systems/gallery-3.webp",
+      "/images/projects/cargas-grounding-systems/gallery-4.webp",
+      "/images/projects/cargas-grounding-systems/gallery-5.webp",
+      "/images/projects/cargas-grounding-systems/gallery-6.webp",
+      "/images/projects/cargas-grounding-systems/gallery-7.webp",
+      "/images/projects/cargas-grounding-systems/gallery-10.webp",
+      "/images/projects/cargas-grounding-systems/gallery-11.webp",
+    ],
+    capacity: { en: "Fuel Station Electrical & Grounding Grid", ar: "شبكات تأريض وحماية محطات تموين الغاز" },
+    badge: { en: "Grounding & Electrical Protection", ar: "تأريض وحماية كهربائية" },
+    client: { en: "Natural Gas Vehicles Company (Car Gas)", ar: "الشركة المصرية الدولية لتكنولوجيا الغاز (غازتك / كارجاس)" },
+    consultant: { en: "Petroleum Sector Technical Inspection", ar: "التفتيش الفني لقطاع البترول" },
+    scope: { en: "Earth Electrode Pits · Chemical Backfill · Surge Arresters · Earth Resistance Testing", ar: "آبار تأريض كيميائي · مانعات صواعق · اختبارات مقاومة الأرضي" },
+    year: "2023",
+    region: { en: "Nationwide", ar: "مختلف المحافظات" },
+  },
+  "infrastructure-sand-procurement": {
+    cover: "/images/projects/infrastructure-sand-procurement/cover.webp",
+    gallery: [
+      "/images/projects/infrastructure-sand-procurement/gallery-1.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-2.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-3.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-4.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-5.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-6.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-7.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-8.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-9.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-10.webp",
+      "/images/projects/infrastructure-sand-procurement/gallery-11.webp",
+    ],
+    capacity: { en: "High-Spec Graded Filtration Sand", ar: "توريد رمال نقية متدرجة لمرشحات المياه" },
+    badge: { en: "Engineered Sand Procurement", ar: "توريد رمال هندسية" },
+    client: { en: "Major Water Treatment Facilities", ar: "محطات معالجة وتنقية المياه الكبرى" },
+    consultant: { en: "Materials Quality Directorate", ar: "إدارة ضبط جودة المواد والمحاجر" },
+    scope: { en: "Sieve Analysis · Uniformity Coefficient Testing · Washed Silica Delivery · QA Documentation", ar: "تحليل مناخل · معامل انتظام السيليكا · غسيل وتوريد رمال الكوارتز" },
+    year: "2022",
+    region: { en: "Egypt", ar: "جمهورية مصر العربية" },
+  },
+  "shubra-shahab-technical-works": {
+    cover: "/images/projects/shubra-shahab-technical-works/cover.webp",
+    gallery: [
+      "/images/projects/shubra-shahab-technical-works/gallery-1.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-2.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-3.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-4.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-5.webp",
+      "/images/projects/shubra-shahab-technical-works/gallery-6.webp",
+    ],
+    capacity: { en: "Industrial Specialized Engineering Services", ar: "أعمال فنية وهندسية للمنشآت الصناعية" },
+    badge: { en: "Industrial Specialized Works", ar: "أعمال صناعية تخصصية" },
+    client: { en: "Industrial Facility Management", ar: "إدارة مجمع شبرا شهاب الصناعي" },
+    consultant: { en: "Electro-Mechanical Advisory", ar: "استشاري الأعمال الكهروميكانيكية" },
+    scope: { en: "Specialized Mechanical Piping · Instrumentation · Structural Foundations", ar: "شبكات مواسير تخصصية · أجهزة قياس وتحكم · قواعد ميكانيكية" },
+    year: "2023",
+    region: { en: "Qalyubia", ar: "القليوبية" },
+  },
+  "toshka-pumping-basket-screens": {
+    cover: "/images/projects/toshka-pumping-basket-screens/cover.webp",
+    gallery: [
+      "/images/projects/toshka-pumping-basket-screens/gallery-1.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-2.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-3.webp",
+      "/images/projects/toshka-pumping-basket-screens/gallery-4.webp",
+    ],
+    capacity: { en: "Custom Heavy-Duty Basket Screens", ar: "مصافي سحرية ثقيلة لحماية الطلمبات" },
+    badge: { en: "Intake Screening Systems", ar: "منظومات حماية مآخذ المياه" },
+    client: { en: "National Service Projects Organization (NSPO)", ar: "جهاز مشروعات الخدمة الوطنية" },
+    consultant: { en: "Al-Amar Group", ar: "مجموعة العمار" },
+    scope: { en: "Stainless Steel Fabrication · Basket Extraction Cranes · Debris Filtration · Hydrostatic Testing", ar: "تصنيع إستانلس ستيل · روافع استخراج المصافي · حجز الشوائب والأعشاب" },
+    year: "2022",
+    region: { en: "Toshka, Aswan", ar: "توشكى، أسوان" },
+  },
+  "wadi-natron": {
+    cover: "/images/projects/wadi-natron/cover.jpg",
+    gallery: [
+      "/images/projects/wadi-natron/gallery-1.jpg",
+      "/images/projects/wadi-natron/gallery-2.jpg",
+      "/images/projects/wadi-natron/gallery-3.jpg",
+      "/images/projects/wadi-natron/gallery-4.jpg",
+      "/images/projects/wadi-natron/gallery-6.jpg",
+    ],
+    capacity: { en: "Agricultural Groundwater & Irrigation Infrastructure", ar: "بنية ري وضخ مياه جوفية للمزارع" },
+    badge: { en: "Agricultural Infrastructure", ar: "بنية تحتية زراعية" },
+    client: { en: "Reclamation Farm Project", ar: "مشروع استصلاح وتنمية زراعية" },
+    consultant: { en: "Agricultural Engineering Advisory", ar: "استشاري الهندسة الزراعية والري" },
+    scope: { en: "Wellheads · Booster Pumping · Filtration Banks · Drip Irrigation Manifolds", ar: "رؤوس آبار · محطات ضخ · وحدات فلاتر رملية · شبكات ري بالتنقيط" },
+    year: "2023",
+    region: { en: "Wadi El-Natrun, Beheira", ar: "وادي النطرون، البحيرة" },
+  },
 };
 
 export const AUTHENTIC_PROJECT_SLUGS = [
@@ -1129,7 +1245,20 @@ export type LocalizedProjectMeta = {
 };
 
 export function getProjectMeta(slug: string): ProjectMeta | undefined {
-  return PROJECT_META[slug];
+  if (PROJECT_META[slug]) {
+    return PROJECT_META[slug];
+  }
+  if (slug && typeof slug === "string") {
+    return {
+      cover: `/images/projects/${slug}/cover.webp`,
+      gallery: [
+        `/images/projects/${slug}/gallery-1.webp`,
+        `/images/projects/${slug}/gallery-2.webp`,
+        `/images/projects/${slug}/gallery-3.webp`,
+      ],
+    };
+  }
+  return undefined;
 }
 
 export function getLocalizedProjectMeta(

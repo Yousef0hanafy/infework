@@ -94,7 +94,7 @@ function CaseStudyNotFound() {
 }
 
 function CaseStudyPage() {
-  const { project, location, claims, media } = Route.useLoaderData();
+  const { project, location, claims, media, facts: serverFacts, schema } = Route.useLoaderData();
   const { locale, slug } = Route.useParams();
   const isAr = locale === "ar";
   const t = (en: string, ar: string) => (isAr ? ar : en);
@@ -107,11 +107,15 @@ function CaseStudyPage() {
     description: project.challenge || project.outcome || project.title,
     url: `https://infeworks.com/${locale}/work/${slug}`,
     inLanguage: isAr ? "ar-EG" : "en-EG",
-    image: meta?.cover
-      ? meta.cover.startsWith("http")
-        ? meta.cover
-        : `https://infeworks.com${meta.cover}`
-      : undefined,
+    image: project.cover_url
+      ? project.cover_url.startsWith("http")
+        ? project.cover_url
+        : `https://infeworks.com${project.cover_url}`
+      : meta?.cover
+        ? meta.cover.startsWith("http")
+          ? meta.cover
+          : `https://infeworks.com${meta.cover}`
+        : undefined,
     locationCreated: location
       ? {
           "@type": "Place",
@@ -123,16 +127,16 @@ function CaseStudyPage() {
           },
         }
       : undefined,
-    customer: meta?.client
+    customer: (serverFacts?.client || meta?.client)
       ? {
           "@type": "Organization",
-          name: isAr ? meta.client.ar : meta.client.en,
+          name: serverFacts?.client || (isAr ? meta?.client?.ar : meta?.client?.en),
         }
       : undefined,
-    contributor: meta?.consultant
+    contributor: (serverFacts?.consultant || meta?.consultant)
       ? {
           "@type": "Organization",
-          name: isAr ? meta.consultant.ar : meta.consultant.en,
+          name: serverFacts?.consultant || (isAr ? meta?.consultant?.ar : meta?.consultant?.en),
         }
       : undefined,
     provider: {
@@ -147,28 +151,36 @@ function CaseStudyPage() {
   ) as SectorSlug | undefined;
 
   const facts = [
-    ...(meta?.client
-      ? [{ label: t("Client", "جهة التعاقد"), value: isAr ? meta.client.ar : meta.client.en }]
-      : []),
-    ...(meta?.consultant
-      ? [
-          {
-            label: t("Consultant", "الاستشاري"),
-            value: isAr ? meta.consultant.ar : meta.consultant.en,
-          },
-        ]
-      : []),
-    ...(meta?.capacity
-      ? [{ label: t("Capacity", "الطاقة"), value: isAr ? meta.capacity.ar : meta.capacity.en }]
-      : []),
-    ...(meta?.scope
-      ? [{ label: t("Scope", "نطاق العمل"), value: isAr ? meta.scope.ar : meta.scope.en }]
-      : []),
-    ...(meta?.year ? [{ label: t("Delivered", "سنة التنفيذ"), value: meta.year }] : []),
+    ...(serverFacts?.client
+      ? [{ label: t("Client", "جهة التعاقد"), value: serverFacts.client }]
+      : meta?.client
+        ? [{ label: t("Client", "جهة التعاقد"), value: isAr ? meta.client.ar : meta.client.en }]
+        : []),
+    ...(serverFacts?.consultant
+      ? [{ label: t("Consultant", "الاستشاري"), value: serverFacts.consultant }]
+      : meta?.consultant
+        ? [{ label: t("Consultant", "الاستشاري"), value: isAr ? meta.consultant.ar : meta.consultant.en }]
+        : []),
+    ...(serverFacts?.capacity
+      ? [{ label: t("Capacity", "الطاقة"), value: serverFacts.capacity }]
+      : meta?.capacity
+        ? [{ label: t("Capacity", "الطاقة"), value: isAr ? meta.capacity.ar : meta.capacity.en }]
+        : []),
+    ...(serverFacts?.scope
+      ? [{ label: t("Scope", "نطاق العمل"), value: serverFacts.scope }]
+      : meta?.scope
+        ? [{ label: t("Scope", "نطاق العمل"), value: isAr ? meta.scope.ar : meta.scope.en }]
+        : []),
+    ...(serverFacts?.year
+      ? [{ label: t("Delivered", "سنة التنفيذ"), value: serverFacts.year }]
+      : meta?.year
+        ? [{ label: t("Delivered", "سنة التنفيذ"), value: meta.year }]
+        : []),
     {
       label: t("Location", "الموقع"),
       value:
-        location?.display_name ?? (meta?.region ? (isAr ? meta.region.ar : meta.region.en) : "—"),
+        location?.display_name ??
+        (serverFacts?.region ? serverFacts.region : meta?.region ? (isAr ? meta.region.ar : meta.region.en) : "—"),
     },
     ...(project.capability_slugs.length > 0
       ? [
@@ -185,7 +197,7 @@ function CaseStudyPage() {
       : []),
   ];
 
-  const hero = media[0]?.url ?? meta?.cover;
+  const hero = media[0]?.url ?? project.cover_url ?? meta?.cover;
   const heroAlt = media[0]?.alt ?? project.title;
   const gallery = media.length > 1 ? media.slice(1).map((m) => m.url) : (meta?.gallery ?? []);
 
@@ -232,7 +244,7 @@ function CaseStudyPage() {
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div>
             {hero ? (
-              <ParallaxImage src={hero} alt={heroAlt} className="mb-16" ratio="16/9" />
+              <ParallaxImage src={hero} alt={heroAlt} className="mb-16" ratio="16/9" priority={true} />
             ) : null}
 
             {project.challenge ? (
@@ -273,8 +285,56 @@ function CaseStudyPage() {
               </>
             ) : null}
 
-            {/* Authored process schematic */}
-            {schematicSlug ? (
+            {/* Dedicated Project Schema OR Sector Schematic Fallback */}
+            {schema ? (
+              <div className="mt-16">
+                <h2 className="display-md text-2xl md:text-3xl">
+                  {t("Process Schematic & Diagram", "المخطط الهندسي للمشروع")}
+                </h2>
+                <p className="body-reading mt-3 max-w-3xl text-[var(--iw-text-secondary)]">
+                  {schema.alt ||
+                    t(
+                      "Official technical drawing and process flowchart for this facility.",
+                      "المخطط الهندسي ومسار العمليات المعتمد للمشروع.",
+                    )}
+                </p>
+                <div
+                  className="mt-6 overflow-hidden rounded-md border"
+                  style={{ borderColor: "var(--iw-border)" }}
+                >
+                  {schema.mime_type === "application/pdf" ? (
+                    <div className="space-y-3 bg-neutral-900 p-4">
+                      <iframe
+                        src={schema.url}
+                        title="Engineering Schematic PDF"
+                        className="h-[550px] w-full rounded border bg-neutral-950"
+                        style={{ borderColor: "var(--iw-border)" }}
+                      />
+                      <div className="flex justify-end">
+                        <a
+                          href={schema.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="label-mono inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:underline"
+                        >
+                          <Download className="h-4 w-4" />
+                          {t("Download Technical PDF", "تحميل المخطط الهندسي (PDF)")}
+                        </a>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center bg-black/5 p-4">
+                      <img
+                        src={schema.url}
+                        alt={schema.alt ?? project.title}
+                        className="max-h-[600px] w-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : schematicSlug ? (
               <>
                 <h2 className="display-md mt-16 text-2xl md:text-3xl">
                   {t("Process Schematic", "المخطط الهندسي للعملية")}

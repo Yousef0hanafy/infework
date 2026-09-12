@@ -204,6 +204,8 @@ function LocaleHome() {
     ];
     return [...projects]
       .sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
         const aIndex = flagships.indexOf(a.slug);
         const bIndex = flagships.indexOf(b.slug);
         if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
@@ -561,9 +563,9 @@ function LocaleHome() {
                             }}
                             aria-hidden="true"
                           />
-                          {meta ? (
+                          {p.cover_url || meta?.cover ? (
                             <img
-                              src={meta.cover}
+                              src={p.cover_url ?? meta?.cover}
                               alt={p.title}
                               loading="lazy"
                               decoding="async"
@@ -697,9 +699,9 @@ function LocaleHome() {
                           }}
                           aria-hidden="true"
                         />
-                        {meta ? (
+                        {p.cover_url || meta?.cover ? (
                           <img
-                            src={meta.cover}
+                            src={p.cover_url ?? meta?.cover}
                             alt={p.title}
                             loading="lazy"
                             decoding="async"

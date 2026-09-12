@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import Logo from "@/components/infeworks/Logo";
+import { Toaster } from "sonner";
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
@@ -240,6 +241,7 @@ function AdminLayout() {
         <main className="min-w-0 flex-1 px-6 py-10 md:px-10">
           <Outlet />
         </main>
+        <Toaster richColors position="top-right" />
       </div>
     </div>
   );

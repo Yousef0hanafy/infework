@@ -7,13 +7,16 @@ export default function ParallaxImage({
   className = "",
   ratio = "16/9",
   strength = 0.12,
+  priority = false,
 }: {
   src: string;
   alt: string;
   className?: string;
   ratio?: string;
   strength?: number;
+  priority?: boolean;
 }) {
+  const [hasError, setHasError] = useState(false);
   const frame = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
@@ -54,15 +57,24 @@ export default function ParallaxImage({
       className={`relative w-full overflow-hidden ${className}`.trim()}
       style={{ aspectRatio: ratio, backgroundColor: "var(--iw-surface-alt)" }}
     >
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 h-[124%] w-full object-cover will-change-transform"
-        style={{ top: "-12%", transform: `translate3d(0, 0px, 0)` }}
-      />
+      {!hasError && src ? (
+        <img
+          ref={imgRef}
+          src={src}
+          alt={alt}
+          loading={priority ? undefined : "lazy"}
+          decoding="async"
+          onError={() => setHasError(true)}
+          className="absolute inset-0 h-[124%] w-full object-cover will-change-transform"
+          style={{ top: "-12%", transform: `translate3d(0, 0px, 0)` }}
+        />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center bg-[var(--iw-surface-alt)]">
+          <span className="label-mono text-xs text-[var(--iw-text-muted)]">
+            Infeworks Infrastructure
+          </span>
+        </div>
+      )}
     </div>
   );
 }

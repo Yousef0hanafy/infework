@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SECTORS } from "@/lib/sectors";
 
 const BASE_URL =
-  (typeof process !== "undefined" && (process.env.SITE_URL || process.env.VITE_SITE_URL)) ||
+  (typeof process !== "undefined" && (process.env["SITE_URL"] || process.env["VITE_SITE_URL"])) ||
   "https://www.infeworks.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -45,13 +45,13 @@ export const Route = createFileRoute("/sitemap.xml")({
 
         const projectSlugs = new Set<string>();
         for (const p of publicProjects) {
-          if (p.slug && p.slug !== "east-delta-wastewater") projectSlugs.add(p.slug);
+          if (p.slug) projectSlugs.add(p.slug);
         }
         for (const p of seedProjects) {
-          if (p.slug && p.slug !== "east-delta-wastewater") projectSlugs.add(p.slug);
+          if (p.slug) projectSlugs.add(p.slug);
         }
         for (const slug of Object.keys(PROJECT_META)) {
-          if (slug && slug !== "east-delta-wastewater") projectSlugs.add(slug);
+          if (slug) projectSlugs.add(slug);
         }
 
         for (const slug of projectSlugs) {
