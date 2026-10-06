@@ -55,20 +55,10 @@ const CRUMB_LABELS: Record<string, string> = {
 
 function AdminLayout() {
   const router = useRouter();
+  const { user } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const [email, setEmail] = useState<string | null>(null);
-
+  const email = user?.email ?? null;
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    let active = true;
-    void supabase.auth.getUser().then(({ data }) => {
-      if (active) setEmail(data.user?.email ?? null);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
 
   async function signOut() {
     await supabase.auth.signOut();

@@ -60,10 +60,10 @@ const QUICK_ACTIONS = [
     to: "/admin/settings" as const,
   },
   {
-    label: "Manage Media",
-    hint: "Covers, diagrams and alt text",
-    icon: Image,
-    to: "/admin/projects" as const,
+    label: "Review Leads",
+    hint: "Client contact enquiries & RFQs",
+    icon: Inbox,
+    to: "/admin/leads" as const,
   },
   {
     label: "Site Settings",
@@ -159,7 +159,7 @@ function AdminHome() {
       <AdminPageHeader
         eyebrow="Owner Cockpit"
         title="Welcome back"
-        description="Everything you need to keep the public site accurate: projects, content, media, downloads and leads."
+        description="Everything you need to keep the public site accurate: project records, bilingual stories, site settings, and leads."
       />
 
       <section className="mt-10">

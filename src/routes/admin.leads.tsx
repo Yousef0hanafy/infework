@@ -98,7 +98,7 @@ function AdminLeads() {
     onSuccess: () => {
       toast.success("Enquiry marked as reviewed.");
       void qc.invalidateQueries({ queryKey: ["admin", "leads"] });
-      void qc.invalidateQueries({ queryKey: ["admin", "summary"] });
+      void qc.invalidateQueries({ queryKey: ["admin", "cockpit"] });
     },
     onError: (err: unknown) => {
       toast.error(err instanceof Error ? err.message : "Failed to update lead status.");

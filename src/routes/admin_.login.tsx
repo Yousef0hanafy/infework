@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { Loader2, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -7,6 +7,13 @@ const TITLE = "Admin Sign In — Infeworks";
 const DESC = "Internal sign-in for the Infeworks project records administration area.";
 
 export const Route = createFileRoute("/admin_/login")({
+  ssr: false,
+  beforeLoad: async () => {
+    const { data } = await supabase.auth.getUser();
+    if (data?.user && !data.user.is_anonymous) {
+      throw redirect({ to: "/admin" });
+    }
+  },
   head: () => ({
     meta: [
       { title: TITLE },

@@ -109,9 +109,10 @@ function AdminProjects() {
     return new Map(list.map((p) => [p.slug, { title: p.title }]));
   }, []);
 
-  // Fetch capabilities for the creation modal
+  // Fetch capabilities for the creation modal (cached 5m)
   const { data: capabilities = [] } = useQuery({
-    queryKey: ["admin", "capabilities-list"],
+    queryKey: ["admin", "capabilities"],
+    staleTime: 5 * 60 * 1000,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("capabilities")
@@ -124,19 +125,12 @@ function AdminProjects() {
 
   // Query projects and public profiles
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["admin", "projects-list"],
+    queryKey: ["admin", "projects", "list"],
     queryFn: async () => {
-      let projectsRes = await supabase
+      const projectsRes = await supabase
         .from("projects")
         .select("id,slug,status,featured,internal_notes,created_at")
         .order("created_at", { ascending: false });
-
-      if (projectsRes.error && projectsRes.error.code === "42703") {
-        projectsRes = (await supabase
-          .from("projects")
-          .select("id,slug,status,internal_notes,created_at")
-          .order("created_at", { ascending: false })) as any;
-      }
 
       if (projectsRes.error) {
         console.error("Failed to load projects:", projectsRes.error);
@@ -147,23 +141,22 @@ function AdminProjects() {
         .from("public_project_profiles")
         .select("project_id,locale,title");
 
-      const rawProjects = (projectsRes.data ?? []) as any[];
+      const rawProjects = (projectsRes.data ?? []) as ProjectRow[];
       const rawProfiles = (profilesRes.data ?? []) as ProfileRow[];
 
       return {
         projects: rawProjects.map((p) => ({
           ...p,
           featured: Boolean(p.featured),
-        })) as ProjectRow[],
+        })),
         profiles: rawProfiles,
       };
     },
   });
 
   const invalidate = () => {
-    void qc.invalidateQueries({ queryKey: ["admin", "projects-list"] });
     void qc.invalidateQueries({ queryKey: ["admin", "projects"] });
-    void qc.invalidateQueries({ queryKey: ["admin", "summary"] });
+    void qc.invalidateQueries({ queryKey: ["admin", "cockpit"] });
   };
 
   const resetForm = () => {
@@ -337,8 +330,8 @@ function AdminProjects() {
           : `Project "${project.slug}" reverted to draft.`,
       );
     },
-    onError: (err: any) => {
-      toast.error(err?.message || "Failed to update project status.");
+    onError: (err: unknown) => {
+      toast.error(err instanceof Error ? err.message : "Failed to update project status.");
     },
   });
 
@@ -368,8 +361,8 @@ function AdminProjects() {
           : `Removed "${project.slug}" from featured.`,
       );
     },
-    onError: (err: any) => {
-      toast.error(err?.message || "Failed to toggle featured state.");
+    onError: (err: unknown) => {
+      toast.error(err instanceof Error ? err.message : "Failed to toggle featured state.");
     },
   });
 
@@ -583,9 +576,8 @@ function AdminProjects() {
                     <Link
                       to="/admin/projects/$projectId"
                       params={{ projectId: project.id }}
-                      search={{ step: "media" }}
                       className="group relative block aspect-[16/10] w-20 overflow-hidden rounded border border-neutral-800 bg-neutral-900 shadow transition-transform hover:scale-105"
-                      title={`View ${totalPhotos} photos for ${project.slug}`}
+                      title={project.slug}
                     >
                       {coverUrl ? (
                         <img
@@ -653,21 +645,6 @@ function AdminProjects() {
                       >
                         <Pencil className="h-3 w-3" strokeWidth={1.5} />
                         Edit
-                      </Link>
-
-                      <Link
-                        to="/admin/projects/$projectId"
-                        params={{ projectId: project.id }}
-                        search={{ step: "media" }}
-                        className="inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-semibold tracking-wide uppercase transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)]"
-                        style={{
-                          borderColor: "var(--iw-border)",
-                          color: "var(--iw-text-secondary)",
-                        }}
-                        title="Manage photos and diagrams"
-                      >
-                        <ImageIcon className="h-3 w-3" strokeWidth={1.5} />
-                        Photos {totalPhotos > 0 ? `(${totalPhotos})` : ""}
                       </Link>
 
                       {isPublished ? (
