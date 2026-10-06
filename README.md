@@ -1,29 +1,57 @@
-# Welcome to your Lovable project
+# Infeworks (إنفيوركس للأعمال الهندسية المتكاملة)
 
-This project was built with [Lovable](https://lovable.dev).
+Official enterprise web platform and project showcase for **Infeworks** — specialists in MEP, strategic water/wastewater infrastructure, electromechanical contracting, and environmental engineering across Egypt and the MENA region.
 
-## Build with Lovable
+---
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## 🌟 Key Features
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Full Bilingual Architecture (EN / AR)**:
+  - Native RTL/LTR support powered by URL-based localization (`/en` and `/ar`).
+  - Seamless layout mirroring, typography adaptations, and metadata management.
+- **Enterprise Project Showcase**:
+  - Filterable portfolio spanning Water Infrastructure, Strategic Facilities, Civil & Commercial, and Industrial MEP.
+  - Interactive technical facts sheet (Client, Consultant, Capacity, Scope, Location, Completion Year).
+  - High-performance responsive media galleries and engineering schematic viewers.
+- **Dynamic Partner Ribbons**:
+  - Drag-enabled infinite kinetic ribbons and directory grids for National Clients, Contracting Authorities, and Approved Equipment Suppliers.
+- **Administrative Control Panel (`/admin`)**:
+  - Secure dashboard for project management, lead triage, and system settings.
+  - Visual photo grid management (batch uploading, primary hero selection, reordering, deletion).
+  - High-precision engineering schematic uploader with instant file size and MIME validation.
+  - Live slug conflict checker and draft/publication status toggling.
+- **Resilient Fallback Data Layer**:
+  - Hybrid data architecture using Supabase PostgreSQL with built-in static fallback caching, ensuring zero public downtime even during schema transitions.
 
-## Development
+---
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## 🛠️ Tech Stack
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+- **Framework**: [TanStack Start](https://tanstack.com/start/latest) (Full-stack SSR / Nitro engine)
+- **UI & Routing**: React 18, [@tanstack/react-router](https://tanstack.com/router)
+- **State & Data Fetching**: [@tanstack/react-query](https://tanstack.com/query)
+- **Styling**: Tailwind CSS, CSS Variables design token system
+- **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Backend & Database**: [Supabase](https://supabase.com/) (PostgreSQL, Storage, RLS, Auth)
+- **Package Manager / Runtime**: [Bun](https://bun.sh/) / Node.js 20+
 
-## Built with
+---
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## 🚀 Getting Started
+
+### 1. Prerequisites
+
+- [Node.js 20+](https://nodejs.org/) or [Bun](https://bun.sh/) installed.
+- Access to a Supabase project instance.
+
+### 2. Clone & Install Dependencies
+
+```bash
+# Clone the repository
+git clone https://github.com/Yousef0hanafy/infework.git
+cd infework
+
+# Install dependencies using Bun (recommended) or npm
+bun install
+# or: npm install
