@@ -519,7 +519,10 @@ export default function ClientsMarquee({ isAr }: { isAr: boolean }) {
           </div>
 
           {/* View mode toggle & playback controls */}
-          <div className="flex items-center justify-between sm:justify-end gap-2.5 w-full sm:w-auto" dir="ltr">
+          <div
+            className="flex items-center justify-between sm:justify-end gap-2.5 w-full sm:w-auto"
+            dir="ltr"
+          >
             {/* View Mode Toggle: Ribbon vs Grid */}
             <div className="flex rounded-lg border border-gray-200 bg-white p-0.5 shadow-sm">
               <button

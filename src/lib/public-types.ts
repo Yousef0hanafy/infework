@@ -43,6 +43,14 @@ export type PublicMedia = {
   mime_type: string | null;
 };
 
+export type SchematicStep = {
+  id: string;
+  label_en: string;
+  label_ar: string;
+  desc_en?: string;
+  desc_ar?: string;
+};
+
 export type PublicProjectDetail = {
   project: PublicProject;
   location: PublicLocation | null;
@@ -50,6 +58,7 @@ export type PublicProjectDetail = {
   media: PublicMedia[];
   facts: PublicProjectFacts | null;
   schema: PublicMedia | null;
+  schematic_steps?: SchematicStep[] | undefined;
 };
 
 export type PublicCapability = {

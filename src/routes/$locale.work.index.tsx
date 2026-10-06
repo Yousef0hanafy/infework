@@ -7,16 +7,18 @@ import { getFlagshipProjects } from "@/lib/flagship-projects";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getCapabilities, getPublicProjects } from "@/lib/public.functions";
 
+import HeroMetrics from "@/components/infeworks/HeroMetrics";
+
 const workSearchSchema = z.object({
   sector: z.string().optional().catch("all"),
 });
 
 const TITLE = "Engineering Portfolio & Proven Track Record — Infeworks";
 const DESC =
-  "Exhaustive case studies and documented deliverables across water treatment, wastewater, utility networks, mega pumping stations, and civil infrastructure in Egypt.";
+  "Detailed case studies and documented deliverables across water treatment, wastewater, utility networks, mega pumping stations, and civil infrastructure in Egypt.";
 const TITLE_AR = "سجل الأعمال والمشروعات الهندسية — إنفيوركس";
 const DESC_AR =
-  "مشروعات ودراسات حالة موثقة لمحطات تنقية وتحلية المياه، محطات الصرف الصحي والصناعي، شبكات المرافق، ومحطات الرفع والضخ العملاقة المنفذة في مصر.";
+  "مشروعات ودراسات حالة تفصيلية لمحطات تنقية وتحلية المياه، محطات الصرف الصحي والصناعي، شبكات المرافق، ومحطات الرفع والضخ العملاقة المنفذة في مصر.";
 
 export const Route = createFileRoute("/$locale/work/")({
   validateSearch: (search: Record<string, unknown>) => workSearchSchema.parse(search),
@@ -38,6 +40,16 @@ export const Route = createFileRoute("/$locale/work/")({
           ? `${count} مشروعاً هندسياً موثقاً. ${baseDesc}`
           : `${count} documented engineering projects. ${baseDesc}`
         : baseDesc;
+    const url = `https://www.infeworks.com/${params?.locale ?? "ar"}/work`;
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: title,
+      description: description,
+      url: url,
+    };
+
     return {
       meta: [
         { title },
@@ -45,12 +57,18 @@ export const Route = createFileRoute("/$locale/work/")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image", content: "https://www.infeworks.com/logo.png" },
         { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+        { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(schema),
+        },
       ],
     };
   },
@@ -88,7 +106,7 @@ function WorkIndex() {
     });
 
     return [
-      { key: "all", label: t("All Sectors", "جميع القطاعات") },
+      { key: "all", label: isAr ? "جميع القطاعات" : "All Sectors" },
       ...sortedCaps.map((c) => ({
         key: c.slug,
         label: isAr ? c.ar_name : c.en_name,
@@ -161,61 +179,7 @@ function WorkIndex() {
             )}
           </p>
 
-          <div
-            className="mt-10 grid grid-cols-2 gap-4 border-t pt-8 sm:grid-cols-4 sm:gap-6"
-            style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}
-          >
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "var(--iw-dark-accent)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">50+</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Delivered Projects", "مشروعاً منجزاً")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">20+</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Years of Integration", "عاماً من التكامل الهندسي")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">6</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Specialized Sectors", "قطاعات هندسية متخصصة")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "var(--iw-dark-accent)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-[var(--iw-dark-accent)]">
-                100%
-              </span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Single-Contract Delivery", "مسؤولية تعاقدية موحدة")}
-              </span>
-            </div>
-          </div>
+          <HeroMetrics className="mt-10" />
         </div>
       </section>
 
@@ -241,12 +205,11 @@ function WorkIndex() {
                     });
                     setLimit(12);
                   }}
-                  className="label-mono rounded-xs border px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer"
-                  style={{
-                    backgroundColor: isActive ? "var(--iw-accent)" : "var(--iw-surface)",
-                    borderColor: isActive ? "var(--iw-accent)" : "var(--iw-border)",
-                    color: isActive ? "#ffffff" : "var(--iw-text-secondary)",
-                  }}
+                  className={`label-mono rounded-xs border px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-[var(--iw-accent)] border-[var(--iw-accent)] text-white"
+                      : "bg-[var(--iw-surface)] border-[var(--iw-border)] text-[var(--iw-text-secondary)]"
+                  }`}
                 >
                   {f.label}
                 </button>

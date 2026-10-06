@@ -14,11 +14,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import SectorSchematic from "@/components/infeworks/SectorSchematic";
 import { getSector } from "@/lib/sectors";
 import { getFlagshipProjects } from "@/lib/flagship-projects";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getPublicProjects } from "@/lib/public.functions";
+import ProjectSchematic from "@/components/infeworks/ProjectSchematic";
+import { PROJECT_SCHEMAS } from "@/lib/project-schemas";
 
 export const Route = createFileRoute("/$locale/what-we-do/$sector")({
   loader: async ({ params }) => {
@@ -30,10 +31,18 @@ export const Route = createFileRoute("/$locale/what-we-do/$sector")({
   head: ({ params }) => {
     const isAr = params.locale === "ar";
     const sector = getSector(params.sector);
-    const name = sector ? (isAr ? sector.ar : sector.en) : (isAr ? "المجالات الهندسية" : "Capability");
+    const name = sector
+      ? isAr
+        ? sector.ar
+        : sector.en
+      : isAr
+        ? "المجالات الهندسية"
+        : "Capability";
     const title = isAr ? `${name} — إنفيوركس` : `${name} — Infeworks`;
     const desc = sector
-      ? (isAr ? sector.defAr : sector.defEn)
+      ? isAr
+        ? sector.defAr
+        : sector.defEn
       : isAr
         ? "مجالات وقدرات إنفيوركس الهندسية — محطات وشبكات البنية التحتية للمياه في مصر."
         : "Infeworks engineering capability — water and wastewater infrastructure in Egypt.";
@@ -44,12 +53,12 @@ export const Route = createFileRoute("/$locale/what-we-do/$sector")({
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image", content: "https://www.infeworks.com/logo.png" },
         { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
-        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+        { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
       ],
     };
   },
@@ -76,6 +85,21 @@ function SectorPage() {
   const allProjects = published && published.length > 0 ? published : getFlagshipProjects(locale);
   const relatedProjects = allProjects.filter((p) => p.capability_slugs?.includes(slug));
 
+  const representativeSlug =
+    relatedProjects.find((p) => PROJECT_SCHEMAS[p.slug])?.slug ??
+    (slug === "water-treatment"
+      ? "sadat-city-ro"
+      : slug === "wastewater"
+        ? "shubra-shahab-industrial-wastewater"
+        : slug === "pumping-wells"
+          ? "toshka-pumping-stations"
+          : slug === "infrastructure-networks"
+            ? "arish-water-supply"
+            : slug === "industrial-mep"
+              ? "ameriya-cold-storage"
+              : undefined);
+  const sectorSchematicSteps = representativeSlug ? PROJECT_SCHEMAS[representativeSlug] : undefined;
+
   const SectorIcon = ICONS[sector.icon] ?? Droplets;
 
   const serviceSchema = {
@@ -86,13 +110,13 @@ function SectorPage() {
     provider: {
       "@type": "Corporation",
       name: "Infeworks",
-      url: "https://infeworks.com",
+      url: "https://www.infeworks.com",
     },
     areaServed: {
       "@type": "Country",
       name: "Egypt",
     },
-    url: `https://infeworks.com/${locale}/what-we-do/${slug}`,
+    url: `https://www.infeworks.com/${locale}/what-we-do/${slug}`,
   };
 
   return (
@@ -137,12 +161,14 @@ function SectorPage() {
             {isAr ? sector.intro.ar : sector.intro.en}
           </p>
 
-          <div className="mt-16 border-t pt-10" style={{ borderColor: "var(--iw-dark-border)" }}>
-            <p className="label-mono" style={{ color: "var(--iw-dark-accent)" }}>
-              {t("Engineering Flow Sequence", "المخطط الهندسي وتسلسل العمليات")}
-            </p>
-            <SectorSchematic slug={sector.slug} isAr={isAr} className="mt-6" />
-          </div>
+          {sectorSchematicSteps && sectorSchematicSteps.length > 0 ? (
+            <div className="mt-16 border-t pt-10" style={{ borderColor: "var(--iw-dark-border)" }}>
+              <p className="label-mono mb-6" style={{ color: "var(--iw-dark-accent)" }}>
+                {t("Engineering Flow Sequence", "المخطط الهندسي وتسلسل العمليات")}
+              </p>
+              <ProjectSchematic steps={sectorSchematicSteps} isAr={isAr} />
+            </div>
+          ) : null}
         </div>
       </section>
 

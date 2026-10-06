@@ -49,12 +49,12 @@ export const Route = createFileRoute("/$locale/contact")({
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image", content: "https://www.infeworks.com/logo.png" },
         { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
-        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+        { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
       ],
     };
   },
@@ -948,4 +948,3 @@ function ContactPage() {
     </div>
   );
 }
-

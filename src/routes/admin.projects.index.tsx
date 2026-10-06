@@ -1,7 +1,16 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { AlertCircle, ExternalLink, Image as ImageIcon, Pencil, Plus, Search, Star, X } from "lucide-react";
+import {
+  AlertCircle,
+  ExternalLink,
+  Image as ImageIcon,
+  Pencil,
+  Plus,
+  Search,
+  Star,
+  X,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getFlagshipProjects } from "@/lib/flagship-projects";
 import { getProjectMeta } from "@/lib/project-meta";
@@ -268,12 +277,10 @@ function AdminProjects() {
 
       // 3. Link initial capability if selected
       if (selectedCapId) {
-        const { error: capErr } = await supabase
-          .from("project_capabilities")
-          .insert({
-            project_id: newId,
-            capability_id: selectedCapId,
-          });
+        const { error: capErr } = await supabase.from("project_capabilities").insert({
+          project_id: newId,
+          capability_id: selectedCapId,
+        });
         if (capErr) {
           console.error("Failed to link project capability:", capErr);
         }
@@ -366,10 +373,9 @@ function AdminProjects() {
     },
   });
 
-  const projects = data?.projects ?? [];
-  const profiles = data?.profiles ?? [];
-
   const computedProjects = useMemo(() => {
+    const projects = data?.projects ?? [];
+    const profiles = data?.profiles ?? [];
     return projects.map((p) => {
       const info = resolveProjectInfo(p, profiles, flagshipsEnMap);
       return {
@@ -377,7 +383,7 @@ function AdminProjects() {
         ...info,
       };
     });
-  }, [projects, profiles, flagshipsEnMap]);
+  }, [data?.projects, data?.profiles, flagshipsEnMap]);
 
   const filteredProjects = useMemo(() => {
     return computedProjects.filter((p) => {
@@ -409,23 +415,37 @@ function AdminProjects() {
 
       {/* Quick Overview Stats Strip */}
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded border p-3.5" style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}>
-          <p className="label-mono text-[11px]" style={{ color: "var(--iw-text-secondary)" }}>Total Projects</p>
+        <div
+          className="rounded border p-3.5"
+          style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
+        >
+          <p className="label-mono text-[11px]" style={{ color: "var(--iw-text-secondary)" }}>
+            Total Projects
+          </p>
           <p className="display-md text-xl font-bold mt-1 text-white">{computedProjects.length}</p>
         </div>
-        <div className="rounded border p-3.5" style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}>
+        <div
+          className="rounded border p-3.5"
+          style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
+        >
           <p className="label-mono text-[11px] text-emerald-400">Published Live</p>
           <p className="display-md text-xl font-bold mt-1 text-emerald-400">
             {computedProjects.filter((p) => p.status === "published").length}
           </p>
         </div>
-        <div className="rounded border p-3.5" style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}>
+        <div
+          className="rounded border p-3.5"
+          style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
+        >
           <p className="label-mono text-[11px] text-amber-400">Drafts</p>
           <p className="display-md text-xl font-bold mt-1 text-amber-400">
             {computedProjects.filter((p) => p.status === "draft").length}
           </p>
         </div>
-        <div className="rounded border p-3.5" style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}>
+        <div
+          className="rounded border p-3.5"
+          style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
+        >
           <p className="label-mono text-[11px] text-sky-400">Featured Flagships</p>
           <p className="display-md text-xl font-bold mt-1 text-sky-400">
             {computedProjects.filter((p) => p.featured).length}
@@ -438,7 +458,10 @@ function AdminProjects() {
         className="mt-6 flex flex-wrap items-center justify-between gap-4 border p-4"
         style={{ borderColor: "var(--iw-border)", backgroundColor: "var(--iw-surface)" }}
       >
-        <div className="flex flex-1 min-w-[260px] items-center gap-2 border px-3 py-2" style={{ borderColor: "var(--iw-border)" }}>
+        <div
+          className="flex flex-1 min-w-[260px] items-center gap-2 border px-3 py-2"
+          style={{ borderColor: "var(--iw-border)" }}
+        >
           <Search className="h-4 w-4 text-[var(--iw-text-secondary)] shrink-0" />
           <input
             type="text"
@@ -448,7 +471,11 @@ function AdminProjects() {
             className="w-full bg-transparent text-sm outline-none placeholder:text-[var(--iw-text-secondary)]"
           />
           {searchQuery ? (
-            <button type="button" onClick={() => setSearchQuery("")} className="text-xs text-[var(--iw-text-secondary)] hover:text-white">
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              className="text-xs text-[var(--iw-text-secondary)] hover:text-white"
+            >
               <X className="h-3.5 w-3.5" />
             </button>
           ) : null}
@@ -481,7 +508,9 @@ function AdminProjects() {
               color: featuredOnly ? "#f59e0b" : "var(--iw-text-primary)",
             }}
           >
-            <Star className={`h-3.5 w-3.5 ${featuredOnly ? "fill-amber-400 text-amber-400" : ""}`} />
+            <Star
+              className={`h-3.5 w-3.5 ${featuredOnly ? "fill-amber-400 text-amber-400" : ""}`}
+            />
             Featured ({computedProjects.filter((p) => p.featured).length})
           </button>
         </div>
@@ -507,7 +536,8 @@ function AdminProjects() {
           ) : isError ? (
             <tr>
               <td colSpan={5} className="px-5 py-10 text-sm" style={{ color: "var(--iw-error)" }}>
-                Failed to load project records: {(error as Error)?.message || "Database query failed"}
+                Failed to load project records:{" "}
+                {(error as Error)?.message || "Database query failed"}
               </td>
             </tr>
           ) : filteredProjects.length === 0 ? (
@@ -630,7 +660,10 @@ function AdminProjects() {
                         params={{ projectId: project.id }}
                         search={{ step: "media" }}
                         className="inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-semibold tracking-wide uppercase transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)]"
-                        style={{ borderColor: "var(--iw-border)", color: "var(--iw-text-secondary)" }}
+                        style={{
+                          borderColor: "var(--iw-border)",
+                          color: "var(--iw-text-secondary)",
+                        }}
                         title="Manage photos and diagrams"
                       >
                         <ImageIcon className="h-3 w-3" strokeWidth={1.5} />
@@ -680,7 +713,8 @@ function AdminProjects() {
               <div>
                 <h2 className="display-md text-2xl">Add New Project</h2>
                 <p className="mt-1 text-xs text-[var(--iw-text-secondary)]">
-                  Initialize a new engineering project record with bilingual details and sector capability.
+                  Initialize a new engineering project record with bilingual details and sector
+                  capability.
                 </p>
               </div>
               <button
@@ -768,18 +802,22 @@ function AdminProjects() {
                   placeholder="zenein-wwtp-rehabilitation"
                   required
                   className={`mt-2 w-full border bg-transparent px-4 py-2.5 text-sm font-mono outline-none ${
-                    isSlugTaken ? "border-rose-500 text-rose-300" : "focus:border-[var(--iw-accent)]"
+                    isSlugTaken
+                      ? "border-rose-500 text-rose-300"
+                      : "focus:border-[var(--iw-accent)]"
                   }`}
                   style={{ borderColor: isSlugTaken ? "#f43f5e" : "var(--iw-border)" }}
                 />
                 {isSlugTaken ? (
                   <p className="mt-1.5 text-xs text-rose-400 font-medium flex items-center gap-1">
                     <AlertCircle className="h-3.5 w-3.5 shrink-0" />
-                    This slug is already used by an existing project. Please choose a unique identifier.
+                    This slug is already used by an existing project. Please choose a unique
+                    identifier.
                   </p>
                 ) : (
                   <p className="mt-1.5 text-[11px] text-[var(--iw-text-secondary)]">
-                    Public page will be: <code className="font-mono text-white">/work/{slug || "slug"}</code>
+                    Public page will be:{" "}
+                    <code className="font-mono text-white">/work/{slug || "slug"}</code>
                   </p>
                 )}
               </div>
@@ -812,7 +850,10 @@ function AdminProjects() {
               </div>
 
               {/* Featured toggle */}
-              <div className="flex items-center gap-3 border p-3.5" style={{ borderColor: "var(--iw-border)" }}>
+              <div
+                className="flex items-center gap-3 border p-3.5"
+                style={{ borderColor: "var(--iw-border)" }}
+              >
                 <input
                   id="p-featured"
                   type="checkbox"
@@ -860,7 +901,10 @@ function AdminProjects() {
               ) : null}
             </div>
 
-            <div className="mt-8 flex justify-end gap-3 border-t pt-4" style={{ borderColor: "var(--iw-border)" }}>
+            <div
+              className="mt-8 flex justify-end gap-3 border-t pt-4"
+              style={{ borderColor: "var(--iw-border)" }}
+            >
               <AdminButton onClick={resetForm}>Cancel</AdminButton>
               <AdminButton
                 type="submit"

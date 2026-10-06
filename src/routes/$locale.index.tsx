@@ -49,8 +49,14 @@ export const Route = createFileRoute("/$locale/")({
     const defaultTitle = isAr ? DEFAULT_TITLE_AR : DEFAULT_TITLE;
     const defaultDesc = isAr ? DEFAULT_DESC_AR : DEFAULT_DESC;
     const settings = loaderData?.settings ?? {};
-    const title = (isAr ? settings["home_title_ar"] : settings["home_title"]) ?? settings["home_title"] ?? defaultTitle;
-    const description = (isAr ? settings["home_description_ar"] : settings["home_description"]) ?? settings["home_description"] ?? defaultDesc;
+    const title =
+      (isAr ? settings["home_title_ar"] : settings["home_title"]) ??
+      settings["home_title"] ??
+      defaultTitle;
+    const description =
+      (isAr ? settings["home_description_ar"] : settings["home_description"]) ??
+      settings["home_description"] ??
+      defaultDesc;
 
     return {
       meta: [
@@ -59,12 +65,12 @@ export const Route = createFileRoute("/$locale/")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image", content: "https://www.infeworks.com/logo.png" },
         { property: "og:image:alt", content: isAr ? "شعار إنفيوركس" : "Infeworks Logo" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+        { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
       ],
     };
   },
@@ -224,7 +230,7 @@ function LocaleHome() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Infeworks",
-    url: "https://infeworks.com",
+    url: "https://www.infeworks.com",
     inLanguage: isAr ? "ar-EG" : "en-EG",
     description: isAr
       ? "المقاول الهندسي المتكامل لتنفيذ محطات معالجة المياه والصرف والشبكات في مصر"
@@ -603,8 +609,8 @@ function LocaleHome() {
                               <span className="text-[var(--iw-text-secondary)]">
                                 {isAr
                                   ? (meta?.region?.ar ?? p.location?.display_name ?? "")
-                                  : (p.location?.display_name ?? meta?.region?.en ?? "")} ·{" "}
-                                {meta?.year ?? "2025"}
+                                  : (p.location?.display_name ?? meta?.region?.en ?? "")}{" "}
+                                · {meta?.year ?? "2025"}
                               </span>
                             </div>
 

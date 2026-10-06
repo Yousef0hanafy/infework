@@ -17,6 +17,7 @@ import {
 
 import Reveal from "@/components/infeworks/Reveal";
 import MilestoneTrack, { type Milestone } from "@/components/infeworks/MilestoneTrack";
+import HeroMetrics from "@/components/infeworks/HeroMetrics";
 
 export const Route = createFileRoute("/$locale/about")({
   head: ({ params }) => {
@@ -27,7 +28,7 @@ export const Route = createFileRoute("/$locale/about")({
     const desc = isAr
       ? "تأسست إنفيوركس عام 2006 لتكون المقاول المتكامل المسؤول عن تنفيذ محطات معالجة المياه وشبكات المرافق والمشروعات القومية في مصر بعقد واحد ومسؤولية شاملة."
       : "Established in 2006, Infeworks delivers water, wastewater, pumping stations, and utility infrastructure in Egypt as a single accountable contractor.";
-    const url = `https://infeworks.com/${params.locale}/about`;
+    const url = `https://www.infeworks.com/${params.locale}/about`;
 
     const schema = {
       "@context": "https://schema.org",
@@ -67,12 +68,12 @@ export const Route = createFileRoute("/$locale/about")({
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://infeworks.com/logo.png" },
+        { property: "og:image", content: "https://www.infeworks.com/logo.png" },
         { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
-        { name: "twitter:image", content: "https://infeworks.com/logo.png" },
+        { name: "twitter:image", content: "https://www.infeworks.com/logo.png" },
       ],
       scripts: [
         {
@@ -136,38 +137,29 @@ const VERTICAL_CAPABILITIES = [
 const PILLARS = [
   {
     num: "01",
-    en: "Technical Precision & Integrity",
-    ar: "الدقة الهندسية والنزاهة",
+    en: "Execution-Driven Design",
+    ar: "التصميم الموجّه للتنفيذ",
     body: {
-      en: "Verified hydraulic designs, documented lab water-quality benchmarks, and food-grade compliance. Every assumption is traceable to field data.",
-      ar: "تصاميم هيدروليكية موثّقة، ومعايير معملية للجودة، وامتثال للاشتراطات الغذائية. كل افتراض قابل للتتبع إلى بيانات الموقع.",
+      en: "Engineering is more than drafting models. We bridge the gap between theoretical calculations and site reality, adapting designs to ensure practical constructability.",
+      ar: "الهندسة ليست مجرد تصميمات نظرية. نحن نربط دائماً بين النمذجة الهيدروليكية ومتغيرات الواقع الميداني لضمان قابلية التنفيذ واستقرار التشغيل.",
     },
   },
   {
     num: "02",
-    en: "Single-Point Accountability",
-    ar: "المسؤولية الكاملة الموحدة",
+    en: "System Reliability",
+    ar: "موثوقية الأنظمة",
     body: {
-      en: "Direct delivery without subcontracting diffusion. We own the plant performance parameters from intake to handover.",
-      ar: "تنفيذ مباشر دون تفريغ للمقاولين. نتحمل مسؤولية معايير أداء المحطة من المأخذ حتى التسليم.",
+      en: "Water infrastructure is critical. We prioritize robust material selection and appropriate redundancy to sustain operations efficiently over the long term.",
+      ar: "البنية التحتية للمياه قطاع حيوي. نولي اهتماماً بالغاً باختيار خامات هندسية متينة وأنظمة احتياطية لضمان استدامة العمل على المدى الطويل.",
     },
   },
   {
     num: "03",
-    en: "Operational Reliability",
-    ar: "الموثوقية التشغيلية وضمان الأداء",
+    en: "Unified Execution",
+    ar: "تكامل آليات العمل",
     body: {
-      en: "Redundant pumping arrangements, remote telemetry monitoring, and rigorous commissioning protocols keep plants at design duty.",
-      ar: "تجهيزات ضخ احتياطية، ومراقبة تلمترية عن بُعد، وبروتوكولات تشغيل تجريبي صارمة للحفاظ على الأداء التصميمي.",
-    },
-  },
-  {
-    num: "04",
-    en: "National Water Security",
-    ar: "دعم الأمن المائي والمشروعات القومية",
-    body: {
-      en: "Supporting Egypt's strategic water reuse, agricultural reclamation such as Toshka, and municipal supply networks including Sinai.",
-      ar: "دعم إعادة استخدام المياه الاستراتيجي، والاستصلاح الزراعي مثل مشروع توشكى، وشبكات مياه البلاد بما فيها سيناء.",
+      en: "By aligning civil, mechanical, electrical, and control disciplines early, we streamline delivery, reduce interface risks, and maintain clear accountability.",
+      ar: "من خلال دمج التخصصات المدنية والميكانيكية والكهربائية تحت إدارة تنفيذية واحدة، نقلص مخاطر التعارض ونسرّع الإنجاز بمسؤولية واضحة.",
     },
   },
 ];
@@ -182,18 +174,6 @@ const LEADERSHIP: {
   linkedin?: string;
 }[] = [
   {
-    name: { en: "Ahmed Houssien", ar: "أحمد حسين" },
-    title: { en: "Managing Director", ar: "العضو المنتدب" },
-    bio: {
-      en: "Leads overall corporate direction, contract administration, and executive partnerships with state authorities and master developers.",
-      ar: "يقود الإدارة التنفيذية للشركة، وحوكمة التعاقدات والشراكات مع الهيئات الحكومية وكبرى جهات التطوير.",
-    },
-    initials: "AH",
-    image: "/images/team/ahmed-houssien.png",
-    imageScale: "scale-[1.08] translate-y-1",
-    linkedin: "https://www.linkedin.com/in/ahmed-hussien-derbaz-463781143/",
-  },
-  {
     name: { en: "Abdelaziz Elwaily", ar: "عبد العزيز الويلي" },
     title: { en: "Head of Engineering", ar: "رئيس القطاع الهندسي" },
     bio: {
@@ -201,9 +181,21 @@ const LEADERSHIP: {
       ar: "يشرف على التصميم والنمذجة الهيدروليكية، واعتماد مواصفات المحطات والمراجعات الفنية للمشروعات.",
     },
     initials: "AE",
-    image: "/images/team/abdlaziz.png",
+    image: "/images/team/abdlaziz.webp",
     imageScale: "scale-[1.02] translate-y-1",
     linkedin: "https://www.linkedin.com/in/abdelaziz-abdallah-elwaily-1aa922286/",
+  },
+  {
+    name: { en: "Ahmed Houssien", ar: "أحمد حسين" },
+    title: { en: "Managing Director", ar: "العضو المنتدب" },
+    bio: {
+      en: "Leads overall corporate direction, contract administration, and executive partnerships with state authorities and master developers.",
+      ar: "يقود الإدارة التنفيذية للشركة، وحوكمة التعاقدات والشراكات مع الهيئات الحكومية وكبرى جهات التطوير.",
+    },
+    initials: "AH",
+    image: "/images/team/ahmed-houssien.webp",
+    imageScale: "scale-[1.08] translate-y-1",
+    linkedin: "https://www.linkedin.com/in/ahmed-houssien-derbaz/",
   },
   {
     name: { en: "Eslam Tarek", ar: "إسلام طارق" },
@@ -213,7 +205,7 @@ const LEADERSHIP: {
       ar: "يتولى إدارة التصنيع الميكانيكي بالورش، وتجميع شاسيهات الطلمبات ومجمعات الأنابيب عالية الضغط.",
     },
     initials: "ET",
-    image: "/images/team/islam-tarek.png",
+    image: "/images/team/islam-tarek.webp",
     imageScale: "scale-[1.12] translate-y-2",
     linkedin: "https://www.linkedin.com/in/isllamtarekk/",
   },
@@ -225,6 +217,9 @@ const LEADERSHIP: {
       ar: "يدير الأعمال المدنية والإنشائية للمحطات والبيارات العميقة وشبكات المرافق والانحدار في مواقع العمل.",
     },
     initials: "AM",
+    image: "/images/team/mahmoud-adham.webp",
+    imageScale: "scale-[1.12] translate-y-2",
+    linkedin: "https://www.linkedin.com/in/mahmoud-adham-b2b405140",
   },
 ];
 
@@ -586,61 +581,7 @@ function AboutPage() {
           </h1>
 
           {/* Institutional Trust & Credential Ribbon */}
-          <div
-            className="mt-12 grid grid-cols-2 gap-4 border-t pt-8 sm:grid-cols-4 sm:gap-6"
-            style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}
-          >
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "var(--iw-dark-accent)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">50+</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Delivered Projects", "مشروعاً منجزاً")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">20+</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Years of Integration", "عاماً من التكامل الهندسي")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-white">6</span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Specialized Sectors", "قطاعات هندسية متخصصة")}
-              </span>
-            </div>
-            <div
-              className="flex flex-col border-s-2 ps-4"
-              style={{ borderColor: "var(--iw-dark-accent)" }}
-            >
-              <span className="display-md text-2xl font-bold md:text-3xl text-[var(--iw-dark-accent)]">
-                100%
-              </span>
-              <span
-                className="label-mono mt-1 text-xs"
-                style={{ color: "var(--iw-dark-text-muted)" }}
-              >
-                {t("Single-Contract Delivery", "مسؤولية تعاقدية موحدة")}
-              </span>
-            </div>
-          </div>
+          <HeroMetrics />
         </div>
       </section>
 
@@ -721,15 +662,15 @@ function AboutPage() {
 
                 <h3 className="display-md mt-6 text-xl font-bold md:text-2xl text-[var(--iw-text-primary)] leading-snug">
                   {t(
-                    "Engineering water infrastructure with uncompromised integrity and single-point accountability.",
-                    "أن نتحمل مسؤولية كل قطرة مياه، ونبني بنية تحتية هندسية تعيش لأجيال.",
+                    "We translate complex water requirements into functioning, long-lasting assets.",
+                    "نترجم متطلبات مشاريع المياه والصرف الصحي المعقدة إلى أصول ملموسة تدوم طويلاً.",
                   )}
                 </h3>
 
                 <p className="body-reading mt-5 text-base leading-relaxed text-[var(--iw-text-secondary)]">
                   {t(
-                    "We do not merely assemble equipment or pour concrete; we build the lifelines of communities and strategic national developments across Egypt. Our mission is to take unbroken, single-point accountability for critical water and utility assets — bridging advanced hydraulic engineering with in-house prefabrication and relentless site precision, ensuring every facility operates at peak design duty from day one.",
-                    "رسالتنا في إنفيوركس تتجاوز مجرد توريد مضخات أو صب خرسانات؛ نحن نبني شرايين الحياة للمجتمعات والمشروعات الاستراتيجية في مصر. نتحمل مسؤولية المحطة كاملة من النمذجة الهيدروليكية والتصنيع الذاتي وحتى التشغيل المستمر — لنضمن أن كل أصل مائي نسلمه يعمل بأعلى كفاءة تصميمية وتدفق فعلي، بدون أعذار وبدون تشتيت للمسؤولية.",
+                    "By tightly binding process design with mechanical execution, we deliver facilities that operate predictably, bridging the gap between theoretical engineering and on-site reality.",
+                    "من خلال الربط المحكم بين التصميم العملياتي والتنفيذ الميكانيكي، نسد الفجوة بين النظريات الهندسية وتحديات المواقع، لنسلم محطات تعمل باستقرار وموثوقية.",
                   )}
                 </p>
               </div>
@@ -780,15 +721,15 @@ function AboutPage() {
 
                 <h3 className="display-md mt-6 text-xl font-bold md:text-2xl text-[var(--iw-text-primary)] leading-snug">
                   {t(
-                    "To set Egypt's benchmark for mission-critical water & infrastructure delivery.",
-                    "أن نكون المعيار الهندسي الأول للبنية التحتية والمشروعات المائية المعقدة في مصر والمنطقة.",
+                    "To push the boundaries of localized water engineering and infrastructure delivery.",
+                    "تجاوز الأساليب التقليدية للمقاولات، لنتحول إلى مركز هندسي يطور حلولاً هيدروليكية تتكيف مع أصعب البيئات.",
                   )}
                 </h3>
 
                 <p className="body-reading mt-5 text-base leading-relaxed text-[var(--iw-text-secondary)]">
                   {t(
-                    "To stand as the definitive partner of choice for state authorities and master developers when projects are complex, high-stakes, and unforgiving. We envision a future where every plant we commission proves that integrated domestic engineering and single-contract delivery form the strongest foundation for regional water security.",
-                    "رؤيتنا أن تصبح إنفيوركس الشريك المرجعي الموثوق للدولة وكبرى الكيانات عندما يكون المشروع حرجاً ومعقداً ولا يحتمل الخطأ. نبرهن في كل محطة ننجزها أن التكامل الهندسي والمسؤولية الشاملة قادران على بناء مستقبل مائي آمن ومستدام للأجيال القادمة.",
+                    "We aim to transition from conventional delivery to developing specialized, adaptive hydraulic facilities that answer the region's most unforgiving demands. We strive to be the definitive choice for un-standardized challenges.",
+                    "رؤيتنا لا تتعلق بأن نكون الأكبر حجماً، بل أن نكون الخيار الهندسي الأكثر كفاءة وموثوقية للمشروعات التي لا تتحمل الحلول النمطية الجاهزة.",
                   )}
                 </p>
               </div>
@@ -810,7 +751,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 3.5. Chairman & Founder's Address */}
+      {/* 3.5. Founder's Address */}
       <section
         className="iw-section-dark border-b relative overflow-hidden bg-[#070e1b]"
         style={{ borderColor: "var(--iw-dark-border)" }}
@@ -823,13 +764,13 @@ function AboutPage() {
             <div className="flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-[var(--iw-dark-accent)]" />
               <p className="label-mono font-semibold uppercase text-xs tracking-widest text-[var(--iw-dark-accent)]">
-                {t("Chairman's Address", "كلمة رئيس مجلس الإدارة")}
+                {t("Founder's Vision", "رؤية المؤسس")}
               </p>
             </div>
             <h2 className="display-lg mt-3 text-[clamp(1.75rem,4vw,2.75rem)] font-bold text-white max-w-4xl">
               {t(
-                '"In water infrastructure, there is no room for excuses. We never leave a site until the water flows exactly as promised."',
-                "«المياه لا تقبل الأعذار؛ لذلك لم نترك موقعاً قط إلا والماء يجري فيه كما وُعد.»",
+                '"Building infrastructure is about delivering engineered solutions that stand the test of time, adapting to challenges with practical resilience."',
+                "«بناء البنية التحتية يعتمد على تقديم حلول هندسية تصمد أمام الزمن، والتكيف مع تحديات التنفيذ بمرونة وواقعية.»",
               )}
             </h2>
           </Reveal>
@@ -843,11 +784,8 @@ function AboutPage() {
                   style={{ borderColor: "var(--iw-dark-border)" }}
                 >
                   <img
-                    src="/images/about/houssien-derbaze.png"
-                    alt={t(
-                      "Houssien Derbaze — Founder & Chairman",
-                      "حسين درباز — المؤسس ورئيس مجلس الإدارة",
-                    )}
+                    src="/images/about/houssien-derbaze.webp"
+                    alt={t("Houssien Derbaze — Founder", "حسين درباز — المؤسس")}
                     width={600}
                     height={800}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -861,7 +799,7 @@ function AboutPage() {
                       {t("Houssien Derbaze", "حسين درباز")}
                     </h3>
                     <p className="label-mono text-xs text-[var(--iw-dark-accent)] mt-1 uppercase tracking-wider font-semibold">
-                      {t("Chairman", "المؤسس ورئيس مجلس الإدارة")}
+                      {t("Founder", "المؤسس")}
                     </p>
                   </div>
                 </div>
@@ -874,27 +812,27 @@ function AboutPage() {
                 <div className="flex items-center gap-3 mb-6 text-[var(--iw-dark-accent)] opacity-80">
                   <Quote className="h-8 w-8" />
                   <span className="label-mono text-xs tracking-widest uppercase text-white/50">
-                    {t("Leadership Philosophy · Founded 2006", "فلسفة القيادة · تأسست 2006")}
+                    {t("Corporate Philosophy · Founded 2006", "الفلسفة المؤسسية · تأسست عام 2006")}
                   </span>
                 </div>
 
                 <div className="body-reading space-y-5 text-base md:text-lg leading-relaxed text-slate-300">
                   <p>
                     {t(
-                      "In this industry, it is remarkably easy for contractors to pass the blame: the civil builder points to the pump supplier, the electrician blames the consultant, and the client is left waiting with a dry pipeline.",
-                      "في عالم مقاولات البنية التحتية، من السهل جداً أن يلقي الجميع باللوم على غيرهم: المقاول المدني يلوم مورد الطلمبات، والكهربائي يلوم الاستشاري، وفي النهاية يتعطل المشروع ويضيع وقت العميل.",
+                      "Water infrastructure contracting is rarely straightforward. Ground conditions change, and technical complexities are inevitable.",
+                      "مقاولات البنية التحتية للمياه نادراً ما تخلو من التعقيدات الفنية. فالمتغيرات الهندسية وظروف الموقع تفرض تحديات مستمرة تتطلب واقعية في التعامل.",
                     )}
                   </p>
                   <p>
                     {t(
-                      "When I founded Infeworks in 2006, my driving purpose was to put an end to that cycle. I made a commitment that still guides every engineer on our team today: we do not merely ship equipment or pour foundations. We take complete, personal ownership of the entire facility — from the first hydraulic calculation in our office, to prefabricating pipe manifolds in our workshops, right down to the moment clean water flows from the outlet.",
-                      "عندما أسست إنفيوركس عام 2006، كان دافعي الوحيد هو إنهاء هذا التشتت. قطعت عهداً على نفسي وعلى كل مهندس معنا: نحن لسنا مجرد شركة تشحن معدات أو تصب خرسانات؛ نحن نتحمل مسؤولية المحطة كاملة كأنها ملكنا الشخصي. من أول حساب هيدروليكي على الورق، إلى تصنيع الوصلات في ورشنا، وحتى اللحظة التي يفتح فيها العميل المحبس وتتدفق المياه النقية.",
+                      "At International for Engineering Works, we understand that complex projects require adaptive responses. Our approach is to leverage our in-house engineering and fabrication capabilities to provide practical, reliable solutions.",
+                      "في الشركة الدولية للأعمال الهندسية، ندرك أن المشاريع الكبرى تتطلب استجابة مرنة. منهجيتنا تعتمد على تسخير إمكانياتنا المتكاملة في التصميم والتنفيذ لتقديم حلول فنية مدروسة وقابلة للتطبيق.",
                     )}
                   </p>
                   <p>
                     {t(
-                      "Water engineering is unforgiving. Behind every pump station in Toshka are crops waiting to grow, and behind every network in Sinai are communities relying on safe drinking water. That sense of duty is why consultants and sovereign authorities trust our handshake — and it is why we stand behind every single facility we build.",
-                      "المياه ليست قطاعاً يحتمل الخطأ أو المماطلة؛ فخلف كل محطة رفع ننفذها في توشكى مزارع تنتظر الري، وخلف كل شبكة مياه في سيناء أهالٍ ينتظرون كوب ماء نظيف. هذا الإحساس بالأمانة هو ما يجعل استشاريي مصر وجهات الإسناد يثقون بنا، وهو السبب الذي يجعلنا نضع اسمنا وسمعتنا بكل فخر على كل مشروع نسلمه.",
+                      "By combining civil execution with electromechanical assembly, we maintain a clear line of technical accountability. We focus on transparent communication and precise engineering to deliver facilities that operate with long-term stability.",
+                      "من خلال الجمع بين الأعمال المدنية والكهروميكانيكية في مسار تنفيذي واحد، نحافظ على خط واضح من المسؤولية الفنية. نركز على الدقة الهندسية والشفافية التامة لتسليم محطات تعمل بكفاءة واستدامة.",
                     )}
                   </p>
                 </div>
@@ -909,7 +847,10 @@ function AboutPage() {
                       {t("Houssien Derbaze", "حسين درباز")}
                     </span>
                     <span className="label-mono text-xs text-white/60 mt-0.5 block">
-                      {t("Chairman · Infeworks", "المؤسس ورئيس مجلس الإدارة · إنفيوركس")}
+                      {t(
+                        "Founder · International for Engineering Works",
+                        "المؤسس · الشركة الدولية للأعمال الهندسية",
+                      )}
                     </span>
                   </div>
 
@@ -1019,7 +960,7 @@ function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid gap-px bg-[var(--iw-border)] md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px bg-[var(--iw-border)] md:grid-cols-2 lg:grid-cols-3">
             {PILLARS.map((pillar) => (
               <div
                 key={pillar.en}
@@ -1258,10 +1199,10 @@ function AboutPage() {
                 {[
                   {
                     icon: Award,
-                    en: "ISO 9001, 14001 & 45001 Aligned",
-                    ar: "معايير الجودة والبيئة والسلامة المهنية ISO",
+                    en: "Rigorous Quality Management",
+                    ar: "إدارة صارمة للجودة",
                     descEn:
-                      "Integrated management system ensuring traceable quality and on-site workforce safety.",
+                      "Integrated management procedures ensuring traceable quality and on-site workforce safety.",
                     descAr:
                       "نظام إدارة متكامل يضمن ضبط الجودة الصارم وسلامة الكوادر التنفيذية في المواقع.",
                   },
@@ -1276,12 +1217,12 @@ function AboutPage() {
                   },
                   {
                     icon: ShieldCheck,
-                    en: "Food-Grade & Potable Membrane Hygiene",
-                    ar: "مطابقة الاشتراطات الصحية لمياه الشرب والأغذية",
+                    en: "ATEX & Specialized Spec Readiness",
+                    ar: "الجاهزية لمواصفات ATEX والاشتراطات الخاصة",
                     descEn:
-                      "NSF/ANSI compliance for potable membrane arrays and food-production contact water.",
+                      "Capability to deliver explosion-proof grounding and specialized hygiene compliance for specific projects.",
                     descAr:
-                      "مطابقة معايير NSF/ANSI لمنظومات الأغشية ومياه الصناعات الغذائية الحساسة.",
+                      "القدرة على تلبية متطلبات الأنظمة المضادة للانفجار، والاشتراطات الصحية الخاصة حسب المشروع.",
                   },
                   {
                     icon: CheckCircle2,

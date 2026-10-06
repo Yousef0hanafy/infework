@@ -243,9 +243,7 @@ async function fetchCoverMedia(
       pIds.forEach((pId, idx) => {
         const pPath = paths[idx];
         if (pId && pPath) {
-          const { data: pubUrl } = client.storage
-            .from("project-media")
-            .getPublicUrl(pPath);
+          const { data: pubUrl } = client.storage.from("project-media").getPublicUrl(pPath);
           map.set(pId, pubUrl.publicUrl);
         }
       });
@@ -263,10 +261,7 @@ async function fetchFeaturedMap(
 ): Promise<Map<string, boolean>> {
   const map = new Map<string, boolean>();
   if (projectIds.length === 0) return map;
-  const { data, error } = await client
-    .from("projects")
-    .select("id, featured")
-    .in("id", projectIds);
+  const { data, error } = await client.from("projects").select("id, featured").in("id", projectIds);
   if (error) {
     console.error("[Infeworks] fetchFeaturedMap failed", error.message);
     return map;
@@ -382,8 +377,23 @@ export async function fetchPublicProjectBySlug(
 
     const meta = getProjectMeta(slug);
     const isAr = lang === "ar";
-    
-    let projData: any = projectRes.data;
+
+    type ProjectFactsRow = {
+      id?: string;
+      featured?: boolean | null;
+      client_ar?: string | null;
+      client_en?: string | null;
+      consultant_ar?: string | null;
+      consultant_en?: string | null;
+      scope_ar?: string | null;
+      scope_en?: string | null;
+      capacity_ar?: string | null;
+      capacity_en?: string | null;
+      year?: string | null;
+      region_ar?: string | null;
+      region_en?: string | null;
+    };
+    let projData: ProjectFactsRow | null = projectRes.data;
     if (projectRes.error) {
       const fb = await client
         .from("projects")
@@ -419,8 +429,8 @@ export async function fetchPublicProjectBySlug(
         "",
     };
 
-    if (projData?.featured !== undefined) {
-      project.featured = projData.featured;
+    if (projData?.featured !== undefined && projData.featured !== null) {
+      project.featured = Boolean(projData.featured);
     }
 
     let rawMediaRows = mediaRes.data ?? [];

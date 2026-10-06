@@ -306,13 +306,13 @@ export function Footer() {
             <span className="inline-flex items-center gap-1.5">
               <span>{t("Developed by", "تطوير المنصة:")}</span>
               <a
-                href="https://portfolio-yousef-hanafy.vercel.app/"
+                href="https://mutjah.com/?utm_source=google&utm_medium=website&utm_id=Infeworks"
                 target="_blank"
                 rel="noreferrer"
                 className="font-medium transition-all duration-200 hover:text-[var(--iw-dark-accent)] hover:underline underline-offset-4"
                 style={{ color: "var(--iw-dark-text)" }}
               >
-                {t("Youssef Hanafy", "يوسف حنفي")}
+                {t("MUTJAH", "متجه")}
               </a>
             </span>
           </div>

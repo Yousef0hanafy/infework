@@ -417,7 +417,9 @@ function ProjectEditor() {
               </>
             ) : null}
             {step === "map" ? <LocationTab projectId={project.id} /> : null}
-            {step === "media" ? <MediaTab projectId={project.id} projectSlug={project.slug} /> : null}
+            {step === "media" ? (
+              <MediaTab projectId={project.id} projectSlug={project.slug} />
+            ) : null}
             {step === "preview" ? <PreviewStep project={project} /> : null}
           </div>
 
@@ -478,9 +480,7 @@ function ProjectEditor() {
                 ) : (
                   <AdminButton
                     variant="solid"
-                    disabled={
-                      setStatus.isPending || !publishReady
-                    }
+                    disabled={setStatus.isPending || !publishReady}
                     onClick={() => setStatus.mutate("published")}
                   >
                     Publish
@@ -520,7 +520,7 @@ function PreviewStep({ project }: { project: Project }) {
   const { data: mediaAssets } = useQuery({
     queryKey: ["admin", "preview-media", project.id],
     queryFn: async () => {
-      let res = await supabase
+      const res = await supabase
         .from("media_assets")
         .select("id,storage_path,media_type,mime_type,is_public,sort_order")
         .eq("project_id", project.id)
@@ -585,13 +585,23 @@ function PreviewStep({ project }: { project: Project }) {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-xs" style={{ color: "var(--iw-text-secondary)" }}>
+                <div
+                  className="flex h-full w-full items-center justify-center text-xs"
+                  style={{ color: "var(--iw-text-secondary)" }}
+                >
                   No cover available
                 </div>
               )}
             </div>
-            <p className="mt-2 text-xs font-mono truncate" style={{ color: "var(--iw-text-secondary)" }}>
-              {coverAsset ? "DB Media Asset (sort_order=1)" : meta?.cover ? "Static Fallback (project-meta.ts)" : "None"}
+            <p
+              className="mt-2 text-xs font-mono truncate"
+              style={{ color: "var(--iw-text-secondary)" }}
+            >
+              {coverAsset
+                ? "DB Media Asset (sort_order=1)"
+                : meta?.cover
+                  ? "Static Fallback (project-meta.ts)"
+                  : "None"}
             </p>
           </div>
 
@@ -600,8 +610,14 @@ function PreviewStep({ project }: { project: Project }) {
               Project Schema / Diagram
             </p>
             <div className="mt-3 space-y-2">
-              <StatusPill tone={schemaAsset?.is_public ? "success" : schemaAsset ? "warning" : "muted"}>
-                {schemaAsset ? (schemaAsset.is_public ? "Published Schema" : "Internal Schema") : "Generic Sector Schematic"}
+              <StatusPill
+                tone={schemaAsset?.is_public ? "success" : schemaAsset ? "warning" : "muted"}
+              >
+                {schemaAsset
+                  ? schemaAsset.is_public
+                    ? "Published Schema"
+                    : "Internal Schema"
+                  : "Generic Sector Schematic"}
               </StatusPill>
               <p className="text-xs" style={{ color: "var(--iw-text-secondary)" }}>
                 {schemaAsset
@@ -618,10 +634,18 @@ function PreviewStep({ project }: { project: Project }) {
               Key Technical Facts
             </p>
             <div className="mt-3 space-y-1.5 text-xs">
-              <p><strong>Client:</strong> {project.client_en || meta?.client?.en || "—"}</p>
-              <p><strong>Capacity:</strong> {project.capacity_en || meta?.capacity?.en || "—"}</p>
-              <p><strong>Year:</strong> {project.year || meta?.year || "—"}</p>
-              <p><strong>Region:</strong> {project.region_en || meta?.region?.en || "—"}</p>
+              <p>
+                <strong>Client:</strong> {project.client_en || meta?.client?.en || "—"}
+              </p>
+              <p>
+                <strong>Capacity:</strong> {project.capacity_en || meta?.capacity?.en || "—"}
+              </p>
+              <p>
+                <strong>Year:</strong> {project.year || meta?.year || "—"}
+              </p>
+              <p>
+                <strong>Region:</strong> {project.region_en || meta?.region?.en || "—"}
+              </p>
             </div>
           </div>
         </div>
@@ -658,13 +682,7 @@ function PreviewStep({ project }: { project: Project }) {
 
 /* ------------------------------- Tab 1: meta ------------------------------ */
 
-function MetaTab({
-  project,
-  onGoToMedia,
-}: {
-  project: Project;
-  onGoToMedia: () => void;
-}) {
+function MetaTab({ project, onGoToMedia }: { project: Project; onGoToMedia: () => void }) {
   const router = useRouter();
   const qc = useQueryClient();
   const [slug, setSlug] = useState(project.slug);
@@ -904,9 +922,16 @@ function MetaTab({
       <AdminCard>
         <h2 className="display-md text-xl">Project Identity & URL</h2>
         <div className="mt-6">
-          <TextField id="m-slug" label="Slug (Public URL Identifier)" value={slug} onChange={setSlug} />
+          <TextField
+            id="m-slug"
+            label="Slug (Public URL Identifier)"
+            value={slug}
+            onChange={setSlug}
+          />
           <p className="mt-1.5 text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-            URL identifier. Use lowercase letters, numbers, and hyphens (e.g. <code>sadat-city-ro</code>). Public live page: <code className="text-white">/work/{slug}</code>
+            URL identifier. Use lowercase letters, numbers, and hyphens (e.g.{" "}
+            <code>sadat-city-ro</code>). Public live page:{" "}
+            <code className="text-white">/work/{slug}</code>
           </p>
         </div>
 
@@ -923,8 +948,12 @@ function MetaTab({
               Featured Flagship Project
             </label>
           </div>
-          <p className="mt-1 text-xs" style={{ color: "var(--iw-text-secondary)", paddingLeft: "1.75rem" }}>
-            Featured projects appear at the top of the portfolio grid on both the Homepage and the Work index.
+          <p
+            className="mt-1 text-xs"
+            style={{ color: "var(--iw-text-secondary)", paddingLeft: "1.75rem" }}
+          >
+            Featured projects appear at the top of the portfolio grid on both the Homepage and the
+            Work index.
           </p>
         </div>
 
@@ -933,7 +962,8 @@ function MetaTab({
             Assigned Sectors / Capabilities
           </label>
           <p className="mt-1 text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-            Select which sectors this project belongs to. Used for public site filtering and schematic fallbacks.
+            Select which sectors this project belongs to. Used for public site filtering and
+            schematic fallbacks.
           </p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {(allCaps ?? []).map((cap) => {
@@ -1006,7 +1036,9 @@ function MetaTab({
               <h3 className="display-md text-lg font-semibold text-red-300">Danger Zone</h3>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-[var(--iw-text-secondary)] max-w-2xl">
-              Permanently delete this project. This removes all uploaded photos and custom schematics from storage, translation profiles, claims, evidence, location coordinates, and unlinks capabilities. This action is irreversible.
+              Permanently delete this project. This removes all uploaded photos and custom
+              schematics from storage, translation profiles, claims, evidence, location coordinates,
+              and unlinks capabilities. This action is irreversible.
             </p>
           </div>
           <button
@@ -1048,7 +1080,8 @@ function MetaTab({
             </div>
 
             <p className="mt-4 text-xs text-[var(--iw-text-secondary)] leading-relaxed">
-              This action <strong>CANNOT</strong> be undone. It will permanently purge all assets and database rows associated with this project:
+              This action <strong>CANNOT</strong> be undone. It will permanently purge all assets
+              and database rows associated with this project:
             </p>
             <ul className="mt-2.5 list-disc space-y-1 pl-5 text-xs text-[var(--iw-text-secondary)]">
               <li>Project photos & custom engineering schematics from storage</li>
@@ -1058,8 +1091,12 @@ function MetaTab({
             </ul>
 
             <div className="mt-6 border border-red-900/40 bg-red-950/20 p-4">
-              <label htmlFor="confirm-slug-input" className="block text-xs text-[var(--iw-text-secondary)]">
-                To confirm, type the project slug: <strong className="font-mono text-red-300">{project.slug}</strong>
+              <label
+                htmlFor="confirm-slug-input"
+                className="block text-xs text-[var(--iw-text-secondary)]"
+              >
+                To confirm, type the project slug:{" "}
+                <strong className="font-mono text-red-300">{project.slug}</strong>
               </label>
               <input
                 id="confirm-slug-input"
@@ -1087,7 +1124,10 @@ function MetaTab({
               </button>
               <button
                 type="button"
-                disabled={confirmSlug.trim().toLowerCase() !== project.slug.toLowerCase() || deleteProject.isPending}
+                disabled={
+                  confirmSlug.trim().toLowerCase() !== project.slug.toLowerCase() ||
+                  deleteProject.isPending
+                }
                 onClick={() => deleteProject.mutate()}
                 className="inline-flex items-center gap-2 border border-red-600 bg-red-600 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white transition-opacity disabled:opacity-30 disabled:cursor-not-allowed hover:bg-red-700"
               >
@@ -1310,7 +1350,8 @@ function FactsTab({ project }: { project: Project }) {
       </div>
 
       <p className="mt-6 text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-        * Fallback: If any field is left empty, the public website automatically falls back to static data from project-meta.ts (if present).
+        * Fallback: If any field is left empty, the public website automatically falls back to
+        static data from project-meta.ts (if present).
       </p>
 
       {error ? (
@@ -1782,17 +1823,57 @@ function EvidenceList({
 
 const EGYPT_COORDINATE_PRESETS = [
   { label: "-- Select an Egyptian Governorate / Industrial Hub --", lat: "", lng: "", name: "" },
-  { label: "Sadat City (Industrial Hub / Menofia)", lat: "30.3800", lng: "30.5100", name: "Sadat City, Menofia, Egypt" },
-  { label: "New Administrative Capital (NAC)", lat: "30.0167", lng: "31.7500", name: "New Administrative Capital, Cairo, Egypt" },
+  {
+    label: "Sadat City (Industrial Hub / Menofia)",
+    lat: "30.3800",
+    lng: "30.5100",
+    name: "Sadat City, Menofia, Egypt",
+  },
+  {
+    label: "New Administrative Capital (NAC)",
+    lat: "30.0167",
+    lng: "31.7500",
+    name: "New Administrative Capital, Cairo, Egypt",
+  },
   { label: "Cairo Governorate (Centroid)", lat: "30.0444", lng: "31.2357", name: "Cairo, Egypt" },
-  { label: "6th of October City / Giza", lat: "29.9381", lng: "30.9142", name: "6th of October City, Giza, Egypt" },
-  { label: "10th of Ramadan / Sharqia", lat: "30.2986", lng: "31.7423", name: "10th of Ramadan, Sharqia, Egypt" },
-  { label: "Alexandria / Borg El Arab Industrial Zone", lat: "30.9167", lng: "29.6667", name: "Borg El Arab, Alexandria, Egypt" },
-  { label: "Ain Sokhna / Suez / Red Sea", lat: "29.6000", lng: "32.3167", name: "Ain Sokhna, Suez, Egypt" },
+  {
+    label: "6th of October City / Giza",
+    lat: "29.9381",
+    lng: "30.9142",
+    name: "6th of October City, Giza, Egypt",
+  },
+  {
+    label: "10th of Ramadan / Sharqia",
+    lat: "30.2986",
+    lng: "31.7423",
+    name: "10th of Ramadan, Sharqia, Egypt",
+  },
+  {
+    label: "Alexandria / Borg El Arab Industrial Zone",
+    lat: "30.9167",
+    lng: "29.6667",
+    name: "Borg El Arab, Alexandria, Egypt",
+  },
+  {
+    label: "Ain Sokhna / Suez / Red Sea",
+    lat: "29.6000",
+    lng: "32.3167",
+    name: "Ain Sokhna, Suez, Egypt",
+  },
   { label: "Port Said / East Port Said", lat: "31.2653", lng: "32.3019", name: "Port Said, Egypt" },
-  { label: "Toshka / Aswan / Upper Egypt", lat: "22.6900", lng: "31.7100", name: "Toshka, Aswan, Egypt" },
+  {
+    label: "Toshka / Aswan / Upper Egypt",
+    lat: "22.6900",
+    lng: "31.7100",
+    name: "Toshka, Aswan, Egypt",
+  },
   { label: "Beni Suef Industrial Zone", lat: "29.0661", lng: "31.0994", name: "Beni Suef, Egypt" },
-  { label: "Kafr El Sheikh / Delta Pumping", lat: "31.1107", lng: "30.9388", name: "Kafr El Sheikh, Egypt" },
+  {
+    label: "Kafr El Sheikh / Delta Pumping",
+    lat: "31.1107",
+    lng: "30.9388",
+    name: "Kafr El Sheikh, Egypt",
+  },
   { label: "Damietta Port / Free Zone", lat: "31.4175", lng: "31.8144", name: "Damietta, Egypt" },
 ];
 
@@ -1916,7 +1997,11 @@ function LocationTab({ projectId }: { projectId: string }) {
             }}
           >
             {EGYPT_COORDINATE_PRESETS.map((p) => (
-              <option key={p.label} value={p.label} style={{ backgroundColor: "#111827", color: "#f9fafb" }}>
+              <option
+                key={p.label}
+                value={p.label}
+                style={{ backgroundColor: "#111827", color: "#f9fafb" }}
+              >
                 {p.label}
               </option>
             ))}
@@ -2037,9 +2122,11 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
   const { data: assets } = useQuery({
     queryKey: key,
     queryFn: async () => {
-      let res = await supabase
+      const res = await supabase
         .from("media_assets")
-        .select("id,project_id,storage_path,alt_en,alt_ar,is_public,media_type,mime_type,sort_order,created_at")
+        .select(
+          "id,project_id,storage_path,alt_en,alt_ar,is_public,media_type,mime_type,sort_order,created_at",
+        )
         .eq("project_id", projectId)
         .order("sort_order", { ascending: true });
 
@@ -2067,7 +2154,10 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
   };
 
   const photos = useMemo(() => (assets ?? []).filter((a) => a.media_type === "photo"), [assets]);
-  const schema = useMemo(() => (assets ?? []).find((a) => a.media_type === "schema") ?? null, [assets]);
+  const schema = useMemo(
+    () => (assets ?? []).find((a) => a.media_type === "schema") ?? null,
+    [assets],
+  );
 
   // Handle preview generation on file selection
   const handlePhotoFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2300,7 +2390,9 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
       if (schemaFileRef.current) schemaFileRef.current.value = "";
       setSchemaAltEn("");
       setSchemaAltAr("");
-      toast.success(replaceTarget ? "Project schema replaced." : "Project schema uploaded successfully.");
+      toast.success(
+        replaceTarget ? "Project schema replaced." : "Project schema uploaded successfully.",
+      );
       refresh();
     } catch (e: unknown) {
       let msg = e instanceof Error ? e.message : "Schema upload failed.";
@@ -2329,10 +2421,7 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
         .eq("id", targetAsset.id);
 
       if (res.error && res.error.code === "42703") {
-        await supabase
-          .from("media_assets")
-          .update({ is_public: true })
-          .eq("id", targetAsset.id);
+        await supabase.from("media_assets").update({ is_public: true }).eq("id", targetAsset.id);
       } else if (res.error) {
         throw res.error;
       } else {
@@ -2379,7 +2468,9 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
       const err = res.find((r) => r.error)?.error;
       if (err) {
         if (err.code === "42703") {
-          toast.error("Photo reordering requires the 'sort_order' column. Please run the SQL migration in Supabase.");
+          toast.error(
+            "Photo reordering requires the 'sort_order' column. Please run the SQL migration in Supabase.",
+          );
           return;
         }
         throw err;
@@ -2524,7 +2615,9 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
           <div>
             <h2 className="display-md text-2xl">Project Photos</h2>
             <p className="body-reading mt-1 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
-              The first photo (Sort Order #1) is automatically designated as the <strong>Cover Hero</strong> on the portfolio grid and project detail page. Drag cards to reorder or click any thumbnail to preview full size.
+              The first photo (Sort Order #1) is automatically designated as the{" "}
+              <strong>Cover Hero</strong> on the portfolio grid and project detail page. Drag cards
+              to reorder or click any thumbnail to preview full size.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -2577,7 +2670,11 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
             >
               <div className="flex items-center gap-3.5 min-w-0">
                 <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded border border-neutral-800 bg-neutral-900">
-                  <img src={photoPreviewUrl} alt="Upload preview" className="h-full w-full object-cover" />
+                  <img
+                    src={photoPreviewUrl}
+                    alt="Upload preview"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs font-medium text-white truncate">
@@ -2711,22 +2808,31 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
           <div className="space-y-4 pt-4">
             <div
               className="rounded border p-4 text-xs"
-              style={{ borderColor: "var(--iw-border)", backgroundColor: "rgba(14, 116, 144, 0.04)" }}
+              style={{
+                borderColor: "var(--iw-border)",
+                backgroundColor: "rgba(14, 116, 144, 0.04)",
+              }}
             >
               <div className="flex items-center justify-between">
                 <p className="font-semibold text-sky-400">
-                  {photos.length === 0 ? "Active Published Photos (Static Catalog):" : "Baseline Catalog Photos (Codebase Repository):"}
+                  {photos.length === 0
+                    ? "Active Published Photos (Static Catalog):"
+                    : "Baseline Catalog Photos (Codebase Repository):"}
                 </p>
                 <StatusPill tone="success">{staticPhotos.length} published</StatusPill>
               </div>
               <p className="mt-1" style={{ color: "var(--iw-text-secondary)" }}>
                 {photos.length === 0 ? (
                   <>
-                    These <strong>{staticPhotos.length} high-resolution photos</strong> are currently live on the public website from the repository catalog (<code className="text-neutral-300">/public/images/projects/{projectSlug}/</code>). Click any image to preview full size.
+                    These <strong>{staticPhotos.length} high-resolution photos</strong> are
+                    currently live on the public website from the repository catalog (
+                    <code className="text-neutral-300">/public/images/projects/{projectSlug}/</code>
+                    ). Click any image to preview full size.
                   </>
                 ) : (
                   <>
-                    These baseline catalog photos are bundled with the project repository. Your custom uploaded photos above take precedence on the public website.
+                    These baseline catalog photos are bundled with the project repository. Your
+                    custom uploaded photos above take precedence on the public website.
                   </>
                 )}
               </p>
@@ -2749,7 +2855,8 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
         {photos.length === 0 && staticPhotos.length === 0 && (
           <AdminCard>
             <p className="text-sm" style={{ color: "var(--iw-text-secondary)" }}>
-              No photos uploaded or found in catalog yet. Use the upload panel above to add project photos.
+              No photos uploaded or found in catalog yet. Use the upload panel above to add project
+              photos.
             </p>
           </AdminCard>
         )}
@@ -2794,14 +2901,23 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
             </p>
           </div>
           <StatusPill tone={schema ? (schema.is_public ? "success" : "warning") : "muted"}>
-            {schema ? (schema.is_public ? "Published Schema" : "Internal Schema") : "Fallback to Sector Schematic"}
+            {schema
+              ? schema.is_public
+                ? "Published Schema"
+                : "Internal Schema"
+              : "Fallback to Sector Schematic"}
           </StatusPill>
         </div>
 
-        <div className="rounded border p-4 text-xs" style={{ borderColor: "var(--iw-border)", backgroundColor: "rgba(14, 116, 144, 0.04)" }}>
+        <div
+          className="rounded border p-4 text-xs"
+          style={{ borderColor: "var(--iw-border)", backgroundColor: "rgba(14, 116, 144, 0.04)" }}
+        >
           <p className="font-semibold text-sky-400">Public Page Behavior:</p>
           <p className="mt-1" style={{ color: "var(--iw-text-secondary)" }}>
-            When a project schema is <strong>published (public)</strong>, it replaces the generic sector schematic SVG on the public project page. When internal or absent, the generic sector schematic is displayed as a fallback.
+            When a project schema is <strong>published (public)</strong>, it replaces the generic
+            sector schematic SVG on the public project page. When internal or absent, the generic
+            sector schematic is displayed as a fallback.
           </p>
         </div>
 
@@ -2809,7 +2925,8 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
           <AdminCard>
             <h3 className="display-md text-lg">Upload project schema</h3>
             <p className="body-reading mt-1 text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-              Supports high-resolution PNG, JPEG, SVG diagrams or complete PDF engineering schematics (max 20MB).
+              Supports high-resolution PNG, JPEG, SVG diagrams or complete PDF engineering
+              schematics (max 20MB).
             </p>
 
             <div className="mt-4 grid gap-6 md:grid-cols-[1fr_200px]">
@@ -2867,7 +2984,11 @@ function MediaTab({ projectId, projectSlug }: { projectId: string; projectSlug: 
             ) : null}
 
             <div className="mt-6 flex justify-end">
-              <AdminButton variant="solid" disabled={schemaUploading} onClick={() => uploadSchema()}>
+              <AdminButton
+                variant="solid"
+                disabled={schemaUploading}
+                onClick={() => uploadSchema()}
+              >
                 <Upload className="h-3.5 w-3.5" strokeWidth={2} />
                 {schemaUploading ? "Uploading schema…" : "Upload schema"}
               </AdminButton>
@@ -3032,11 +3153,15 @@ function LightboxModal({
         {current.altEn || current.altAr ? (
           <div className="border-t border-neutral-800 bg-neutral-900/60 px-4 py-3 text-xs text-neutral-300 grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <span className="font-mono text-[10px] uppercase text-neutral-500 block">Caption / Alt (EN)</span>
+              <span className="font-mono text-[10px] uppercase text-neutral-500 block">
+                Caption / Alt (EN)
+              </span>
               <p className="mt-0.5 truncate text-neutral-200">{current.altEn || "—"}</p>
             </div>
             <div dir="rtl">
-              <span className="font-mono text-[10px] uppercase text-neutral-500 block">Caption / Alt (AR)</span>
+              <span className="font-mono text-[10px] uppercase text-neutral-500 block">
+                Caption / Alt (AR)
+              </span>
               <p className="mt-0.5 truncate text-neutral-200">{current.altAr || "—"}</p>
             </div>
           </div>
@@ -3101,7 +3226,10 @@ function StaticPhotoCard({
         </div>
 
         <div className="space-y-2 p-4">
-          <div className="flex items-center justify-between text-[11px] font-mono" style={{ color: "var(--iw-text-secondary)" }}>
+          <div
+            className="flex items-center justify-between text-[11px] font-mono"
+            style={{ color: "var(--iw-text-secondary)" }}
+          >
             <span className="text-neutral-400 font-semibold">Photo #{index + 1}</span>
             <span
               className="truncate max-w-[170px] rounded bg-neutral-900 px-2 py-0.5 text-[10px] text-neutral-300 border border-neutral-800"
@@ -3111,12 +3239,17 @@ function StaticPhotoCard({
             </span>
           </div>
           <p className="text-xs" style={{ color: "var(--iw-text-secondary)" }}>
-            Active asset from <code className="text-[11px] font-mono text-neutral-300">/public/images/projects/</code>.
+            Active asset from{" "}
+            <code className="text-[11px] font-mono text-neutral-300">/public/images/projects/</code>
+            .
           </p>
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t p-3 text-xs" style={{ borderColor: "var(--iw-border)" }}>
+      <div
+        className="flex items-center justify-between border-t p-3 text-xs"
+        style={{ borderColor: "var(--iw-border)" }}
+      >
         <button
           type="button"
           onClick={onOpenLightbox}
@@ -3233,10 +3366,7 @@ function PhotoCard({
       }
 
       if (updErr && updErr.code === "42703") {
-        await supabase
-          .from("media_assets")
-          .update({ storage_path: newPath })
-          .eq("id", asset.id);
+        await supabase.from("media_assets").update({ storage_path: newPath }).eq("id", asset.id);
       } else if (updErr) {
         throw updErr;
       }
@@ -3274,7 +3404,10 @@ function PhotoCard({
               loading="lazy"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-xs" style={{ color: "var(--iw-text-secondary)" }}>
+            <div
+              className="flex h-full w-full items-center justify-center text-xs"
+              style={{ color: "var(--iw-text-secondary)" }}
+            >
               Loading thumbnail…
             </div>
           )}
@@ -3368,7 +3501,10 @@ function PhotoCard({
 
         {/* Card info & caption fields */}
         <div className="space-y-3 p-4">
-          <div className="flex items-center justify-between text-[11px] font-mono" style={{ color: "var(--iw-text-secondary)" }}>
+          <div
+            className="flex items-center justify-between text-[11px] font-mono"
+            style={{ color: "var(--iw-text-secondary)" }}
+          >
             <span className="font-semibold text-sky-400">Order #{asset.sort_order}</span>
             <span
               className="truncate max-w-[170px] rounded bg-neutral-900 px-2 py-0.5 text-[10px] text-neutral-300 border border-neutral-800"
@@ -3381,7 +3517,10 @@ function PhotoCard({
           <div className="space-y-2.5">
             <div>
               <div className="flex items-center justify-between">
-                <label className="text-[10px] uppercase font-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+                <label
+                  className="text-[10px] uppercase font-mono block"
+                  style={{ color: "var(--iw-text-secondary)" }}
+                >
                   Caption / Alt Text (EN)
                 </label>
                 {savingAlt && <span className="text-[10px] font-mono text-sky-400">saving…</span>}
@@ -3397,7 +3536,10 @@ function PhotoCard({
               />
             </div>
             <div>
-              <label className="text-[10px] uppercase font-mono block" style={{ color: "var(--iw-text-secondary)" }}>
+              <label
+                className="text-[10px] uppercase font-mono block"
+                style={{ color: "var(--iw-text-secondary)" }}
+              >
                 Caption / Alt Text (AR)
               </label>
               <input
@@ -3416,7 +3558,10 @@ function PhotoCard({
       </div>
 
       {/* Card footer */}
-      <div className="flex items-center justify-between border-t p-3 text-xs" style={{ borderColor: "var(--iw-border)" }}>
+      <div
+        className="flex items-center justify-between border-t p-3 text-xs"
+        style={{ borderColor: "var(--iw-border)" }}
+      >
         <input
           ref={replaceFileRef}
           type="file"
@@ -3512,7 +3657,9 @@ function SchemaCard({
         targetId: schema.id,
         detail: `is_public=${next}`,
       });
-      toast.success(next ? "Project schema marked as public." : "Project schema marked as internal only.");
+      toast.success(
+        next ? "Project schema marked as public." : "Project schema marked as internal only.",
+      );
       onChanged();
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Failed to toggle schema visibility.");
@@ -3561,10 +3708,7 @@ function SchemaCard({
       }
 
       if (updErr && updErr.code === "42703") {
-        await supabase
-          .from("media_assets")
-          .update({ storage_path: newPath })
-          .eq("id", schema.id);
+        await supabase.from("media_assets").update({ storage_path: newPath }).eq("id", schema.id);
       } else if (updErr) {
         throw updErr;
       }
@@ -3586,7 +3730,10 @@ function SchemaCard({
             <StatusPill tone={schema.is_public ? "success" : "muted"}>
               {schema.is_public ? "public" : "internal"}
             </StatusPill>
-            <span className="font-mono text-xs uppercase" style={{ color: "var(--iw-text-secondary)" }}>
+            <span
+              className="font-mono text-xs uppercase"
+              style={{ color: "var(--iw-text-secondary)" }}
+            >
               {schema.mime_type || (isPdf ? "PDF" : "Image")}
             </span>
           </div>
@@ -3604,7 +3751,9 @@ function SchemaCard({
             onChange={handleReplace}
           />
           <AdminButton onClick={togglePublic}>
-            {schema.is_public ? "Make internal (fallback generic)" : "Make public (override generic)"}
+            {schema.is_public
+              ? "Make internal (fallback generic)"
+              : "Make public (override generic)"}
           </AdminButton>
           <AdminButton onClick={() => replaceFileRef.current?.click()}>
             <RefreshCw className="h-3.5 w-3.5" />
@@ -3652,7 +3801,9 @@ function SchemaCard({
                 style={{ borderColor: "var(--iw-border)" }}
               />
             ) : (
-              <div className="flex h-48 items-center justify-center text-xs">Loading PDF preview…</div>
+              <div className="flex h-48 items-center justify-center text-xs">
+                Loading PDF preview…
+              </div>
             )}
             {url ? (
               <div className="flex justify-end">

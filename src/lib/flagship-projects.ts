@@ -11,11 +11,56 @@ type FlagshipSeed = {
   ar: { title: string; challenge: string; outcome: string };
   capability_slugs: string[];
   location: { lat: number; lng: number; en: string; ar: string };
+  schematic_steps?: import("./public-types").SchematicStep[];
 };
 
 const SEEDS: FlagshipSeed[] = [
   {
     slug: "sadat-city-ro",
+    schematic_steps: [
+      {
+        id: "s1",
+        label_en: "Well Intake",
+        label_ar: "مأخذ الآبار",
+        desc_en: "Brackish raw water",
+        desc_ar: "مياه جوفية عسرة",
+      },
+      {
+        id: "s2",
+        label_en: "Pre-treatment",
+        label_ar: "المعالجة الابتدائية",
+        desc_en: "Multimedia & cartridge filtration",
+        desc_ar: "فلاتر رملية وقطنية",
+      },
+      {
+        id: "s3",
+        label_en: "High Pressure Pumping",
+        label_ar: "ضخ عالي الضغط",
+        desc_en: "Feed to RO skids",
+        desc_ar: "تغذية أغشية التناضح",
+      },
+      {
+        id: "s4",
+        label_en: "RO Membranes",
+        label_ar: "أغشية التناضح العكسي",
+        desc_en: "Desalination process",
+        desc_ar: "عملية فصل الأملاح",
+      },
+      {
+        id: "s5",
+        label_en: "Post-treatment",
+        label_ar: "المعالجة النهائية",
+        desc_en: "Disinfection & remineralization",
+        desc_ar: "تعقيم وإعادة معدنة",
+      },
+      {
+        id: "s6",
+        label_en: "Product Storage",
+        label_ar: "خزانات المنتج",
+        desc_en: "Food-grade distribution",
+        desc_ar: "توزيع مطابق للمواصفات الغذائية",
+      },
+    ],
     en: {
       title: "Sadat City RO Desalination Plant",
       challenge:
@@ -40,6 +85,50 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "toshka-pumping-stations",
+    schematic_steps: [
+      {
+        id: "t1",
+        label_en: "Wet Well Intake",
+        label_ar: "مأخذ البيارة",
+        desc_en: "Source water collection",
+        desc_ar: "تجميع مياه المصدر",
+      },
+      {
+        id: "t2",
+        label_en: "Screening",
+        label_ar: "حجز الشوائب",
+        desc_en: "Coarse and fine basket screens",
+        desc_ar: "مصافي خشنة ودقيقة",
+      },
+      {
+        id: "t3",
+        label_en: "Heavy Duty Pumping",
+        label_ar: "طلمبات الخدمة الشاقة",
+        desc_en: "Lifting via high-head sets",
+        desc_ar: "رفع عبر طلمبات قدرات عالية",
+      },
+      {
+        id: "t4",
+        label_en: "VFD & Control",
+        label_ar: "التحكم والمغيرات",
+        desc_en: "Automated discharge regulation",
+        desc_ar: "تنظيم آلي لتدفق المياه",
+      },
+      {
+        id: "t5",
+        label_en: "Surge Protection",
+        label_ar: "حماية الطرق المائي",
+        desc_en: "Anti-hammer vessels",
+        desc_ar: "خزانات تخميد الصدمات",
+      },
+      {
+        id: "t6",
+        label_en: "Distribution",
+        label_ar: "شبكة التوزيع",
+        desc_en: "Reclamation supply lines",
+        desc_ar: "خطوط تغذية الاستصلاح الزراعي",
+      },
+    ],
     en: {
       title: "Toshka Multi-Station Pumping System (22 Hubs)",
       challenge:
@@ -64,6 +153,50 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "shubra-shahab-industrial-wastewater",
+    schematic_steps: [
+      {
+        id: "w1",
+        label_en: "Equalization",
+        label_ar: "خزان الموازنة",
+        desc_en: "Load and flow balancing",
+        desc_ar: "موازنة الأحمال والتدفق",
+      },
+      {
+        id: "w2",
+        label_en: "Chemical Dosing",
+        label_ar: "الحقن الكيميائي",
+        desc_en: "Coagulation & flocculation",
+        desc_ar: "ترويب وتنديف",
+      },
+      {
+        id: "w3",
+        label_en: "DAF Unit",
+        label_ar: "التعويم بالهواء المذاب",
+        desc_en: "FOG and TSS removal",
+        desc_ar: "فصل الزيوت والمواد العالقة",
+      },
+      {
+        id: "w4",
+        label_en: "Biological Aeration",
+        label_ar: "المعالجة البيولوجية",
+        desc_en: "Organic load reduction",
+        desc_ar: "تقليل الحمل العضوي",
+      },
+      {
+        id: "w5",
+        label_en: "Secondary Clarification",
+        label_ar: "الترويق النهائي",
+        desc_en: "Sludge settlement",
+        desc_ar: "ترسيب الحمأة",
+      },
+      {
+        id: "w6",
+        label_en: "Compliance Discharge",
+        label_ar: "الصرف الآمن",
+        desc_en: "Environmental release",
+        desc_ar: "صرف مطابق بيئياً",
+      },
+    ],
     en: {
       title: "Shubra Shahab Industrial Wastewater Treatment Facility",
       challenge:
@@ -88,6 +221,50 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "food-city-treatment",
+    schematic_steps: [
+      {
+        id: "f1",
+        label_en: "FOG Trap",
+        label_ar: "مصيدة الزيوت والشحوم",
+        desc_en: "Initial separation",
+        desc_ar: "فصل أولي",
+      },
+      {
+        id: "f2",
+        label_en: "Equalization Tank",
+        label_ar: "حوض الموازنة",
+        desc_en: "Buffer storage",
+        desc_ar: "تخزين مؤقت للتوازن",
+      },
+      {
+        id: "f3",
+        label_en: "DAF System",
+        label_ar: "نظام DAF",
+        desc_en: "Industrial load reduction",
+        desc_ar: "تقليل الحمل الصناعي",
+      },
+      {
+        id: "f4",
+        label_en: "MBBR Reactor",
+        label_ar: "مفاعل MBBR",
+        desc_en: "Biofilm biological treatment",
+        desc_ar: "معالجة بيولوجية حيوية",
+      },
+      {
+        id: "f5",
+        label_en: "Final Clarifier",
+        label_ar: "حوض الترسيب",
+        desc_en: "Solids separation",
+        desc_ar: "فصل المواد الصلبة",
+      },
+      {
+        id: "f6",
+        label_en: "Municipal Discharge",
+        label_ar: "صرف على الشبكة",
+        desc_en: "Compliant effluent",
+        desc_ar: "صرف مطابق لحدود البلدية",
+      },
+    ],
     en: {
       title: "Food City Industrial Wastewater Treatment",
       challenge:
@@ -111,6 +288,43 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "arish-water-supply",
+    schematic_steps: [
+      {
+        id: "a1",
+        label_en: "Source Intake",
+        label_ar: "مأخذ المصدر",
+        desc_en: "Primary supply connection",
+        desc_ar: "نقطة الربط الرئيسية",
+      },
+      {
+        id: "a2",
+        label_en: "Trunk Mains",
+        label_ar: "الخطوط الناقلة",
+        desc_en: "Large diameter transmission",
+        desc_ar: "نقل بأقطار كبيرة",
+      },
+      {
+        id: "a3",
+        label_en: "Strategic Storage",
+        label_ar: "خزانات تكديس",
+        desc_en: "Buffer reservoirs",
+        desc_ar: "خزانات توازن استراتيجية",
+      },
+      {
+        id: "a4",
+        label_en: "Booster Station",
+        label_ar: "محطة الرفع",
+        desc_en: "Pressure boosting",
+        desc_ar: "رفع الضغط الهيدروليكي",
+      },
+      {
+        id: "a5",
+        label_en: "Local Distribution",
+        label_ar: "شبكة التوزيع الفرعية",
+        desc_en: "Service area network",
+        desc_ar: "شبكة التغذية للمناطق",
+      },
+    ],
     en: {
       title: "Arish Water Supply & Infrastructure",
       challenge:
@@ -129,6 +343,43 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "ameriya-cold-storage",
+    schematic_steps: [
+      {
+        id: "c1",
+        label_en: "Chiller Plant",
+        label_ar: "محطة التبريد",
+        desc_en: "Refrigeration generation",
+        desc_ar: "توليد طاقة التبريد",
+      },
+      {
+        id: "c2",
+        label_en: "Heat Exchangers",
+        label_ar: "المبادلات الحرارية",
+        desc_en: "Thermal transfer",
+        desc_ar: "نقل التبادل الحراري",
+      },
+      {
+        id: "c3",
+        label_en: "Primary Loop",
+        label_ar: "الدائرة الابتدائية",
+        desc_en: "Circulation pumping",
+        desc_ar: "طلمبات التدوير",
+      },
+      {
+        id: "c4",
+        label_en: "Distribution Network",
+        label_ar: "شبكة النقل",
+        desc_en: "Insulated pipework",
+        desc_ar: "مواسير معزولة حرارياً",
+      },
+      {
+        id: "c5",
+        label_en: "Evaporator Coils",
+        label_ar: "ملفات التبخير",
+        desc_en: "Cold room cooling",
+        desc_ar: "تبريد غرف الحفظ",
+      },
+    ],
     en: {
       title: "Ameriya Cold-Storage Infrastructure",
       challenge:
@@ -147,6 +398,43 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "awlad-el-sheikh-pumping",
+    schematic_steps: [
+      {
+        id: "aw1",
+        label_en: "Suction Header",
+        label_ar: "مجمع السحب",
+        desc_en: "Intake manifold",
+        desc_ar: "تجميع خطوط السحب",
+      },
+      {
+        id: "aw2",
+        label_en: "Duty/Standby Pumps",
+        label_ar: "طلمبات التشغيل والاحتياط",
+        desc_en: "Potable water lifting",
+        desc_ar: "رفع مياه الشرب",
+      },
+      {
+        id: "aw3",
+        label_en: "VFD Control Panel",
+        label_ar: "لوحات التحكم VFD",
+        desc_en: "Variable speed drive",
+        desc_ar: "تغيير السرعة حسب الطلب",
+      },
+      {
+        id: "aw4",
+        label_en: "Instrumentation",
+        label_ar: "أجهزة القياس",
+        desc_en: "Pressure & flow sensors",
+        desc_ar: "حساسات ضغط وتصرف",
+      },
+      {
+        id: "aw5",
+        label_en: "Rising Main",
+        label_ar: "خط الطرد الرئيسي",
+        desc_en: "Network feed",
+        desc_ar: "تغذية شبكة المستهلكين",
+      },
+    ],
     en: {
       title: "Awlad El-Sheikh Potable Water Pumping",
       challenge:
@@ -169,6 +457,50 @@ const SEEDS: FlagshipSeed[] = [
   },
   {
     slug: "north-coast-desalination",
+    schematic_steps: [
+      {
+        id: "n1",
+        label_en: "Sea/Well Intake",
+        label_ar: "المأخذ",
+        desc_en: "Raw water extraction",
+        desc_ar: "سحب المياه الخام",
+      },
+      {
+        id: "n2",
+        label_en: "Pre-treatment",
+        label_ar: "المعالجة الابتدائية",
+        desc_en: "Multi-stage filtration",
+        desc_ar: "فلاتر متعددة المراحل",
+      },
+      {
+        id: "n3",
+        label_en: "High Pressure Pumps",
+        label_ar: "طلمبات الضغط العالي",
+        desc_en: "Membrane feed",
+        desc_ar: "تغذية الأغشية",
+      },
+      {
+        id: "n4",
+        label_en: "RO Skids",
+        label_ar: "وحدات RO",
+        desc_en: "Desalination process",
+        desc_ar: "فصل الأملاح",
+      },
+      {
+        id: "n5",
+        label_en: "Post-treatment",
+        label_ar: "المعالجة النهائية",
+        desc_en: "pH adjustment",
+        desc_ar: "ضبط القلوية والتعقيم",
+      },
+      {
+        id: "n6",
+        label_en: "Commercial Supply",
+        label_ar: "الضخ التجاري",
+        desc_en: "Resort distribution",
+        desc_ar: "تغذية المنتجع السياحي",
+      },
+    ],
     en: {
       title: "North Coast Commercial Desalination",
       challenge:
@@ -217,6 +549,7 @@ export function getFlagshipDetail(slug: string, locale: string): PublicProjectDe
   const project = getFlagshipProjects(locale).find((p) => p.slug === slug);
   if (!project) return null;
   const meta = PROJECT_META[slug];
+  const seed = SEEDS.find((s) => s.slug === slug);
   return {
     project,
     location: project.location,
@@ -241,5 +574,6 @@ export function getFlagshipDetail(slug: string, locale: string): PublicProjectDe
         }
       : null,
     schema: null,
+    schematic_steps: seed?.schematic_steps,
   };
 }

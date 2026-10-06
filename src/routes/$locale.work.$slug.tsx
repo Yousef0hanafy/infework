@@ -1,22 +1,32 @@
 import { Suspense, lazy } from "react";
 import { ClientOnly, Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, RotateCcw } from "lucide-react";
 
-import SectorSchematic from "@/components/infeworks/SectorSchematic";
-import ParallaxImage from "@/components/infeworks/ParallaxImage";
 import { SECTORS, type SectorSlug } from "@/lib/sectors";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getFlagshipDetail } from "@/lib/flagship-projects";
+import type { PublicProjectDetail } from "@/lib/public-types";
 
 import { getPublicProjectBySlug } from "@/lib/public.functions";
 
 const ProjectLocationMap = lazy(() => import("@/components/infeworks/ProjectLocationMap"));
+import ProjectSchematic from "@/components/infeworks/ProjectSchematic";
+import ParallaxImage from "@/components/infeworks/ParallaxImage";
+import { PROJECT_SCHEMAS } from "@/lib/project-schemas";
 
 export const Route = createFileRoute("/$locale/work/$slug")({
   loader: async ({ params }) => {
-    const detail = await getPublicProjectBySlug({
-      data: { slug: params.slug, locale: params.locale },
-    });
+    let detail: PublicProjectDetail | null = null;
+    try {
+      detail = await getPublicProjectBySlug({
+        data: { slug: params.slug, locale: params.locale },
+      });
+    } catch (err) {
+      console.warn(
+        `[work/$slug] getPublicProjectBySlug failed for "${params.slug}", falling back to flagship:`,
+        err,
+      );
+    }
     const resolved = detail ?? getFlagshipDetail(params.slug, params.locale);
     if (!resolved) throw notFound();
     return resolved;
@@ -38,8 +48,8 @@ export const Route = createFileRoute("/$locale/work/$slug")({
     const absImage = rawImage
       ? rawImage.startsWith("http")
         ? rawImage
-        : `https://infeworks.com${rawImage}`
-      : "https://infeworks.com/logo.png";
+        : `https://www.infeworks.com${rawImage}`
+      : "https://www.infeworks.com/logo.png";
 
     return {
       meta: [
@@ -59,8 +69,53 @@ export const Route = createFileRoute("/$locale/work/$slug")({
   },
   component: CaseStudyPage,
   notFoundComponent: CaseStudyNotFound,
-  errorComponent: CaseStudyNotFound,
+  errorComponent: CaseStudyError,
 });
+
+function CaseStudyError({ error, reset }: { error: Error; reset?: () => void }) {
+  const { locale } = Route.useParams();
+  const isAr = locale === "ar";
+  return (
+    <div
+      className="iw-section-dark"
+      style={isAr ? { fontFamily: "var(--font-arabic)" } : undefined}
+    >
+      <div className="mx-auto w-full max-w-[1400px] px-6 pt-40 pb-32 md:px-10">
+        <span className="label-mono text-xs font-semibold tracking-widest uppercase text-amber-400">
+          {isAr ? "خطأ في استرجاع البيانات" : "Data Loading Issue"}
+        </span>
+        <h1 className="display-xl mt-4 text-[clamp(2rem,5vw,3.5rem)]">
+          {isAr ? "تعذر تحميل دراسة الحالة" : "Unable to load case study"}
+        </h1>
+        <p className="body-reading mt-6 max-w-xl" style={{ color: "var(--iw-dark-text-muted)" }}>
+          {isAr
+            ? "حدث خطأ غير متوقع أثناء استرجاع بيانات هذا المشروع. يمكنك المحاولة مرة أخرى أو العودة لسجل المشروعات."
+            : "An unexpected error occurred while retrieving project records. You can try again or return to the project directory."}
+        </p>
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          {reset ? (
+            <button
+              onClick={() => reset()}
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all cursor-pointer hover:bg-[var(--iw-accent-hover)]"
+              style={{ backgroundColor: "var(--iw-accent)" }}
+            >
+              <RotateCcw className="h-4 w-4" />
+              {isAr ? "إعادة المحاولة" : "Try Again"}
+            </button>
+          ) : null}
+          <Link
+            to="/$locale/work"
+            params={{ locale }}
+            className="inline-flex items-center gap-3 border border-white/20 px-7 py-3.5 text-xs font-semibold tracking-wide uppercase text-white/80 hover:bg-white/10"
+          >
+            {isAr ? "كل الأعمال" : "All work"}
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function CaseStudyNotFound() {
   const { locale } = Route.useParams();
@@ -94,27 +149,36 @@ function CaseStudyNotFound() {
 }
 
 function CaseStudyPage() {
-  const { project, location, claims, media, facts: serverFacts, schema } = Route.useLoaderData();
+  const {
+    project,
+    location,
+    claims,
+    media,
+    facts: serverFacts,
+    schema,
+    schematic_steps,
+  } = Route.useLoaderData();
   const { locale, slug } = Route.useParams();
   const isAr = locale === "ar";
   const t = (en: string, ar: string) => (isAr ? ar : en);
   const meta = getProjectMeta(project.slug);
+  const finalSchematicSteps = schematic_steps ?? PROJECT_SCHEMAS[project.slug];
 
   const jsonLdProject = {
     "@context": "https://schema.org",
     "@type": "Project",
     name: project.title,
     description: project.challenge || project.outcome || project.title,
-    url: `https://infeworks.com/${locale}/work/${slug}`,
+    url: `https://www.infeworks.com/${locale}/work/${slug}`,
     inLanguage: isAr ? "ar-EG" : "en-EG",
     image: project.cover_url
       ? project.cover_url.startsWith("http")
         ? project.cover_url
-        : `https://infeworks.com${project.cover_url}`
+        : `https://www.infeworks.com${project.cover_url}`
       : meta?.cover
         ? meta.cover.startsWith("http")
           ? meta.cover
-          : `https://infeworks.com${meta.cover}`
+          : `https://www.infeworks.com${meta.cover}`
         : undefined,
     locationCreated: location
       ? {
@@ -127,22 +191,24 @@ function CaseStudyPage() {
           },
         }
       : undefined,
-    customer: (serverFacts?.client || meta?.client)
-      ? {
-          "@type": "Organization",
-          name: serverFacts?.client || (isAr ? meta?.client?.ar : meta?.client?.en),
-        }
-      : undefined,
-    contributor: (serverFacts?.consultant || meta?.consultant)
-      ? {
-          "@type": "Organization",
-          name: serverFacts?.consultant || (isAr ? meta?.consultant?.ar : meta?.consultant?.en),
-        }
-      : undefined,
+    customer:
+      serverFacts?.client || meta?.client
+        ? {
+            "@type": "Organization",
+            name: serverFacts?.client || (isAr ? meta?.client?.ar : meta?.client?.en),
+          }
+        : undefined,
+    contributor:
+      serverFacts?.consultant || meta?.consultant
+        ? {
+            "@type": "Organization",
+            name: serverFacts?.consultant || (isAr ? meta?.consultant?.ar : meta?.consultant?.en),
+          }
+        : undefined,
     provider: {
       "@type": "Corporation",
       name: "Infeworks — International for Engineering Works",
-      url: "https://infeworks.com",
+      url: "https://www.infeworks.com",
     },
   };
 
@@ -159,7 +225,12 @@ function CaseStudyPage() {
     ...(serverFacts?.consultant
       ? [{ label: t("Consultant", "الاستشاري"), value: serverFacts.consultant }]
       : meta?.consultant
-        ? [{ label: t("Consultant", "الاستشاري"), value: isAr ? meta.consultant.ar : meta.consultant.en }]
+        ? [
+            {
+              label: t("Consultant", "الاستشاري"),
+              value: isAr ? meta.consultant.ar : meta.consultant.en,
+            },
+          ]
         : []),
     ...(serverFacts?.capacity
       ? [{ label: t("Capacity", "الطاقة"), value: serverFacts.capacity }]
@@ -180,7 +251,13 @@ function CaseStudyPage() {
       label: t("Location", "الموقع"),
       value:
         location?.display_name ??
-        (serverFacts?.region ? serverFacts.region : meta?.region ? (isAr ? meta.region.ar : meta.region.en) : "—"),
+        (serverFacts?.region
+          ? serverFacts.region
+          : meta?.region
+            ? isAr
+              ? meta.region.ar
+              : meta.region.en
+            : "—"),
     },
     ...(project.capability_slugs.length > 0
       ? [
@@ -244,7 +321,13 @@ function CaseStudyPage() {
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div>
             {hero ? (
-              <ParallaxImage src={hero} alt={heroAlt} className="mb-16" ratio="16/9" priority={true} />
+              <ParallaxImage
+                src={hero}
+                alt={heroAlt}
+                className="mb-16"
+                ratio="16/9"
+                priority={true}
+              />
             ) : null}
 
             {project.challenge ? (
@@ -334,19 +417,19 @@ function CaseStudyPage() {
                   )}
                 </div>
               </div>
-            ) : schematicSlug ? (
-              <>
-                <h2 className="display-md mt-16 text-2xl md:text-3xl">
-                  {t("Process Schematic", "المخطط الهندسي للعملية")}
+            ) : finalSchematicSteps && finalSchematicSteps.length > 0 ? (
+              <div className="mt-16">
+                <h2 className="display-md text-2xl md:text-3xl">
+                  {t("Process Schematic & Flow", "مسار العمليات والمخطط الهندسي")}
                 </h2>
-                <p className="body-reading mt-6 max-w-3xl text-[var(--iw-text-secondary)]">
+                <p className="body-reading mt-3 max-w-3xl text-[var(--iw-text-secondary)]">
                   {t(
-                    "The treatment and transfer sequence applied on this facility, drawn at concept level.",
-                    "تسلسل المعالجة والنقل المطبق في هذه المحطة، معروض على المستوى المفاهيمي.",
+                    "The actual engineered treatment and transfer sequence implemented in this facility.",
+                    "التسلسل الهندسي المعتمد للمعالجة والنقل الذي تم تنفيذه في هذه المحطة.",
                   )}
                 </p>
-                <SectorSchematic slug={schematicSlug} isAr={isAr} className="mt-8" />
-              </>
+                <ProjectSchematic steps={finalSchematicSteps} isAr={isAr} className="mt-8" />
+              </div>
             ) : null}
 
             {gallery.length > 0 ? (
