@@ -18,3 +18,5 @@ Operational limitation: Supabase management access is still required to diagnose
 
 
 Deployment prerequisite: Vercel blocked the inherited TanStack Start 1.168.49 because of CVE-2026-102989. Updated to the first patched react-start 1.168.60 with resolved start-server-core 1.169.39, following https://tanstack.com/blog/tanstack-start-security-update-cve-2026-102989. No security bypass was enabled.
+
+Aligned react-router 1.170.41 and router-plugin 1.168.42 with the patched Start dependency graph. Updated two error-boundary parameter types to accept unknown errors as required by that router release. Preview verified 22 catalogue entries, an archived case-study page, and 44 project sitemap URLs.

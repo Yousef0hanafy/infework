@@ -62,7 +62,7 @@ export const Route = createFileRoute("/$locale/work/$slug")({
   errorComponent: CaseStudyError,
 });
 
-function CaseStudyError({ error, reset }: { error: Error; reset?: () => void }) {
+function CaseStudyError({ reset }: { error: unknown; reset: () => void }) {
   const { locale } = Route.useParams();
   const isAr = locale === "ar";
   return (
