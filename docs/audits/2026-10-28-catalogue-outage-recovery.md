@@ -16,3 +16,5 @@ Nine regression tests cover both locales, complete public membership, real proje
 
 Operational limitation: Supabase management access is still required to diagnose or resume the live database; no credentials or database settings were changed.
 
+
+Deployment prerequisite: Vercel blocked the inherited TanStack Start 1.168.49 because of CVE-2026-102989. Updated to the first patched react-start 1.168.60 with resolved start-server-core 1.169.39, following https://tanstack.com/blog/tanstack-start-security-update-cve-2026-102989. No security bypass was enabled.
