@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/safe-json-ld";
 import { useMemo, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Building2, CheckCircle2, Layers, ShieldCheck } from "lucide-react";
@@ -67,7 +68,7 @@ export const Route = createFileRoute("/$locale/work/")({
       scripts: [
         {
           type: "application/ld+json",
-          children: JSON.stringify(schema),
+          children: safeJsonLd(schema),
         },
       ],
     };
@@ -180,6 +181,7 @@ function WorkIndex() {
           </p>
 
           <CatalogueSnapshotNotice
+            mediaUnavailable={projects.some((p) => p.media_unavailable)}
             date={projects.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
             locale={locale}
           />

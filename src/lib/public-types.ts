@@ -13,6 +13,7 @@ export type PublicProject = {
   cover_url: string | null;
   featured?: boolean;
   catalogue_snapshot_date?: string;
+  media_unavailable?: boolean;
 };
 
 export type PublicLocation = {

@@ -1,3 +1,4 @@
+import { createContactFormSchema } from "@/lib/contact-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -146,48 +147,6 @@ const SUPPLIER_CATEGORIES = [
 
 // --- Zod Form Schema ---
 
-function createContactFormSchema(isAr: boolean) {
-  const t = (en: string, ar: string) => (isAr ? ar : en);
-  return z.object({
-    inquiry_type: z.enum(["technical", "general", "supplier"]),
-    name: z.string().trim().min(2, t("Please enter your name.", "يُرجى كتابة الاسم.")).max(120),
-    email: z
-      .string()
-      .trim()
-      .email(t("Enter a valid email address.", "أدخل بريداً إلكترونياً صحيحاً."))
-      .max(255),
-    phone: z
-      .string()
-      .trim()
-      .min(6, t("Enter a contact phone number.", "أدخل رقم الهاتف للتواصل."))
-      .max(50),
-    organization: z.string().trim().max(150),
-    audience_type: z.string(),
-    need_type: z.string(),
-    location_text: z.string().trim().max(150),
-    capacity: z.string().trim().max(150),
-    supplier_category: z.string(),
-    website: z.string().trim().max(300),
-    message: z
-      .string()
-      .trim()
-      .min(
-        10,
-        t(
-          "Please provide details (minimum 10 characters).",
-          "يُرجى كتابة تفاصيل الطلب (10 أحرف على الأقل).",
-        ),
-      )
-      .max(3000, t("Maximum 3000 characters.", "الحد الأقصى 3000 حرف.")),
-    consent: z.literal(true, {
-      errorMap: () => ({
-        message: t("You must agree to continue.", "الموافقة مطلوبة لإرسال الطلب."),
-      }),
-    }),
-    honeypot: z.string().max(0),
-  });
-}
-
 type ContactFormValues = z.infer<ReturnType<typeof createContactFormSchema>>;
 
 const inputBaseClass =
@@ -212,7 +171,7 @@ function ContactPage() {
     reset,
     setValue,
     formState: { errors, isSubmitting },
-  } = useForm<ContactFormValues>({
+  } = useForm<z.input<ReturnType<typeof createContactFormSchema>>, unknown, ContactFormValues>({
     resolver: zodResolver(createContactFormSchema(isAr)),
     defaultValues: {
       inquiry_type: initialType,
@@ -266,8 +225,12 @@ function ContactPage() {
     }
   };
 
-  const renderError = (msg?: string) =>
-    msg ? <p className="mt-1.5 text-xs font-medium text-[var(--iw-error)]">{msg}</p> : null;
+  const renderError = (msg?: string, id?: string) =>
+    msg ? (
+      <p id={id} role="alert" className="mt-1.5 text-xs font-medium text-[var(--iw-error)]">
+        {msg}
+      </p>
+    ) : null;
 
   return (
     <div style={isAr ? { fontFamily: "var(--font-arabic)" } : undefined}>
@@ -548,6 +511,10 @@ function ContactPage() {
                         </label>
                         <select
                           id="audience_type"
+                          aria-invalid={!!errors.audience_type}
+                          aria-describedby={
+                            errors.audience_type ? "audience_type-error" : undefined
+                          }
                           className={`${inputBaseClass} mt-2`}
                           style={{ borderColor: "var(--iw-border)" }}
                           defaultValue=""
@@ -562,6 +529,7 @@ function ContactPage() {
                             </option>
                           ))}
                         </select>
+                        {renderError(errors.audience_type?.message, "audience_type-error")}
                       </div>
 
                       <div>
@@ -573,6 +541,8 @@ function ContactPage() {
                         </label>
                         <select
                           id="need_type"
+                          aria-invalid={!!errors.need_type}
+                          aria-describedby={errors.need_type ? "need_type-error" : undefined}
                           className={`${inputBaseClass} mt-2`}
                           style={{ borderColor: "var(--iw-border)" }}
                           defaultValue=""
@@ -587,6 +557,7 @@ function ContactPage() {
                             </option>
                           ))}
                         </select>
+                        {renderError(errors.need_type?.message, "need_type-error")}
                       </div>
                     </div>
 
@@ -653,6 +624,10 @@ function ContactPage() {
                         </label>
                         <select
                           id="supplier_category"
+                          aria-invalid={!!errors.supplier_category}
+                          aria-describedby={
+                            errors.supplier_category ? "supplier_category-error" : undefined
+                          }
                           className={`${inputBaseClass} mt-2`}
                           style={{ borderColor: "var(--iw-border)" }}
                           defaultValue=""
@@ -667,6 +642,7 @@ function ContactPage() {
                             </option>
                           ))}
                         </select>
+                        {renderError(errors.supplier_category?.message, "supplier_category-error")}
                       </div>
 
                       <div>
@@ -910,8 +886,8 @@ function ContactPage() {
                         </p>
                         <p className="mt-1 text-[var(--iw-text-secondary)] leading-relaxed">
                           {t(
-                            "Thank you. A designated engineer will review your requirements and respond to your email/phone within 1 business day.",
-                            "شكراً لتواصلك. سيقوم مهندس متخصص بمراجعة تفاصيل الطلب والتواصل معك عبر البريد أو الهاتف خلال يوم عمل واحد.",
+                            "Thank you. Your enquiry has been saved for our engineering team to review.",
+                            "شكراً لتواصلك. تم حفظ استفسارك لمراجعته بواسطة فريقنا الهندسي.",
                           )}
                         </p>
                       </div>
@@ -936,6 +912,15 @@ function ContactPage() {
                             "حدث خطأ غير متوقع. يُرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر واتساب.",
                           )}
                         </p>
+                        <div className="mt-4 flex flex-wrap gap-4 font-semibold underline underline-offset-4">
+                          <a href="mailto:info@infeworks.com">
+                            {t("Email our team", "راسل فريقنا بالبريد")}
+                          </a>
+                          <a href="tel:+201006249420">{t("Call our team", "اتصل بفريقنا")}</a>
+                          <a href="https://wa.me/201006249420" target="_blank" rel="noreferrer">
+                            {t("Open WhatsApp", "افتح واتساب")}
+                          </a>
+                        </div>
                       </div>
                     </div>
                   )}

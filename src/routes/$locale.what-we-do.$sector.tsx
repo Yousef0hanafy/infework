@@ -1,3 +1,5 @@
+import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
+import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/$locale/what-we-do/$sector")({
   loader: async ({ params }) => {
     const sector = getSector(params.sector);
     if (!sector) throw notFound();
-    const published = await getPublicProjects({ data: { locale: params.locale } }).catch(() => []);
+    const published = await getPublicProjects({ data: { locale: params.locale } });
     return { published };
   },
   head: ({ params }) => {
@@ -123,7 +125,7 @@ function SectorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
+          __html: safeJsonLd(serviceSchema),
         }}
       />
       {/* SECTION 1: HERO & SCHEMATIC */}
@@ -160,6 +162,11 @@ function SectorPage() {
             {isAr ? sector.intro.ar : sector.intro.en}
           </p>
 
+          <CatalogueSnapshotNotice
+            mediaUnavailable={published.some((p) => p.media_unavailable)}
+            date={published.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
+            locale={locale}
+          />
           {sectorSchematicSteps && sectorSchematicSteps.length > 0 ? (
             <div className="mt-16 border-t pt-10" style={{ borderColor: "var(--iw-dark-border)" }}>
               <p className="label-mono mb-6" style={{ color: "var(--iw-dark-accent)" }}>

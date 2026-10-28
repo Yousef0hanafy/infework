@@ -1,3 +1,4 @@
+import { createBoundedFetch } from "./upstream-fetch.server";
 // Infeworks — server-only public data access (publishable key, RLS as anon)
 import { createClient } from "@supabase/supabase-js";
 import { getProjectMeta } from "./project-meta";
@@ -19,10 +20,16 @@ import type {
   SiteSettings,
 } from "./public-types";
 
+const publicFetch = createBoundedFetch({ timeoutMs: 2000, backoffMs: 15000 });
+function isLegacySchemaError(error: { code?: string }) {
+  return error.code === "42703" || error.code === "PGRST204";
+}
+
 function publicClient() {
   const url = process.env["SUPABASE_URL"]!;
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
   return createClient<Database>(url, key, {
+    db: { retry: false },
     auth: { storage: undefined, persistSession: false, autoRefreshToken: false },
     global: {
       fetch: (input, init) => {
@@ -31,7 +38,7 @@ function publicClient() {
           headers.delete("Authorization");
         }
         headers.set("apikey", key);
-        return fetch(input, { ...init, headers });
+        return publicFetch(input, { ...init, headers });
       },
     },
   });
@@ -120,6 +127,7 @@ function toProject(
   location: PublicLocation | null = null,
   cover_url: string | null = null,
   featured: boolean = false,
+  mediaUnavailable = false,
 ): PublicProject | null {
   if (!row.project_id || !row.slug || !row.title) return null;
   const locLang = row.locale ?? "en";
@@ -140,6 +148,7 @@ function toProject(
     location: resolveCanonicalLocation(row.slug, locLang, location),
     cover_url,
     featured,
+    ...(mediaUnavailable ? { media_unavailable: true } : {}),
   };
 }
 
@@ -154,8 +163,7 @@ async function fetchCapabilitySlugs(
     .select("project_id, capabilities(slug)")
     .in("project_id", projectIds);
   if (error) {
-    console.error("[Infeworks] fetchCapabilitySlugs failed", error.message);
-    return map;
+    throw error;
   }
   for (const row of data ?? []) {
     const slug = row.capabilities?.slug;
@@ -176,8 +184,7 @@ async function fetchLocations(
     .select("project_id, lat, lng, display_name")
     .in("project_id", projectIds);
   if (error) {
-    console.error("[Infeworks] fetchLocations failed", error.message);
-    return map;
+    throw error;
   }
   for (const row of data ?? []) {
     if (!row.project_id) continue;
@@ -193,9 +200,9 @@ async function fetchLocations(
 async function fetchCoverMedia(
   client: ReturnType<typeof publicClient>,
   projectIds: string[],
-): Promise<Map<string, string | null>> {
+): Promise<{ covers: Map<string, string | null>; unavailable: boolean }> {
   const map = new Map<string, string | null>();
-  if (projectIds.length === 0) return map;
+  if (projectIds.length === 0) return { covers: map, unavailable: false };
 
   let rows: Array<{ id: string; project_id: string | null; storage_path: string }> = [];
 
@@ -208,14 +215,14 @@ async function fetchCoverMedia(
     .order("sort_order", { ascending: true });
 
   if (error) {
+    if (!isLegacySchemaError(error)) throw error;
     const fallbackRes = await client
       .from("media_assets")
       .select("id, project_id, storage_path")
       .in("project_id", projectIds)
       .eq("is_public", true);
-    if (!fallbackRes.error && fallbackRes.data) {
-      rows = fallbackRes.data;
-    }
+    if (fallbackRes.error) throw fallbackRes.error;
+    rows = fallbackRes.data ?? [];
   } else if (data) {
     rows = data;
   }
@@ -227,18 +234,19 @@ async function fetchCoverMedia(
     }
   }
 
-  if (firstPhotoByProject.size === 0) return map;
+  if (firstPhotoByProject.size === 0) return { covers: map, unavailable: false };
 
   try {
-    const { supabaseAdmin, isServiceRoleConfigured } =
-      await import("@/integrations/supabase/client.server");
+    const { getMediaSigningClient, isMediaSigningConfigured } =
+      await import("./media-client.server");
     const paths = Array.from(firstPhotoByProject.values());
     const pIds = Array.from(firstPhotoByProject.keys());
 
-    if (isServiceRoleConfigured()) {
-      const signed = await supabaseAdmin.storage
-        .from("project-media")
+    if (isMediaSigningConfigured()) {
+      const signed = await getMediaSigningClient()
+        .storage.from("project-media")
         .createSignedUrls(paths, 60 * 60);
+      if (signed.error) throw signed.error;
       signed.data?.forEach((s, idx) => {
         const pId = pIds[idx];
         if (pId && s.signedUrl) {
@@ -254,11 +262,11 @@ async function fetchCoverMedia(
         }
       });
     }
-  } catch (err) {
-    console.error("[Infeworks] fetchCoverMedia signing failed", err);
+  } catch {
+    return { covers: map, unavailable: true };
   }
 
-  return map;
+  return { covers: map, unavailable: false };
 }
 
 async function fetchFeaturedMap(
@@ -269,8 +277,7 @@ async function fetchFeaturedMap(
   if (projectIds.length === 0) return map;
   const { data, error } = await client.from("projects").select("id, featured").in("id", projectIds);
   if (error) {
-    console.error("[Infeworks] fetchFeaturedMap failed", error.message);
-    return map;
+    throw error;
   }
   for (const row of data ?? []) {
     map.set(row.id, !!row.featured);
@@ -279,6 +286,7 @@ async function fetchFeaturedMap(
 }
 
 export async function fetchPublicProjects(locale: string): Promise<PublicProject[]> {
+  let membershipVerified = false;
   try {
     const client = publicClient();
     const { data, error } = await client
@@ -291,6 +299,7 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
       console.error("[Infeworks] fetchPublicProjects failed", error.message);
       throw error;
     }
+    membershipVerified = true;
     const rows = data ?? [];
     const ids = rows.map((r) => r.project_id).filter((id): id is string => !!id);
     const [caps, locs, covers, featuredMap] = await Promise.all([
@@ -305,14 +314,16 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
           row,
           caps.get(row.project_id ?? "") ?? [],
           locs.get(row.project_id ?? "") ?? null,
-          covers.get(row.project_id ?? "") ?? null,
+          covers.covers.get(row.project_id ?? "") ?? null,
           featuredMap.get(row.project_id ?? "") ?? false,
+          covers.unavailable,
         ),
       )
       .filter((p): p is PublicProject => p !== null);
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjects exception", err);
-    if (isCatalogueTransportError(err)) return getPublishedCatalogueSnapshot(locale);
+    if (!membershipVerified && isCatalogueTransportError(err))
+      return getPublishedCatalogueSnapshot(locale);
     throw new Error("Published project data is temporarily unavailable.");
   }
 }
@@ -321,6 +332,7 @@ export async function fetchPublicProjectBySlug(
   slug: string,
   locale: string,
 ): Promise<PublicProjectDetail | null> {
+  let membershipVerified = false;
   try {
     const client = publicClient();
     const lang = normaliseLocale(locale);
@@ -336,12 +348,11 @@ export async function fetchPublicProjectBySlug(
       console.error("[Infeworks] fetchPublicProjectBySlug failed", error.message);
       throw error;
     }
+    membershipVerified = true;
     const project = row ? toProject(row) : null;
     if (!project) return null;
-    project.capability_slugs =
-      (await fetchCapabilitySlugs(client, [project.project_id])).get(project.project_id) ?? [];
-
-    const [locationRes, claimsRes, mediaRes, projectRes] = await Promise.all([
+    const [caps, locationRes, claimsRes, mediaRes, projectRes] = await Promise.all([
+      fetchCapabilitySlugs(client, [project.project_id]),
       client
         .from("locations")
         .select("lat, lng, display_name")
@@ -368,6 +379,9 @@ export async function fetchPublicProjectBySlug(
         .maybeSingle(),
     ]);
 
+    project.capability_slugs = caps.get(project.project_id) ?? [];
+    if (locationRes.error) throw locationRes.error;
+    if (claimsRes.error) throw claimsRes.error;
     const location: PublicLocation | null = locationRes.data
       ? {
           lat: locationRes.data.lat,
@@ -402,11 +416,13 @@ export async function fetchPublicProjectBySlug(
     };
     let projData: ProjectFactsRow | null = projectRes.data;
     if (projectRes.error) {
+      if (!isLegacySchemaError(projectRes.error)) throw projectRes.error;
       const fb = await client
         .from("projects")
         .select("id, featured")
         .eq("id", project.project_id)
         .maybeSingle();
+      if (fb.error) throw fb.error;
       if (fb.data) {
         projData = fb.data;
       }
@@ -442,11 +458,13 @@ export async function fetchPublicProjectBySlug(
 
     let rawMediaRows = mediaRes.data ?? [];
     if (mediaRes.error) {
+      if (!isLegacySchemaError(mediaRes.error)) throw mediaRes.error;
       const fb = await client
         .from("media_assets")
         .select("id, storage_path, alt_en, alt_ar")
         .eq("project_id", project.project_id)
         .eq("is_public", true);
+      if (fb.error) throw fb.error;
       if (fb.data) {
         rawMediaRows = fb.data.map((m) => ({
           ...m,
@@ -460,13 +478,16 @@ export async function fetchPublicProjectBySlug(
 
     if (rawMediaRows.length > 0) {
       try {
-        const { supabaseAdmin, isServiceRoleConfigured } =
-          await import("@/integrations/supabase/client.server");
-        if (isServiceRoleConfigured()) {
-          const signed = await supabaseAdmin.storage.from("project-media").createSignedUrls(
-            rawMediaRows.map((m) => m.storage_path),
-            60 * 60,
-          );
+        const { getMediaSigningClient, isMediaSigningConfigured } =
+          await import("./media-client.server");
+        if (isMediaSigningConfigured()) {
+          const signed = await getMediaSigningClient()
+            .storage.from("project-media")
+            .createSignedUrls(
+              rawMediaRows.map((m) => m.storage_path),
+              60 * 60,
+            );
+          if (signed.error) throw signed.error;
           signedMedia = rawMediaRows.flatMap((m, i) => {
             const url = signed.data?.[i]?.signedUrl;
             if (!url) return [];
@@ -492,8 +513,8 @@ export async function fetchPublicProjectBySlug(
             };
           });
         }
-      } catch (err) {
-        console.error("[Infeworks] media signing failed", err);
+      } catch {
+        project.media_unavailable = true;
       }
     }
 
@@ -506,7 +527,8 @@ export async function fetchPublicProjectBySlug(
     return { project, location: project.location, claims, media: photos, facts, schema };
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjectBySlug exception", err);
-    if (isCatalogueTransportError(err)) return getPublishedCatalogueDetail(slug, locale);
+    if (!membershipVerified && isCatalogueTransportError(err))
+      return getPublishedCatalogueDetail(slug, locale);
     throw new Error("Published project data is temporarily unavailable.");
   }
 }

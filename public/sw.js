@@ -1,5 +1,6 @@
 // Infeworks Progressive Web App Service Worker
-const CACHE_NAME = "infeworks-pwa-v2";
+const CACHE_NAME = "infeworks-pwa-v3";
+const RUNTIME_CACHE_NAME = `${CACHE_NAME}-assets`;
 const STATIC_ASSETS = [
   "/offline.html",
   "/manifest.webmanifest",
@@ -29,7 +30,11 @@ self.addEventListener("activate", (event) => {
       .then((keys) => {
         return Promise.all(
           keys.map((key) => {
-            if (key !== CACHE_NAME) {
+            if (
+              key.startsWith("infeworks-pwa-") &&
+              key !== CACHE_NAME &&
+              key !== RUNTIME_CACHE_NAME
+            ) {
               return caches.delete(key);
             }
           }),
@@ -47,6 +52,9 @@ self.addEventListener("fetch", (event) => {
   if (
     request.method !== "GET" ||
     url.origin !== self.location.origin ||
+    request.headers.has("authorization") ||
+    url.pathname.startsWith("/_serverFn") ||
+    url.pathname.startsWith("/admin") ||
     url.pathname.startsWith("/api") ||
     url.hostname.includes("supabase")
   ) {
@@ -72,20 +80,32 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // Cache only public static assets; server functions must always reach the network.
+  if (!/^\/(?:assets|images|hero|fonts)\//.test(url.pathname)) return;
+
   // Stale-while-revalidate for static assets (images, css, js, fonts)
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       const fetchPromise = fetch(request)
-        .then((networkResponse) => {
+        .then(async (networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, responseToCache);
-            });
+            await caches
+              .open(RUNTIME_CACHE_NAME)
+              .then(async (cache) => {
+                await cache.put(request, responseToCache);
+                const keys = await cache.keys();
+                await Promise.all(
+                  keys.slice(0, Math.max(0, keys.length - 180)).map((key) => cache.delete(key)),
+                );
+              })
+              .catch(() => {});
           }
           return networkResponse;
         })
-        .catch(() => cachedResponse);
+        .catch(() => cachedResponse || Response.error());
+      // Extend lifetime while the background refresh is pending, even on a cache hit.
+      event.waitUntil(fetchPromise.then(() => {}));
 
       return cachedResponse || fetchPromise;
     }),

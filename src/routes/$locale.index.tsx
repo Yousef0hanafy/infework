@@ -1,3 +1,5 @@
+import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
+import { safeJsonLd } from "@/lib/safe-json-ld";
 import { useMemo } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
@@ -241,7 +243,7 @@ function LocaleHome() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteSchema),
+          __html: safeJsonLd(websiteSchema),
         }}
       />
       {/* SECTION A — HERO */}
@@ -835,6 +837,11 @@ function LocaleHome() {
               title={t("Our Impact Across Egypt", "أثرنا على امتداد مصر")}
             />
           </Reveal>
+          <CatalogueSnapshotNotice
+            mediaUnavailable={projects.some((p) => p.media_unavailable)}
+            date={projects.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
+            locale={locale}
+          />
           <ImpactMap projects={projects} locale={locale} isAr={isAr} />
         </div>
       </section>

@@ -204,14 +204,14 @@ function ProjectEditor() {
       <AdminPageHeader
         title={project?.slug ?? "Loading project…"}
         description={`Record ID: ${projectId}`}
-        badge={
+        status={
           project ? (
             <StatusPill tone={project.status === "published" ? "success" : "warning"}>
               {project.status}
             </StatusPill>
           ) : undefined
         }
-        actions={
+        action={
           <div className="flex items-center gap-3">
             <span
               className="label-mono text-xs"

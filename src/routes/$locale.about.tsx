@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/safe-json-ld";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ShieldCheck,
@@ -78,7 +79,7 @@ export const Route = createFileRoute("/$locale/about")({
       scripts: [
         {
           type: "application/ld+json",
-          children: JSON.stringify(schema),
+          children: safeJsonLd(schema),
         },
       ],
     };

@@ -1,23 +1,9 @@
+import { createContactFormSchema } from "./contact-schema";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { Database } from "@/integrations/supabase/types";
 
-const contactSchema = z.object({
-  inquiry_type: z.enum(["technical", "general", "supplier"]).optional().default("technical"),
-  name: z.string().trim().max(150).optional().default(""),
-  phone: z.string().trim().max(50).optional().default(""),
-  organization: z.string().trim().max(200).optional().default(""),
-  capacity: z.string().trim().max(200).optional().default(""),
-  supplier_category: z.string().trim().max(200).optional().default(""),
-  website: z.string().trim().max(300).optional().default(""),
-  audience_type: z.string().trim().max(50).optional().default("other"),
-  need_type: z.string().trim().max(50).optional().default("other"),
-  location_text: z.string().trim().max(200).optional().default(""),
-  email: z.string().trim().email().max(255),
-  message: z.string().trim().min(5).max(3000),
-  consent: z.literal(true),
-  honeypot: z.string().max(0).optional().default(""),
-});
+const contactSchema = createContactFormSchema(false);
 
 export type ContactInput = z.input<typeof contactSchema>;
 export type ContactResult = { success: boolean; message?: string };
@@ -25,11 +11,29 @@ export type ContactResult = { success: boolean; message?: string };
 export const submitContact = createServerFn({ method: "POST" })
   .validator((input: unknown) => input)
   .handler(async ({ data }): Promise<ContactResult> => {
+    if (
+      data &&
+      typeof data === "object" &&
+      "honeypot" in data &&
+      typeof data.honeypot === "string" &&
+      data.honeypot.length > 0
+    )
+      return { success: true };
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       return { success: false, message: "Invalid submission." };
     }
-    const { honeypot, ...payload } = parsed.data;
+    const { honeypot, ...fields } = parsed.data;
+    const payload = {
+      ...fields,
+      audience_type:
+        fields.inquiry_type === "technical" ? fields.audience_type : fields.inquiry_type,
+      need_type: fields.inquiry_type === "technical" ? fields.need_type : fields.inquiry_type,
+      location_text: fields.inquiry_type === "technical" ? fields.location_text : "",
+      capacity: fields.inquiry_type === "technical" ? fields.capacity : "",
+      supplier_category: fields.inquiry_type === "supplier" ? fields.supplier_category : "",
+      website: fields.inquiry_type === "supplier" ? fields.website : "",
+    };
     if (honeypot) {
       // Silently accept bots without processing.
       return { success: true };
@@ -58,15 +62,27 @@ export const submitContact = createServerFn({ method: "POST" })
       const fullMessage = metaHeaders ? `${metaHeaders}\n\n${payload.message}` : payload.message;
 
       if (!supabaseUrl || !supabaseKey) {
-        console.warn(
-          "[Infeworks] Supabase credentials not configured; enquiry logged to server stdout.",
-          { ...payload, message: fullMessage },
-        );
-        return { success: true };
+        console.warn("[Infeworks] Enquiry storage is not configured.");
+        return { success: false, message: "Enquiry not saved. Please contact our team directly." };
       }
 
       const { createClient } = await import("@supabase/supabase-js");
+      const { createBoundedFetch } = await import("./upstream-fetch.server");
+      const boundedFetch = createBoundedFetch({ timeoutMs: 5000 });
       const client = createClient<Database>(supabaseUrl, supabaseKey, {
+        db: { retry: false },
+        global: {
+          fetch: (input, init) => {
+            const headers = new Headers(init?.headers);
+            if (
+              supabaseKey.startsWith("sb_") &&
+              headers.get("Authorization") === `Bearer ${supabaseKey}`
+            )
+              headers.delete("Authorization");
+            headers.set("apikey", supabaseKey);
+            return boundedFetch(input, { ...init, headers });
+          },
+        },
         auth: {
           storage: undefined,
           persistSession: false,
@@ -130,7 +146,7 @@ export const submitContact = createServerFn({ method: "POST" })
       if (error) throw error;
       return { success: true };
     } catch (error) {
-      console.error("[Infeworks] contact submission failed", error);
+      console.error("[Infeworks] Enquiry storage failed; receipt was not confirmed.");
       return { success: false, message: "Something went wrong." };
     }
   });

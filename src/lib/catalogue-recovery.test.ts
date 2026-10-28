@@ -5,7 +5,10 @@ import {
   fetchPublicProjects,
 } from "./public-data.server";
 
-const state = vi.hoisted(() => ({ mode: "outage" as "outage" | "empty" | "live" | "denied" }));
+const state = vi.hoisted(() => ({
+  mode: "outage" as
+    "outage" | "empty" | "live" | "denied" | "partial" | "partial_denied" | "media_failure",
+}));
 vi.mock("@supabase/supabase-js", () => ({
   createClient: () => ({
     from(table: string) {
@@ -14,7 +17,18 @@ vi.mock("@supabase/supabase-js", () => ({
           return { data: null, error: { message: "TypeError: fetch failed", code: "" } };
         if (state.mode === "denied")
           return { data: null, error: { message: "permission denied", code: "42501" } };
-        if (table === "vw_public_projects" && state.mode === "live") {
+        if (table === "locations" && (state.mode === "partial" || state.mode === "partial_denied"))
+          return {
+            data: null,
+            error:
+              state.mode === "partial"
+                ? { message: "TypeError: fetch failed", code: "" }
+                : { message: "permission denied", code: "42501" },
+          };
+        if (
+          table === "vw_public_projects" &&
+          ["live", "partial", "partial_denied", "media_failure"].includes(state.mode)
+        ) {
           const row = {
             project_id: "live-id",
             slug: "current-live-project",
@@ -26,6 +40,22 @@ vi.mock("@supabase/supabase-js", () => ({
           };
           return { data: single ? row : [row], error: null };
         }
+        if (table === "media_assets" && state.mode === "media_failure")
+          return {
+            data: [
+              {
+                id: "media-id",
+                project_id: "live-id",
+                storage_path: "approved.webp",
+                media_type: "photo",
+                mime_type: "image/webp",
+                sort_order: 1,
+                alt_en: null,
+                alt_ar: null,
+              },
+            ],
+            error: null,
+          };
         return { data: single ? null : [], error: null };
       };
       const query = {
@@ -105,4 +135,35 @@ describe("published catalogue recovery", () => {
       "water-treatment",
     ]);
   });
+});
+
+describe("authoritative live membership", () => {
+  it.each(["partial", "partial_denied"] as const)(
+    "surfaces %s metadata failure without restoring archived rows",
+    async (mode) => {
+      state.mode = mode;
+      await expect(fetchPublicProjects("en")).rejects.toThrow();
+      await expect(fetchPublicProjectBySlug("current-live-project", "en")).rejects.toThrow();
+    },
+  );
+});
+
+vi.mock("./media-client.server", () => ({
+  isMediaSigningConfigured: () => true,
+  getMediaSigningClient: () => ({
+    storage: {
+      from: () => ({
+        createSignedUrls: async () => ({ data: null, error: new TypeError("fetch failed") }),
+      }),
+    },
+  }),
+}));
+it("keeps live-approved entries usable when image signing alone is unavailable", async () => {
+  state.mode = "media_failure";
+  const rows = await fetchPublicProjects("en");
+  expect(rows.map((p) => p.slug)).toEqual(["current-live-project"]);
+  expect(rows[0]?.media_unavailable).toBe(true);
+  const detail = await fetchPublicProjectBySlug("current-live-project", "en");
+  expect(detail?.project.slug).toBe("current-live-project");
+  expect(detail?.project.media_unavailable).toBe(true);
 });

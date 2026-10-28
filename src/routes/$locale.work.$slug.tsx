@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Suspense, lazy } from "react";
 import { ClientOnly, Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight, Download, RotateCcw } from "lucide-react";
@@ -273,7 +274,7 @@ function CaseStudyPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdProject),
+          __html: safeJsonLd(jsonLdProject),
         }}
       />
       {/* Dark engineering header */}
@@ -290,7 +291,11 @@ function CaseStudyPage() {
           <h1 className="display-xl mt-8 max-w-4xl text-[clamp(2rem,5.5vw,4.5rem)]">
             {project.title}
           </h1>
-          <CatalogueSnapshotNotice date={project.catalogue_snapshot_date} locale={locale} />
+          <CatalogueSnapshotNotice
+            mediaUnavailable={project.media_unavailable}
+            date={project.catalogue_snapshot_date}
+            locale={locale}
+          />
           <div
             className="mt-12 grid grid-cols-2 gap-8 border-t pt-8 md:grid-cols-4"
             style={{ borderColor: "var(--iw-dark-border)" }}

@@ -5,11 +5,13 @@ export function AdminPageHeader({
   title,
   description,
   action,
+  status,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   action?: ReactNode;
+  status?: ReactNode;
 }) {
   return (
     <div
@@ -23,6 +25,7 @@ export function AdminPageHeader({
           </p>
         ) : null}
         <h1 className="display-md mt-3 text-3xl md:text-4xl">{title}</h1>
+        {status ? <div className="mt-3">{status}</div> : null}
         {description ? (
           <p
             className="body-reading mt-3 max-w-2xl text-sm"
