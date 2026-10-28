@@ -35,23 +35,14 @@ export const Route = createFileRoute("/sitemap.xml")({
           });
         }
 
-        // Active published projects from database, seeds, and curated project metadata
+        // Use the same published catalogue (live or verified outage snapshot) as the site.
         const { fetchPublicProjects } = await import("@/lib/public-data.server");
-        const { getFlagshipProjects } = await import("@/lib/flagship-projects");
-        const { PROJECT_META } = await import("@/lib/project-meta");
 
-        const publicProjects = await fetchPublicProjects("en").catch(() => []);
-        const seedProjects = getFlagshipProjects("en");
+        const publicProjects = await fetchPublicProjects("en");
 
         const projectSlugs = new Set<string>();
         for (const p of publicProjects) {
           if (p.slug) projectSlugs.add(p.slug);
-        }
-        for (const p of seedProjects) {
-          if (p.slug) projectSlugs.add(p.slug);
-        }
-        for (const slug of Object.keys(PROJECT_META)) {
-          if (slug) projectSlugs.add(slug);
         }
 
         for (const slug of projectSlugs) {

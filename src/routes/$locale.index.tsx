@@ -24,7 +24,6 @@ import ClientsMarquee from "@/components/infeworks/ClientsMarquee";
 import SuppliersShowcase from "@/components/infeworks/SuppliersShowcase";
 import { SECTORS } from "@/lib/sectors";
 import { getProjectMeta } from "@/lib/project-meta";
-import { getFlagshipProjects } from "@/lib/flagship-projects";
 
 import { getPublicProjects, getSiteSettings } from "@/lib/public.functions";
 
@@ -198,7 +197,7 @@ function LocaleHome() {
   const { locale } = Route.useParams();
   const isAr = locale === "ar";
   const t = (en: string, ar: string) => (isAr ? ar : en);
-  const projects = published.length > 0 ? published : getFlagshipProjects(locale);
+  const projects = published;
   const featured = useMemo(() => {
     const flagships = [
       "sadat-city-ro",

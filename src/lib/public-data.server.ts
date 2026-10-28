@@ -1,6 +1,12 @@
 // Infeworks — server-only public data access (publishable key, RLS as anon)
 import { createClient } from "@supabase/supabase-js";
 import { getProjectMeta } from "./project-meta";
+import {
+  getPublishedCatalogueSnapshot,
+  getPublishedCatalogueDetail,
+  getSnapshotCapabilities,
+  isCatalogueTransportError,
+} from "./published-catalogue";
 import type { Database } from "@/integrations/supabase/types";
 import type {
   PublicCapability,
@@ -283,7 +289,7 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
 
     if (error) {
       console.error("[Infeworks] fetchPublicProjects failed", error.message);
-      return [];
+      throw error;
     }
     const rows = data ?? [];
     const ids = rows.map((r) => r.project_id).filter((id): id is string => !!id);
@@ -306,7 +312,8 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
       .filter((p): p is PublicProject => p !== null);
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjects exception", err);
-    return [];
+    if (isCatalogueTransportError(err)) return getPublishedCatalogueSnapshot(locale);
+    throw new Error("Published project data is temporarily unavailable.");
   }
 }
 
@@ -327,7 +334,7 @@ export async function fetchPublicProjectBySlug(
 
     if (error) {
       console.error("[Infeworks] fetchPublicProjectBySlug failed", error.message);
-      return null;
+      throw error;
     }
     const project = row ? toProject(row) : null;
     if (!project) return null;
@@ -499,7 +506,8 @@ export async function fetchPublicProjectBySlug(
     return { project, location: project.location, claims, media: photos, facts, schema };
   } catch (err) {
     console.error("[Infeworks] fetchPublicProjectBySlug exception", err);
-    return null;
+    if (isCatalogueTransportError(err)) return getPublishedCatalogueDetail(slug, locale);
+    throw new Error("Published project data is temporarily unavailable.");
   }
 }
 
@@ -512,12 +520,13 @@ export async function fetchCapabilities(): Promise<PublicCapability[]> {
 
     if (error) {
       console.error("[Infeworks] fetchCapabilities failed", error.message);
-      return [];
+      throw error;
     }
     return data ?? [];
   } catch (err) {
     console.error("[Infeworks] fetchCapabilities exception", err);
-    return [];
+    if (isCatalogueTransportError(err)) return getSnapshotCapabilities();
+    throw new Error("Public sectors are temporarily unavailable.");
   }
 }
 

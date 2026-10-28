@@ -1,0 +1,494 @@
+{
+  "published_set_verified_at": "2026-10-18",
+  "profiles_captured_at": "2026-10-15",
+  "source": "Previously captured anonymous public vw_public_projects response; exact 22-slug set rechecked 18 October. No draft/admin/contact rows.",
+  "profiles": [
+    {
+      "project_id": "a1111111-1111-4111-8111-111111111111",
+      "slug": "sadat-city-ro",
+      "locale": "en",
+      "title": "Sadat City RO Desalination Plant",
+      "challenge": "High-purity food-grade process water required for the Macaroni and Biscuit Factories Complex, transforming brackish groundwater into strict food-contact standard water without production interruption.",
+      "outcome": "Delivered 1,500 m³/day two-pass RO facility with energy recovery, automated CIP, and continuous SCADA monitoring under full operational management.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "a1111111-1111-4111-8111-111111111111",
+      "slug": "sadat-city-ro",
+      "locale": "ar",
+      "title": "محطة تحلية مياه البحر بالسادات (1500 م³/يوم)",
+      "challenge": "توفير مياه عمليات عالية النقاوة مطابقة للاشتراطات الغذائية لمجمع مصانع المكرونة والبسكويت، من مصدر مياه جوفية قليلة الملوحة دون توقف لخطوط الإنتاج.",
+      "outcome": "تنفيذ وتشغيل محطة تحلية بطاقة 1,500 م³/يوم بنظام التناضح العكسي ثنائي المراحل، مع استرجاع الطاقة والغسيل الكيميائي الآلي والتحكم الإشرافي SCADA.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "b2222222-2222-4222-8222-222222222222",
+      "slug": "toshka-pumping-stations",
+      "locale": "en",
+      "title": "Toshka Agricultural Water & Wastewater Stations",
+      "challenge": "Critical desert climate lifting, pumping, and distribution infrastructure to support strategic agricultural reclamation in Toshka, managing extreme ambient temperatures and high hydraulic heads.",
+      "outcome": "Completed mechanical, electrical, and hydraulic stations with heavy-duty pump sets, basket screens, and automated discharge controls.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "b2222222-2222-4222-8222-222222222222",
+      "slug": "toshka-pumping-stations",
+      "locale": "ar",
+      "title": "محطات المياه والصرف الزراعي بتوشكى",
+      "challenge": "بنية تحتية استراتيجية للرفع والضخ والتوزيع لدعم مشروعات الاستصلاح الزراعي في توشكى تحت ظروف مناخية صحراوية قاسية وفروق مناسيب هيدروليكية عالية.",
+      "outcome": "استكمال وتدشين محطات ميكانيكية وكهربائية ومحطات رفع مع طلمبات الخدمة الشاقة ومصافي حجز الشوائب وأنظمة التحكم الآلي في التصرف.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "c3333333-3333-4333-8333-333333333333",
+      "slug": "food-city-treatment",
+      "locale": "en",
+      "title": "Food City Industrial Wastewater Treatment Facility",
+      "challenge": "Industrial effluent containing organic loads and fats requiring biological and physical-chemical treatment prior to environmental discharge and reuse.",
+      "outcome": "50 m³/day compact industrial wastewater treatment plant with automated dosing, equalization, and biological polishing.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "c3333333-3333-4333-8333-333333333333",
+      "slug": "food-city-treatment",
+      "locale": "ar",
+      "title": "محطة المعالجة الصناعية بالمدينة الغذائية (50 م³/يوم)",
+      "challenge": "معالجة الصرف الصناعي المحمل بأحمال عضوية وزيوت وشحوم بمجمع الصناعات الغذائية قبل إعادة الاستخدام أو الصرف الآمن بيئيًا.",
+      "outcome": "محطة معالجة مدمجة بطاقة 50 م³/يوم مع منظومات متكاملة للخلط والمعادلة والترويق والمعالجة البيولوجية المتقدمة.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "d4444444-4444-4444-8444-444444444444",
+      "slug": "arish-water-supply",
+      "locale": "en",
+      "title": "Arish Infrastructure & Water Supply Network",
+      "challenge": "Rapid execution of vital water supply pipelines, storage tanks, and booster pumping systems for urban and infrastructure facilities in North Sinai.",
+      "outcome": "Robust potable supply network, pressure booster stations, and durable piping compliant with municipal water authority codes.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "d4444444-4444-4444-8444-444444444444",
+      "slug": "arish-water-supply",
+      "locale": "ar",
+      "title": "شبكات البنية التحتية وتغذية المياه بالعريش",
+      "challenge": "تنفيذ عاجل لخطوط التغذية الرئيسية للمياه وخزانات التكديس ومحطات التعزيز للبنية التحتية والمرافق الحيوية بشمال سيناء.",
+      "outcome": "شبكة مياه شرب موثوقة ومحطات رفع معززة للضغط وخطوط ناقلة مطابقة لكود الهيئة القومية لمياه الشرب.",
+      "created_at": "2026-08-26T12:24:31.449519+00:00"
+    },
+    {
+      "project_id": "e5555555-5555-4555-8555-555555555555",
+      "slug": "ameriya-cold-storage",
+      "locale": "en",
+      "title": "Ameriya Industrial Cooling & Water Distribution",
+      "challenge": "An industrial cold-storage complex in Ameriya needed reliable process and cooling water with distribution that would not interrupt storage duty.",
+      "outcome": "Cooling and distribution loops delivered, tested and handed over with documented flow and pressure performance.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "e5555555-5555-4555-8555-555555555555",
+      "slug": "ameriya-cold-storage",
+      "locale": "ar",
+      "title": "التبريد الصناعي وتوزيع المياه — العامرية",
+      "challenge": "احتاج مجمع تخزين مبرد صناعي بالعامرية إلى مياه عمليات وتبريد موثوقة مع شبكة توزيع لا تُعطل التشغيل.",
+      "outcome": "تم تنفيذ دوائر التبريد والتوزيع واختبارها وتسليمها مع توثيق أداء التصرفات والضغوط.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "f6666666-6666-4666-8666-666666666666",
+      "slug": "awlad-el-sheikh-pumping",
+      "locale": "en",
+      "title": "Awlad El-Sheikh Potable Water Pumping Station",
+      "challenge": "A village supply network in Sohag required a pumping station sized for peak demand with redundancy for continuous service.",
+      "outcome": "Station built, electromechanically equipped and commissioned with standby capacity and remote monitoring.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "f6666666-6666-4666-8666-666666666666",
+      "slug": "awlad-el-sheikh-pumping",
+      "locale": "ar",
+      "title": "محطة ضخ مياه الشرب — أولاد الشيخ",
+      "challenge": "احتاجت شبكة تغذية قروية بسوهاج إلى محطة ضخ بسعة تغطي الأحمال القصوى مع احتياطي لاستمرار الخدمة.",
+      "outcome": "تم إنشاء المحطة وتجهيزها كهروميكانيكياً وتشغيلها تجريبياً بوجود وحدات احتياطية ومراقبة عن بُعد.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "b8888888-8888-4888-8888-888888888888",
+      "slug": "east-delta-wastewater",
+      "locale": "en",
+      "title": "East Delta Municipal Wastewater Treatment",
+      "challenge": "Growing East Delta communities needed municipal wastewater treatment meeting discharge limits with limited footprint.",
+      "outcome": "Treatment works delivered and operated with documented effluent compliance testing.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "b8888888-8888-4888-8888-888888888888",
+      "slug": "east-delta-wastewater",
+      "locale": "ar",
+      "title": "معالجة الصرف الصحي — دلتا الشرق",
+      "challenge": "احتاجت مجتمعات نامية بدلتا الشرق إلى معالجة صرف صحي مطابقة لحدود التصريف بمساحة محدودة.",
+      "outcome": "تم تنفيذ وتشغيل أعمال المعالجة مع توثيق اختبارات مطابقة المياه المعالجة.",
+      "created_at": "2026-08-26T15:33:38.416462+00:00"
+    },
+    {
+      "project_id": "841fb61a-c5fd-5e49-b54f-8cfef5f8e421",
+      "slug": "sisi-city-wastewater",
+      "locale": "en",
+      "title": "Al-Sisi City Gravity Sewer & Storm Drainage Network",
+      "challenge": "A major urban development in North Sinai required comprehensive underground utility infrastructure, demanding gravity wastewater collection and stormwater drainage networks built under strict depth and soil compaction tolerances.",
+      "outcome": "Turnkey supply, trench excavation, pipe laying, manhole construction, and hydrostatic pressure testing delivered in-house with full engineering supervision sign-off.",
+      "created_at": "2026-08-30T12:39:27.677616+00:00"
+    },
+    {
+      "project_id": "841fb61a-c5fd-5e49-b54f-8cfef5f8e421",
+      "slug": "sisi-city-wastewater",
+      "locale": "ar",
+      "title": "شبكات الصرف الصحي وتصريف الأمطار — مدينة السيسي",
+      "challenge": "تطلب مشروع التطوير العمراني بشمال سيناء تنفيذ بنية تحتية متكاملة لشبكات الصرف الصحي السطحي والانحداري مع تصريف مياه الأمطار وفق مواصفات هيدروليكية صارمة.",
+      "outcome": "تنفيذ أعمال التوريد والحفر وتمديد خطوط الانحدار وبناء غرف التفتيش والمطابق واختبارات الضغط الهيدروليكي بأطقمنا الذاتية وتسليمها لاعتماد الاستشاري.",
+      "created_at": "2026-08-30T12:39:27.677616+00:00"
+    },
+    {
+      "project_id": "05476ccf-b081-5cc2-b1fa-d33f969325b1",
+      "slug": "rafah-bedouin-housing",
+      "locale": "en",
+      "title": "Rafah Bedouin Residential Development Infrastructure",
+      "challenge": "The sustainable housing initiative in Rafah required high-quality residential infrastructure including civil concrete works, potable water plumbing, sanitation loops, and electrical service distribution tailored for remote community resilience.",
+      "outcome": "Executed building structural packages, comprehensive internal/external plumbing, water storage feeding systems, and electrical distribution panels with verified quality assurance.",
+      "created_at": "2026-08-30T12:39:32.757102+00:00"
+    },
+    {
+      "project_id": "05476ccf-b081-5cc2-b1fa-d33f969325b1",
+      "slug": "rafah-bedouin-housing",
+      "locale": "ar",
+      "title": "البنية التحتية والإنشاءات للتجمعات البدوية — رفح",
+      "challenge": "تطلبت مبادرة التجمعات السكنية والتنموية برفح تنفيذ أعمال إنشائية وكهروميكانيكية متكاملة لشبكات التغذية بمياه الشرب والصرف والتوزيع الكهربائي للمنازل البدوية.",
+      "outcome": "تنفيذ الأعمال الإنشائية وتمديد شبكات السباكة الداخلية والتغذية بالمياه وتركيب الخزانات واللوحات الكهربائية وتسليمها مطابقة لتقارير الاستشاري.",
+      "created_at": "2026-08-30T12:39:32.757102+00:00"
+    },
+    {
+      "project_id": "e0251a29-71eb-51b3-a2e8-f531e769022d",
+      "slug": "qabs-min-nour-mosque",
+      "locale": "en",
+      "title": "Qabs Min Nour Grand Mosque & Community Complex",
+      "challenge": "Constructing a landmark Friday Grand Mosque in the New Administrative Capital's R3 District called for turnkey general contracting encompassing deep foundations, high-span concrete domes, architectural stone facades, and integrated building MEP systems.",
+      "outcome": "Completed civil reinforced concrete structural works, dome and minaret masonry, architectural finishing, electrical distribution, and central HVAC ductwork under strict capital regulatory oversight.",
+      "created_at": "2026-08-30T12:39:50.580317+00:00"
+    },
+    {
+      "project_id": "e0251a29-71eb-51b3-a2e8-f531e769022d",
+      "slug": "qabs-min-nour-mosque",
+      "locale": "ar",
+      "title": "جامع ومجمع قبس من نور — العاصمة الإدارية الجديدة",
+      "challenge": "تطلب إنشاء مسجد جامع متكامل بالحي السكني الثالث (R3) بالعاصمة الإدارية الجديدة تنفيذ أعمال المقاولات العامة الشاملة للهيكل الخرساني والقباب والواجهات الحجرية والأعمال الكهروميكانيكية.",
+      "outcome": "إنجاز أعمال الهيكل الخرساني المسلح وبناء القباب والمئذنة والتشطيبات المعمارية واللوحات الكهربائية ومجاري التكييف المركزي بنجاح واعتمادها من جهات الإشراف.",
+      "created_at": "2026-08-30T12:39:50.580317+00:00"
+    },
+    {
+      "project_id": "a7ac9259-4ef5-53b6-9628-9cd021e9ad99",
+      "slug": "beni-suef-water-wastewater",
+      "locale": "en",
+      "title": "Beni Suef Potable Water & Wastewater Treatment Plants",
+      "challenge": "Municipal water authorities in Beni Suef Governorate required regional water purification and wastewater treatment works to serve expanding rural and peri-urban populations.",
+      "outcome": "Turnkey civil construction, electromechanical fit-out, filter trains, and commissioning delivered in-house under state authority supervision.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "a7ac9259-4ef5-53b6-9628-9cd021e9ad99",
+      "slug": "beni-suef-water-wastewater",
+      "locale": "ar",
+      "title": "محطات تنقية مياه الشرب ومعالجة الصرف الصحي — بني سويف",
+      "challenge": "احتاجت محافظة بني سويف إلى إنشاء وتجهيز محطات تنقية مياه شرب ومعالجة صرف صحي لخدمة التجمعات السكانية والريفية المتنامية.",
+      "outcome": "تنفيذ الأعمال المدنية والكهروميكانيكية وخطوط الترشيح والتشغيل التجريبي بنجاح وتسليمها للجهات المالكة.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "85e582f8-fba1-59b1-8318-ae8a98f3028d",
+      "slug": "multi-site-desalination-purification",
+      "locale": "en",
+      "title": "Multi-Site Desalination & Water Purification Hubs",
+      "challenge": "Dispersed regional operations across El Hamam, Qibili Qarun, New Valley, and Wadi El Natrun needed decentralized brackish RO desalination plants under Contract 136-2019 Compl. 1.",
+      "outcome": "Fabricated, delivered, and commissioned skid-mounted RO trains and multi-media pre-treatment across all 4 governorate sites.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "85e582f8-fba1-59b1-8318-ae8a98f3028d",
+      "slug": "multi-site-desalination-purification",
+      "locale": "ar",
+      "title": "محطات تحلية وتنقية المياه متعددة المواقع — مكمل 1",
+      "challenge": "تطلبت المواقع التنموية بالحمام وقبلي قارون والوادي الجديد ووادي النطرون محطات تحلية مياه بالتناضح العكسي بنظام مكمل 1 لعقد 136-2019.",
+      "outcome": "تصنيع وتوريد وتشغيل وحدات التحلية المجمعة على شاسيهات متكاملة مع مراحل الفلترة الأولية في المواقع الأربعة.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "91d3b1af-0f35-5f31-a841-46f1b407107b",
+      "slug": "dairy-effluent-treatment-network",
+      "locale": "en",
+      "title": "Multi-Site Dairy Effluent Wastewater Treatment Systems",
+      "challenge": "Large-scale dairy farming facilities across El Hamam, Wadi Natrun, Sadat City, and Yesh discharged high-BOD wash water and organic effluent requiring specialized biological treatment under Contract 136-2019 Compl. 2.",
+      "outcome": "Engineered and deployed anaerobic digestion, aeration basins, secondary clarifiers, and sludge handling facilities across all farm clusters.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "91d3b1af-0f35-5f31-a841-46f1b407107b",
+      "slug": "dairy-effluent-treatment-network",
+      "locale": "ar",
+      "title": "محطات معالجة مياه صرف حلابات ومزارع الألبان — مكمل 2",
+      "challenge": "أنتجت محالب ومزارع الألبان بالحمام ووادي النطرون والسادات ويشع مياه صرف محملة بأحمال عضوية عالية تطلبت معالجة متخصصة بعقد 136-2019 مكمل 2.",
+      "outcome": "تنفيذ أحواض الترويق والتهوية والمعالجة البيولوجية ومنظومات نزح الحمأة وتدوير المياه المعالجة في مواقع المزارع.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "7befaf35-235d-5d3c-a6c9-4eaac33050f9",
+      "slug": "shubra-shahab-industrial-wastewater",
+      "locale": "en",
+      "title": "Shubra Shahab Industrial Wastewater Treatment Facility",
+      "challenge": "Industrial agro-processing operations in Shubra Shahab, Qalyubia Governorate, required an advanced industrial effluent treatment plant to prevent environmental contamination and comply with law 48/1982.",
+      "outcome": "Turnkey civil basins, physical-chemical treatment train, DAF system, and sludge pressing unit engineered and handed over.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "7befaf35-235d-5d3c-a6c9-4eaac33050f9",
+      "slug": "shubra-shahab-industrial-wastewater",
+      "locale": "ar",
+      "title": "محطة معالجة الصرف الصناعي — شبرا شهاب",
+      "challenge": "تطلبت منشآت التصنيع الزراعي والصناعي بشبرا شهاب بمحافظة القليوبية محطة معالجة صرف صناعي مطابقة للضوابط البيئية والقانون 48 لسنة 1982.",
+      "outcome": "تنفيذ الأعمال الإنشائية للأحواض ووحدات المعالجة الفيزيوكيميائية ونظام التعويم بالهواء المذاب (DAF) وتجفيف الحمأة.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "da860b21-697c-57b3-bfe5-de1269a485ad",
+      "slug": "marble-factory-desalination-plants",
+      "locale": "en",
+      "title": "Industrial Marble Factory Desalination & Process Water Plants",
+      "challenge": "Heavy marble cutting and polishing complexes in Jafjaafa (Sinai), Minya, and Ras Sedr demanded continuous demineralized process water to protect high-precision cutting diamond gang saws from mineral scaling.",
+      "outcome": "Supplied and commissioned high-capacity brackish water RO desalination trains, sediment pre-filtration, and closed-loop process water recycling.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "da860b21-697c-57b3-bfe5-de1269a485ad",
+      "slug": "marble-factory-desalination-plants",
+      "locale": "ar",
+      "title": "محطات التحلية لمصانع الرخام — الجفجافة والمنيا ورأس سدر",
+      "challenge": "تطلبت مجمعات تصنيع وتلميع الرخام بالجفجافة بسيناء والمنيا ورأس سدر مياه منزوعة الأملاح لحماية شفرات ومناشير القطع الدقيقة من التكلس.",
+      "outcome": "توريد وتشغيل وحدات تحلية مياه عالية الكفاءة بالتناضح العكسي مع منظومات الفلترة وإعادة تدوير مياه العمليات المغلقة.",
+      "created_at": "2026-08-30T12:46:35.575078+00:00"
+    },
+    {
+      "project_id": "e73fd971-7aec-5ac2-b104-7f0da420da03",
+      "slug": "toshka-farm-potable-water-plant",
+      "locale": "en",
+      "title": "Toshka Agricultural Farm Potable Water Purification Facility",
+      "challenge": "The presidential agricultural reclamation project in Toshka required an independent 150 m³/day drinking water purification station under Contract 115-2020 to supply residential farm communities in remote desert sectors.",
+      "outcome": "Engineered, fabricated, and installed a compact 150 m³/day water treatment train complete with clarifiers, sand filters, UV disinfection, and distribution pumps.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "e73fd971-7aec-5ac2-b104-7f0da420da03",
+      "slug": "toshka-farm-potable-water-plant",
+      "locale": "ar",
+      "title": "محطة تنقية مياه الشرب بمزرعة توشكى (150 م³/يوم)",
+      "challenge": "تطلب مشروع الاستصلاح الزراعي بتوشكى محطة تنقية مياه شرب مستقلة بطاقة 150 م³/يوم بعقد 115-2020 لتغذية التجمعات السكنية بالمزارع الصحراوية.",
+      "outcome": "تصميم وتصنيع وتركيب وحدة تنقية مياه مدمجة بطاقة 150 م³/يوم مع أحواض الترويق وفلاتر الرمل والتعقيم بالأشعة فوق البنفسجية وطلمبات التوزيع.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "692cf0dd-88e4-516c-93fa-0bdf4bf57447",
+      "slug": "qibili-qarun-goat-farm-utilities",
+      "locale": "en",
+      "title": "Qibili Qarun Goat Farm Water Supply & Drainage Networks",
+      "challenge": "Developing a specialized livestock goat farm in Qibili Qarun, Fayoum, required complete site water supply networks, drinking troughs distribution, and wastewater drainage under Contract 48-2021.",
+      "outcome": "Executed complete buried piping networks, livestock drinking manifolds, septic collection chambers, and hydraulic balancing.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "692cf0dd-88e4-516c-93fa-0bdf4bf57447",
+      "slug": "qibili-qarun-goat-farm-utilities",
+      "locale": "ar",
+      "title": "أعمال التغذية والصرف لمزرعة الماعز — قبلي قارون",
+      "challenge": "تطلب إنشاء مزرعة الماعز النموذجية بقبلي قارون بالفيوم تنفيذ شبكات تغذية المياه وأحواض الشرب وخطوط الصرف بعقد رقم 48-2021.",
+      "outcome": "تنفيذ شبكات المواسير المدفونة وتفريعات التغذية لأحواض الشرب وخزانات التجميع والصرف الهيدروليكي المتوازن.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "8bfda6d3-dd22-5061-904c-bbf6a4b894e6",
+      "slug": "toshka-expanded-water-networks",
+      "locale": "en",
+      "title": "Toshka Expanded Water & Wastewater Station Packages",
+      "challenge": "Rapid expansion of irrigated cropland in Toshka called for immediate supplemental water pumping and effluent handling stations across newly assigned desert parcels.",
+      "outcome": "Constructed reinforced concrete pump sumps, installed high-volume vertical turbine pumps, and laid HDPE connection mains.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "8bfda6d3-dd22-5061-904c-bbf6a4b894e6",
+      "slug": "toshka-expanded-water-networks",
+      "locale": "ar",
+      "title": "محطات المياه والصرف المستجدة — توشكى",
+      "challenge": "تطلبت التوسعات الزراعية المتسارعة بتوشكى تنفيذ حزم إضافية لمحطات رفع المياه والتعامل مع مياه الصرف الزراعي بالقطع المستجدة.",
+      "outcome": "إنشاء بيارات الطلمبات من الخرسانة المسلحة وتوريد وتركيب طلمبات الرفع الرأسية وتمديد خطوط الربط من البولي إيثيلين.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "0afa23fe-2a6c-54c1-8f21-74917d864806",
+      "slug": "toshka-reclamation-pumping-package",
+      "locale": "en",
+      "title": "Toshka Agricultural Reclamation Pumping Stations (Contract 39-2022)",
+      "challenge": "National strategic wheat and crop cultivation in Toshka called for the turnkey construction of 2 high-capacity booster water pumping and drainage stations under Contract 39-2022.",
+      "outcome": "Completed civil station structures, installed horizontal and vertical pump sets, built intake screening, and commissioned automated SCADA controls.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "0afa23fe-2a6c-54c1-8f21-74917d864806",
+      "slug": "toshka-reclamation-pumping-package",
+      "locale": "ar",
+      "title": "محطات مياه وصرف توشكى للاستصلاح الزراعي (عقد 39-2022)",
+      "challenge": "تطلب مشروع زراعة المحاصيل الاستراتيجية والقمح بتوشكى إنشاء محطتي رفع مياه وصرف زراعي متكاملتين بموجب عقد رقم 39-2022.",
+      "outcome": "إنجاز الأعمال الإنشائية للمحطات وتوريد وتركيب مجموعات الضخ الأفقية والرأسية والمصافي الميكانيكية وأنظمة التحكم سكادا.",
+      "created_at": "2026-08-30T12:46:57.078538+00:00"
+    },
+    {
+      "project_id": "ab0c289e-7195-54d0-bc61-7670118cf0cd",
+      "slug": "sisi-city-water-supply-network",
+      "locale": "en",
+      "title": "Al-Sisi City Strategic Potable Water Supply & Distribution Network",
+      "challenge": "Providing permanent potable water supply across the extensive development zones of Al-Sisi City in North Sinai demanded high-pressure transmission mains, storage reservoir interties, and neighborhood distribution loops under Contract 2025-Water.",
+      "outcome": "Supplied, laid, and hydrostatically tested high-diameter ductile iron and HDPE water mains with air/gate valve chambers and booster connections.",
+      "created_at": "2026-08-30T12:47:24.900278+00:00"
+    },
+    {
+      "project_id": "ab0c289e-7195-54d0-bc61-7670118cf0cd",
+      "slug": "sisi-city-water-supply-network",
+      "locale": "ar",
+      "title": "شبكة التغذية بمياه الشرب وخطوط النقل — مدينة السيسي (عقد المياه)",
+      "challenge": "تطلب إمداد مدينة السيسي بشمال سيناء بمياه الشرب تنفيذ خطوط نقل رئيسية وشبكات توزيع فرعية والربط مع الخزانات الاستراتيجية بموجب عقد المياه.",
+      "outcome": "توريد وتركيب واختبار خطوط مياه الشرب من الزهر المرن وHDPE بأقطار متعددة وإنشاء غرف المحابس والربط مع محطات الضخ.",
+      "created_at": "2026-08-30T12:47:24.900278+00:00"
+    },
+    {
+      "project_id": "a8ebe241-dfc5-5ebe-b28c-4bc314fea758",
+      "slug": "abu-minqar-agricultural-farm-utilities",
+      "locale": "en",
+      "title": "Abu Minqar Agricultural Farm Irrigation & Deep Well Systems",
+      "challenge": "Desert reclamation in the remote oasis of Abu Minqar (New Valley) required deep groundwater extraction, booster pumping hubs, and pressurized drip irrigation networks.",
+      "outcome": "Equipped deep artesian wells, installed solar/diesel booster pump stations, and laid extensive buried irrigation distribution networks.",
+      "created_at": "2026-08-30T12:47:51.134401+00:00"
+    },
+    {
+      "project_id": "a8ebe241-dfc5-5ebe-b28c-4bc314fea758",
+      "slug": "abu-minqar-agricultural-farm-utilities",
+      "locale": "ar",
+      "title": "شبكات الري والآبار العميقة لمزرعة أبو منقار — الوادي الجديد",
+      "challenge": "تطلب مشروع الاستصلاح الزراعي بواحة أبو منقار النائية بالوادي الجديد استخراج المياه الجوفية العميقة وتجهيز محطات الضخ وشبكات الري بالرش والتنقيط.",
+      "outcome": "تجهيز الآبار الجوفية وطلمبات الرفع الغاطسة ومحطات تقوية الضغوط وتمديد شبكات الري الزراعي المدفونة.",
+      "created_at": "2026-08-30T12:47:51.134401+00:00"
+    },
+    {
+      "project_id": "5cfe0f56-0f54-5dfc-a607-09e40cf4def4",
+      "slug": "rural-egypt-wells-minya",
+      "locale": "en",
+      "title": "Egyptian Countryside Development Deep Wells Package — Minya",
+      "challenge": "Agricultural land reclamation by the Egyptian Countryside Development Company (1.5 Million Feddan Project) in West Minya demanded deep artesian groundwater extraction and solar pumping stations.",
+      "outcome": "Drilled, cased, and equipped high-depth groundwater wells, installed submersible pump sets, and commissioned solar photovoltaic power arrays.",
+      "created_at": "2026-08-30T12:47:51.134401+00:00"
+    },
+    {
+      "project_id": "5cfe0f56-0f54-5dfc-a607-09e40cf4def4",
+      "slug": "rural-egypt-wells-minya",
+      "locale": "ar",
+      "title": "مشروع آبار شركة تنمية الريف المصري — غرب المنيا",
+      "challenge": "تطلب مشروع استصلاح الأراضي لشركة تنمية الريف المصري (مشروع 1.5 مليون فدان) بغرب المنيا حفر وتجهيز آبار جوفية عميقة ومحطات ضخ بالطاقة الشمسية.",
+      "outcome": "حفر وتجهيز وتنزيل الآبار الجوفية العميقة وتركيب مجموعات الضخ الغاطسة وتشغيل محطات الطاقة الشمسية لتوليد الكهرباء.",
+      "created_at": "2026-08-30T12:47:51.134401+00:00"
+    }
+  ],
+  "capability_slugs": {
+    "sadat-city-ro": ["water-treatment"],
+    "marble-factory-desalination-plants": ["water-treatment"],
+    "multi-site-desalination-purification": ["water-treatment"],
+    "toshka-farm-potable-water-plant": ["water-treatment"],
+    "food-city-treatment": ["wastewater"],
+    "east-delta-wastewater": ["wastewater"],
+    "dairy-effluent-treatment-network": ["wastewater"],
+    "shubra-shahab-industrial-wastewater": ["wastewater"],
+    "beni-suef-water-wastewater": ["wastewater"],
+    "toshka-pumping-stations": ["pumping-wells"],
+    "awlad-el-sheikh-pumping": ["pumping-wells"],
+    "toshka-reclamation-pumping-package": ["pumping-wells"],
+    "toshka-expanded-water-networks": ["pumping-wells"],
+    "rural-egypt-wells-minya": ["pumping-wells"],
+    "abu-minqar-agricultural-farm-utilities": ["pumping-wells"],
+    "arish-water-supply": ["infrastructure-networks"],
+    "sisi-city-water-supply-network": ["infrastructure-networks"],
+    "sisi-city-wastewater": ["infrastructure-networks"],
+    "qabs-min-nour-mosque": ["civil-buildings"],
+    "rafah-bedouin-housing": ["civil-buildings"],
+    "qibili-qarun-goat-farm-utilities": ["industrial-mep"],
+    "ameriya-cold-storage": ["industrial-mep"]
+  },
+  "locations": {
+    "shubra-shahab-industrial-wastewater": {
+      "lat": 30.265,
+      "lng": 31.25,
+      "display_name": "شبرا شهاب، القليوبية"
+    },
+    "sisi-city-water-supply-network": {
+      "lat": 31.25,
+      "lng": 34.15,
+      "display_name": "مدينة السلام، شمال سيناء"
+    },
+    "awlad-el-sheikh-pumping": {
+      "lat": 26.56,
+      "lng": 31.7,
+      "display_name": "أولاد الشيخ، سوهاج"
+    },
+    "multi-site-desalination-purification": {
+      "lat": 29.5,
+      "lng": 29.5,
+      "display_name": "متعدد المواقع"
+    },
+    "toshka-pumping-stations": {
+      "lat": 22.5833,
+      "lng": 31.5333,
+      "display_name": "توشكى، أسوان"
+    },
+    "toshka-farm-potable-water-plant": {
+      "lat": 22.58,
+      "lng": 31.55,
+      "display_name": "توشكى، أسوان"
+    },
+    "sisi-city-wastewater": {
+      "lat": 31.25,
+      "lng": 34.15,
+      "display_name": "مدينة السلام، شمال سيناء"
+    },
+    "rafah-bedouin-housing": {
+      "lat": 31.2825,
+      "lng": 34.2435,
+      "display_name": "رفح، شمال سيناء"
+    },
+    "qabs-min-nour-mosque": {
+      "lat": 30.015,
+      "lng": 31.685,
+      "display_name": "العاصمة الإدارية الجديدة"
+    },
+    "dairy-effluent-treatment-network": {
+      "lat": 30.5,
+      "lng": 30.2,
+      "display_name": "الحمام، وادي النطرون، السادات، يشع"
+    },
+    "arish-water-supply": {
+      "lat": 31.1316,
+      "lng": 33.7984,
+      "display_name": "مطار العريش وشمال سيناء"
+    },
+    "toshka-expanded-water-networks": {
+      "lat": 22.6,
+      "lng": 31.6,
+      "display_name": "توشكى، أسوان"
+    },
+    "sadat-city-ro": {
+      "lat": 30.3765,
+      "lng": 30.515,
+      "display_name": "مدينة السادات، المنوفية"
+    }
+  }
+}

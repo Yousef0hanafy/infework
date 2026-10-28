@@ -4,8 +4,7 @@ import { ArrowRight, Download, RotateCcw } from "lucide-react";
 
 import { SECTORS, type SectorSlug } from "@/lib/sectors";
 import { getProjectMeta } from "@/lib/project-meta";
-import { getFlagshipDetail } from "@/lib/flagship-projects";
-import type { PublicProjectDetail } from "@/lib/public-types";
+import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 
 import { getPublicProjectBySlug } from "@/lib/public.functions";
 
@@ -16,20 +15,11 @@ import { PROJECT_SCHEMAS } from "@/lib/project-schemas";
 
 export const Route = createFileRoute("/$locale/work/$slug")({
   loader: async ({ params }) => {
-    let detail: PublicProjectDetail | null = null;
-    try {
-      detail = await getPublicProjectBySlug({
-        data: { slug: params.slug, locale: params.locale },
-      });
-    } catch (err) {
-      console.warn(
-        `[work/$slug] getPublicProjectBySlug failed for "${params.slug}", falling back to flagship:`,
-        err,
-      );
-    }
-    const resolved = detail ?? getFlagshipDetail(params.slug, params.locale);
-    if (!resolved) throw notFound();
-    return resolved;
+    const detail = await getPublicProjectBySlug({
+      data: { slug: params.slug, locale: params.locale },
+    });
+    if (!detail) throw notFound();
+    return detail;
   },
 
   head: ({ loaderData, params }) => {
@@ -300,6 +290,7 @@ function CaseStudyPage() {
           <h1 className="display-xl mt-8 max-w-4xl text-[clamp(2rem,5.5vw,4.5rem)]">
             {project.title}
           </h1>
+          <CatalogueSnapshotNotice date={project.catalogue_snapshot_date} locale={locale} />
           <div
             className="mt-12 grid grid-cols-2 gap-8 border-t pt-8 md:grid-cols-4"
             style={{ borderColor: "var(--iw-dark-border)" }}

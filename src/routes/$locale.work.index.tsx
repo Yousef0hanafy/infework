@@ -3,7 +3,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Building2, CheckCircle2, Layers, ShieldCheck } from "lucide-react";
 import { z } from "zod";
 
-import { getFlagshipProjects } from "@/lib/flagship-projects";
+import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getCapabilities, getPublicProjects } from "@/lib/public.functions";
 
@@ -84,7 +84,7 @@ function WorkIndex() {
   const t = (en: string, ar: string) => (isAr ? ar : en);
   const active = search.sector && search.sector !== "" ? search.sector : "all";
   const [limit, setLimit] = useState(12);
-  const projects = published.length > 0 ? published : getFlagshipProjects(locale);
+  const projects = published;
 
   const filters = useMemo(() => {
     const order = [
@@ -179,6 +179,10 @@ function WorkIndex() {
             )}
           </p>
 
+          <CatalogueSnapshotNotice
+            date={projects.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
+            locale={locale}
+          />
           <HeroMetrics className="mt-10" />
         </div>
       </section>

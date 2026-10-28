@@ -12,6 +12,7 @@ export type PublicProject = {
   location: PublicLocation | null;
   cover_url: string | null;
   featured?: boolean;
+  catalogue_snapshot_date?: string;
 };
 
 export type PublicLocation = {

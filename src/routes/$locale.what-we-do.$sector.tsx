@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 
 import { getSector } from "@/lib/sectors";
-import { getFlagshipProjects } from "@/lib/flagship-projects";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getPublicProjects } from "@/lib/public.functions";
 import ProjectSchematic from "@/components/infeworks/ProjectSchematic";
@@ -82,7 +81,7 @@ function SectorPage() {
   const t = (en: string, ar: string) => (isAr ? ar : en);
   const sector = getSector(slug)!;
 
-  const allProjects = published && published.length > 0 ? published : getFlagshipProjects(locale);
+  const allProjects = published ?? [];
   const relatedProjects = allProjects.filter((p) => p.capability_slugs?.includes(slug));
 
   const representativeSlug =
