@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Languages, Menu, X } from "lucide-react";
 
+import { catalogueLanguageHref } from "@/lib/catalogue-navigation";
+
 import Logo from "@/components/infeworks/Logo";
 
 type Locale = "en" | "ar";
@@ -14,12 +16,11 @@ const NAV = [
 ];
 
 export function Header() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname, searchStr } = useRouterState({ select: (s) => s.location });
   const locale: Locale = pathname.startsWith("/ar") ? "ar" : "en";
   const isAr = locale === "ar";
   const other: Locale = isAr ? "en" : "ar";
-  const rest = pathname.replace(/^\/(en|ar)/, "");
-  const otherHref = `/${other}${rest}`;
+  const otherHref = catalogueLanguageHref(pathname, searchStr);
   const [open, setOpen] = useState(false);
 
   const arabicFont = { fontFamily: "var(--font-arabic)" } as const;

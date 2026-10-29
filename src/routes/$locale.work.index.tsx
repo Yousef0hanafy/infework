@@ -1,18 +1,18 @@
 import { safeJsonLd } from "@/lib/safe-json-ld";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Building2, CheckCircle2, Layers, ShieldCheck } from "lucide-react";
-import { z } from "zod";
+import {
+  CATALOGUE_BATCH,
+  catalogueSearch,
+  matchesCatalogueQuery,
+} from "@/lib/catalogue-navigation";
 
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { getProjectMeta } from "@/lib/project-meta";
 import { getCapabilities, getPublicProjects } from "@/lib/public.functions";
 
 import HeroMetrics from "@/components/infeworks/HeroMetrics";
-
-const workSearchSchema = z.object({
-  sector: z.string().optional().catch("all"),
-});
 
 const TITLE = "Engineering Portfolio & Proven Track Record — Infeworks";
 const DESC =
@@ -22,7 +22,7 @@ const DESC_AR =
   "مشروعات ودراسات حالة تفصيلية لمحطات تنقية وتحلية المياه، محطات الصرف الصحي والصناعي، شبكات المرافق، ومحطات الرفع والضخ العملاقة المنفذة في مصر.";
 
 export const Route = createFileRoute("/$locale/work/")({
-  validateSearch: (search: Record<string, unknown>) => workSearchSchema.parse(search),
+  validateSearch: (search: Record<string, unknown>) => catalogueSearch(search),
   loader: async ({ params }) => {
     const [projects, capabilities] = await Promise.all([
       getPublicProjects({ data: { locale: params.locale } }),
@@ -30,17 +30,10 @@ export const Route = createFileRoute("/$locale/work/")({
     ]);
     return { projects, capabilities };
   },
-  head: ({ loaderData, params }) => {
+  head: ({ params }) => {
     const isAr = params?.locale === "ar";
     const title = isAr ? TITLE_AR : TITLE;
-    const baseDesc = isAr ? DESC_AR : DESC;
-    const count = loaderData?.projects.length ?? 0;
-    const description =
-      count > 0
-        ? isAr
-          ? `${count} مشروعاً هندسياً موثقاً. ${baseDesc}`
-          : `${count} documented engineering projects. ${baseDesc}`
-        : baseDesc;
+    const description = isAr ? DESC_AR : DESC;
     const url = `https://www.infeworks.com/${params?.locale ?? "ar"}/work`;
 
     const schema = {
@@ -83,8 +76,56 @@ function WorkIndex() {
   const navigate = Route.useNavigate();
   const isAr = locale === "ar";
   const t = (en: string, ar: string) => (isAr ? ar : en);
-  const active = search.sector && search.sector !== "" ? search.sector : "all";
-  const [limit, setLimit] = useState(12);
+  const knownSectors = useMemo(() => capabilities.map((c) => c.slug), [capabilities]);
+  const state = useMemo(() => catalogueSearch(search, knownSectors), [search, knownSectors]);
+  const active = state.sector ?? "all";
+  const query = state.q ?? "";
+  const limit = state.limit ?? CATALOGUE_BATCH;
+  const [draft, setDraft] = useState(query);
+  const pending = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelPending = useCallback(() => {
+    if (pending.current) clearTimeout(pending.current);
+    pending.current = null;
+  }, []);
+  useEffect(() => {
+    cancelPending();
+    setDraft(query);
+    return cancelPending;
+  }, [query, search.sector, search.limit, cancelPending]);
+  useEffect(() => {
+    if (search.sector && !state.sector) {
+      cancelPending();
+      void navigate({ search: state, replace: true, resetScroll: false });
+    }
+  }, [search.sector, state, navigate, cancelPending]);
+  const applyQuery = (value: string) => {
+    cancelPending();
+    setDraft(value.slice(0, 200));
+    pending.current = setTimeout(() => {
+      pending.current = null;
+      const next = catalogueSearch({ ...state, q: value, limit: undefined }, knownSectors);
+      setDraft(next.q ?? "");
+      void navigate({
+        search: next,
+        replace: true,
+        resetScroll: false,
+      });
+    }, 250);
+  };
+  const clearQuery = () => {
+    cancelPending();
+    setDraft("");
+    void navigate({
+      search: catalogueSearch({ sector: state.sector }, knownSectors),
+      replace: true,
+      resetScroll: false,
+    });
+  };
+  const reset = () => {
+    cancelPending();
+    setDraft("");
+    void navigate({ search: {}, replace: false, resetScroll: false });
+  };
   const projects = published;
 
   const filters = useMemo(() => {
@@ -117,8 +158,18 @@ function WorkIndex() {
 
   const filteredAndSorted = useMemo(() => {
     // 1. Filter by active capability
-    const filtered =
-      active === "all" ? projects : projects.filter((p) => p.capability_slugs?.includes(active));
+    const filtered = projects.filter((p) => {
+      if (active !== "all" && !p.capability_slugs?.includes(active)) return false;
+      const meta = getProjectMeta(p.slug);
+      return matchesCatalogueQuery(query, [
+        p.title,
+        p.slug,
+        meta?.client?.en,
+        meta?.client?.ar,
+        meta?.region?.en,
+        meta?.region?.ar,
+      ]);
+    });
 
     // 2. Sort to prioritize explicit flagship projects
     const flagships = [
@@ -142,9 +193,9 @@ function WorkIndex() {
       const dateB = b.created_at ? new Date(b.created_at).getTime() : 0;
       return dateB - dateA;
     });
-  }, [projects, active]);
+  }, [projects, active, query]);
 
-  const visible = filteredAndSorted.slice(0, limit);
+  const visible = filteredAndSorted.slice(0, Math.min(limit, filteredAndSorted.length));
   const hasMore = limit < filteredAndSorted.length;
 
   return (
@@ -191,7 +242,42 @@ function WorkIndex() {
 
       <section className="iw-section-light">
         <div className="mx-auto w-full max-w-[1400px] px-6 py-12 md:px-10 md:py-20">
+          <div className="mb-6 flex flex-wrap items-end gap-3">
+            <div className="min-w-0 flex-1 basis-64">
+              <label htmlFor="project-search" className="mb-2 block text-sm font-semibold">
+                {t("Search projects", "البحث في المشروعات")}
+              </label>
+              <input
+                id="project-search"
+                name="q"
+                type="search"
+                maxLength={200}
+                value={draft}
+                onChange={(event) => applyQuery(event.target.value)}
+                placeholder={t("Project, client or region…", "اسم المشروع، العميل أو المنطقة…")}
+                className="w-full rounded-sm border border-[var(--iw-border)] bg-[var(--iw-surface)] px-4 py-3 text-[var(--iw-text-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)]"
+              />
+            </div>
+            {draft && (
+              <button
+                type="button"
+                onClick={clearQuery}
+                className="rounded-sm border border-[var(--iw-border)] px-4 py-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)]"
+              >
+                {t("Clear search", "مسح البحث")}
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={reset}
+              className="rounded-sm border border-[var(--iw-border)] px-4 py-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)]"
+            >
+              {t("Reset filters", "مسح البحث والفلاتر")}
+            </button>
+          </div>
           <div
+            role="group"
+            aria-label={t("Filter by sector", "التصفية حسب القطاع")}
             className="flex flex-wrap items-center gap-2 border-b pb-6"
             style={{ borderColor: "var(--iw-border)" }}
           >
@@ -201,17 +287,16 @@ function WorkIndex() {
                 <button
                   key={f.key}
                   type="button"
+                  aria-pressed={isActive}
                   onClick={() => {
-                    navigate({
-                      search: (prev) => ({
-                        ...prev,
-                        sector: f.key === "all" ? undefined : f.key,
-                      }),
-                      replace: true,
+                    cancelPending();
+                    void navigate({
+                      search: catalogueSearch({ q: draft, sector: f.key }, knownSectors),
+                      replace: false,
+                      resetScroll: false,
                     });
-                    setLimit(12);
                   }}
-                  className={`label-mono rounded-xs border px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  className={`label-mono rounded-xs border px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)] ${
                     isActive
                       ? "bg-[var(--iw-accent)] border-[var(--iw-accent)] text-white"
                       : "bg-[var(--iw-surface)] border-[var(--iw-border)] text-[var(--iw-text-secondary)]"
@@ -223,14 +308,18 @@ function WorkIndex() {
             })}
           </div>
 
-          <div className="mt-8 flex items-center justify-between">
-            <span className="label-mono text-xs font-semibold uppercase tracking-wider text-[var(--iw-text-muted)]">
-              {t(
-                `Showing ${visible.length} of ${filteredAndSorted.length} Projects`,
-                `عرض ${visible.length} من أصل ${filteredAndSorted.length} مشروعاً`,
-              )}
+          <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+            <span key={`${query}:${active}:${limit}`}>
+              {visible.length
+                ? query
+                  ? t(
+                      `Project results updated for ${query}`,
+                      `تم تحديث نتائج المشروعات للبحث: ${query}`,
+                    )
+                  : t("Project results updated", "تم تحديث نتائج المشروعات")
+                : t("No matching projects", "لا توجد مشروعات مطابقة")}
             </span>
-          </div>
+          </p>
 
           {visible.length > 0 ? (
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -244,7 +333,7 @@ function WorkIndex() {
                     to="/$locale/work/$slug"
                     params={{ locale, slug: p.slug }}
                     preload={false}
-                    className="group relative flex flex-col justify-between rounded-md border bg-[var(--iw-surface)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-xl overflow-hidden"
+                    className="group relative flex flex-col justify-between focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--iw-accent)] rounded-md border bg-[var(--iw-surface)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-xl overflow-hidden"
                     style={{ borderColor: "var(--iw-border)" }}
                   >
                     {/* Visual Header (Clean, no text overlays) */}
@@ -320,10 +409,17 @@ function WorkIndex() {
             >
               <p className="body-reading text-base text-[var(--iw-text-secondary)]">
                 {t(
-                  "No published records in this engineering sector.",
-                  "لا توجد سجلات منشورة في هذا القطاع الهندسي.",
+                  "No projects match your search and sector. Try another term or reset the filters.",
+                  "لا توجد مشروعات مطابقة للبحث والقطاع المحددين. جرّب كلمة أخرى أو امسح الفلاتر.",
                 )}
               </p>
+              <button
+                type="button"
+                onClick={reset}
+                className="mt-6 rounded-sm border border-[var(--iw-border)] px-4 py-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)]"
+              >
+                {t("Reset filters", "مسح البحث والفلاتر")}
+              </button>
             </div>
           )}
 
@@ -332,8 +428,22 @@ function WorkIndex() {
             <div className="mt-16 flex flex-col items-center gap-3">
               <button
                 type="button"
-                onClick={() => setLimit((prev) => prev + 12)}
-                className="label-mono inline-flex items-center gap-3 rounded-sm border border-[var(--iw-border)] bg-[var(--iw-surface)] px-8 py-4 text-xs font-bold tracking-widest uppercase text-[var(--iw-text-primary)] transition-all duration-300 hover:border-[var(--iw-accent)] hover:bg-[var(--iw-accent)] hover:text-white cursor-pointer shadow-xs"
+                disabled={draft !== query}
+                onClick={() => {
+                  cancelPending();
+                  void navigate({
+                    search: catalogueSearch(
+                      {
+                        ...state,
+                        limit: Math.min(limit + CATALOGUE_BATCH, filteredAndSorted.length),
+                      },
+                      knownSectors,
+                    ),
+                    replace: true,
+                    resetScroll: false,
+                  });
+                }}
+                className="label-mono inline-flex items-center gap-3 rounded-sm border border-[var(--iw-border)] bg-[var(--iw-surface)] px-8 py-4 text-xs font-bold tracking-widest uppercase text-[var(--iw-text-primary)] transition-all duration-300 hover:border-[var(--iw-accent)] hover:bg-[var(--iw-accent)] hover:text-white cursor-pointer disabled:cursor-wait disabled:opacity-50 shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)]"
               >
                 {t("Load More Projects", "عرض المزيد من المشروعات")}
               </button>
