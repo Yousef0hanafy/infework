@@ -73,7 +73,7 @@ const SECTOR_IMAGES: Record<string, string> = {
   "water-treatment": "/images/projects/sadat-city-ro/cover.webp",
   wastewater: "/images/projects/shubra-shahab-industrial-wastewater/cover.jpg",
   "pumping-wells": "/images/projects/qibili-qarun-water-purification/cover.webp",
-  "industrial-mep": "/images/projects/ameriya-cold-storage/cover.jpg",
+  "industrial-mep": "/hero/ameriya-cold-storage/00-cover.webp",
   "infrastructure-networks": "/images/projects/capital-island-infrastructure/cover.webp",
   "civil-buildings": "/images/projects/qabs-min-nour-mosque/cover.webp",
 };

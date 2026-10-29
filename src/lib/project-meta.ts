@@ -276,12 +276,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "El Hamam, Wadi Natrun, Sadat & Yesh", ar: "الحمام، وادي النطرون، السادات، يشع" },
   },
   "food-city-treatment": {
-    cover: "/images/projects/food-city-treatment/cover.webp",
+    cover: "/hero/food-city-treatment/00-cover.webp",
     gallery: [
-      "/images/projects/food-city-treatment/gallery-3.webp",
-      "/images/projects/food-city-treatment/gallery-4.webp",
-      "/images/projects/food-city-treatment/gallery-5.webp",
-      "/images/projects/food-city-treatment/gallery-6.webp",
+      "/hero/food-city-treatment/01-wet-well.webp",
+      "/hero/food-city-treatment/02-discharge-valves.webp",
+      "/hero/food-city-treatment/03-gravity-sewer.webp",
+      "/hero/food-city-treatment/04-control-panel.webp",
+      "/hero/food-city-treatment/05-canopy-foundation.webp",
     ],
     capacity: { en: "50 m³/day Industrial Wastewater", ar: "50 م³/يوم صرف صناعي غذائي" },
     badge: {
@@ -425,11 +426,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "New Salam City, North Sinai", ar: "مدينة السلام الجديدة، شمال سيناء" },
   },
   "toshka-reclamation-pumping-package": {
-    cover: "/images/projects/toshka-reclamation-pumping-package/cover.webp",
+    cover: "/hero/toshka-reclamation-pumping-package/00-cover.webp",
     gallery: [
-      "/images/projects/toshka-reclamation-pumping-package/gallery-1.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-2.webp",
-      "/images/projects/toshka-reclamation-pumping-package/gallery-11.webp",
+      "/hero/toshka-reclamation-pumping-package/01-feed-pumps.webp",
+      "/hero/toshka-reclamation-pumping-package/02-water-storage.webp",
+      "/hero/toshka-reclamation-pumping-package/03-disinfection.webp",
+      "/hero/toshka-reclamation-pumping-package/04-wastewater-unit.webp",
+      "/hero/toshka-reclamation-pumping-package/05-electrical.webp",
     ],
     capacity: {
       en: "Dual Agricultural Pumping Stations",
@@ -484,16 +487,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
   },
   "beni-suef-water-wastewater": {
-    cover: "/images/projects/beni-suef-water-wastewater/cover.webp",
+    cover: "/hero/beni-suef-water-wastewater/00-cover.webp",
     gallery: [
-      "/images/projects/beni-suef-water-wastewater/gallery-3.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-4.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-5.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-7.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-8.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-9.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-10.webp",
-      "/images/projects/beni-suef-water-wastewater/gallery-11.webp",
+      "/hero/beni-suef-water-wastewater/01-air-blowers.webp",
+      "/hero/beni-suef-water-wastewater/02-hdpe-connection.webp",
+      "/hero/beni-suef-water-wastewater/03-mixing-chambers.webp",
+      "/hero/beni-suef-water-wastewater/04-controls.webp",
+      "/hero/beni-suef-water-wastewater/05-connection-chamber.webp",
     ],
     capacity: {
       en: "Municipal Multi-Train Treatment",
@@ -572,13 +572,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Shubra Shahab, Qalyubia", ar: "شبرا شهاب، القليوبية" },
   },
   "marble-factory-desalination-plants": {
-    cover: "/images/projects/marble-factory-desalination-plants/cover.webp",
+    cover: "/hero/marble-factory-desalination-plants/00-cover.webp",
     gallery: [
-      "/images/projects/marble-factory-desalination-plants/gallery-7.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-8.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-9.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-10.webp",
-      "/images/projects/marble-factory-desalination-plants/gallery-11.webp",
+      "/hero/marble-factory-desalination-plants/01-membrane-detail.webp",
+      "/hero/marble-factory-desalination-plants/02-outlet-pipework.webp",
+      "/hero/marble-factory-desalination-plants/03-saline-tank.webp",
+      "/hero/marble-factory-desalination-plants/04-controls.webp",
+      "/hero/marble-factory-desalination-plants/05-hall-exterior.webp",
     ],
     capacity: {
       en: "Heavy Industrial Process Water & RO Trains",
@@ -600,14 +600,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     },
   },
   "qibili-qarun-goat-farm-utilities": {
-    cover: "/images/projects/qibili-qarun-goat-farm-utilities/cover.webp",
+    cover: "/hero/qibili-qarun-goat-farm-utilities/00-cover.webp",
     gallery: [
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-2.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-5.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-8.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-9.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-10.webp",
-      "/images/projects/qibili-qarun-goat-farm-utilities/gallery-11.webp",
+      "/hero/qibili-qarun-goat-farm-utilities/01-drainage.webp",
+      "/hero/qibili-qarun-goat-farm-utilities/02-covered-tank.webp",
+      "/hero/qibili-qarun-goat-farm-utilities/03-valve-chamber.webp",
+      "/hero/qibili-qarun-goat-farm-utilities/04-irrigation.webp",
+      "/hero/qibili-qarun-goat-farm-utilities/05-fire-water.webp",
     ],
     capacity: {
       en: "Specialized Agricultural Utility Networks",
@@ -905,11 +904,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Minya", ar: "المنيا" },
   },
   "abu-minqar-agricultural-farm-utilities": {
-    cover: "/images/projects/abu-minqar-agricultural-farm-utilities/cover.webp",
+    cover: "/hero/abu-minqar-agricultural-farm-utilities/00-cover.webp",
     gallery: [
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-6.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-7.webp",
-      "/images/projects/abu-minqar-agricultural-farm-utilities/gallery-8.webp",
+      "/hero/abu-minqar-agricultural-farm-utilities/01-upvc-main.webp",
+      "/hero/abu-minqar-agricultural-farm-utilities/02-reservoir-lining.webp",
+      "/hero/abu-minqar-agricultural-farm-utilities/03-gate-valve.webp",
+      "/hero/abu-minqar-agricultural-farm-utilities/04-irrigation-hoses.webp",
+      "/hero/abu-minqar-agricultural-farm-utilities/05-liner-geotextile.webp",
     ],
     capacity: {
       en: "Deep Artesian Well & Irrigation Hub",
@@ -999,13 +1000,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "North Coast, Matrouh", ar: "الساحل الشمالي، مطروح" },
   },
   "rural-egypt-wells-minya": {
-    cover: "/images/projects/rural-egypt-wells-minya/cover.webp",
+    cover: "/hero/rural-egypt-wells-minya/00-cover.webp",
     gallery: [
-      "/images/projects/rural-egypt-wells-minya/gallery-5.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-7.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-8.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-9.webp",
-      "/images/projects/rural-egypt-wells-minya/gallery-10.webp",
+      "/hero/rural-egypt-wells-minya/01-upvc-network.webp",
+      "/hero/rural-egypt-wells-minya/02-basin-lining.webp",
+      "/hero/rural-egypt-wells-minya/03-isolation-valve.webp",
+      "/hero/rural-egypt-wells-minya/04-vfd-cabinet.webp",
+      "/hero/rural-egypt-wells-minya/05-pump-detail.webp",
     ],
     capacity: { en: "Deep Solar-Powered Artesian Wells", ar: "آبار جوفية عميقة بمحطات ضخ شمسية" },
     client: {
@@ -1088,13 +1089,13 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
     region: { en: "Abu Zaabal, Qalyubia", ar: "أبو زعبل، القليوبية" },
   },
   "ameriya-cold-storage": {
-    cover: "/images/projects/ameriya-cold-storage/cover.jpg",
+    cover: "/hero/ameriya-cold-storage/00-cover.webp",
     gallery: [
-      "/images/projects/ameriya-cold-storage/gallery-1.jpg",
-      "/images/projects/ameriya-cold-storage/gallery-2.jpg",
-      "/images/projects/ameriya-cold-storage/gallery-3.jpg",
-      "/images/projects/ameriya-cold-storage/gallery-4.jpg",
-      "/images/projects/ameriya-cold-storage/gallery-5.jpg",
+      "/hero/ameriya-cold-storage/01-pump-detail.webp",
+      "/hero/ameriya-cold-storage/02-reservoir.webp",
+      "/hero/ameriya-cold-storage/03-cooling-canopy.webp",
+      "/hero/ameriya-cold-storage/04-electrical.webp",
+      "/hero/ameriya-cold-storage/05-ventilation.webp",
     ],
     capacity: {
       en: "Industrial Cooling & Water Distribution Loops",

@@ -321,7 +321,7 @@ const TIMELINE: TimelineMilestone[] = [
       ar: "تنفيذ أول حزم مرافق صناعية متكاملة: دوائر تبريد العمليات، شبكات الصرف الصناعي، وأنظمة التوزيع الهيدروليكي لمجمعات التخزين اللوجستي.",
     },
     meta: "Industrial Utilities",
-    image: "/images/projects/ameriya-cold-storage/cover.jpg",
+    image: "/hero/ameriya-cold-storage/00-cover.webp",
     entries: [
       {
         en: "Ameriya cold-storage industrial cooling & water utility network",
@@ -398,7 +398,7 @@ const TIMELINE: TimelineMilestone[] = [
       ar: "نشر حزم ضخ صحراوية شاقة، وخطوط طرد عالية الضغط، ومنظومات ترشيح ميكانيكي لبرامج الاستصلاح الزراعي والتنمية الإقليمية.",
     },
     meta: "Heavy Infrastructure",
-    image: "/images/projects/beni-suef-water-wastewater/cover.webp",
+    image: "/hero/beni-suef-water-wastewater/00-cover.webp",
     entries: [
       {
         en: "Toshka agricultural reclamation pumping station package",
