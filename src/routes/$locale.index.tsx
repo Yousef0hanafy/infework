@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { useMemo } from "react";
@@ -573,7 +574,7 @@ function LocaleHome() {
                           {p.cover_url || meta?.cover ? (
                             <img
                               src={p.cover_url ?? meta?.cover}
-                              alt={p.title}
+                              alt={getProjectTitle(p).text}
                               loading="lazy"
                               decoding="async"
                               className="h-full w-full object-cover grayscale-[25%] transition-[filter,transform] duration-700 group-hover:scale-105 group-hover:grayscale-0"
@@ -616,7 +617,7 @@ function LocaleHome() {
                             </div>
 
                             <h3 className="display-md mt-4 text-2xl lg:text-3xl font-bold leading-tight">
-                              {p.title}
+                              <bdi lang={getProjectTitle(p).lang}>{getProjectTitle(p).text}</bdi>
                             </h3>
 
                             {meta?.client ? (
@@ -709,7 +710,7 @@ function LocaleHome() {
                         {p.cover_url || meta?.cover ? (
                           <img
                             src={p.cover_url ?? meta?.cover}
-                            alt={p.title}
+                            alt={getProjectTitle(p).text}
                             loading="lazy"
                             decoding="async"
                             className="h-full w-full object-cover grayscale-[25%] transition-[filter,transform] duration-700 group-hover:scale-105 group-hover:grayscale-0"
@@ -754,7 +755,7 @@ function LocaleHome() {
                       <h3
                         className={`display-md mt-2 font-bold ${isHeroCard ? "text-xl lg:text-2xl" : "text-lg lg:text-xl"}`}
                       >
-                        {p.title}
+                        <bdi lang={getProjectTitle(p).lang}>{getProjectTitle(p).text}</bdi>
                       </h3>
 
                       {meta?.client ? (

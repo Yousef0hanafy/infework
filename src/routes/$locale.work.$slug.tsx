@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Suspense, lazy } from "react";
 import { ClientOnly, Link, createFileRoute, notFound } from "@tanstack/react-router";
@@ -27,7 +28,9 @@ export const Route = createFileRoute("/$locale/work/$slug")({
     const isAr = params?.locale === "ar";
     const suffix = isAr ? "إنفيوركس" : "Infeworks";
     const fallbackTitle = isAr ? "دراسة حالة لمشروع — إنفيوركس" : "Case Study — Infeworks";
-    const title = loaderData ? `${loaderData.project.title} — ${suffix}` : fallbackTitle;
+    const title = loaderData
+      ? `${getProjectTitle(loaderData.project).text} — ${suffix}`
+      : fallbackTitle;
     const description =
       loaderData?.project.challenge?.slice(0, 155) ??
       loaderData?.project.outcome?.slice(0, 155) ??
@@ -152,14 +155,15 @@ function CaseStudyPage() {
   const { locale, slug } = Route.useParams();
   const isAr = locale === "ar";
   const t = (en: string, ar: string) => (isAr ? ar : en);
+  const projectTitle = getProjectTitle(project);
   const meta = getProjectMeta(project.slug);
   const finalSchematicSteps = schematic_steps ?? PROJECT_SCHEMAS[project.slug];
 
   const jsonLdProject = {
     "@context": "https://schema.org",
     "@type": "Project",
-    name: project.title,
-    description: project.challenge || project.outcome || project.title,
+    name: projectTitle.text,
+    description: project.challenge || project.outcome || projectTitle.text,
     url: `https://www.infeworks.com/${locale}/work/${slug}`,
     inLanguage: isAr ? "ar-EG" : "en-EG",
     image: project.cover_url
@@ -266,7 +270,7 @@ function CaseStudyPage() {
   ];
 
   const hero = media[0]?.url ?? project.cover_url ?? meta?.cover;
-  const heroAlt = media[0]?.alt ?? project.title;
+  const heroAlt = media[0]?.alt ?? projectTitle.text;
   const gallery = media.length > 1 ? media.slice(1).map((m) => m.url) : (meta?.gallery ?? []);
 
   return (
@@ -289,7 +293,7 @@ function CaseStudyPage() {
             {t("Selected Work", "أعمال مختارة")}
           </Link>
           <h1 className="display-xl mt-8 max-w-4xl text-[clamp(2rem,5.5vw,4.5rem)]">
-            {project.title}
+            <bdi lang={projectTitle.lang}>{projectTitle.text}</bdi>
           </h1>
           <CatalogueSnapshotNotice
             mediaUnavailable={project.media_unavailable}
@@ -405,7 +409,7 @@ function CaseStudyPage() {
                     <div className="flex items-center justify-center bg-black/5 p-4">
                       <img
                         src={schema.url}
-                        alt={schema.alt ?? project.title}
+                        alt={schema.alt ?? projectTitle.text}
                         className="max-h-[600px] w-auto object-contain"
                         loading="lazy"
                       />
@@ -434,7 +438,7 @@ function CaseStudyPage() {
                   <ParallaxImage
                     key={url}
                     src={url}
-                    alt={project.title}
+                    alt={projectTitle.text}
                     ratio="4/3"
                     strength={0.08}
                   />

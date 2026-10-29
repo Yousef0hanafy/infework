@@ -5,6 +5,10 @@ export type PublicProject = {
   slug: string;
   locale: string;
   title: string;
+  title_en?: string;
+  title_ar?: string;
+  display_title?: string;
+  display_title_lang?: "en" | "ar";
   challenge: string | null;
   outcome: string | null;
   created_at: string | null;

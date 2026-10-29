@@ -1,6 +1,7 @@
 import snapshot from "./published-catalogue.snapshot.json";
 import { getProjectMeta } from "./project-meta";
 import { SECTORS } from "./sectors";
+import { cleanProjectTitle, getProjectTitleFields, groupProjectTitles } from "./project-title";
 import type { PublicCapability, PublicProject, PublicProjectDetail } from "./public-types";
 
 /** Only transport/service outages use the public archive; permissions and valid empty results do not. */
@@ -33,6 +34,7 @@ export function isCatalogueTransportError(error: unknown): boolean {
 
 export function getPublishedCatalogueSnapshot(locale: string): PublicProject[] {
   const lang = locale === "ar" ? "ar" : "en";
+  const titles = groupProjectTitles(snapshot.profiles);
   const caps = snapshot.capability_slugs as Record<string, string[]>;
   const locations = snapshot.locations as Record<
     string,
@@ -45,10 +47,9 @@ export function getPublishedCatalogueSnapshot(locale: string): PublicProject[] {
       const recordedLocation = locations[row.slug];
       return {
         ...row,
-        title: row.title
-          .replace(/\s*\((?:Contract|عقد)[^)]+\)/gi, "")
-          .replace(/\s*—\s*مكمل\s*\d+/gi, "")
-          .trim(),
+        title: cleanProjectTitle(row.title),
+        ...titles.get(row.project_id),
+        ...getProjectTitleFields({ ...row, ...titles.get(row.project_id) }),
         capability_slugs: [...(caps[row.slug] ?? [])],
         location: recordedLocation
           ? {

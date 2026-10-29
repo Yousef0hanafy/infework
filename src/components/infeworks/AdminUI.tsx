@@ -8,7 +8,7 @@ export function AdminPageHeader({
   status,
 }: {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   action?: ReactNode;
   status?: ReactNode;

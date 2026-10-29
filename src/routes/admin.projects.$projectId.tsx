@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -157,6 +158,11 @@ function ProjectEditor() {
     },
   });
 
+  const projectTitle = getProjectTitle({
+    title: project?.slug ?? "Loading project…",
+    title_en: profiles?.find((profile) => profile.locale === "en")?.title ?? undefined,
+    title_ar: profiles?.find((profile) => profile.locale === "ar")?.title ?? undefined,
+  });
   const has = (locale: string) => {
     const r = profiles?.find((x) => x.locale === locale);
     return Boolean(r?.title && r.title.trim());
@@ -202,7 +208,7 @@ function ProjectEditor() {
   return (
     <div className="space-y-10 pb-28">
       <AdminPageHeader
-        title={project?.slug ?? "Loading project…"}
+        title={<bdi lang={projectTitle.lang}>{projectTitle.text}</bdi>}
         description={`Record ID: ${projectId}`}
         status={
           project ? (

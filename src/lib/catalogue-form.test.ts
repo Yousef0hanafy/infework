@@ -6,18 +6,22 @@ import { Route } from "../routes/$locale.work.index";
 
 const state = vi.hoisted(() => ({
   search: {} as Record<string, unknown>,
+  locale: "en",
   navigate: vi.fn(),
   projects: [] as Array<{
     project_id: string;
     slug: string;
     title: string;
+    title_en?: string;
+    title_ar?: string;
+    cover_url?: string;
     capability_slugs: string[];
   }>,
 }));
 vi.mock("@tanstack/react-router", () => ({
   createFileRoute: () => (options: unknown) => ({
     options,
-    useParams: () => ({ locale: "en" }),
+    useParams: () => ({ locale: state.locale }),
     useSearch: () => state.search,
     useNavigate: () => state.navigate,
     useLoaderData: () => ({
@@ -34,6 +38,7 @@ afterEach(() => {
   vi.useRealTimers();
   state.navigate.mockReset();
   state.search = {};
+  state.locale = "en";
   state.projects = [];
 });
 
@@ -156,3 +161,51 @@ it("restores expanded URL results, filters visible cards, and clears query witho
     container.remove();
   }
 });
+
+// Both translations remain searchable independently of the interface locale.
+it.each([
+  ["en", "Water Facility"],
+  ["en", "محطة المياه"],
+  ["ar", "Water Facility"],
+  ["ar", "محطة المياه"],
+])(
+  "finds either title and renders an isolated English title on %s UI for %s",
+  async (locale, query) => {
+    Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true });
+    state.locale = locale;
+    state.search = { q: query };
+    state.projects = [
+      {
+        project_id: "bilingual",
+        slug: "fixture-bilingual",
+        title: locale === "ar" ? "محطة المياه" : "Water Facility",
+        title_en: "Water Facility",
+        title_ar: "محطة المياه",
+        cover_url: "/fixture-cover.jpg",
+        capability_slugs: ["water-treatment"],
+      },
+      {
+        project_id: "unrelated",
+        slug: "fixture-unrelated",
+        title: "Unrelated project",
+        capability_slugs: [],
+      },
+    ];
+    const container = document.createElement("div");
+    const root = createRoot(container);
+    try {
+      await act(async () => root.render(createElement(Route.options.component as ComponentType)));
+      expect([...container.querySelectorAll("h2")].map((heading) => heading.textContent)).toEqual([
+        "Water Facility",
+      ]);
+      expect(container.querySelector("h2 bdi")?.getAttribute("lang")).toBe("en");
+      expect(container.querySelector("img")?.getAttribute("alt")).toBe("Water Facility");
+      expect(container.querySelector("label")?.textContent).toBe(
+        locale === "ar" ? "البحث في المشروعات" : "Search projects",
+      );
+      expect(container.querySelector<HTMLInputElement>("#project-search")?.value).toBe(query);
+    } finally {
+      await act(async () => root.unmount());
+    }
+  },
+);

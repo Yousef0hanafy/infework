@@ -1,3 +1,5 @@
+import { getProjectTitle } from "@/lib/project-title";
+import { matchesCatalogueQuery } from "@/lib/catalogue-navigation";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -73,14 +75,24 @@ function resolveProjectInfo(
   profiles: ProfileRow[],
   flagshipsEn: Map<string, { title: string }>,
 ) {
-  const enProfile = profiles.find((p) => p.project_id === project.id && p.locale === "en");
-  const fallbackEn = flagshipsEn.get(project.slug);
-  const hasEnTitle = Boolean(enProfile?.title || fallbackEn?.title);
-  const resolvedTitleEn = enProfile?.title || fallbackEn?.title || project.slug;
+  const titleEn = profiles
+    .find((p) => p.project_id === project.id && p.locale === "en")
+    ?.title?.trim();
+  const titleAr = profiles
+    .find((p) => p.project_id === project.id && p.locale === "ar")
+    ?.title?.trim();
+  const fallbackEn = flagshipsEn.get(project.slug)?.title?.trim();
+  const resolvedTitle = getProjectTitle({
+    title: project.slug,
+    title_en: titleEn || (!titleAr ? fallbackEn : undefined),
+    title_ar: titleAr,
+  });
 
   return {
-    resolvedTitleEn,
-    hasEnTitle,
+    resolvedTitle,
+    titleEn,
+    titleAr,
+    hasEnTitle: Boolean(titleEn || fallbackEn),
   };
 }
 
@@ -383,10 +395,10 @@ function AdminProjects() {
       if (featuredOnly && !p.featured) return false;
       if (statusFilter !== "all" && p.status !== statusFilter) return false;
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase().trim();
-        const matchesSlug = p.slug.toLowerCase().includes(q);
-        const matchesTitle = p.resolvedTitleEn.toLowerCase().includes(q);
-        if (!matchesSlug && !matchesTitle) return false;
+        if (
+          !matchesCatalogueQuery(searchQuery, [p.slug, p.titleEn, p.titleAr, p.resolvedTitle.text])
+        )
+          return false;
       }
       return true;
     });
@@ -606,7 +618,7 @@ function AdminProjects() {
                           params={{ projectId: project.id }}
                           className="font-medium hover:underline hover:text-[var(--iw-accent)]"
                         >
-                          {project.resolvedTitleEn}
+                          <bdi lang={project.resolvedTitle.lang}>{project.resolvedTitle.text}</bdi>
                         </Link>
                         {isPublished ? (
                           <Link

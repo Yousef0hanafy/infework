@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
@@ -163,6 +164,9 @@ function WorkIndex() {
       const meta = getProjectMeta(p.slug);
       return matchesCatalogueQuery(query, [
         p.title,
+        p.title_en,
+        p.title_ar,
+        getProjectTitle(p).text,
         p.slug,
         meta?.client?.en,
         meta?.client?.ar,
@@ -341,7 +345,7 @@ function WorkIndex() {
                       {coverSrc ? (
                         <img
                           src={coverSrc}
-                          alt={p.title}
+                          alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -369,7 +373,7 @@ function WorkIndex() {
                         ) : null}
 
                         <h2 className="display-md mt-2.5 text-xl font-bold leading-snug md:text-2xl text-[var(--iw-text-primary)] group-hover:text-[var(--iw-accent)] transition-colors">
-                          {p.title}
+                          <bdi lang={getProjectTitle(p).lang}>{getProjectTitle(p).text}</bdi>
                         </h2>
 
                         {/* Deliverable & Outcome Highlight */}

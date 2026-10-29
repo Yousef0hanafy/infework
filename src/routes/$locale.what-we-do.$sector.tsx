@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
@@ -313,7 +314,7 @@ function SectorPage() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
-                          alt={p.title}
+                          alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -334,7 +335,7 @@ function SectorPage() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
-                          alt={p.title}
+                          alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -343,7 +344,9 @@ function SectorPage() {
                     ) : null}
                     <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
                       <div>
-                        <h3 className="display-md text-xl md:text-2xl">{p.title}</h3>
+                        <h3 className="display-md text-xl md:text-2xl">
+                          <bdi lang={getProjectTitle(p).lang}>{getProjectTitle(p).text}</bdi>
+                        </h3>
                         {meta?.client ? (
                           <p
                             className="label-mono mt-2 text-xs"

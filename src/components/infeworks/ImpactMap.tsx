@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 // Infeworks — Egypt footprint section: authored SVG stage, filter pills, detail drawer.
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
@@ -11,6 +12,7 @@ import type { PublicProject } from "@/lib/public-types";
 type ImpactProject = {
   slug: string;
   title: string;
+  titleLang: "en" | "ar";
   challenge: string | null;
   capability_slugs: string[];
 };
@@ -42,7 +44,8 @@ function toLocations(projects: PublicProject[]): ImpactLocation[] {
     }
     map.get(id)!.projects.push({
       slug: p.slug,
-      title: p.title,
+      title: getProjectTitle(p).text,
+      titleLang: getProjectTitle(p).lang,
       challenge: p.challenge,
       capability_slugs: p.capability_slugs,
     });
@@ -230,7 +233,7 @@ export default function ImpactMap({
                 {hovered.projects.length === 1 ? (
                   <>
                     <p className="display-md mt-2 text-sm leading-snug">
-                      {hovered.projects[0]!.title}
+                      <bdi lang={hovered.projects[0]!.titleLang}>{hovered.projects[0]!.title}</bdi>
                     </p>
                     {hoveredMeta?.badge || hoveredMeta?.capacity || hoveredMeta?.client ? (
                       <dl className="mt-3 space-y-2 border-t border-white/10 pt-2.5">
@@ -342,7 +345,9 @@ export default function ImpactMap({
                   const meta = getProjectMeta(proj.slug);
                   return (
                     <div key={proj.slug} className="iw-reveal relative">
-                      <h3 className="display-md text-lg sm:text-xl leading-snug">{proj.title}</h3>
+                      <h3 className="display-md text-lg sm:text-xl leading-snug">
+                        <bdi lang={proj.titleLang}>{proj.title}</bdi>
+                      </h3>
                       {meta?.badge || meta?.capacity ? (
                         <p
                           className="label-mono mt-3 inline-block border px-2.5 py-1 text-xs"
@@ -470,7 +475,12 @@ export default function ImpactMap({
                           <ArrowRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--iw-dark-text-muted)] transition-all group-hover:text-[var(--iw-dark-accent)] group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                         </div>
                         <p className="text-xs text-[var(--iw-dark-text-muted)] line-clamp-1">
-                          {loc.projects.map((p) => p.title).join(" • ")}
+                          {loc.projects.map((p, index) => (
+                            <span key={p.slug}>
+                              {index > 0 ? " • " : null}
+                              <bdi lang={p.titleLang}>{p.title}</bdi>
+                            </span>
+                          ))}
                         </p>
                       </button>
                     </li>

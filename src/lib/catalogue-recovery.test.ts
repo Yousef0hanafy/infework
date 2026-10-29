@@ -7,16 +7,50 @@ import {
 
 const state = vi.hoisted(() => ({
   mode: "outage" as
-    "outage" | "empty" | "live" | "denied" | "partial" | "partial_denied" | "media_failure",
+    | "outage"
+    | "empty"
+    | "live"
+    | "denied"
+    | "partial"
+    | "partial_denied"
+    | "media_failure"
+    | "bilingual"
+    | "title_outage"
+    | "title_denied",
 }));
 vi.mock("@supabase/supabase-js", () => ({
   createClient: () => ({
     from(table: string) {
+      let selection = "";
+      let requestedLocale = "en";
       const result = (single = false) => {
         if (state.mode === "outage")
           return { data: null, error: { message: "TypeError: fetch failed", code: "" } };
         if (state.mode === "denied")
           return { data: null, error: { message: "permission denied", code: "42501" } };
+        if (table === "vw_public_projects" && selection === "project_id, locale, title") {
+          if (state.mode === "title_outage" || state.mode === "title_denied")
+            return {
+              data: null,
+              error:
+                state.mode === "title_outage"
+                  ? { message: "TypeError: fetch failed", code: "" }
+                  : { message: "permission denied", code: "42501" },
+            };
+          if (state.mode === "bilingual")
+            return {
+              data: [
+                {
+                  project_id: "live-id",
+                  locale: "en",
+                  title: "English published title (Contract 12)",
+                },
+                { project_id: "live-id", locale: "ar", title: "عنوان عربي" },
+                { project_id: "other-id", locale: "en", title: "Other locale only" },
+              ],
+              error: null,
+            };
+        }
         if (table === "locations" && (state.mode === "partial" || state.mode === "partial_denied"))
           return {
             data: null,
@@ -27,15 +61,23 @@ vi.mock("@supabase/supabase-js", () => ({
           };
         if (
           table === "vw_public_projects" &&
-          ["live", "partial", "partial_denied", "media_failure"].includes(state.mode)
+          [
+            "live",
+            "partial",
+            "partial_denied",
+            "media_failure",
+            "bilingual",
+            "title_outage",
+            "title_denied",
+          ].includes(state.mode)
         ) {
           const row = {
             project_id: "live-id",
             slug: "current-live-project",
-            locale: "en",
-            title: "Current live title",
-            challenge: null,
-            outcome: null,
+            locale: requestedLocale,
+            title: requestedLocale === "ar" ? "عنوان عربي" : "Current live title",
+            challenge: requestedLocale === "ar" ? "التحدي" : null,
+            outcome: requestedLocale === "ar" ? "النتيجة" : null,
             created_at: null,
           };
           return { data: single ? row : [row], error: null };
@@ -59,8 +101,14 @@ vi.mock("@supabase/supabase-js", () => ({
         return { data: single ? null : [], error: null };
       };
       const query = {
-        select: () => query,
-        eq: () => query,
+        select: (value: string) => {
+          selection = value;
+          return query;
+        },
+        eq: (key: string, value: string) => {
+          if (key === "locale") requestedLocale = value;
+          return query;
+        },
         in: () => query,
         order: () => query,
         maybeSingle: () => Promise.resolve(result(true)),
@@ -138,6 +186,62 @@ describe("published catalogue recovery", () => {
 });
 
 describe("authoritative live membership", () => {
+  it.each(["en", "ar"])(
+    "enriches %s rows with published English titles while preserving localized content",
+    async (locale) => {
+      state.mode = "bilingual";
+      const rows = await fetchPublicProjects(locale);
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toMatchObject({
+        project_id: "live-id",
+        locale,
+        display_title: "English published title",
+        display_title_lang: "en",
+        title_ar: "عنوان عربي",
+      });
+      const detail = await fetchPublicProjectBySlug("current-live-project", locale);
+      expect(detail?.project.display_title).toBe("English published title");
+      expect(detail?.project.locale).toBe(locale);
+      if (locale === "ar")
+        expect(detail?.project).toMatchObject({
+          title: "عنوان عربي",
+          challenge: "التحدي",
+          outcome: "النتيجة",
+        });
+    },
+  );
+
+  it("degrades title enrichment transport failure to current live titles", async () => {
+    state.mode = "title_outage";
+    const rows = await fetchPublicProjects("ar");
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({
+      slug: "current-live-project",
+      display_title: "عنوان عربي",
+      display_title_lang: "ar",
+    });
+    expect(rows[0]?.catalogue_snapshot_date).toBeUndefined();
+    expect(
+      (await fetchPublicProjectBySlug("current-live-project", "ar"))?.project.display_title,
+    ).toBe("عنوان عربي");
+  });
+
+  it("surfaces title enrichment denial without restoring archive membership", async () => {
+    state.mode = "title_denied";
+    await expect(fetchPublicProjects("en")).rejects.toThrow();
+    await expect(fetchPublicProjectBySlug("current-live-project", "en")).rejects.toThrow();
+  });
+
+  it("uses matching published snapshot IDs for English titles on either locale", async () => {
+    const en = await fetchPublicProjects("en");
+    const ar = await fetchPublicProjects("ar");
+    for (const row of ar) {
+      const matching = en.find((item) => item.project_id === row.project_id);
+      expect(row.display_title).toBe(matching?.title);
+      expect(row.display_title_lang).toBe("en");
+      expect(row.locale).toBe("ar");
+    }
+  });
   it.each(["partial", "partial_denied"] as const)(
     "surfaces %s metadata failure without restoring archived rows",
     async (mode) => {

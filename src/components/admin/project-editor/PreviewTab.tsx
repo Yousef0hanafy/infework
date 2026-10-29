@@ -1,3 +1,4 @@
+import { getProjectTitle } from "@/lib/project-title";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { AdminCard } from "@/components/infeworks/AdminUI";
@@ -27,6 +28,11 @@ export function PreviewTab({ project }: { project: Project }) {
 
   const en = profiles?.find((r) => r.locale === "en");
   const ar = profiles?.find((r) => r.locale === "ar");
+  const projectTitle = getProjectTitle({
+    title: project.slug,
+    title_en: en?.title,
+    title_ar: ar?.title,
+  });
   const resolvedCover = meta?.cover || null;
 
   return (
@@ -46,7 +52,7 @@ export function PreviewTab({ project }: { project: Project }) {
               {resolvedCover ? (
                 <img
                   src={resolvedCover}
-                  alt={en?.title || project.slug}
+                  alt={projectTitle.text}
                   className="h-full w-full object-cover"
                 />
               ) : (
@@ -93,7 +99,9 @@ export function PreviewTab({ project }: { project: Project }) {
           <p className="label-mono" style={{ color: "var(--iw-text-secondary)" }}>
             Desktop card — English
           </p>
-          <h2 className="display-md mt-4 text-3xl">{en?.title || "Untitled project"}</h2>
+          <h2 className="display-md mt-4 text-3xl">
+            <bdi lang={projectTitle.lang}>{projectTitle.text}</bdi>
+          </h2>
           <p className="mt-4 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
             {en?.challenge || "No challenge text yet."}
           </p>
@@ -105,7 +113,9 @@ export function PreviewTab({ project }: { project: Project }) {
             Mobile card — Arabic
           </p>
           <div dir="rtl" style={{ fontFamily: "var(--font-arabic)" }}>
-            <h2 className="display-md mt-4 text-2xl">{ar?.title || "بدون عنوان"}</h2>
+            <h2 className="display-md mt-4 text-2xl">
+              <bdi lang={projectTitle.lang}>{projectTitle.text}</bdi>
+            </h2>
             <p className="mt-4 text-sm" style={{ color: "var(--iw-text-secondary)" }}>
               {ar?.challenge || "لا يوجد نص للتحدي بعد."}
             </p>

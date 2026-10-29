@@ -2,6 +2,8 @@ import { createBoundedFetch } from "./upstream-fetch.server";
 // Infeworks — server-only public data access (publishable key, RLS as anon)
 import { createClient } from "@supabase/supabase-js";
 import { getProjectMeta } from "./project-meta";
+import { cleanProjectTitle, getProjectTitleFields, groupProjectTitles } from "./project-title";
+import type { ProjectTitles } from "./project-title";
 import {
   getPublishedCatalogueSnapshot,
   getPublishedCatalogueDetail,
@@ -46,13 +48,6 @@ function publicClient() {
 
 function normaliseLocale(locale: string): "en" | "ar" {
   return locale === "ar" ? "ar" : "en";
-}
-
-function cleanProjectTitle(title: string): string {
-  return title
-    .replace(/\s*\((?:Contract|عقد)[^)]+\)/gi, "")
-    .replace(/\s*—\s*مكمل\s*\d+/gi, "")
-    .trim();
 }
 
 function resolveCanonicalLocation(
@@ -128,9 +123,16 @@ function toProject(
   cover_url: string | null = null,
   featured: boolean = false,
   mediaUnavailable = false,
+  titles: ProjectTitles = {},
 ): PublicProject | null {
   if (!row.project_id || !row.slug || !row.title) return null;
   const locLang = row.locale ?? "en";
+  const bilingualTitles = {
+    ...(locLang === "ar"
+      ? { title_ar: cleanProjectTitle(row.title) }
+      : { title_en: cleanProjectTitle(row.title) }),
+    ...titles,
+  };
   let finalCapabilitySlugs = capability_slugs;
   if (row.slug === "toshka-pumping-stations") {
     finalCapabilitySlugs = ["wastewater", ...capability_slugs.filter((s) => s !== "pumping-wells")];
@@ -141,6 +143,8 @@ function toProject(
     slug: row.slug,
     locale: locLang,
     title: cleanProjectTitle(row.title),
+    ...bilingualTitles,
+    ...getProjectTitleFields({ title: row.title, locale: locLang, ...bilingualTitles }),
     challenge: row.challenge,
     outcome: row.outcome,
     created_at: row.created_at,
@@ -150,6 +154,25 @@ function toProject(
     featured,
     ...(mediaUnavailable ? { media_unavailable: true } : {}),
   };
+}
+
+async function fetchPublishedTitles(
+  client: ReturnType<typeof publicClient>,
+  projectIds: string[],
+): Promise<Map<string, ProjectTitles>> {
+  if (projectIds.length === 0) return new Map();
+  try {
+    const { data, error } = await client
+      .from("vw_public_projects")
+      .select("project_id, locale, title")
+      .in("project_id", projectIds);
+    if (error) throw error;
+    return groupProjectTitles(data ?? []);
+  } catch (error) {
+    // Membership already succeeded: optional title transport failures keep live localized content.
+    if (isCatalogueTransportError(error)) return new Map();
+    throw error;
+  }
 }
 
 async function fetchCapabilitySlugs(
@@ -302,11 +325,12 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
     membershipVerified = true;
     const rows = data ?? [];
     const ids = rows.map((r) => r.project_id).filter((id): id is string => !!id);
-    const [caps, locs, covers, featuredMap] = await Promise.all([
+    const [caps, locs, covers, featuredMap, titles] = await Promise.all([
       fetchCapabilitySlugs(client, ids),
       fetchLocations(client, ids),
       fetchCoverMedia(client, ids),
       fetchFeaturedMap(client, ids),
+      fetchPublishedTitles(client, ids),
     ]);
     return rows
       .map((row) =>
@@ -317,6 +341,7 @@ export async function fetchPublicProjects(locale: string): Promise<PublicProject
           covers.covers.get(row.project_id ?? "") ?? null,
           featuredMap.get(row.project_id ?? "") ?? false,
           covers.unavailable,
+          titles.get(row.project_id ?? ""),
         ),
       )
       .filter((p): p is PublicProject => p !== null);
@@ -351,7 +376,7 @@ export async function fetchPublicProjectBySlug(
     membershipVerified = true;
     const project = row ? toProject(row) : null;
     if (!project) return null;
-    const [caps, locationRes, claimsRes, mediaRes, projectRes] = await Promise.all([
+    const [caps, locationRes, claimsRes, mediaRes, projectRes, titles] = await Promise.all([
       fetchCapabilitySlugs(client, [project.project_id]),
       client
         .from("locations")
@@ -377,8 +402,11 @@ export async function fetchPublicProjectBySlug(
         )
         .eq("id", project.project_id)
         .maybeSingle(),
+      fetchPublishedTitles(client, [project.project_id]),
     ]);
 
+    Object.assign(project, titles.get(project.project_id));
+    Object.assign(project, getProjectTitleFields(project));
     project.capability_slugs = caps.get(project.project_id) ?? [];
     if (locationRes.error) throw locationRes.error;
     if (claimsRes.error) throw claimsRes.error;
