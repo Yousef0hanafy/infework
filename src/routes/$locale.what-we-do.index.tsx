@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/lib/responsive-image";
 import { useState, useEffect } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
@@ -652,6 +653,10 @@ function CapabilityIndex() {
                       >
                         <img
                           src={img}
+                          {...responsiveImage(
+                            img,
+                            "(min-width: 768px) 1600px, calc(111.112vw - 126px)",
+                          )}
                           alt={isAr ? sector.ar : sector.en}
                           className="h-full w-full object-cover"
                           loading="lazy"

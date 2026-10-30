@@ -1,3 +1,4 @@
+import { responsiveImage, catalogueImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { safeJsonLd } from "@/lib/safe-json-ld";
@@ -314,6 +315,7 @@ function SectorPage() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
+                          {...responsiveImage(meta.cover, catalogueImageSizes)}
                           alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"
@@ -335,6 +337,7 @@ function SectorPage() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--iw-surface-alt)]">
                         <img
                           src={meta.cover}
+                          {...responsiveImage(meta.cover, catalogueImageSizes)}
                           alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"

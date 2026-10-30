@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/lib/responsive-image";
 // Infeworks — subtle image parallax used on case-study photography.
 import { useEffect, useRef, useState } from "react";
 
@@ -8,6 +9,7 @@ export default function ParallaxImage({
   ratio = "16/9",
   strength = 0.12,
   priority = false,
+  sizes = "(min-width: 1400px) 1400px, 100vw",
 }: {
   src: string;
   alt: string;
@@ -15,6 +17,7 @@ export default function ParallaxImage({
   ratio?: string;
   strength?: number;
   priority?: boolean;
+  sizes?: string;
 }) {
   const [hasError, setHasError] = useState(false);
   const frame = useRef<HTMLDivElement | null>(null);
@@ -61,9 +64,11 @@ export default function ParallaxImage({
         <img
           ref={imgRef}
           src={src}
+          {...responsiveImage(src, sizes)}
           alt={alt}
           loading={priority ? undefined : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : undefined}
           onError={() => setHasError(true)}
           className="absolute inset-0 h-[124%] w-full object-cover will-change-transform"
           style={{ top: "-12%", transform: `translate3d(0, 0px, 0)` }}

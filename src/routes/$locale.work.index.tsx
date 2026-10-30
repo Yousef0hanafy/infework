@@ -1,3 +1,4 @@
+import { responsiveImage, catalogueImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -345,6 +346,7 @@ function WorkIndex() {
                       {coverSrc ? (
                         <img
                           src={coverSrc}
+                          {...responsiveImage(coverSrc, catalogueImageSizes)}
                           alt={getProjectTitle(p).text}
                           loading="lazy"
                           decoding="async"

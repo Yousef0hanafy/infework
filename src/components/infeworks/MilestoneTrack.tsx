@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/lib/responsive-image";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, ArrowUpRight, Maximize2 } from "lucide-react";
@@ -347,6 +348,10 @@ export default function MilestoneTrack({
                     alt={current.title}
                     width={600}
                     height={450}
+                    {...responsiveImage(
+                      current.image,
+                      "(min-width: 1400px) 692px, (min-width: 1024px) calc(55.556vw - 62.223px), (min-width: 768px) calc(133.334vw - 106.667px), calc(133.334vw - 64px)",
+                    )}
                     decoding="async"
                     className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     loading="lazy"

@@ -1,0 +1,290 @@
+{
+  "/hero/abu-minqar-agricultural-farm-utilities/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/abu-minqar-agricultural-farm-utilities/01-upvc-main.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/01-upvc-main-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/abu-minqar-agricultural-farm-utilities/02-reservoir-lining.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/02-reservoir-lining-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/abu-minqar-agricultural-farm-utilities/03-gate-valve.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/03-gate-valve-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/abu-minqar-agricultural-farm-utilities/04-irrigation-hoses.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/04-irrigation-hoses-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/abu-minqar-agricultural-farm-utilities/05-liner-geotextile.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/abu-minqar-agricultural-farm-utilities/05-liner-geotextile-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/01-pump-detail.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/01-pump-detail-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/02-reservoir.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/02-reservoir-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/03-cooling-canopy.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/03-cooling-canopy-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/04-electrical.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/04-electrical-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/ameriya-cold-storage/05-ventilation.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/ameriya-cold-storage/05-ventilation-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/01-air-blowers.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/01-air-blowers-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/02-hdpe-connection.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/02-hdpe-connection-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/03-mixing-chambers.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/03-mixing-chambers-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/04-controls.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/04-controls-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/beni-suef-water-wastewater/05-connection-chamber.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/beni-suef-water-wastewater/05-connection-chamber-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/01-wet-well.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/01-wet-well-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/02-discharge-valves.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/02-discharge-valves-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/03-gravity-sewer.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/03-gravity-sewer-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/04-control-panel.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/04-control-panel-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/food-city-treatment/05-canopy-foundation.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/food-city-treatment/05-canopy-foundation-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/01-membrane-detail.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/01-membrane-detail-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/02-outlet-pipework.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/02-outlet-pipework-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/03-saline-tank.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/03-saline-tank-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/04-controls.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/04-controls-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/marble-factory-desalination-plants/05-hall-exterior.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/marble-factory-desalination-plants/05-hall-exterior-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/01-drainage.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/01-drainage-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/02-covered-tank.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/02-covered-tank-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/03-valve-chamber.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/03-valve-chamber-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/04-irrigation.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/04-irrigation-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/qibili-qarun-goat-farm-utilities/05-fire-water.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/qibili-qarun-goat-farm-utilities/05-fire-water-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/01-upvc-network.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/01-upvc-network-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/02-basin-lining.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/02-basin-lining-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/03-isolation-valve.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/03-isolation-valve-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/04-vfd-cabinet.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/04-vfd-cabinet-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/rural-egypt-wells-minya/05-pump-detail.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/rural-egypt-wells-minya/05-pump-detail-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/00-cover.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/00-cover-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/01-feed-pumps.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/01-feed-pumps-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/02-water-storage.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/02-water-storage-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/03-disinfection.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/03-disinfection-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/04-wastewater-unit.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/04-wastewater-unit-800.webp",
+    "smallWidth": 800
+  },
+  "/hero/toshka-reclamation-pumping-package/05-electrical.webp": {
+    "width": 1600,
+    "height": 900,
+    "small": "/hero/toshka-reclamation-pumping-package/05-electrical-800.webp",
+    "smallWidth": 800
+  }
+}

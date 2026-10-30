@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 import { safeJsonLd } from "@/lib/safe-json-ld";
@@ -574,6 +575,10 @@ function LocaleHome() {
                           {p.cover_url || meta?.cover ? (
                             <img
                               src={p.cover_url ?? meta?.cover}
+                              {...responsiveImage(
+                                p.cover_url ?? meta?.cover,
+                                "(min-width: 1024px) 1600px, (min-width: 768px) calc(111.112vw - 88.89px), (max-width: 527px) 534px, calc(111.112vw - 53.334px)",
+                              )}
                               alt={getProjectTitle(p).text}
                               loading="lazy"
                               decoding="async"
@@ -710,6 +715,14 @@ function LocaleHome() {
                         {p.cover_url || meta?.cover ? (
                           <img
                             src={p.cover_url ?? meta?.cover}
+                            {...responsiveImage(
+                              p.cover_url ?? meta?.cover,
+                              isHeroCard
+                                ? "(min-width: 1400px) 788px, (min-width: 1024px) calc(64.815vw - 120px), (min-width: 768px) calc(111.112vw - 142.223px), calc(111.112vw - 97.778px)"
+                                : isCompanionCard
+                                  ? "(min-width: 1400px) 538px, (min-width: 1024px) calc(46.297vw - 111.112px), (min-width: 768px) calc(111.112vw - 142.223px), calc(111.112vw - 97.778px)"
+                                  : "(min-width: 1400px) 412px, (min-width: 1024px) calc(37.038vw - 106.667px), (min-width: 768px) calc(111.112vw - 142.223px), calc(111.112vw - 97.778px)",
+                            )}
                             alt={getProjectTitle(p).text}
                             loading="lazy"
                             decoding="async"

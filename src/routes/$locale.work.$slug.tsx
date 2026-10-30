@@ -1,3 +1,4 @@
+import { detailHeroImageSizes, detailGalleryImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Suspense, lazy } from "react";
@@ -323,6 +324,7 @@ function CaseStudyPage() {
             {hero ? (
               <ParallaxImage
                 src={hero}
+                sizes={detailHeroImageSizes}
                 alt={heroAlt}
                 className="mb-16"
                 ratio="16/9"
@@ -438,6 +440,7 @@ function CaseStudyPage() {
                   <ParallaxImage
                     key={url}
                     src={url}
+                    sizes={detailGalleryImageSizes}
                     alt={projectTitle.text}
                     ratio="4/3"
                     strength={0.08}
