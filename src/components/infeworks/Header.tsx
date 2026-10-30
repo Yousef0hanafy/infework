@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Languages, Menu, X } from "lucide-react";
 
@@ -22,6 +22,31 @@ export function Header() {
   const other: Locale = isAr ? "en" : "ar";
   const otherHref = catalogueLanguageHref(pathname, searchStr);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
+
+  useEffect(() => setOpen(false), [pathname, searchStr]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   const arabicFont = { fontFamily: "var(--font-arabic)" } as const;
 
@@ -38,12 +63,15 @@ export function Header() {
             to="/$locale"
             params={{ locale }}
             aria-label={isAr ? "إنفيوركس — الصفحة الرئيسية" : "Infeworks — home"}
-            className="transition-opacity hover:opacity-80"
+            className="inline-flex min-h-11 min-w-11 items-center transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--iw-accent)]"
           >
             <Logo variant="dark" isAr={isAr} />
           </Link>
 
-          <nav className="ms-auto hidden items-center gap-1 md:flex">
+          <nav
+            aria-label={isAr ? "التنقل الرئيسي" : "Primary navigation"}
+            className="ms-auto hidden items-center gap-1 md:flex"
+          >
             {NAV.map((item) => (
               <Link
                 key={item.to}
@@ -70,7 +98,7 @@ export function Header() {
             <a
               href={otherHref}
               aria-label={isAr ? "Switch to English" : "التبديل إلى العربية"}
-              className="inline-flex items-center gap-2 rounded-sm border px-3.5 py-1.5 text-xs font-medium transition-all duration-300 hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] hover:bg-[color-mix(in_oklab,var(--iw-accent)_8%,transparent)]"
+              className="inline-flex min-h-11 items-center gap-2 rounded-sm border px-3.5 py-1.5 text-xs font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)] transition-all duration-300 hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)] hover:bg-[color-mix(in_oklab,var(--iw-accent)_8%,transparent)]"
               style={{
                 borderColor: "var(--iw-border)",
                 color: "var(--iw-text-secondary)",
@@ -97,53 +125,63 @@ export function Header() {
 
             <button
               type="button"
-              aria-label={open ? "Close menu" : "Open menu"}
+              ref={toggleRef}
+              aria-label={
+                isAr ? (open ? "إغلاق القائمة" : "فتح القائمة") : open ? "Close menu" : "Open menu"
+              }
+              aria-expanded={open}
+              aria-controls={open ? menuId : undefined}
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden"
+              className="flex size-11 shrink-0 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)] md:hidden"
               style={{ color: "var(--iw-text-primary)" }}
             >
-              {open ? <X className="size-6" /> : <Menu className="size-6" />}
+              {open ? (
+                <X className="size-6" aria-hidden="true" />
+              ) : (
+                <Menu className="size-6" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
-      </header>
-
-      {open ? (
-        <div
-          className="iw-glass-light iw-reveal fixed left-0 right-0 top-[73px] z-40 flex max-h-[calc(100vh-73px)] flex-col gap-6 overflow-y-auto px-6 py-10 md:hidden border-b shadow-lg"
-          style={{ backgroundColor: "color-mix(in oklab, var(--iw-surface) 94%, transparent)" }}
-        >
-          {NAV.map((item) => (
+        {open ? (
+          <nav
+            id={menuId}
+            aria-label={isAr ? "التنقل على الهاتف" : "Mobile navigation"}
+            className="iw-glass-light iw-reveal absolute left-0 right-0 top-full z-40 flex max-h-[calc(100dvh-5rem)] flex-col gap-6 overflow-y-auto px-6 py-10 md:hidden border-b shadow-lg"
+            style={{ backgroundColor: "var(--iw-surface)" }}
+          >
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                params={{ locale }}
+                onClick={() => setOpen(false)}
+                className="display-md flex min-h-11 items-center text-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--iw-accent)]"
+                style={{
+                  color: "var(--iw-text-primary)",
+                  ...(isAr ? arabicFont : {}),
+                }}
+              >
+                {isAr ? item.ar : item.en}
+              </Link>
+            ))}
             <Link
-              key={item.to}
-              to={item.to}
+              to="/$locale/contact"
               params={{ locale }}
+              search={{ type: "technical" }}
               onClick={() => setOpen(false)}
-              className="display-md text-2xl"
+              className="mt-4 rounded-sm px-5 py-3.5 text-center text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[var(--iw-accent-hover)]"
               style={{
-                color: "var(--iw-text-primary)",
+                backgroundColor: "var(--iw-accent)",
+                color: "#ffffff",
                 ...(isAr ? arabicFont : {}),
               }}
             >
-              {isAr ? item.ar : item.en}
+              {isAr ? "استفسار فني" : "Technical Enquiry"}
             </Link>
-          ))}
-          <Link
-            to="/$locale/contact"
-            params={{ locale }}
-            search={{ type: "technical" }}
-            onClick={() => setOpen(false)}
-            className="mt-4 rounded-sm px-5 py-3.5 text-center text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[var(--iw-accent-hover)]"
-            style={{
-              backgroundColor: "var(--iw-accent)",
-              color: "#ffffff",
-              ...(isAr ? arabicFont : {}),
-            }}
-          >
-            {isAr ? "استفسار فني" : "Technical Enquiry"}
-          </Link>
-        </div>
-      ) : null}
+          </nav>
+        ) : null}
+      </header>
     </>
   );
 }

@@ -2,7 +2,7 @@
 // Inertial (Lenis) smooth scrolling, a precision scroll-progress rule at the
 // top of the viewport, and a survey-style "return to datum" control.
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollExperience({ isAr = false }: { isAr?: boolean }) {
@@ -10,6 +10,8 @@ export default function ScrollExperience({ isAr = false }: { isAr?: boolean }) {
   const ringRef = useRef<SVGCircleElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
+  const [topVisible, setTopVisible] = useState(false);
+  const topVisibleRef = useRef(false);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,6 +34,11 @@ export default function ScrollExperience({ isAr = false }: { isAr?: boolean }) {
       }
       if (textRef.current) {
         textRef.current.innerText = `${Math.round(progress * 100)}%`;
+      }
+      // Update React's native button state only when visibility crosses the threshold.
+      if (showTop !== topVisibleRef.current) {
+        topVisibleRef.current = showTop;
+        setTopVisible(showTop);
       }
       if (btnRef.current) {
         if (showTop) {
@@ -134,7 +141,17 @@ export default function ScrollExperience({ isAr = false }: { isAr?: boolean }) {
       <button
         ref={btnRef}
         type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        disabled={!topVisible}
+        tabIndex={topVisible ? 0 : -1}
+        aria-hidden={!topVisible}
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+          })
+        }
         aria-label={isAr ? "العودة إلى الأعلى" : "Back to top"}
         className={`group fixed z-40 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border transition-all duration-500 pointer-events-none translate-y-4 opacity-0 scale-90 ${isAr ? "right-4 sm:right-6" : "left-4 sm:left-6"}`}
         style={{
