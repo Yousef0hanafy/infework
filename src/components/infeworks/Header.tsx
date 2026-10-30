@@ -28,7 +28,7 @@ export function Header() {
   useEffect(() => setOpen(false), [pathname, searchStr]);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 768px)");
+    const desktop = window.matchMedia("(min-width: 1024px)");
     const closeOnDesktop = (event: MediaQueryListEvent) => {
       if (event.matches) setOpen(false);
     };
@@ -70,7 +70,7 @@ export function Header() {
 
           <nav
             aria-label={isAr ? "التنقل الرئيسي" : "Primary navigation"}
-            className="ms-auto hidden items-center gap-1 md:flex"
+            className="ms-auto hidden items-center gap-1 lg:flex"
           >
             {NAV.map((item) => (
               <Link
@@ -94,7 +94,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="ms-auto flex items-center gap-3 md:ms-0">
+          <div className="ms-auto flex items-center gap-3 lg:ms-0">
             <a
               href={otherHref}
               aria-label={isAr ? "Switch to English" : "التبديل إلى العربية"}
@@ -113,7 +113,7 @@ export function Header() {
               to="/$locale/contact"
               params={{ locale }}
               search={{ type: "technical" }}
-              className="hidden rounded-sm px-6 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--iw-accent-hover)] hover:shadow-[0_10px_28px_-8px_color-mix(in_oklab,var(--iw-accent)_75%,transparent)] md:inline-block"
+              className="hidden rounded-sm px-6 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--iw-accent-hover)] hover:shadow-[0_10px_28px_-8px_color-mix(in_oklab,var(--iw-accent)_75%,transparent)] lg:inline-block"
               style={{
                 backgroundColor: "var(--iw-accent)",
                 color: "#ffffff",
@@ -132,7 +132,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls={open ? menuId : undefined}
               onClick={() => setOpen((v) => !v)}
-              className="flex size-11 shrink-0 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)] md:hidden"
+              className="flex size-11 shrink-0 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--iw-accent)] lg:hidden"
               style={{ color: "var(--iw-text-primary)" }}
             >
               {open ? (
@@ -147,7 +147,7 @@ export function Header() {
           <nav
             id={menuId}
             aria-label={isAr ? "التنقل على الهاتف" : "Mobile navigation"}
-            className="iw-glass-light iw-reveal absolute left-0 right-0 top-full z-40 flex max-h-[calc(100dvh-5rem)] flex-col gap-6 overflow-y-auto px-6 py-10 md:hidden border-b shadow-lg"
+            className="iw-glass-light iw-reveal absolute left-0 right-0 top-full z-40 flex max-h-[calc(100dvh-5rem)] flex-col gap-6 overflow-y-auto px-6 py-10 lg:hidden border-b shadow-lg"
             style={{ backgroundColor: "var(--iw-surface)" }}
           >
             {NAV.map((item) => (

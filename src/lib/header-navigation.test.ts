@@ -89,7 +89,7 @@ it("closes an open menu when location changes through browser navigation", async
   expect(toggle().getAttribute("aria-expanded")).toBe("false");
 });
 it("closes on the desktop breakpoint and removes the resize subscription on unmount", async () => {
-  const media = window.matchMedia("(min-width: 768px)");
+  const media = window.matchMedia("(min-width: 1024px)");
   const add = vi.spyOn(media, "addEventListener");
   const remove = vi.spyOn(media, "removeEventListener");
   vi.spyOn(window, "matchMedia").mockReturnValue(media);
@@ -97,6 +97,7 @@ it("closes on the desktop breakpoint and removes the resize subscription on unmo
   await act(async () => toggle().click());
   await act(async () => media.dispatchEvent(Object.assign(new Event("change"), { matches: true })));
   expect(toggle().getAttribute("aria-expanded")).toBe("false");
+  expect(window.matchMedia).toHaveBeenCalledWith("(min-width: 1024px)");
   expect(add).toHaveBeenCalledWith("change", expect.any(Function));
   await cleanups.pop()!();
   expect(remove).toHaveBeenCalledWith("change", add.mock.calls[0]![1]);
