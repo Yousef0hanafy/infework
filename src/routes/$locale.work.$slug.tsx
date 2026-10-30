@@ -1,3 +1,4 @@
+import { caseStudySchema } from "@/lib/site-schema";
 import { detailHeroImageSizes, detailGalleryImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
@@ -160,13 +161,11 @@ function CaseStudyPage() {
   const meta = getProjectMeta(project.slug);
   const finalSchematicSteps = schematic_steps ?? PROJECT_SCHEMAS[project.slug];
 
-  const jsonLdProject = {
-    "@context": "https://schema.org",
-    "@type": "Project",
-    name: projectTitle.text,
+  const jsonLdProject = caseStudySchema({
+    title: projectTitle.text,
     description: project.challenge || project.outcome || projectTitle.text,
     url: `https://www.infeworks.com/${locale}/work/${slug}`,
-    inLanguage: isAr ? "ar-EG" : "en-EG",
+    locale,
     image: project.cover_url
       ? project.cover_url.startsWith("http")
         ? project.cover_url
@@ -176,37 +175,8 @@ function CaseStudyPage() {
           ? meta.cover
           : `https://www.infeworks.com${meta.cover}`
         : undefined,
-    locationCreated: location
-      ? {
-          "@type": "Place",
-          name: location.display_name,
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: location.lat,
-            longitude: location.lng,
-          },
-        }
-      : undefined,
-    customer:
-      serverFacts?.client || meta?.client
-        ? {
-            "@type": "Organization",
-            name: serverFacts?.client || (isAr ? meta?.client?.ar : meta?.client?.en),
-          }
-        : undefined,
-    contributor:
-      serverFacts?.consultant || meta?.consultant
-        ? {
-            "@type": "Organization",
-            name: serverFacts?.consultant || (isAr ? meta?.consultant?.ar : meta?.consultant?.en),
-          }
-        : undefined,
-    provider: {
-      "@type": "Corporation",
-      name: "Infeworks — International for Engineering Works",
-      url: "https://www.infeworks.com",
-    },
-  };
+    location,
+  });
 
   const schematicSlug = project.capability_slugs?.find((slug) =>
     SECTORS.some((s) => s.slug === slug),

@@ -1,3 +1,4 @@
+import { trackEnquiryResult } from "@/lib/public-analytics";
 import { createContactFormSchema } from "@/lib/contact-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -201,6 +202,12 @@ function ContactPage() {
     try {
       const res = await submitContact({ data: values });
       if (res && res.success) {
+        trackEnquiryResult({
+          success: res.success,
+          inquiryType: values.inquiry_type,
+          locale,
+          honeypot: Boolean(values.honeypot),
+        });
         setStatus("success");
         reset({
           inquiry_type: activeType,
@@ -497,7 +504,12 @@ function ContactPage() {
               </div>
 
               {/* Form Content */}
-              <form onSubmit={handleSubmit(onSubmit)} noValidate className="mt-8">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                noValidate
+                data-clarity-mask="true"
+                className="mt-8"
+              >
                 {/* 1. TECHNICAL / PROJECT SCOPE FIELDS */}
                 {activeType === "technical" && (
                   <div className="space-y-6">

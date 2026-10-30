@@ -35,11 +35,11 @@ const SECTIONS: { en: [string, string]; ar: [string, string] }[] = [
   {
     en: [
       "Information We Collect",
-      "When you submit the contact form, we collect your client type, the type of work required, the project site location, your email address, your project requirements message, and the timestamp. We do not request national identifiers, payment details, or sensitive banking credentials through this website.",
+      "When you submit the contact form, we collect your name, contact phone number, email address, organization details when provided, client type, the type of work required, project details, your message, and the timestamp. We do not request national identifiers, payment details, or sensitive banking credentials through this website.",
     ],
     ar: [
       "البيانات التي نجمعها",
-      "عند إرسال نموذج التواصل، نجمع نوع الجهة، ونوع العمل المطلوب، وموقع المشروع، وبريدك الإلكتروني، وتفاصيل المتطلبات الفنية، ووقت الإرسال. لا نطلب أرقام هوية أو بيانات سداد أو مستندات مصرفية سرية من خلال هذا الموقع.",
+      "عند إرسال نموذج التواصل، نجمع اسمك ورقم هاتف التواصل وبريدك الإلكتروني، وبيانات الجهة عند تقديمها، ونوع الجهة والعمل المطلوب، وتفاصيل المشروع والرسالة، ووقت الإرسال. لا نطلب أرقام هوية أو بيانات سداد أو مستندات مصرفية سرية من خلال هذا الموقع.",
     ],
   },
   {
@@ -50,6 +50,16 @@ const SECTIONS: { en: [string, string]; ar: [string, string] }[] = [
     ar: [
       "كيفية استخدام البيانات",
       "تُستخدم الرسائل والطلبات فقط لدراسة الاستفسارات الفنية والتواصل المباشر مع مهندسينا المختصين وإعداد العروض الفنية والمالية المناسبة. لا نقوم ببيع البيانات أو استخدامها في أغراض دعائية خارجية.",
+    ],
+  },
+  {
+    en: [
+      "Website Analytics",
+      "This website uses Google Analytics 4 and Microsoft Clarity to understand visits and browsing interactions. These tools may process technical identifiers, device and page information, and interaction data, and may use cookies or similar technologies. Our custom enquiry and contact events report only fixed categories such as enquiry type, language, and contact method; they do not include your form message, name, email address, or phone number. The contact form is marked for content masking in Clarity. A contact-link click or document-download click is measured separately from a successfully saved technical enquiry.",
+    ],
+    ar: [
+      "تحليلات استخدام الموقع",
+      "يستخدم الموقع Google Analytics 4 وMicrosoft Clarity لفهم الزيارات والتفاعل أثناء التصفح. قد تعالج هذه الأدوات معرّفات تقنية ومعلومات الجهاز والصفحة وبيانات التفاعل، وقد تستخدم ملفات تعريف ارتباط أو تقنيات مشابهة. تسجل أحداث الاستفسار والتواصل المضافة لدينا تصنيفات ثابتة فقط، مثل نوع الاستفسار واللغة وطريقة التواصل، دون رسالة النموذج أو الاسم أو البريد الإلكتروني أو رقم الهاتف. نموذج التواصل محدد لإخفاء محتواه في Clarity. ويُقاس الضغط على رابط التواصل أو تحميل مستند بشكل منفصل عن الاستفسار الفني الذي تم حفظه بنجاح.",
     ],
   },
   {
@@ -65,7 +75,7 @@ const SECTIONS: { en: [string, string]; ar: [string, string] }[] = [
   {
     en: [
       "Engineering Inquiries & Contact",
-      "For any inquiry or update request regarding your submitted information, write directly to info@infeworks.com citing your company name and submission reference.",
+      "For any inquiry or update request regarding your submitted information, write directly to info@infeworks.com citing your company name and the date or topic of your enquiry.",
     ],
     ar: [
       "التواصل والاستفسارات",

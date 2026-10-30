@@ -1,3 +1,4 @@
+import { organizationReference } from "@/lib/site-schema";
 import { responsiveImage, catalogueImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
@@ -110,11 +111,7 @@ function SectorPage() {
     "@type": "Service",
     name: isAr ? sector.ar : sector.en,
     description: isAr ? sector.defAr : sector.defEn,
-    provider: {
-      "@type": "Corporation",
-      name: "Infeworks",
-      url: "https://www.infeworks.com",
-    },
+    provider: organizationReference(),
     areaServed: {
       "@type": "Country",
       name: "Egypt",

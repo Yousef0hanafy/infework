@@ -1,3 +1,4 @@
+import { organizationSchema, isPublicLocalePath } from "@/lib/site-schema";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -192,32 +193,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const ORGANIZATION_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "Corporation",
-  name: "Infeworks — International for Engineering Works",
-  alternateName: "الشركة الدولية للأعمال الهندسية (إنفيوركس)",
-  url: "https://www.infeworks.com",
-  logo: "https://www.infeworks.com/logo.png",
-  foundingDate: "2006",
-  description:
-    "Turnkey EPC contractor for water, wastewater, civil infrastructure, and electromechanical engineering in Egypt.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "313 Zahraa Nasr City",
-    addressLocality: "Cairo",
-    addressCountry: "EG",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+20224103130",
-      contactType: "customer support",
-      availableLanguage: ["Arabic", "English"],
-    },
-  ],
-};
-
 function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isArabic = pathname === "/ar" || pathname.startsWith("/ar/");
@@ -252,12 +227,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <link rel="alternate" hrefLang="en" href={enUrl} />
         <link rel="alternate" hrefLang="ar" href={arUrl} />
         <link rel="alternate" hrefLang="x-default" href={enUrl} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: safeJsonLd(ORGANIZATION_SCHEMA),
-          }}
-        />
+        {isPublicLocalePath(pathname) ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationSchema) }}
+          />
+        ) : null}
       </head>
       <body>
         {children}

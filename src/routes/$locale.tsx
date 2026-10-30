@@ -1,4 +1,6 @@
-import { Outlet, createFileRoute, redirect, useParams } from "@tanstack/react-router";
+import { Outlet, createFileRoute, notFound, useParams } from "@tanstack/react-router";
+
+import { trackPublicLink } from "@/lib/public-analytics";
 
 import { Header } from "@/components/infeworks/Header";
 import { Footer } from "@/components/infeworks/Footer";
@@ -11,7 +13,7 @@ export type Locale = (typeof LOCALES)[number];
 export const Route = createFileRoute("/$locale")({
   beforeLoad: ({ params }) => {
     if (!LOCALES.includes(params.locale as Locale)) {
-      throw redirect({ to: "/$locale", params: { locale: "en" }, statusCode: 302 });
+      throw notFound();
     }
   },
   component: LocaleLayout,
@@ -22,7 +24,13 @@ function LocaleLayout() {
   const isAr = locale === "ar";
 
   return (
-    <div className="flex min-h-screen flex-col" style={{ backgroundColor: "var(--iw-bg)" }}>
+    <div
+      className="flex min-h-screen flex-col"
+      style={{ backgroundColor: "var(--iw-bg)" }}
+      onClick={(event) => {
+        if (!event.defaultPrevented) trackPublicLink(event.target, locale);
+      }}
+    >
       <ScrollExperience isAr={isAr} />
       <Header />
       <main className="flex-1">

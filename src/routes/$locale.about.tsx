@@ -1,3 +1,4 @@
+import { organizationReference } from "@/lib/site-schema";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -37,28 +38,7 @@ export const Route = createFileRoute("/$locale/about")({
       name: title,
       description: desc,
       url: url,
-      mainEntity: {
-        "@type": "Corporation",
-        name: isAr ? "الشركة الدولية للأعمال الهندسية" : "International for Engineering Works",
-        alternateName: "Infeworks",
-        foundingDate: "2006",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Zahraa Nasr City, Cairo",
-          addressCountry: "EG",
-        },
-        numberOfEmployees: {
-          "@type": "QuantitativeValue",
-          minValue: 50,
-        },
-        knowsAbout: [
-          "Water Treatment Engineering",
-          "Reverse Osmosis Desalination",
-          "Wastewater Infrastructure",
-          "High-Pressure Pumping Stations",
-          "Electromechanical Contracting",
-        ],
-      },
+      mainEntity: organizationReference(),
     };
 
     return {

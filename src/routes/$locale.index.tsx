@@ -1,3 +1,4 @@
+import { organizationReference } from "@/lib/site-schema";
 import { responsiveImage } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
@@ -232,6 +233,8 @@ function LocaleHome() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.infeworks.com/#website",
+    publisher: organizationReference(),
     name: "Infeworks",
     url: "https://www.infeworks.com",
     inLanguage: isAr ? "ar-EG" : "en-EG",
