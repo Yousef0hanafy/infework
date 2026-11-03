@@ -20,6 +20,7 @@ import {
 import Reveal from "@/components/infeworks/Reveal";
 import MilestoneTrack, { type Milestone } from "@/components/infeworks/MilestoneTrack";
 import HeroMetrics from "@/components/infeworks/HeroMetrics";
+import CompanyFilm from "@/components/infeworks/CompanyFilm";
 
 export const Route = createFileRoute("/$locale/about")({
   head: ({ params }) => {
@@ -587,6 +588,8 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CompanyFilm key={locale} locale={locale} />
 
       {/* 3. Mission & Vision */}
       <section

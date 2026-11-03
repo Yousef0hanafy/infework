@@ -1,7 +1,10 @@
+import { COMPANY_SOCIAL_PROFILES } from "./company-media";
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Corporation",
   "@id": "https://www.infeworks.com/#organization",
+  sameAs: Object.values(COMPANY_SOCIAL_PROFILES),
   name: "Infeworks — International for Engineering Works",
   alternateName: "الشركة الدولية للأعمال الهندسية (إنفيوركس)",
   url: "https://www.infeworks.com",

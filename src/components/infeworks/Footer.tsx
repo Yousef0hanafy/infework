@@ -1,7 +1,17 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Clock, FileDown, Linkedin, Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import {
+  Clock,
+  FileDown,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+  Youtube,
+} from "lucide-react";
 
 import Logo from "@/components/infeworks/Logo";
+import { COMPANY_SOCIAL_PROFILES } from "@/lib/company-media";
 
 type Locale = "en" | "ar";
 
@@ -106,7 +116,7 @@ export function Footer() {
 
             <div className="mt-5 flex items-center gap-2.5">
               <a
-                href="https://www.linkedin.com/company/international-for-engineering-works/"
+                href={COMPANY_SOCIAL_PROFILES.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Infeworks LinkedIn Page"
@@ -119,7 +129,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="https://www.facebook.com/Infeworks/"
+                href={COMPANY_SOCIAL_PROFILES.facebook}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Infeworks Facebook Page"
@@ -130,6 +140,19 @@ export function Footer() {
                 }}
               >
                 <FacebookIcon className="h-4 w-4" />
+              </a>
+              <a
+                href={COMPANY_SOCIAL_PROFILES.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("Infeworks YouTube Channel", "قناة إنفيوركس على YouTube")}
+                className="flex h-8 w-8 items-center justify-center rounded-sm border transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-[var(--iw-dark-accent)] hover:bg-[color-mix(in_oklab,var(--iw-dark-accent)_12%,transparent)]"
+                style={{
+                  borderColor: "var(--iw-dark-border)",
+                  color: "var(--iw-dark-text-muted)",
+                }}
+              >
+                <Youtube className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href="https://wa.me/201006249420"

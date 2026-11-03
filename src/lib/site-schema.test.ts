@@ -19,7 +19,11 @@ describe("public semantic graph", () => {
     expect(organizationSchema.url).toBe("https://www.infeworks.com");
     expect(organizationSchema.contactPoint[0]!.telephone).toBe("+20224103130");
     expect(organizationSchema).not.toHaveProperty("numberOfEmployees");
-    expect(organizationSchema).not.toHaveProperty("sameAs");
+    expect(organizationSchema).toHaveProperty("sameAs", [
+      "https://www.linkedin.com/company/international-for-engineering-works/",
+      "https://www.facebook.com/Infeworks/",
+      "https://www.youtube.com/@Infeworks/",
+    ]);
   });
   it.each(["en", "ar"])("describes the case study separately from the project (%s)", (locale) => {
     const url = `https://www.infeworks.com/${locale}/work/example`;
