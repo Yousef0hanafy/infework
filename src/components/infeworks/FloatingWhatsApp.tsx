@@ -1,3 +1,4 @@
+import { trackMetaContact } from "@/lib/meta-pixel";
 import { useRouterState } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 
@@ -25,7 +26,7 @@ export default function FloatingWhatsApp() {
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <a
-        href={href}
+        href={href} onClick={() => trackMetaContact("whatsapp")}
         target="_blank"
         rel="noreferrer"
         aria-label={LABEL[locale]}

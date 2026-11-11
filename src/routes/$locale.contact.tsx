@@ -1,3 +1,4 @@
+import { trackMetaContact, trackMetaLead } from "@/lib/meta-pixel";
 import { trackEnquiryResult } from "@/lib/public-analytics";
 import { createContactFormSchema } from "@/lib/contact-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -202,6 +203,7 @@ function ContactPage() {
     try {
       const res = await submitContact({ data: values });
       if (res && res.success) {
+        if (!values.honeypot) trackMetaLead();
         trackEnquiryResult({
           success: res.success,
           inquiryType: values.inquiry_type,
@@ -338,7 +340,7 @@ function ContactPage() {
                         {t("Official Inquiries", "البريد الإلكتروني")}
                       </span>
                       <a
-                        href="mailto:info@infeworks.com"
+                        href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
                         className="mt-0.5 block text-base font-medium text-[var(--iw-text-primary)] transition-colors hover:text-[var(--iw-accent)]"
                       >
                         info@infeworks.com
@@ -349,7 +351,7 @@ function ContactPage() {
                   {/* WhatsApp Instant Desk */}
                   <div className="pt-2">
                     <a
-                      href={WHATSAPP_URL}
+                      href={WHATSAPP_URL} onClick={() => trackMetaContact("whatsapp")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex w-full items-center justify-center gap-3 rounded-sm px-5 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
@@ -925,11 +927,11 @@ function ContactPage() {
                           )}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-4 font-semibold underline underline-offset-4">
-                          <a href="mailto:info@infeworks.com">
+                          <a href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}>
                             {t("Email our team", "راسل فريقنا بالبريد")}
                           </a>
                           <a href="tel:+201006249420">{t("Call our team", "اتصل بفريقنا")}</a>
-                          <a href="https://wa.me/201006249420" target="_blank" rel="noreferrer">
+                          <a href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")} target="_blank" rel="noreferrer">
                             {t("Open WhatsApp", "افتح واتساب")}
                           </a>
                         </div>

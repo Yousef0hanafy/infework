@@ -1,3 +1,4 @@
+import { trackMetaContact } from "@/lib/meta-pixel";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Clock,
@@ -155,7 +156,7 @@ export function Footer() {
                 <Youtube className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
-                href="https://wa.me/201006249420"
+                href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp Contact"
@@ -168,7 +169,7 @@ export function Footer() {
                 <MessageCircle className="h-4 w-4" />
               </a>
               <a
-                href="mailto:info@infeworks.com"
+                href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
                 aria-label="Email Enquiry"
                 className="flex h-8 w-8 items-center justify-center rounded-sm border transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-[var(--iw-dark-accent)] hover:bg-[color-mix(in_oklab,var(--iw-dark-accent)_12%,transparent)]"
                 style={{
@@ -249,7 +250,7 @@ export function Footer() {
               </p>
 
               <a
-                href="https://wa.me/201006249420"
+                href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5"
@@ -264,7 +265,7 @@ export function Footer() {
               </a>
 
               <a
-                href="mailto:info@infeworks.com"
+                href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
                 className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
                 style={{ color: "var(--iw-dark-text)" }}
               >
