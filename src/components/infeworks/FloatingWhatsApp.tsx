@@ -2,7 +2,7 @@ import { trackMetaContact } from "@/lib/meta-pixel";
 import { useRouterState } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 
-const NUMBER = "201006249420";
+import { COMPANY_WHATSAPP_URL } from "@/lib/company-facts";
 
 const MESSAGE = {
   en: "Hello Infeworks, I would like to discuss a water infrastructure project.",
@@ -18,7 +18,7 @@ export default function FloatingWhatsApp() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
   const locale = isAr ? "ar" : "en";
-  const href = `https://wa.me/${NUMBER}?text=${encodeURIComponent(MESSAGE[locale])}`;
+  const href = `${COMPANY_WHATSAPP_URL}?text=${encodeURIComponent(MESSAGE[locale])}`;
 
   return (
     <div
@@ -26,7 +26,8 @@ export default function FloatingWhatsApp() {
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <a
-        href={href} onClick={() => trackMetaContact("whatsapp")}
+        href={href}
+        onClick={() => trackMetaContact("whatsapp")}
         target="_blank"
         rel="noreferrer"
         aria-label={LABEL[locale]}

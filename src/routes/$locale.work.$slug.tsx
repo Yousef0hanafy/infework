@@ -1,5 +1,10 @@
 import { caseStudySchema } from "@/lib/site-schema";
-import { detailHeroImageSizes, detailGalleryImageSizes } from "@/lib/responsive-image";
+import {
+  catalogueImageSizes,
+  detailHeroImageSizes,
+  detailGalleryImageSizes,
+  responsiveImage,
+} from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Suspense, lazy } from "react";
@@ -10,7 +15,8 @@ import { SECTORS, type SectorSlug } from "@/lib/sectors";
 import { getProjectMeta } from "@/lib/project-meta";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
 
-import { getPublicProjectBySlug } from "@/lib/public.functions";
+import { getPublicProjectBySlug, getPublicProjects } from "@/lib/public.functions";
+import { selectRelatedProjects } from "@/lib/related-projects";
 
 const ProjectLocationMap = lazy(() => import("@/components/infeworks/ProjectLocationMap"));
 import ProjectSchematic from "@/components/infeworks/ProjectSchematic";
@@ -19,11 +25,13 @@ import { PROJECT_SCHEMAS } from "@/lib/project-schemas";
 
 export const Route = createFileRoute("/$locale/work/$slug")({
   loader: async ({ params }) => {
-    const detail = await getPublicProjectBySlug({
-      data: { slug: params.slug, locale: params.locale },
-    });
+    const [detail, catalogue] = await Promise.all([
+      getPublicProjectBySlug({ data: { slug: params.slug, locale: params.locale } }),
+      // Related projects are an extra; the case study still renders without them.
+      getPublicProjects({ data: { locale: params.locale } }).catch(() => []),
+    ]);
     if (!detail) throw notFound();
-    return detail;
+    return { ...detail, related: selectRelatedProjects(detail.project, catalogue) };
   },
 
   head: ({ loaderData, params }) => {
@@ -153,6 +161,7 @@ function CaseStudyPage() {
     facts: serverFacts,
     schema,
     schematic_steps,
+    related,
   } = Route.useLoaderData();
   const { locale, slug } = Route.useParams();
   const isAr = locale === "ar";
@@ -266,11 +275,7 @@ function CaseStudyPage() {
           <h1 className="display-xl mt-8 max-w-4xl text-[clamp(2rem,5.5vw,4.5rem)]">
             <bdi lang={projectTitle.lang}>{projectTitle.text}</bdi>
           </h1>
-          <CatalogueSnapshotNotice
-            mediaUnavailable={project.media_unavailable}
-            date={project.catalogue_snapshot_date}
-            locale={locale}
-          />
+          <CatalogueSnapshotNotice mediaUnavailable={project.media_unavailable} locale={locale} />
           <div
             className="mt-12 grid grid-cols-2 gap-8 border-t pt-8 md:grid-cols-4"
             style={{ borderColor: "var(--iw-dark-border)" }}
@@ -493,6 +498,74 @@ function CaseStudyPage() {
           </aside>
         </div>
       </section>
+
+      {/* Related projects from the same disciplines */}
+      {related.length > 0 ? (
+        <section className="iw-section-light border-t" style={{ borderColor: "var(--iw-border)" }}>
+          <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="label-mono text-xs font-semibold tracking-widest uppercase text-[var(--iw-accent)]">
+                  {t("Same disciplines", "من نفس التخصص")}
+                </p>
+                <h2 className="display-md mt-3 text-2xl font-bold md:text-3xl text-[var(--iw-text-primary)]">
+                  {t("Related projects", "مشروعات ذات صلة")}
+                </h2>
+              </div>
+              <Link
+                to="/$locale/work"
+                params={{ locale }}
+                className="inline-flex min-h-11 items-center gap-2 text-xs font-semibold tracking-wide uppercase text-[var(--iw-text-primary)] underline-offset-4 hover:text-[var(--iw-accent)] hover:underline"
+              >
+                {t("All projects", "كل المشروعات")}
+                <ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((p) => {
+                const relatedTitle = getProjectTitle(p);
+                const cover = p.cover_url ?? getProjectMeta(p.slug)?.cover ?? null;
+                const sector = p.capability_slugs
+                  .map((s) => SECTORS.find((x) => x.slug === s))
+                  .find(Boolean);
+                return (
+                  <Link
+                    key={p.slug}
+                    to="/$locale/work/$slug"
+                    params={{ locale, slug: p.slug }}
+                    className="group flex flex-col overflow-hidden rounded-md border bg-[var(--iw-surface)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--iw-accent)] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--iw-accent)]"
+                    style={{ borderColor: "var(--iw-border)" }}
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                      {cover ? (
+                        <img
+                          src={cover}
+                          {...responsiveImage(cover, catalogueImageSizes)}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : null}
+                    </div>
+                    <div className="flex flex-1 flex-col p-5 md:p-6">
+                      {sector ? (
+                        <span className="label-mono text-xs font-semibold tracking-wider uppercase text-[var(--iw-accent)]">
+                          {isAr ? sector.ar : sector.en}
+                        </span>
+                      ) : null}
+                      <h3 className="display-md mt-2 text-lg font-bold leading-snug text-[var(--iw-text-primary)] transition-colors group-hover:text-[var(--iw-accent)]">
+                        <bdi lang={relatedTitle.lang}>{relatedTitle.text}</bdi>
+                      </h3>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Institutional Corporate Commitment Slogan Banner */}
       <section

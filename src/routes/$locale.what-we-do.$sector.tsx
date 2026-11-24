@@ -163,7 +163,6 @@ function SectorPage() {
 
           <CatalogueSnapshotNotice
             mediaUnavailable={published.some((p) => p.media_unavailable)}
-            date={published.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
             locale={locale}
           />
           {sectorSchematicSteps && sectorSchematicSteps.length > 0 ? (

@@ -1,3 +1,5 @@
+// A quiet provenance line for the catalogue. Pass `date` only where the whole catalogue is
+// listed; individual pages show the media note alone.
 export default function CatalogueSnapshotNotice({
   date,
   locale,
@@ -15,11 +17,11 @@ export default function CatalogueSnapshotNotice({
       }).format(new Date(date + "T12:00:00Z"))
     : "";
   return (
-    <p className="mt-4 mb-6 text-sm leading-relaxed" role="status">
+    <p className="mt-4 mb-6 text-xs leading-relaxed opacity-70">
       {date
         ? locale === "ar"
-          ? `نعرض آخر قائمة مشاريع منشورة موثّقة بتاريخ ${formatted}. التحديثات الجديدة غير متاحة مؤقتًا.`
-          : `Showing the last verified published catalogue from ${formatted}. New updates are temporarily unavailable.`
+          ? `قائمة المشروعات المنشورة بتاريخ ${formatted}.`
+          : `Published catalogue as of ${formatted}.`
         : ""}
       {mediaUnavailable
         ? locale === "ar"

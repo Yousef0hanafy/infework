@@ -17,7 +17,7 @@ describe("public semantic graph", () => {
   it("resolves one company identity without adding unverified facts", () => {
     expect(organizationReference()).toEqual({ "@id": organizationSchema["@id"] });
     expect(organizationSchema.url).toBe("https://www.infeworks.com");
-    expect(organizationSchema.contactPoint[0]!.telephone).toBe("+20224103130");
+    expect(organizationSchema.contactPoint[0]!.telephone).toBe("+201044794499");
     expect(organizationSchema).not.toHaveProperty("numberOfEmployees");
     expect(organizationSchema).toHaveProperty("sameAs", [
       "https://www.linkedin.com/company/international-for-engineering-works/",

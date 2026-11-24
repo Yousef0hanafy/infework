@@ -1,5 +1,5 @@
 // Infeworks Progressive Web App Service Worker
-const CACHE_NAME = "infeworks-pwa-v3";
+const CACHE_NAME = "infeworks-pwa-v4";
 const RUNTIME_CACHE_NAME = `${CACHE_NAME}-assets`;
 const STATIC_ASSETS = [
   "/offline.html",
