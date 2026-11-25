@@ -81,8 +81,35 @@ it.each([
         });
       else expect(send).not.toHaveBeenCalled();
       expect(host.textContent).toContain(
-        success ? "Enquiry Successfully Received" : "Submission Error",
+        success ? "Enquiry Successfully Received" : "We couldn't save your enquiry online",
       );
+      if (!success) {
+        // The unsaved enquiry can be sent directly, without exposing it to link tracking.
+        const open = vi.fn();
+        vi.stubGlobal("open", open);
+        const whatsapp = [...host.querySelectorAll("button")].find((b) =>
+          b.textContent?.includes("Send via WhatsApp"),
+        )!;
+        await act(async () => whatsapp.click());
+        expect(open).toHaveBeenCalledOnce();
+        const url = new URL(open.mock.calls[0]![0] as string);
+        expect(url.origin + url.pathname).toBe("https://wa.me/201044794499");
+        const text = url.searchParams.get("text")!;
+        for (const part of [
+          "Test Engineer",
+          "private@example.test",
+          "01000000000",
+          "A confidential test project message",
+          "Main EPC / Joint Venture",
+        ])
+          expect(text).toContain(part);
+        expect(send).toHaveBeenCalledExactlyOnceWith("event", "contact_intent", {
+          method: "whatsapp",
+          locale: "en",
+        });
+        expect(host.querySelector('a[href*="text="], a[href*="body="]')).toBeNull();
+        expect(host.querySelector<HTMLInputElement>("#name")!.value).toBe("Test Engineer");
+      }
       expect(JSON.stringify(send.mock.calls)).not.toMatch(/private|confidential|01000000000/);
     } finally {
       await act(async () => root.unmount());

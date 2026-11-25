@@ -1,3 +1,4 @@
+import { COMPANY_PHONE } from "./company-facts";
 import { COMPANY_SOCIAL_PROFILES } from "./company-media";
 
 export const organizationSchema = {
@@ -21,7 +22,7 @@ export const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+20224103130",
+      telephone: COMPANY_PHONE.e164,
       contactType: "customer support",
       availableLanguage: ["Arabic", "English"],
     },

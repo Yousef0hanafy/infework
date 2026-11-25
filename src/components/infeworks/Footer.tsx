@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 
 import Logo from "@/components/infeworks/Logo";
+import {
+  COMPANY_PHONE,
+  COMPANY_WHATSAPP_URL,
+  companyProfile,
+  RESPONSE_TIME,
+  WORKING_HOURS_SHORT,
+} from "@/lib/company-facts";
 import { COMPANY_SOCIAL_PROFILES } from "@/lib/company-media";
 
 type Locale = "en" | "ar";
@@ -106,8 +113,7 @@ export function Footer() {
               )}
             </p>
             <a
-              href="/downloads/infeworks-company-profile.pdf"
-              download="infeworks-company-profile.pdf"
+              {...companyProfile(isAr)}
               className="iw-glass-dark mt-5 inline-flex items-center gap-2 rounded-sm px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_color-mix(in_oklab,var(--iw-dark-accent)_60%,transparent)]"
               style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
             >
@@ -156,7 +162,8 @@ export function Footer() {
                 <Youtube className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
-                href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")}
+                href={COMPANY_WHATSAPP_URL}
+                onClick={() => trackMetaContact("whatsapp")}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp Contact"
@@ -169,7 +176,8 @@ export function Footer() {
                 <MessageCircle className="h-4 w-4" />
               </a>
               <a
-                href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
+                href="mailto:info@infeworks.com"
+                onClick={() => trackMetaContact("email")}
                 aria-label="Email Enquiry"
                 className="flex h-8 w-8 items-center justify-center rounded-sm border transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-[var(--iw-dark-accent)] hover:bg-[color-mix(in_oklab,var(--iw-dark-accent)_12%,transparent)]"
                 style={{
@@ -250,7 +258,8 @@ export function Footer() {
               </p>
 
               <a
-                href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")}
+                href={COMPANY_WHATSAPP_URL}
+                onClick={() => trackMetaContact("whatsapp")}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-all duration-300 hover:-translate-y-0.5"
@@ -261,11 +270,12 @@ export function Footer() {
                 }}
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                +20 100 624 9420
+                <span dir="ltr">{COMPANY_PHONE.display}</span>
               </a>
 
               <a
-                href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
+                href="mailto:info@infeworks.com"
+                onClick={() => trackMetaContact("email")}
                 className="flex items-center gap-2.5 text-sm transition-opacity hover:opacity-70"
                 style={{ color: "var(--iw-dark-text)" }}
               >
@@ -287,8 +297,8 @@ export function Footer() {
                   aria-hidden="true"
                 />
                 {t(
-                  "Sun–Thu, 09:00–4:00 — Official Working Hours",
-                  "الأحد–الخميس، 04:00 م – 09:00 ص — ساعات العمل الرسمية",
+                  `${WORKING_HOURS_SHORT.en} — Official Working Hours`,
+                  `${WORKING_HOURS_SHORT.ar} — ساعات العمل الرسمية`,
                 )}
               </p>
 
@@ -302,8 +312,8 @@ export function Footer() {
                   aria-hidden="true"
                 />
                 {t(
-                  "Replies within 1 business day · Direct Technical Dispatch",
-                  "الرد خلال يوم عمل واحد · تواصل فني مباشر وموثق",
+                  `Replies ${RESPONSE_TIME.en} · Direct Technical Dispatch`,
+                  `الرد ${RESPONSE_TIME.ar} · تواصل فني مباشر وموثق`,
                 )}
               </p>
             </div>

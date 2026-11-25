@@ -37,6 +37,10 @@ export function trackEnquiryResult({
     page_type: "contact",
   });
 }
+/** For contact actions that are not plain links. Sends the fixed category only. */
+export function trackContactIntent(method: "whatsapp" | "email" | "phone", locale: string) {
+  if (isLocale(locale)) send("contact_intent", { method, locale });
+}
 export function trackPublicLink(target: EventTarget | null, locale: string) {
   if (typeof Element === "undefined" || !(target instanceof Element) || !isLocale(locale)) return;
   const link = target.closest("a[href]");

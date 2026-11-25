@@ -1,6 +1,13 @@
 import { trackMetaContact, trackMetaLead } from "@/lib/meta-pixel";
-import { trackEnquiryResult } from "@/lib/public-analytics";
+import { trackContactIntent, trackEnquiryResult } from "@/lib/public-analytics";
 import { createContactFormSchema } from "@/lib/contact-schema";
+import { buildEnquiryHandoff } from "@/lib/enquiry-handoff";
+import {
+  COMPANY_PHONE,
+  COMPANY_PHONE_HREF,
+  COMPANY_WHATSAPP_URL,
+  WORKING_HOURS,
+} from "@/lib/company-facts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
@@ -64,7 +71,7 @@ export const Route = createFileRoute("/$locale/contact")({
   component: ContactPage,
 });
 
-const WHATSAPP_URL = "https://wa.me/201006249420";
+const WHATSAPP_URL = COMPANY_WHATSAPP_URL;
 const GOOGLE_MAPS_URL = "https://maps.google.com/?q=313+Zahraa+Nasr+City,+Cairo,+Egypt";
 
 type InquiryType = "technical" | "general" | "supplier";
@@ -165,6 +172,7 @@ function ContactPage() {
 
   const [activeType, setActiveType] = useState<InquiryType>(initialType);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [handoff, setHandoff] = useState<ReturnType<typeof buildEnquiryHandoff> | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const {
@@ -227,11 +235,55 @@ function ContactPage() {
           honeypot: "",
         });
       } else {
-        setStatus("error");
+        showHandoff(values);
       }
     } catch {
-      setStatus("error");
+      showHandoff(values);
     }
+  };
+
+  // Saving failed: keep the visitor's work and offer to send the same enquiry directly.
+  const showHandoff = (values: ContactFormValues) => {
+    const label = (
+      options: ReadonlyArray<{ value: string; en: string; ar: string }>,
+      value: string,
+    ) => {
+      const option = options.find((o) => o.value === value);
+      return option ? (isAr ? option.ar : option.en) : "";
+    };
+    setHandoff(
+      buildEnquiryHandoff({
+        locale: isAr ? "ar" : "en",
+        inquiryType: values.inquiry_type,
+        name: values.name,
+        organization: values.organization,
+        email: values.email,
+        phone: values.phone,
+        audience: label(CLIENT_TYPES, values.audience_type),
+        scope: label(SCOPE_TYPES, values.need_type),
+        supplierCategory: label(SUPPLIER_CATEGORIES, values.supplier_category),
+        location: values.location_text,
+        capacity: values.capacity,
+        website: values.website,
+        message: values.message,
+      }),
+    );
+    setStatus("error");
+  };
+
+  // Opened from handlers, not link hrefs: these URLs contain the visitor's details and
+  // analytics outbound-click tracking would otherwise record them.
+  const sendViaWhatsApp = () => {
+    if (!handoff) return;
+    trackMetaContact("whatsapp");
+    trackContactIntent("whatsapp", locale);
+    window.open(handoff.whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+  const sendViaEmail = () => {
+    if (!handoff) return;
+    trackMetaContact("email");
+    trackContactIntent("email", locale);
+    window.location.href = handoff.mailtoUrl;
   };
 
   const renderError = (msg?: string, id?: string) =>
@@ -255,7 +307,7 @@ function ContactPage() {
           }}
         />
 
-        <div className="relative mx-auto w-full max-w-[1400px] px-6 pt-28 pb-16 md:px-10 md:pt-36 md:pb-24">
+        <div className="relative mx-auto w-full max-w-[1400px] px-6 pt-28 pb-10 md:px-10 md:pt-32 md:pb-14">
           <div className="flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--iw-dark-accent)]/30 bg-[var(--iw-dark-accent)]/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--iw-dark-accent)]">
               <Sparkles className="size-3.5" aria-hidden="true" />
@@ -284,10 +336,10 @@ function ContactPage() {
 
       {/* 2. Main Content Grid */}
       <section className="iw-section-light relative">
-        <div className="mx-auto w-full max-w-[1400px] px-6 py-14 md:px-10 md:py-20">
+        <div className="mx-auto w-full max-w-[1400px] px-6 py-10 md:px-10 md:py-14">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-14">
             {/* LEFT COLUMN: Executive Contact Information & Office Card */}
-            <div className="space-y-8">
+            <div className="order-2 space-y-8 lg:order-none">
               {/* Direct Quick Desk Card */}
               <div
                 className="rounded-sm border bg-[var(--iw-surface)] p-6 md:p-8 shadow-sm"
@@ -321,11 +373,11 @@ function ContactPage() {
                         {t("Direct Line", "الهاتف المباشر")}
                       </span>
                       <a
-                        href="tel:+201006249420"
+                        href={COMPANY_PHONE_HREF}
                         dir="ltr"
                         className="mt-0.5 inline-block text-base font-semibold text-[var(--iw-text-primary)] transition-colors hover:text-[var(--iw-accent)]"
                       >
-                        +20 100 624 9420
+                        {COMPANY_PHONE.display}
                       </a>
                     </div>
                   </div>
@@ -340,7 +392,8 @@ function ContactPage() {
                         {t("Official Inquiries", "البريد الإلكتروني")}
                       </span>
                       <a
-                        href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}
+                        href="mailto:info@infeworks.com"
+                        onClick={() => trackMetaContact("email")}
                         className="mt-0.5 block text-base font-medium text-[var(--iw-text-primary)] transition-colors hover:text-[var(--iw-accent)]"
                       >
                         info@infeworks.com
@@ -351,7 +404,8 @@ function ContactPage() {
                   {/* WhatsApp Instant Desk */}
                   <div className="pt-2">
                     <a
-                      href={WHATSAPP_URL} onClick={() => trackMetaContact("whatsapp")}
+                      href={WHATSAPP_URL}
+                      onClick={() => trackMetaContact("whatsapp")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex w-full items-center justify-center gap-3 rounded-sm px-5 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
@@ -399,12 +453,7 @@ function ContactPage() {
 
                   <div className="flex items-center gap-2 text-xs text-[var(--iw-text-secondary)]">
                     <Clock className="size-4 shrink-0 text-[var(--iw-accent)]" />
-                    <span>
-                      {t(
-                        "Sunday – Thursday: 09:00 AM – 05:00 PM (GMT+2)",
-                        "الأحد – الخميس: 09:00 صباحاً – 05:00 مساءً",
-                      )}
-                    </span>
+                    <span>{t(WORKING_HOURS.en, WORKING_HOURS.ar)}</span>
                   </div>
 
                   <div className="pt-2">
@@ -454,7 +503,7 @@ function ContactPage() {
 
             {/* RIGHT COLUMN: Interactive Segmented Form Hub */}
             <div
-              className="rounded-sm border bg-[var(--iw-surface)] p-6 md:p-10 shadow-sm"
+              className="order-1 rounded-sm border bg-[var(--iw-surface)] p-6 md:p-10 shadow-sm lg:order-none"
               style={{ borderColor: "var(--iw-border)" }}
             >
               {/* Type Switcher Tabs */}
@@ -908,33 +957,53 @@ function ContactPage() {
                     </div>
                   )}
 
-                  {status === "error" && (
+                  {status === "error" && handoff && (
                     <div
-                      className="flex items-start gap-3 rounded-sm border p-4"
+                      className="rounded-sm border p-5"
                       style={{
-                        borderColor: "var(--iw-error)",
-                        backgroundColor: "color-mix(in oklab, var(--iw-error) 8%, transparent)",
+                        borderColor: "var(--iw-accent)",
+                        backgroundColor: "color-mix(in oklab, var(--iw-accent) 6%, transparent)",
                       }}
                     >
-                      <div className="text-xs text-[var(--iw-error)]">
-                        <p className="font-bold">
-                          {t("Submission Error", "تعذر إرسال الطلب مؤقتاً")}
-                        </p>
-                        <p className="mt-1 text-[var(--iw-text-secondary)] leading-relaxed">
-                          {t(
-                            "An unexpected issue occurred. Please try again or reach our engineering desk directly via WhatsApp.",
-                            "حدث خطأ غير متوقع. يُرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر واتساب.",
-                          )}
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-4 font-semibold underline underline-offset-4">
-                          <a href="mailto:info@infeworks.com" onClick={() => trackMetaContact("email")}>
-                            {t("Email our team", "راسل فريقنا بالبريد")}
-                          </a>
-                          <a href="tel:+201006249420">{t("Call our team", "اتصل بفريقنا")}</a>
-                          <a href="https://wa.me/201006249420" onClick={() => trackMetaContact("whatsapp")} target="_blank" rel="noreferrer">
-                            {t("Open WhatsApp", "افتح واتساب")}
-                          </a>
-                        </div>
+                      <p className="text-sm font-bold text-[var(--iw-text-primary)]">
+                        {t(
+                          "We couldn't save your enquiry online",
+                          "تعذّر حفظ طلبك عبر الموقع الآن",
+                        )}
+                      </p>
+                      <p className="mt-1.5 text-xs leading-relaxed text-[var(--iw-text-secondary)]">
+                        {t(
+                          "Your details are still in the form. Send them straight to our engineering desk; the message is already written for you.",
+                          "بياناتك ما زالت في النموذج. أرسلها مباشرة إلى مكتبنا الهندسي؛ نص الرسالة مكتوب وجاهز.",
+                        )}
+                      </p>
+                      <div className="mt-4 flex flex-wrap items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={sendViaWhatsApp}
+                          className="inline-flex min-h-11 items-center gap-2.5 rounded-sm px-5 py-3 text-xs font-semibold tracking-wide uppercase text-white transition-colors hover:bg-[var(--iw-accent-hover)]"
+                          style={{ backgroundColor: "var(--iw-accent)" }}
+                        >
+                          <MessageCircle className="size-4" aria-hidden="true" />
+                          {t("Send via WhatsApp", "أرسل عبر واتساب")}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={sendViaEmail}
+                          className="inline-flex min-h-11 items-center gap-2.5 rounded-sm border px-5 py-3 text-xs font-semibold tracking-wide uppercase text-[var(--iw-text-primary)] transition-colors hover:border-[var(--iw-accent)] hover:text-[var(--iw-accent)]"
+                          style={{ borderColor: "var(--iw-border)" }}
+                        >
+                          <Mail className="size-4" aria-hidden="true" />
+                          {t("Send by email", "أرسل بالبريد الإلكتروني")}
+                        </button>
+                        <a
+                          href={COMPANY_PHONE_HREF}
+                          className="inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-[var(--iw-text-primary)] underline underline-offset-4 hover:text-[var(--iw-accent)]"
+                        >
+                          <Phone className="size-4" aria-hidden="true" />
+                          <span>{t("Call", "اتصل")}</span>
+                          <span dir="ltr">{COMPANY_PHONE.display}</span>
+                        </a>
                       </div>
                     </div>
                   )}

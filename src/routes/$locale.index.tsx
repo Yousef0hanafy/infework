@@ -27,7 +27,8 @@ import LifecycleFlow from "@/components/infeworks/LifecycleFlow";
 import ImpactMap from "@/components/infeworks/ImpactMap";
 import ClientsMarquee from "@/components/infeworks/ClientsMarquee";
 import SuppliersShowcase from "@/components/infeworks/SuppliersShowcase";
-import { SECTORS } from "@/lib/sectors";
+import { getSector, SECTORS } from "@/lib/sectors";
+import { companyProfile } from "@/lib/company-facts";
 import { getProjectMeta } from "@/lib/project-meta";
 
 import { getPublicProjects, getSiteSettings } from "@/lib/public.functions";
@@ -116,17 +117,6 @@ const SECTOR_BENCHMARKS: Record<string, { en: string; ar: string }> = {
     en: "Shubra Shahab Industrial Agro-Effluent Plant",
     ar: "محطة معالجة الصرف الصناعي بشبرا شهاب",
   },
-};
-
-const PROJECT_SECTORS: Record<string, { en: string; ar: string }> = {
-  "sadat-city-ro": { en: "Water & Desalination", ar: "المياه والتحلية" },
-  "multi-site-desalination-purification": { en: "Pumping & Deep Wells", ar: "محطات الرفع والآبار" },
-  "toshka-pumping-stations": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
-  "shubra-shahab-industrial-wastewater": { en: "Industrial & MEP", ar: "الصناعة والكهروميكانيك" },
-  "food-city-treatment": { en: "Wastewater Treatment", ar: "معالجة مياه الصرف" },
-  "arish-water-supply": { en: "Infrastructure Networks", ar: "شبكات المرافق والبنية التحتية" },
-  "ameriya-cold-storage": { en: "Industrial & MEP", ar: "الصناعة والكهروميكانيك" },
-  "qabs-min-nour-mosque": { en: "Civil & Buildings", ar: "الإنشاءات المدنية والمعمارية" },
 };
 
 const METRICS = [
@@ -342,8 +332,7 @@ function LocaleHome() {
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
-              href="/downloads/infeworks-company-profile.pdf"
-              download="infeworks-company-profile.pdf"
+              {...companyProfile(isAr)}
               className="label-mono inline-flex w-full justify-center sm:w-auto items-center gap-3 px-3 py-4 underline-offset-8 transition-colors hover:underline"
               style={{ color: "var(--iw-dark-accent)" }}
             >
@@ -544,7 +533,8 @@ function LocaleHome() {
           <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-12">
             {featured.map((p, idx) => {
               const meta = getProjectMeta(p.slug);
-              const sectorInfo = PROJECT_SECTORS[p.slug];
+              // Same sector the catalogue files this project under, not a per-page label.
+              const sectorInfo = p.capability_slugs?.map(getSector).find(Boolean);
               const isHeroCard = idx === 0;
               const isCompanionCard = idx === 1;
               const isGrandShowcase = idx === 5;
@@ -856,7 +846,6 @@ function LocaleHome() {
           </Reveal>
           <CatalogueSnapshotNotice
             mediaUnavailable={projects.some((p) => p.media_unavailable)}
-            date={projects.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
             locale={locale}
           />
           <ImpactMap projects={projects} locale={locale} isAr={isAr} />

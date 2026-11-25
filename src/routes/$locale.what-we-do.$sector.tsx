@@ -2,6 +2,7 @@ import { organizationReference } from "@/lib/site-schema";
 import { responsiveImage, catalogueImageSizes } from "@/lib/responsive-image";
 import { getProjectTitle } from "@/lib/project-title";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
+import { companyProfile } from "@/lib/company-facts";
 import { safeJsonLd } from "@/lib/safe-json-ld";
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import {
@@ -163,7 +164,6 @@ function SectorPage() {
 
           <CatalogueSnapshotNotice
             mediaUnavailable={published.some((p) => p.media_unavailable)}
-            date={published.find((p) => p.catalogue_snapshot_date)?.catalogue_snapshot_date}
             locale={locale}
           />
           {sectorSchematicSteps && sectorSchematicSteps.length > 0 ? (
@@ -427,8 +427,7 @@ function SectorPage() {
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
-              href="/downloads/infeworks-company-profile.pdf"
-              download="infeworks-company-profile.pdf"
+              {...companyProfile(isAr)}
               className="iw-glass-dark inline-flex items-center gap-3 rounded-sm px-8 py-4 text-sm font-semibold tracking-wide uppercase transition-all duration-300 hover:border-[var(--iw-dark-accent)] hover:text-white hover:-translate-y-0.5 text-[var(--iw-dark-text)]"
             >
               {t("Download Company Profile", "تحميل ملف الشركة")}

@@ -235,7 +235,7 @@ export const PROJECT_META: Record<string, ProjectMeta> = {
       ar: "محطات تحلية مياه بالتناضح العكسي متعددة المواقع",
     },
     client: {
-      en: "National Service Projects Organizations",
+      en: "National Service Projects Organization",
       ar: "جهاز مشروعات الخدمة الوطنية",
     },
     consultant: { en: "MAST Group", ar: "مجموعة ماست" },
