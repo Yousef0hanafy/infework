@@ -14,6 +14,7 @@ import { ArrowRight, Download, RotateCcw } from "lucide-react";
 import { SECTORS, type SectorSlug } from "@/lib/sectors";
 import { getProjectMeta } from "@/lib/project-meta";
 import CatalogueSnapshotNotice from "@/components/infeworks/CatalogueSnapshotNotice";
+import { companyProfile } from "@/lib/company-facts";
 
 import { getPublicProjectBySlug, getPublicProjects } from "@/lib/public.functions";
 import { selectRelatedProjects } from "@/lib/related-projects";
@@ -465,8 +466,7 @@ function CaseStudyPage() {
                 ))}
               </dl>
               <a
-                href="/downloads/infeworks-company-profile.pdf"
-                download="infeworks-company-profile.pdf"
+                {...companyProfile(isAr)}
                 className="label-mono mt-8 inline-flex w-full items-center justify-center gap-3 rounded-sm border border-[var(--iw-accent)] bg-transparent px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--iw-accent)] transition-all duration-200 hover:bg-[var(--iw-accent)] hover:text-white"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />

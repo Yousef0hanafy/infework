@@ -12,6 +12,12 @@ export const COMPANY_PHONE = {
 export const COMPANY_PHONE_HREF = `tel:${COMPANY_PHONE.e164}`;
 export const COMPANY_WHATSAPP_URL = `https://wa.me/${COMPANY_PHONE.e164.slice(1)}`;
 
+/** The company profile in the page's language. */
+export function companyProfile(isAr: boolean) {
+  const file = `infeworks-company-profile_${isAr ? "AR" : "EN"}.pdf`;
+  return { href: `/downloads/${file}`, download: file };
+}
+
 export const WORKING_HOURS: Bi = {
   en: "Sunday – Thursday, 09:00 AM – 04:00 PM (Cairo time)",
   ar: "الأحد – الخميس، 09:00 صباحاً – 04:00 مساءً (بتوقيت القاهرة)",

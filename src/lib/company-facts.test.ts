@@ -1,10 +1,11 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 import {
   COMPANY_PHONE,
   COMPANY_PHONE_HREF,
   COMPANY_WHATSAPP_URL,
+  companyProfile,
   RESPONSE_TIME,
   WORKING_HOURS,
   WORKING_HOURS_SHORT,
@@ -50,6 +51,16 @@ it("keeps contact facts in one place instead of per-page copies", () => {
       ),
     );
   expect(offenders).toEqual([]);
+});
+
+it("offers a company profile file that exists for each language", () => {
+  expect(companyProfile(false).href).toBe("/downloads/infeworks-company-profile_EN.pdf");
+  expect(companyProfile(true).href).toBe("/downloads/infeworks-company-profile_AR.pdf");
+  for (const isAr of [false, true]) {
+    const { href, download } = companyProfile(isAr);
+    expect(href.endsWith("/" + download)).toBe(true);
+    expect(existsSync("public" + href)).toBe(true);
+  }
 });
 
 it("keeps the static offline page on the same number", () => {

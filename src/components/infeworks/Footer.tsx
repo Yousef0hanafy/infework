@@ -15,6 +15,7 @@ import Logo from "@/components/infeworks/Logo";
 import {
   COMPANY_PHONE,
   COMPANY_WHATSAPP_URL,
+  companyProfile,
   RESPONSE_TIME,
   WORKING_HOURS_SHORT,
 } from "@/lib/company-facts";
@@ -112,8 +113,7 @@ export function Footer() {
               )}
             </p>
             <a
-              href="/downloads/infeworks-company-profile.pdf"
-              download="infeworks-company-profile.pdf"
+              {...companyProfile(isAr)}
               className="iw-glass-dark mt-5 inline-flex items-center gap-2 rounded-sm px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_color-mix(in_oklab,var(--iw-dark-accent)_60%,transparent)]"
               style={{ color: "var(--iw-dark-text)", ...(isAr ? arabicFont : {}) }}
             >

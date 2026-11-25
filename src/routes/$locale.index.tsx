@@ -28,6 +28,7 @@ import ImpactMap from "@/components/infeworks/ImpactMap";
 import ClientsMarquee from "@/components/infeworks/ClientsMarquee";
 import SuppliersShowcase from "@/components/infeworks/SuppliersShowcase";
 import { getSector, SECTORS } from "@/lib/sectors";
+import { companyProfile } from "@/lib/company-facts";
 import { getProjectMeta } from "@/lib/project-meta";
 
 import { getPublicProjects, getSiteSettings } from "@/lib/public.functions";
@@ -331,8 +332,7 @@ function LocaleHome() {
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
-              href="/downloads/infeworks-company-profile.pdf"
-              download="infeworks-company-profile.pdf"
+              {...companyProfile(isAr)}
               className="label-mono inline-flex w-full justify-center sm:w-auto items-center gap-3 px-3 py-4 underline-offset-8 transition-colors hover:underline"
               style={{ color: "var(--iw-dark-accent)" }}
             >
